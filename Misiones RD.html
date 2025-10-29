@@ -1,0 +1,414 @@
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Misiones Estratégicas para República Dominicana</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Fuente Inter y Merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        // Configuración de Tailwind para usar los colores de la bandera
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-rd': '#002D62', // Azul Ultramar
+                        'rojo-rd': '#CE1126', // Rojo Bermejo
+                        'whatsapp': '#25D366',
+                        'whatsapp-hover': '#128C7E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilos para los títulos Serif */
+        h1, h2, h3, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        /* Estilos para el acordeón (contenido colapsable) */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            max-height: 1500px; /* Suficientemente grande para el contenido */
+            visibility: visible;
+            opacity: 1;
+            transition: max-height 0.7s ease-in, opacity 0.5s ease-in 0.2s;
+        }
+        /* Rotación del ícono del acordeón */
+        .accordion-toggle.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <!-- Header / Navegación -->
+    <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Título -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold font-serif">Misiones Estratégicas RD</span>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="#protocolo" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">El Protocolo</a>
+                        <a href="#misiones" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">10 Misiones</a>
+                        <a href="#descargar" class="bg-white text-azul-rd px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">Descargar PDF</a>
+                    </div>
+                </div>
+                
+                <!-- Botón Menú Móvil (Hamburger) -->
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <!-- Icono Hamburguesa -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icono X (Cerrar) -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Menú Móvil -->
+        <div id="mobile-menu" class="sm:hidden hidden"">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#protocolo" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">El Protocolo</a>
+                <a href="#misiones" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">10 Misiones</a>
+                <a href="#descargar" class="bg-white text-azul-rd block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 transition-colors">Descargar PDF</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-azul-rd leading-tight">
+                    🚀 Misiones Estratégicas para República Dominicana
+                </h1>
+                <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Un protocolo de 10 misiones fundacionales para la reforma estructural y la transición acelerada al siglo XXI.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#misiones" class="bg-azul-rd text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:opacity-90 transition duration-300">
+                        👇 Ver las 10 Misiones
+                    </a>
+                    <a href="#descargar" class="bg-gray-200 text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-300 transition duration-300">
+                        Descargar Protocolo (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Introducción / Protocolo -->
+    <section id="protocolo" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📋 El Protocolo: Proyectos, No Planes</h2>
+                <p class="mt-4 text-lg text-gray-700">
+                    Se postula un decálogo de misiones estratégicas, concebidas como <strong class="font-semibold text-rojo-rd">proyectos fundacionales e indivisibles</strong>, no como una agenda secuencial de intenciones.
+                </p>
+            </div>
+            <div class="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-200">
+                <h3 class="text-2xl font-bold text-center text-azul-rd">⚙️ Proyectos "Cero a Uno"</h3>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    Los paradigmas de planificación convencionales son obsoletos; un "plan" es a menudo un mecanismo para diferir la acción. En su lugar, estas 10 misiones de infraestructura dura y reforma sistémica sientan las bases físicas, digitales y legales para una transición acelerada.
+                </p>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    Su ejecución es un imperativo no secuencial, sino integral, paralelo y radical, enfocado en reconstruir la infraestructura fundamental del Estado.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de las 10 Misiones Interactivas -->
+    <section id="misiones" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
+                🎯 Las 10 Misiones Estratégicas
+            </h2>
+            
+            <!-- Contenedor de misiones (Acordeón) -->
+            <div class="space-y-4">
+
+                <!-- Misión 1 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content">
+                        <h3 class="text-xl font-bold text-azul-rd">💧 1. Saneamiento y Agua Limpia Total</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-1-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El problema es una vulnerabilidad estructural crítica: la población carece de acceso confiable a agua potable y menos del 15% de las aguas residuales reciben tratamiento adecuado. Esto contamina sistemáticamente ríos, acuíferos y costas.</p>
+                        <p class="mt-4 text-gray-700">Esta deficiencia no solo precipita crisis de salud pública (cólera, dengue), sino que constituye un freno económico directo que degrada el potencial turístico y agrícola, resultando en una pérdida neta de capital humano.</p>
+                        <p class="mt-4 text-gray-700">La justificación es económica: el BID ha documentado que la carencia de saneamiento impone costos anuales de cientos de millones de dólares a la nación, derivados de gastos en salud y pérdida de productividad.</p>
+                        
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Movilización nacional de ingeniería. Disolver burocracias fallidas (INAPA, CAASD) y crear una Agencia de Infraestructura Hídrica con autoridad presidencial. Ejecutar un plan quinquenal (con ingeniería militar y licitaciones internacionales) para alcanzar 100% de cobertura de agua potable y 90% de tratamiento de aguas residuales.</p>
+                    </div>
+                </div>
+
+                <!-- Misión 2 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content">
+                        <h3 class="text-xl font-bold text-azul-rd">⚡ 2. Soberanía Energética y Costo Cero</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-2-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El sector energético es un lastre estructural. El Estado asigna anualmente más de US$ 1.5 mil millones para subsidiar el monopolio de distribución (EDEs), percibido como corrupto e ineficiente.</p>
+                        <p class="mt-4 text-gray-700">Este "subsidio" no es más que un impuesto regresivo que transfiere recursos del contribuyente para financiar pérdidas técnicas, robo de energía (pérdidas no técnicas) y una nómina administrativa excesiva.</p>
+                        <p class="mt-4 text-gray-700">La soberanía energética es un componente de la soberanía nacional. El costo marginal de la energía debe reducirse en un 50% para restaurar la competitividad industrial, ya que es un insumo habilitante para todas las demás misiones.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Liquidación de las EDEs y transición a una operación privada estrictamente regulada. Impulso estratégico a la generación limpia: 1) Solar y eólica; 2) Exploración inmediata de energía geotérmica; y 3) Aprobación de emergencia de Reactores Modulares Pequeños (SMR) para energía base 24/7.</p>
+                    </div>
+                </div>
+                
+                <!-- Misión 3 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content">
+                        <h3 class="text-xl font-bold text-azul-rd">📡 3. Conectividad Digital Universal</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-3-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">La carencia de internet de alta velocidad es análoga al analfabetismo en el siglo XIX. La "brecha digital" persiste como un abismo socioeconómico, estratificando a la ciudadanía en dos niveles: conectados (urbanos) y aislados (rurales).</p>
+                        <p class="mt-4 text-gray-700">Se percibe que los oligopolios de telecomunicaciones existentes han fracasado en proveer cobertura universal, optando por maximizar rentas en mercados urbanos cautivos, dejando desconectados los centros de producción agrícola.</p>
+                        <p class="mt-4 text-gray-700">Esta infraestructura es una herramienta de liberación económica. Habilita el trabajo remoto (rompiendo el monopolio laboral de la capital), la telemedicina, la educación digital (Misión 7) y la agricultura de precisión (Misión 8).</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Establecer la conectividad total como un derecho. 1) Despliegue de redes satelitales (LEO), como Starlink, con subsidios directos al usuario rural, "bypassando" la infraestructura terrestre. 2) Licitaciones desreguladas para fibra óptica (Meta: 1 Gbps urbano, 100 Mbps rural).</p>
+                    </div>
+                </div>
+                
+                <!-- Misión 4 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🚢 4. El "Hub" Logístico de las Américas</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-4-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">La posición geográfica de la nación es un activo estratégico de primer orden, actualmente subutilizado. El país está en el nexo del comercio hemisférico, pero opera con la mentalidad de una isla aislada.</p>
+                        <p class="mt-4 text-gray-700">La burocracia aduanera (DGA), la corrupción portuaria y la falta de infraestructura intermodal imponen costos de transacción elevados. Esto hace que mover contenedores sea más lento y costoso que en hubs competidores (Singapur, Dubái). Cada día de retraso es un impuesto invisible.</p>
+                        <p class="mt-4 text-gray-700">El Índice de Desempeño Logístico (LPI) del Banco Mundial sitúa a la R.D. muy por debajo de su potencial. Convertirse en un hub crea miles de empleos de alto valor y diversifica la economía.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Transformar el país en el "Singapur del Caribe". 1) Digitalización total e inmutable de la DGA (blockchain, cero papel, cero discreción). 2) Expansión masiva de Haina y Caucedo para transbordo. 3) Desarrollo de Manzanillo como una Zona Económica Especial (ZEE) con régimen legal propio.</p>
+                    </div>
+                </div>
+                
+                <!-- Misión 5 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🚆 5. Red Ferroviaria Nacional</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-5-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">La productividad nacional se ve mermada por la congestión del tráfico y un sistema de transporte público ineficiente, caótico y oligopolizado (el "concho"). Cientos de millones de horas-hombre se pierden anualmente.</p>
+                        <p class="mt-4 text-gray-700">El transporte de carga es lento y costoso (dependiente del diésel). El sistema de "conchos" opera como un cartel anárquico que influye en la política y compromete la seguridad ciudadana.</p>
+                        <p class="mt-4 text-gray-700">Las propuestas para esta red han existido por décadas, estancadas por la falta de voluntad política. Es fundamental para la cohesión económica, la reducción de costos logísticos y la disolución de los carteles de transporte.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Implementación de una Red Ferroviaria Nacional (carga y pasajeros), confrontando los intereses creados. Eje 1: Santo Domingo - Santiago - Puerto Plata. Eje 2: Santo Domingo - Punta Cana. Conectará los centros productivos (Cibao), administrativos (Capital) y turísticos (Este) en un mercado unificado.</p>
+                    </div>
+                </div>
+
+                <!-- Misión 6 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-6-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🛡️ 6. Control Territorial y Seguridad Total</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-6-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">La seguridad física y la certidumbre jurídica son condiciones *sine qua non* para la inversión, el turismo y la libertad. El capital huye del caos.</p>
+                        <p class="mt-4 text-gray-700">El problema es el incremento de la criminalidad, la existencia de zonas con control estatal deficitario ("barrios calientes"), y un sistema de justicia y policía percibido como corrupto, infiltrado e incompetente. Se percibe que la policía actual "negocia" la ley, no la impone.</p>
+                        <p class="mt-4 text-gray-700">La seguridad es la primera función del Estado. El éxito reportado del modelo de El Salvador se presenta como evidencia de que la voluntad política puede desarticular las estructuras criminales.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Un modelo de "Control Territorial" y Tolerancia Cero. 1) Re-fundación total de la Policía Nacional (despido 50%, reentrenamiento). 2) Inversión masiva en tecnología (biometría IA, drones, C5 nacional). 3) Construcción de centros penitenciarios de máxima seguridad en zonas aisladas, diseñados para neutralizar la dirección del crimen desde el interior.</p>
+                    </div>
+                </div>
+
+                <!-- Misión 7 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-7-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🎓 7. Revolución Educativa (Habilidades, no Diplomas)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-7-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El sistema educativo actual produce credenciales (diplomas) que no se corresponden con las demandas del mercado. La nación registra el desempeño más bajo en las pruebas PISA.</p>
+                        <p class="mt-4 text-gray-700">El Ministerio de Educación funciona como el mayor empleador del Estado, pero con los peores resultados medibles. Se sugiere una captura de rentas por parte de intereses gremiales (ADP), que operan como un cartel que prioriza la estabilidad laboral de sus miembros sobre el aprendizaje estudiantil.</p>
+                        <p class="mt-4 text-gray-700">El capital humano es el único multiplicador de riqueza real. El 4% del PIB debe financiar el aprendizaje verificable, no la burocracia sindical.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Disolución del Ministerio de Educación. 1) Implementar un sistema de financiación a la demanda (*vouchers* o bono escolar), forzando a las instituciones a competir por la calidad (el dinero sigue al estudiante, no a la burocracia). 2) Reorientación curricular radical hacia Inglés, Matemáticas, Programación (STEM) y Oficios Técnicos certificados.</p>
+                    </div>
+                </div>
+
+                <!-- Misión 8 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-8-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🌾 8. Tecnificación Agrícola</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-8-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">Es una paradoja económica que la nación, con tierra fértil y clima tropical, incurra en importaciones significativas de alimentos básicos. Predomina la agricultura de subsistencia y técnicas obsoletas del siglo XIX.</p>
+                        <p class="mt-4 text-gray-700">La infraestructura de irrigación es deficiente y se observa una alta dependencia de los ciclos de lluvia. El Ministerio de Agricultura funciona, en gran medida, como un intermediario corrupto para la asignación de permisos y semillas.</p>
+                        <p class="mt-4 text-gray-700">El objetivo es asegurar la soberanía alimentaria y transformar al país de un importador neto a un exportador neto de alimentos de alto valor.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Un salto a la Agri-Tech. 1) Inversión en desalinización a gran escala (habilitada por Misión 1 y 2) para irrigar la región Sur. 2) Incentivos para la adopción de agricultura de precisión (drones), hidroponía y agricultura vertical. 3) Eliminar la intermediación ministerial, conectando al agricultor al mercado digital.</p>
+                    </div>
+                </div>
+
+                <!-- Misión 9 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-9-content">
+                        <h3 class="text-xl font-bold text-azul-rd">₿ 9. Hub Financiero y Digital (Cripto/Fintech)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-9-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El capital global fluye a jurisdicciones con alta eficiencia regulatoria y certidumbre jurídica, evitando la burocracia. El sistema bancario nacional es percibido como lento, altamente concentrado (oligopólico) y adverso a la innovación.</p>
+                        <p class="mt-4 text-gray-700">Este sistema está protegido por barreras regulatorias y enfocado en comisiones por servicios básicos, ahuyentando el capital de riesgo.</p>
+                        <p class="mt-4 text-gray-700">La atracción de capital digital es el vehículo más rápido para atraer capital humano de alto valor, diversificando la economía más allá del turismo y las remesas. Es una señal de apertura al futuro.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Convertir a la R.D. en un centro de innovación Fintech. 1) Aprobar una Ley Fintech clara y pro-competencia. 2) Crear un marco legal claro y favorable para los activos digitales (criptoactivos), similar al de El Salvador o el "Crypto Valley" de Suiza, para atraer exchanges, desarrolladores y fondos de inversión.</p>
+                    </div>
+                </div>
+
+                <!-- Misión 10 -->
+                <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-10-content">
+                        <!-- Color rojo para el título final -->
+                        <h3 class="text-xl font-bold text-rojo-rd">💻 10. El Estado como Software (Burocracia Cero REAL)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-10-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El sistema administrativo en sí mismo es el proyecto final. El Estado debe reconfigurarse como un "Estado como Servicio" (GaaS), invisible y rápido, no como un obstáculo discrecional.</p>
+                        <p class="mt-4 text-gray-700">La burocracia funciona como un fin en sí mismo. Los programas existentes (ej. "Burocracia Cero") han resultado ser cosméticos, al ser implementados por las mismas entidades que se benefician de la fricción procesal.</p>
+                        <p class="mt-4 text-gray-700">Si un burócrata debe "aprobar" algo, es un punto de fallo y corrupción. La automatización es el mecanismo más eficaz para la erradicación de la corrupción.</p>
+                        <p class="mt-6 text-rojo-rd font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Digitalización total e innegociable. 1) Crear una Autoridad de Transformación Digital única, con poder presidencial y liderada por ingenieros del sector privado. 2) Implementar una identidad digital única (biométrica) para cada ciudadano. 3) Cada permiso, impuesto o servicio debe ser 100% en línea, con cero intervención humana. El código no acepta sobornos. Código es Ley.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA (Call to Action) -->
+    <section id="descargar" class="bg-azul-rd text-white py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma requiere ejecución.</h2>
+            <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
+                Este es un resumen interactivo. Para entender la profundidad del protocolo y la data completa, descargue el documento. Comparta esta página con otros.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <!-- Botón de Descarga -->
+                <!-- Se actualizó el href al enlace de OneDrive y se eliminó el atributo 'download' -->
+                <a href="https://1drv.ms/b/c/1958615776450e29/EW-XMormw8hGhLPxMxFATkUBbx1SXmht3xkPPnnWUoWTqQ?e=cimR10" target="_blank" rel="noopener noreferrer" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-100 transition duration-300 flex items-center justify-center space-x-2">
+                    <span class="text-xl">📥</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Descargar Protocolo (PDF)</span>
+                </a>
+                
+                <!-- Botón de Compartir en WhatsApp -->
+                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20este%20protocolo%20interactivo%20de%2010%20misiones%20estrat%C3%A9gicas%20para%20la%20Rep%C3%BAblica%20Dominicana:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
+                    <span class="text-xl">📲</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8.001-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                    </svg>
+                    <span>Compartir en WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-azul-rd text-blue-200 py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">Protocolo independiente realizado en 2025.</p>
+            <p class="text-sm mt-2">
+                Este sitio web es una síntesis del documento "Protocolo de Misiones Estratégicas para la Reforma Estructural de la República Dominicana".
+            </smp>
+        </div>
+    </footer>
+    
+    <!-- JavaScript para Interacción -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // Lógica para el Menú Móvil (Hamburger)
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = menuButton.querySelector('svg:first-child');
+            const closeIcon = menuButton.querySelector('svg:last-child');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            // Lógica para el Acordeón de Misiones
+            const accordions = document.querySelectorAll('.accordion-toggle');
+
+            accordions.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+
+                    // Cerrar todos los demás acordeones
+                    accordions.forEach(otherButton => {
+                        const otherTargetId = otherButton.getAttribute('data-target');
+                        if (otherTargetId !== targetId) {
+                            document.getElementById(otherTargetId).classList.remove('open');
+                            otherButton.classList.remove('open');
+                        }
+                    });
+
+                    // Abrir o cerrar el actual
+                    targetContent.classList.toggle('open');
+                    button.classList.toggle('open');
+                });
+            });
+
+            // Lógica para el botón de WhatsApp (para incluir la URL actual)
+            const shareButton = document.getElementById('whatsapp-share');
+            const shareUrl = window.location.href;
+            const originalHref = shareButton.getAttribute('href');
+            shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            
+        });
+    </script>
+
+</body>
+</html>
+

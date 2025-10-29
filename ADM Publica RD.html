@@ -1,0 +1,419 @@
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Problemas Políticos de República Dominicana</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Fuente Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        // Configuración de Tailwind para usar los colores de la bandera
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-rd': '#002D62', // Azul Ultramar
+                        'rojo-rd': '#CE1126', // Rojo Bermejo
+                        'whatsapp': '#25D366',
+                        'whatsapp-hover': '#128C7E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilos para los títulos Serif */
+        h1, h2, h3, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        /* Estilos para el acordeón (contenido colapsable) */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            max-height: 1500px; /* Suficientemente grande para el contenido */
+            visibility: visible;
+            opacity: 1;
+            transition: max-height 0.7s ease-in, opacity 0.5s ease-in 0.2s;
+        }
+        /* Rotación del ícono del acordeón */
+        .accordion-toggle.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <!-- Header / Navegación -->
+    <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Título -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold font-serif">Análisis Político RD</span>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="#resumen" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">El Diagnóstico</a>
+                        <a href="#objetivos" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">10 Objetivos</a>
+                        <a href="#descargar" class="bg-white text-azul-rd px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">Descargar PDF</a>
+                    </div>
+                </div>
+                
+                <!-- Botón Menú Móvil (Hamburger) -->
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <!-- Icono Hamburguesa -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icono X (Cerrar) -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Menú Móvil -->
+        <div id="mobile-menu" class="sm:hidden hidden"">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#resumen" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">El Diagnóstico</a>
+                <a href="#objetivos" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">10 Objetivos</a>
+                <a href="#descargar" class="bg-white text-azul-rd block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 transition-colors">Descargar PDF</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Marcador de posición para arte (Request 5) -->
+            
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-azul-rd leading-tight">
+                    🔍 Análisis de Problemas Políticos de República Dominicana
+                </h1>
+                <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    Un análisis crítico de la ineficiencia sistémica en la República Dominicana y una propuesta de reingeniería fundamental.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#objetivos" class="bg-azul-rd text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:opacity-90 transition duration-300">
+                        👇 Ver los 10 Objetivos
+                    </a>
+                    <a href="#descargar" class="bg-gray-200 text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-300 transition duration-300">
+                        Descargar Análisis (PDF)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Introducción / Diagnóstico -->
+    <section id="resumen" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📋 El Diagnóstico: Más Allá de la Ineficiencia</h2>
+                <p class="mt-4 text-lg text-gray-700">
+                    El análisis postula que la administración pública dominicana no sufre de simples "ineficiencias", sino que es un sistema diseñado para la <strong class="font-semibold text-rojo-rd">captura de rentas y la asignación de patronazgo</strong>.
+                </p>
+            </div>
+            <div class="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-200">
+                <h3 class="text-2xl font-bold text-center text-azul-rd">📉 Un Agujero Negro Fiscal</h3>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    La burocracia no es un medio para un servicio, sino un fin en sí misma. Este "fallo operativo crónico" distorsiona los mercados y actúa como un impuesto oculto sobre cada transacción, sofocando la competitividad del país.
+                </p>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    Este sitio resume los 10 objetivos clave del análisis para disolver y reestructurar este sistema, basándose únicamente en informes gubernamentales, datos públicos y análisis económicos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de los 10 Objetivos Interactivos -->
+    <section id="objetivos" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
+                🎯 Los 10 Objetivos de Reingeniería
+            </h2>
+            
+            <!-- Contenedor de objetivos (Acordeón) -->
+            <div class="space-y-4">
+
+                <!-- Objetivo 1 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-1-content">
+                        <h3 class="text-xl font-bold text-azul-rd">👥 1. Sobresaturación de Personal</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-1-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El problema central es la escala hipertrófica de la nómina pública. Con 757,028 individuos, representa un insostenible 30% de toda la fuerza laboral formal del país. Este crecimiento no responde a una necesidad de servicios, como lo demuestra el promedio de 85 nuevos empleados estatales *por día* entre 2024 y 2025. Es un crecimiento parasitario que responde a ciclos políticos, no a demandas ciudadanas.</p>
+                        <p class="mt-4 text-gray-700">Este volumen distorsiona fundamentalmente el mercado laboral. Desacopla los salarios de la productividad; en su lugar, los ata a los ciclos electorales y a la capacidad del gobierno de emitir deuda. El sector público "exprime" (crowding out) al talento del sector privado, haciendo más atractivo el empleo estatal improductivo que el privado productivo.</p>
+                        <p class="mt-4 text-gray-700">La cifra oficial es de por sí cuestionable. Es ampliamente entendido que un porcentaje significativo de estos puestos son "botellas": empleados nominales que reciben un sueldo sin realizar función alguna. Esto no es solo fraude; es un mecanismo de lavado de dinero institucionalizado para financiar estructuras políticas, convirtiendo el patronazgo en un fin en sí mismo.</p>
+                        
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Auditoría biométrica obligatoria para verificar la función de cada empleado. Reducción fija del 50% de la nómina en 24 meses, reemplazando roles redundantes con automatización e IA para crear un servicio civil más pequeño, mejor pagado y productivo.</p>
+                    </div>
+                </div>
+
+                <!-- Objetivo 2 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-2-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🏛️ 2. Redundancia Institucional</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-2-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">Los 24 ministerios actuales no buscan la especialización, sino la atomización de la responsabilidad. Cuando la responsabilidad se difumina entre docenas de entidades, ninguna es responsable del fracaso. Esto crea un escudo de impunidad para la clase política y expande las posiciones directivas de alto nivel sin propósito funcional.</p>
+                        <p class="mt-4 text-gray-700">Casos ilustrativos sobran. La coexistencia del "Ministerio de la Presidencia" y el "Ministerio Administrativo de la Presidencia" es una duplicación clara de las funciones del despacho ejecutivo. De igual manera, la división entre el "Ministerio de Economía (MEPYD)" y el "Ministerio de Hacienda" crea un conflicto interno perpetuo entre la planificación (gasto) y la tesorería (ingreso), resultando en déficits crónicos.</p>
+                        <p class="mt-4 text-gray-700">El aparato de política social es otro ejemplo. El "Gabinete de Política Social" (con un presupuesto de RD$146 Mil Millones) coordina una constelación de agencias (SIUBEN, PROSOLI, ADESS) que ejecutan la misma función: pagos de transferencia. Esta estructura multicapa maximiza la fricción administrativa y los puntos de contacto burocráticos, no la eficiencia de la ayuda.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Consolidar los 24 ministerios en 8 esenciales (Economía, Infraestructura, Seguridad Nacional, Salud, Educación, Relaciones Exteriores, Justicia y Medio Ambiente). Abolir todas las estructuras de "Gabinete" y aplicar una cláusula de extinción a todos los "Consejos" e "Institutos".</p>
+                    </div>
+                </div>
+                
+                <!-- Objetivo 3 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-3-content">
+                        <h3 class="text-xl font-bold text-azul-rd">⏳ 3. Fricción Burocrática</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-3-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">La complejidad burocrática no es un accidente; es un mecanismo físico primario que facilita la captura de rentas. Cada formulario, cada permiso, cada sello y cada comparecencia personal requerida constituye una oportunidad de extorsión.</p>
+                        <p class="mt-4 text-gray-700">El propio portal del gobierno (gob.do) codifica esto: el plazo estipulado para una licencia de construcción es de 120 días. Este plazo no indica una revisión diligente, sino que crea una "trampa de capital": congela la inversión, multiplica los costos (generando inflación) y crea un incentivo masivo para la informalidad (construir sin permiso) o la corrupción (pagar para acelerar).</p>
+                        <p class="mt-4 text-gray-700">Iniciativas como "Burocracia Cero" han fracasado en lo estructural. Aunque digitalizan servicios menores, los cuellos de botella críticos (120 días para un permiso) permanecen. La burocracia derrotó la reforma porque se alimenta de la fricción. Sistemas como la DGA (Aduanas) y la DGII (Impuestos) permanecen opacos, permitiendo la discreción humana y la negociación selectiva.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Digitalización obligatoria y desintermediación total. Eliminar el papel y al burócrata humano como punto de fallo. Implementar un registro de empresas automatizado en 24h y registrar todas las transacciones de aduanas y compras públicas en un registro inmutable (blockchain) para auditoría en tiempo real.</p>
+                    </div>
+                </div>
+                
+                <!-- Objetivo 4 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-4-content">
+                        <h3 class="text-xl font-bold text-azul-rd">⚡ 4. Empresas Estatales Deficitarias</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-4-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">Las empresas de propiedad estatal (EPE) operan con déficits masivos, aisladas de la disciplina de mercado. La Corporación Dominicana de Empresas Eléctricas Estatales (CDEEE) y sus distribuidoras (EDEs) representan la hemorragia fiscal individual más grande del país.</p>
+                        <p class="mt-4 text-gray-700">Los datos son claros: las transferencias para cubrir las pérdidas del sector energético ascendieron al 1.4% del PIB en 2024 (aprox. RD$ 92 mil millones / US$ 1.5 mil millones). Lejos de resolverse, el problema se acelera: solo en el primer trimestre de 2025, el subsidio ya iba por RD$ 20.9 mil millones.</p>
+                        <p class="mt-4 text-gray-700">Este subsidio no es "gratuito". Se financia con deuda pública, que se monetiza y crea inflación. Por lo tanto, el subsidio a las EDEs es, en efecto, un masivo "impuesto regresivo". El estado roba poder adquisitivo a los ciudadanos más pobres, a través de la devaluación de la moneda, para pagar por la ineficiencia de un monopolio corrupto.</S>
+                        
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Privatización inmediata de la distribución eléctrica (EDEs), sujeta a una regulación robusta. Liquidación de todos los activos estatales improductivos restantes (CORDE). El estado no debe gestionar negocios que el sector privado puede.</p>
+                    </div>
+                </div>
+                
+                <!-- Objetivo 5 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-5-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🗺️ 5. Estructura Territorial Anacrónica</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-5-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">La causa fundamental de la sobreextensión fiscal es la subdivisión político-territorial del país. Las 31 provincias y 1 Distrito Nacional son un mapa administrativo del siglo XIX, mantenido no por eficacia logística, sino para perpetuar un número inflado de nombramientos políticos.</p>
+                        <p class="mt-4 text-gray-700">Esta estructura exige 32 Senadores (uno por provincia, sin importar su población o contribución económica) y 31 Gobernadores (representantes ejecutivos redundantes para gestionar redes de patronazgo local).</p>
+                        <p class="mt-4 text-gray-700">Existe una profunda asimetría. La Región Ozama (Santo Domingo) genera el 40.7% del PIB nacional, pero recibe el mismo escaño senatorial (1) que Pedernales (pob. ~35k). Este sistema de "burgos podridos" constituye una "vetocracia": una tiranía de los improductivos sobre los centros económicos productivos, donde la riqueza de las regiones productivas es sifonada para mantener la superestructura de las improductivas.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Reforma Constitucional para abolir las 31 provincias. Re-mapear la nación en 6 o 7 Macro-Regiones basadas en lógica económica y densidad de población. Esto eliminaría ~80% de la burocracia política de alto nivel (reduciendo el senado de 32 a 14) y alinearía el poder político con la contribución económica.</p>
+                    </div>
+                </div>
+
+                <!-- Objetivo 6 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-6-content">
+                        <h3 class="text-xl font-bold text-azul-rd">📈 6. Inflación Oculta (Subsidios)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-6-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">Los drenajes fiscales, como los subsidios energéticos, son usados como herramientas para suprimir artificialmente la inflación. En 2023, se dirigieron RD$84.7 mil millones al sector eléctrico con este fin. Esta política no elimina el costo, simplemente lo transfiere al estado.</p>
+                        <p class="mt-4 text-gray-700">Este costo transferido se manifiesta como deuda pública y déficits fiscales, que son en sí mismos inflacionarios a través del debasamiento de la moneda. El estado, por tanto, miente al ciudadano sobre el costo real de la energía.</p>
+                        <p class="mt-4 text-gray-700">La necesaria liquidación de estos subsidios (Objetivo 4) resultará en un "shock de honestidad": el resurgimiento de la inflación que ya existía, pero estaba oculta en la deuda. La elección no es si la población paga, sino *cómo* paga. El sistema actual de subsidio universal es regresivo (beneficia más al alto consumo) y se financia con la inflación (que afecta más al pobre).</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Honestidad en los precios. Eliminar subsidios universales y regresivos. Transitar a un sistema de compensación monetaria directa, focalizada, digital y temporal para los hogares más vulnerables, financiada con los ahorros de la eliminación de subsidios. Es fiscalmente más eficiente y socialmente más justo.</p>
+                    </div>
+                </div>
+
+                <!-- Objetivo 7 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-7-content">
+                        <h3 class="text-xl font-bold text-azul-rd">⚖️ 7. Caso Comparativo (RD vs. N. Carolina)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-7-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">La naturaleza parasitaria del estado dominicano se revela en una comparación directa. El estado de Carolina del Norte (EE.UU.) es un par demográfico casi perfecto: ~11.05 millones de habitantes (NC) frente a ~11.53 millones (RD).</p>
+                        <p class="mt-4 text-gray-700">Ambos estados tienen un número similar de empleados públicos: ~795,000 en Carolina del Norte y ~757,028 en la República Dominicana. La diferencia es la producción económica. Con una burocracia de tamaño similar, la economía de Carolina del Norte produjo un PIB estatal de ~US$ 810 Mil Millones en 2024. La República Dominicana produjo ~US$ 125 Mil Millones.</p>
+                        <p class="mt-4 text-gray-700">Carolina del Norte genera 6.5 veces más valor económico con el mismo número de administradores. Esta es la evidencia irrefutable del fracaso. En NC, el empleo público existe para *facilitar* la actividad económica privada (maestros, ingenieros, policía). En RD, el empleo público es un fin en sí mismo; es una fuerza *extractiva*. Los 757,000 empleados no están sirviendo a la economía de $125 mil millones; la están consumiendo.</p>
+                        
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Esta data prueba que el estado dominicano opera como un depredador, no como una plataforma. La reducción del 50% de la nómina (Objetivo 1) no es una mera reducción de costos, sino un prerrequisito para la liberación económica nacional.</p>
+                    </div>
+                </div>
+
+                <!-- Objetivo 8 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-8-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🎖️ 8. Estructuras de Seguridad "Top-Heavy"</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-8-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El aparato de seguridad (militar y policial) es indicativo de patronazgo sistémico, caracterizado por un cuerpo de oficiales groseramente inflado. Las Fuerzas Armadas (con 71,000 miembros) tenían 134 generales en servicio activo en 2024. Esto es una ratio de 1 general por cada 530 soldados.</p>
+                        <p class="mt-4 text-gray-700">En comparación, las Fuerzas Armadas de EE.UU. (con ~1.33 millones de miembros) tienen 1 general por cada 2,128 soldados. El ejército dominicano posee una proporción de generales cuatro veces más pesada. Esto no es una estructura de defensa; es una "feudalización de la seguridad", un sistema de patronazgo interno para crear feudos de poder ("cacicazgos") y asegurar la lealtad de la alta oficialidad.</p>
+                        <p class="mt-4 text-gray-700">Se observa la misma paradoja en la Policía Nacional: una alta densidad de oficiales (1 por cada 312 ciudadanos, comparable a Europa) que coexiste con una alta criminalidad percibida, ineficacia y corrupción endémica. Esto demuestra un fracaso institucional profundo; la cantidad de personal es irrelevante cuando la calidad, doctrina y depuración de la institución son nulas.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Racionalización militar, limitando por ley el número de generales a un nivel apropiado (ej. 20-25). Y no una "reforma" policial, sino una "re-fundación": purificación total, reentrenamiento desde cero y reconstrucción de la institución con un enfoque en operaciones basadas en datos y auditables.</p>
+                    </div>
+                </div>
+
+                <!-- Objetivo 9 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-9-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🧾 9. Insuficiencia Fiscal Sistémica</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-9-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El estado fracasa en su mandato más fundamental: financiar sus propias operaciones. La "presión tributaria" (ingresos como % del PIB) es crónicamente insuficiente, proyectada en apenas un 15.2% del PIB para 2025. Esto es catastróficamente más bajo que el promedio de América Latina (21.3%) y menos de la mitad del promedio de la OCDE (33.9%).</f>
+                        <p class="mt-4 text-gray-700">Esta no es una nación de "impuestos bajos", sino de "bajo cumplimiento". La baja recaudación coexiste con un código fiscal bizantino, un alto ITBIS (18%) e impuestos sobre la renta significativos. Este diferencial de recaudación hace que el estado sea fiscalmente no soberano, perpetuamente dependiente de la deuda externa (FMI) e interna (inflación) para operar.</p>
+                        <p class="mt-4 text-gray-700">Las causas son claras: 1) Evasión masiva, fomentada por un sistema complejo que incentiva la informalidad. 2) Un sistema fiscal paralelo de "gastos tributarios" (exenciones y lagunas) que le cuesta al estado un 4.84% del PIB anualmente, otorgando favores a cambio de apoyo. 3) Corrupción en la recaudación (DGII y DGA) por la falta de digitalización universal.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Simplificación radical. Abolir el código fiscal actual y reemplazarlo con un "Flat Tax" (impuesto único) simple, bajo y universal, sin excepciones. Eliminar todas las exenciones fiscales (recuperando ese 4.84% del PIB). Digitalización total y no discrecional de DGII y DGA.</p>
+                    </div>
+                </div>
+
+                <!-- Objetivo 10 -->
+                <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="obj-10-content">
+                        <!-- Color rojo para el título final -->
+                        <h3 class="text-xl font-bold text-rojo-rd">🚨 10. Decreto Final: Reforma o Colapso</h3>
+                        <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="obj-10-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El análisis concluye que los diez objetivos identificados no son diez problemas separados, sino diez síntomas de una única enfermedad: la captura total del estado por una casta parasitaria que utiliza la burocracia como su principal mecanismo de extracción de riqueza.</p>
+                        <p class="mt-4 text-gray-700">Las estructuras administrativas, de seguridad y fiscales son demostrablemente parasitarias, consumiendo una cantidad desproporcionada de la riqueza nacional en relación con su tamaño. En consecuencia, las propuestas de reforma convencionales (como "Burocracia Cero") se consideran inadecuadas, pues intentan "podar las ramas de un árbol envenenado".</p>
+                        <p class="mt-4 text-gray-700">La situación requiere una revisión estructural fundamental e innegociable del aparato estatal. La elección que enfrenta la nación no es entre esta reforma o el status quo; la elección es entre una demolición controlada (este plan) y un colapso fiscal incontrolado. El tiempo del ajuste iterativo ha pasado; ha llegado el tiempo de la reingeniería fundamental.</p>
+                        <p class="mt-6 text-rojo-rd font-semibold text-lg"><strong class="text-gray-900">La Elección:</strong> Demolición controlada o colapso incontrolado.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA (Call to Action) -->
+    <section id="descargar" class="bg-azul-rd text-white py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">📢 El cambio requiere acción.</h2>
+            <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
+                Este es un resumen interactivo. Para entender la profundidad del análisis y la data completa, descargue el documento. Comparta esta página con otros.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <!-- Botón de Descarga -->
+                <a href="https://1drv.ms/b/c/1958615776450e29/EVoYLRHTGZxGtN1bP5ss0QQBgh-B1TZOEdENrBVBAPh3XA?e=1cHJum" target="_blank" rel="noopener noreferrer" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-100 transition duration-300 flex items-center justify-center space-x-2">
+                    <span class="text-xl">📥</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    <span>Descargar Análisis (PDF)</span>
+                </a>
+                
+                <!-- Botón de Compartir en WhatsApp -->
+                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20este%20an%C3%A1lisis%20interactivo%20sobre%20la%20administraci%C3%B3n%20p%C3%BAblica%20dominicana%20y%20sus%2010%20propuestas%20de%20reforma:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
+                    <span class="text-xl">📲</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8.001-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                    </svg>
+                    <span>Compartir en WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-azul-rd text-blue-200 py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">Análisis independiente realizado en 2025.</p>
+            <p class="text-sm mt-2">
+                Este sitio web es una síntesis del documento "Un Análisis Formal de la Administración Pública Dominicana y Recomendaciones para su Reingeniería Estructural".
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript para Interacción -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // Lógica para el Menú Móvil (Hamburger)
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = menuButton.querySelector('svg:first-child');
+            const closeIcon = menuButton.querySelector('svg:last-child');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            // Lógica para el Acordeón de Objetivos
+            const accordions = document.querySelectorAll('.accordion-toggle');
+
+            accordions.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+
+                    // Cerrar todos los demás acordeones
+                    accordions.forEach(otherButton => {
+                        const otherTargetId = otherButton.getAttribute('data-target');
+                        if (otherTargetId !== targetId) {
+                            document.getElementById(otherTargetId).classList.remove('open');
+                            otherButton.classList.remove('open');
+                        }
+                    });
+
+                    // Abrir o cerrar el actual
+                    targetContent.classList.toggle('open');
+                    button.classList.toggle('open');
+                });
+            });
+
+            // Lógica para el botón de WhatsApp (para incluir la URL actual)
+            const shareButton = document.getElementById('whatsapp-share');
+            const shareUrl = window.location.href;
+            const originalHref = shareButton.getAttribute('href');
+            shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+

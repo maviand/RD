@@ -1,0 +1,315 @@
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Proyecto: Educación RD</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Fuente Inter y Merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    <script>
+        // Configuración de Tailwind para usar los colores de la bandera
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-rd': '#002D62', // Azul Ultramar
+                        'rojo-rd': '#CE1126', // Rojo Bermejo
+                        'whatsapp': '#25D366',
+                        'whatsapp-hover': '#128C7E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilos para los títulos Serif */
+        h1, h2, h3, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        /* Estilos para el acordeón (contenido colapsable) */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            max-height: 1500px; /* Suficientemente grande para el contenido */
+            visibility: visible;
+            opacity: 1;
+            transition: max-height 0.7s ease-in, opacity 0.5s ease-in 0.2s;
+        }
+        /* Rotación del ícono del acordeón */
+        .accordion-toggle.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <!-- Header / Navegación -->
+    <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Título -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold font-serif">Proyectos Tácticos RD</span>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="#diagnostico" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">Diagnóstico</a>
+                        <a href="#directivas" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">5 Directivas</a>
+                        <a href="#compartir" class="bg-white text-azul-rd px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">Compartir</a>
+                    </div>
+                </div>
+                
+                <!-- Botón Menú Móvil (Hamburger) -->
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <!-- Icono Hamburguesa -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icono X (Cerrar) -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Menú Móvil -->
+        <div id="mobile-menu" class="sm:hidden hidden"">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#diagnostico" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">Diagnóstico</a>
+                <a href="#directivas" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">5 Directivas</a>
+                <a href="#compartir" class="bg-white text-azul-rd block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 transition-colors">Compartir</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <header class="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-azul-rd leading-tight">
+                    🎓 Mini-Proyecto Táctico: Educación
+                </h1>
+                <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                    5 directivas de "shock" para rescatar el sistema educativo dominicano y salir del último lugar en métricas mundiales.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#directivas" class="bg-azul-rd text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:opacity-90 transition duration-300">
+                        👇 Ver las 5 Directivas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Introducción / Diagnóstico -->
+    <section id="diagnostico" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: Estado de Emergencia</h2>
+                <p class="mt-4 text-lg text-gray-700">
+                    La República Dominicana se encuentra consistentemente en el <strong class="font-semibold text-rojo-rd">último lugar</strong> de las pruebas PISA (2022: 339 en matemáticas, 351 en lectura, 360 en ciencias), muy por debajo del promedio OECD.
+                </p>
+            </div>
+            <div class="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-200">
+                <h3 class="text-2xl font-bold text-center text-azul-rd">La Falla Sistémica</h3>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    Esto no es un simple fracaso; es una emergencia nacional. El sistema enfrenta desafíos crónicos: baja calidad, alta deserción (hasta 20% en secundaria), infraestructura deficiente y privatización descontrolada. El 4% del PIB no está funcionando.
+                </p>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    Las "Misiones Estratégicas" (Misión 7) proponen una disolución a largo plazo. Estas <strong class="text-azul-rd">Directivas Tácticas</strong> son acciones de "shock" e implementación inmediata para detener la catástrofe *ahora*.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de las 5 Directivas Interactivas -->
+    <section id="directivas" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
+                🎯 Las 5 Directivas Estratégicas
+            </h2>
+            
+            <!-- Contenedor de directivas (Acordeón) -->
+            <div class="space-y-4">
+
+                <!-- Directiva 1 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🏛️ 1. Sistema de Vouchers (Fin del Monopolio)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-1-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El monopolio del MINERD ha fracasado. El costo por alumno está inflado por la burocracia y los resultados (PISA 339) son nulos. El 4% se pierde en un sistema ineficiente que no rinde cuentas.</p>
+                        <p class="mt-4 text-gray-700">Se debe introducir un sistema de <strong class="text-azul-rd">vouchers educativos</strong>. El financiamiento estatal irá directamente a los padres, no a la burocracia, permitiéndoles elegir la escuela (pública o privada) que ofrezca la mejor calidad.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Fomentar la competencia real. Las escuelas fallidas (que no atraigan alumnos) serán cerradas. Esto empodera a las familias, rompe el monopolio y obliga a todas las instituciones a mejorar la calidad o desaparecer.</p>
+                    </div>
+                </div>
+
+                <!-- Directiva 2 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🤖 2. Integración de IA y Tecnología (Currículo Siglo XXI)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-2-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El currículo actual es obsoleto. Estamos graduando analfabetos digitales en la era de la inteligencia artificial. La brecha digital afecta al 40% de los estudiantes rurales, dejándolos sin ninguna oportunidad real.</p>
+                        <p class="mt-4 text-gray-700">Actualización radical del plan de estudios desde primaria para incluir <strong class="text-azul-rd">programación, robótica y uso de herramientas de IA</strong>. Esto requiere alianzas con empresas de tecnología para la capacitación docente y la donación de equipos.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Preparar a los jóvenes para la economía del futuro, no la del pasado. El objetivo es elevar drásticamente las métricas PISA en Ciencias y Matemáticas (hoy en 360) y cerrar la brecha digital, creando el "Silicon del Caribe".</p>
+                    </div>
+                </div>
+                
+                <!-- Directiva 3 -->
+                <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content">
+                        <h3 class="text-xl font-bold text-rojo-rd">🛠️ 3. Diplomados Técnicos (Habilidades "Cuello Azul")</h3>
+                        <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-3-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El desempleo juvenil ronda el 30% porque el sistema solo valora el "diploma" universitario, mientras el país tiene una necesidad desesperada de mano de obra técnica calificada que no existe. Se desprecia el trabajo manual.</p>
+                        <p class="mt-4 text-gray-700">Crear una red nacional de <strong class="text-azul-rd">programas técnicos cortos (6-12 meses)</strong>, post-bachiller o vocacionales, con incentivos de becas y certificaciones. Foco en: <strong class="text-azul-rd">mecánica, plomería, soldadura, ebanistería y energías renovables</strong>.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Combatir el desempleo juvenil y dignificar el trabajo técnico. Mediante alianzas con industrias (turismo, manufactura), convertimos a la RD en un hub de mano de obra calificada, atrayendo inversión que hoy no puede venir por falta de personal.</p>
+                    </div>
+                </div>
+                
+                <!-- Directiva 4 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content">
+                        <h3 class="text-xl font-bold text-azul-rd">🧑‍🏫 4. Accountability Estricta (Tolerancia Cero)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-4-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El Banco Mundial identifica la baja calidad docente como el reto principal. El ausentismo alcanza el 15% en algunas regiones y el sistema actual, capturado por gremios, protege al ineficiente y castiga al innovador. No hay consecuencias por el fracaso.</p>
+                        <p class="mt-4 text-gray-700">Implementar <strong class="text-azul-rd">evaluaciones de desempeño con métricas claras</strong> (resultados PISA estudiantiles, asistencia). El pago debe basarse en mérito y se debe facilitar el despido inmediato de personal ineficiente o ausente (cero tolerancia).</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Restaurar la meritocracia. Elevar los estándares mediante capacitación real (intercambios educativos) y romper el cartel gremial. El 4% debe pagar por calidad y resultados, no por antigüedad y ausentismo.</p>
+                    </div>
+                </div>
+                
+                <!-- Directiva 5 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content">
+                        <h3 class="text-xl font-bold text-azul-rd">✂️ 5. Reducción de Burocracia y Consolidación</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-5-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700">El MINERD es una burocracia hipertrófica. Un porcentaje enorme del 4% se consume en gastos administrativos redundantes, "botellas" y compras con sobreprecio, en lugar de llegar al aula.</p>
+                        <p class="mt-4 text-gray-700">Ejecutar un <strong class="text-azul-rd">recorte del 30% del gasto administrativo</strong> del MINERD, eliminando redundancias y digitalizando el 100% de los procesos (cero papel). Consolidar escuelas pequeñas e ineficientes (basado en datos de matrícula) e invertir el ahorro en laboratorios STEM.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Más aulas, menos oficinas. La promesa de 1,200 aulas nuevas debe ejecutarse con un enfoque de eficiencia y austeridad, no de gasto político. El ahorro debe invertirse en tecnología y en pagar mejor a los maestros que SÍ dan resultados.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA (Call to Action) -->
+    <section id="compartir" class="bg-azul-rd text-white py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma educativa no espera.</h2>
+            <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
+                Salir del último lugar requiere soluciones radicales, no cosméticas. Comparte estas directivas.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <!-- Botón de Compartir en WhatsApp -->
+                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20estas%205%20directivas%20de%20shock%20para%20rescatar%20la%20educaci%C3%B3n%20en%20RD:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
+                    <span class="text-xl">📲</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8.001-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-azul-rd text-blue-200 py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">Protocolo independiente realizado en 2025.</p>
+            <p class="text-sm mt-2">
+                Este sitio web es un Mini-Proyecto Táctico derivado del "Protocolo de Misiones Estratégicas".
+            </p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript para Interacción -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // Lógica para el Menú Móvil (Hamburger)
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = menuButton.querySelector('svg:first-child');
+            const closeIcon = menuButton.querySelector('svg:last-child');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            // Lógica para el Acordeón de Misiones
+            const accordions = document.querySelectorAll('.accordion-toggle');
+
+            accordions.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+
+                    // Cerrar todos los demás acordeones
+                    accordions.forEach(otherButton => {
+                        const otherTargetId = otherButton.getAttribute('data-target');
+                        if (otherTargetId !== targetId) {
+                            document.getElementById(otherTargetId).classList.remove('open');
+                            otherButton.classList.remove('open');
+                        }
+                    });
+
+                    // Abrir o cerrar el actual
+                    targetContent.classList.toggle('open');
+                    button.classList.toggle('open');
+                });
+            });
+
+            // Lógica para el botón de WhatsApp (para incluir la URL actual)
+            const shareButton = document.getElementById('whatsapp-share');
+            if (shareButton) {
+                const shareUrl = window.location.href;
+                const originalHref = shareButton.getAttribute('href');
+                shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            }
+            
+        });
+    </script>
+
+</body>
+</html>
+
