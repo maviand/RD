@@ -11,8 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
     
-    <!-- Carga de Three.js (Necesario para el arte 3D) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Three.js ha sido removido. No es necesario para el arte 2D. -->
 
     <script>
         // Configuración de Tailwind para usar los colores de la bandera
@@ -34,7 +33,7 @@
             font-family: 'Inter', sans-serif;
         }
         /* Estilos para los títulos Serif */
-        h1, h2, h3, .font-serif {
+        h1, h2, h3, h4, .font-serif {
             font-family: 'Merriweather', serif;
         }
         /* Estilos para el acordeón (contenido colapsable) */
@@ -46,16 +45,17 @@
             opacity: 0;
         }
         .accordion-content.open {
-            max-height: 1500px; /* Suficientemente grande para el contenido */
+            max-height: 3500px; /* Aumentado para más contenido */
             visibility: visible;
             opacity: 1;
-            transition: max-height 0.7s ease-in, opacity 0.5s ease-in 0.2s;
+            transition: max-height 1.2s ease-in, opacity 0.5s ease-in 0.2s;
         }
         /* Rotación del ícono del acordeón */
         .accordion-toggle.open .accordion-icon {
             transform: rotate(180deg);
         }
-        /* Estilo para el canvas 3D */
+        
+        /* --- INICIO ESTILOS CYGNUS 'DATA-STREAM HEARTBEAT' --- */
         #health-canvas {
             display: block;
             width: 100%;
@@ -64,14 +64,66 @@
             top: 0;
             left: 0;
             z-index: 0;
+            /* Añadimos un sutil desenfoque para que el texto resalte */
+            filter: blur(0.5px);
         }
+
+        /* El contenedor de los elementos interactivos */
+        #cygnus-interactive-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1; /* Sutilmente por encima del canvas */
+            pointer-events: none; /* Dejamos que el mouse pase al header */
+            overflow: hidden;
+        }
+
+        /* La línea de escaneo */
+        .scanline {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            will-change: transform;
+        }
+
+        /* Los puntos de data revelados */
+        .data-point {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50px); /* Posicionado arriba del punto */
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease-out, transform 0.2s ease-out;
+            will-change: opacity, transform;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        /* --- FIN ESTILOS CYGNUS --- */
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
 
     <!-- Header / Navegación -->
     <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
-        <!-- ... (El contenido de la NAV no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo / Título -->
@@ -113,16 +165,14 @@
     </nav>
 
     <!-- 
-      Sección Hero con Canvas 3D
-      Cygnus Mod: 
-      - Fondo 'bg-azul-rd'.
-      - 'relative overflow-hidden' para el canvas.
-      - Texto en blanco.
+      Sección Hero con Canvas 2D
+      (Contenido modificado por Cygnus)
     -->
     <header id="hero-header" class="bg-azul-rd pt-24 pb-16 sm:pt-32 sm:pb-24 relative overflow-hidden">
         
-        <!-- Canvas para "The Vital Stream" -->
+        <!-- Canvas para "The Data-Stream Heartbeat" -->
         <canvas id="health-canvas"></canvas>
+        <!-- La capa de interacción (scanline, data points) será añadida por JS -->
 
         <!-- Contenido de Texto (z-10) -->
         <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -131,7 +181,7 @@
                     🩺 Mini-Proyecto Táctico: Salud
                 </h1>
                 <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
-                    5 directivas de "shock" para transformar el Ministerio de Salud de una burocracia en crisis a un sistema de excelencia preventiva.
+                    5 directivas de "shock" para transformar el Ministerio de Salud de una burocracia en crisis a un sistema de <strong class="text-white font-bold">Salud Basada en Valor</strong>.
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="#directivas" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-200 transition duration-300">
@@ -144,29 +194,30 @@
 
     <!-- Sección de Introducción / Diagnóstico -->
     <section id="diagnostico" class="py-16 sm:py-24 bg-gray-50">
-        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: Crisis Epidemiológica</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: Crisis Epidemiológica y de Valor</h2>
                 <p class="mt-4 text-lg text-gray-700">
-                    El sector salud enfrenta una crisis evidente en 2025: brotes de <strong class="font-semibold text-rojo-rd">influenza</strong>, impactos del cambio climático, alta <strong class="font-semibold text-rojo-rd">mortalidad por cáncer</strong> y falta de registros.
+                    El sector salud enfrenta una crisis evidente en 2025: brotes de <strong class="font-semibold text-rojo-rd">influenza</strong>, alta <strong class="font-semibold text-rojo-rd">mortalidad por cáncer</strong> y falta de registros.
                 </p>
             </div>
             <div class="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-200">
-                <h3 class="text-2xl font-bold text-center text-azul-rd">La Falla Sistémica</h3>
+                <h3 class="text-2xl font-bold text-center text-azul-rd">La Falla Sistémica: Pago por Volumen, no por Valor</h3>
                 <p class="mt-4 text-gray-700 leading-relaxed">
-                    Pese a avances en la vigilancia del cólera y la eliminación de muertes por dengue, el sistema falla en lo crónico. Con un <strong class="text-rojo-rd">21% de muertes por cáncer en mujeres menores de 50 años</strong> y problemas socioeconómicos que se reflejan en los boletines epidemiológicos, es claro que el modelo está roto.
+                    El modelo actual <strong class="text-rojo-rd">recompensa el volumen de servicios (fee-for-service)</strong>, no los resultados de salud del paciente. Los hospitales ganan más si un paciente diabético se complica y requiere amputación. Esto es un incentivo perverso. Con un <strong class="text-rojo-rd">21% de muertes por cáncer en mujeres menores de 50</strong>, el sistema falla en lo crónico.
                 </p>
                 <p class="mt-4 text-gray-700 leading-relaxed">
-                    Estas <strong class="text-azul-rd">Directivas Tácticas</strong> son acciones de "shock" para priorizar la prevención, la eficiencia y los resultados medibles, no la burocracia.
+                    Estas <strong class="text-azul-rd">Directivas Tácticas</strong> son acciones de "shock" para implementar una arquitectura de <strong class="font-bold">Salud Basada en Valor (Value-Based Health Care)</strong>: un sistema que paga por mantener al paciente sano, no por tratarlo cuando está enfermo.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Sección de las 5 Directivas Interactivas -->
+    <!-- 
+      Sección de las 5 Directivas Interactivas
+      (Contenido del archivo original)
+    -->
     <section id="directivas" class="py-16 sm:py-24 bg-white">
-        <!-- ... (Todo el contenido del acordeón permanece igual) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
                 🎯 Las 5 Directivas Estratégicas
@@ -175,78 +226,120 @@
             <!-- Contenedor de directivas (Acordeón) -->
             <div class="space-y-4">
 
-                <!-- Directiva 1 -->
+                <!-- Directiva 1: REFORJADA -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content">
-                        <h3 class="text-xl font-bold text-azul-rd">💳 1. Vouchers Sanitarios (Elección Libre)</h3>
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content" data-directive="1">
+                        <h3 class="text-xl font-bold text-azul-rd">💳 1. Reforma de Pago: De "Servicios" a "Resultados"</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-1-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">El monopolio estatal y los seguros SFS son ineficientes, burocráticos y limitan la elección del paciente. El dinero se queda en administración y corrupción, no llega al servicio.</p>
-                        <p class="mt-4 text-gray-700">Implementar <strong class="text-azul-rd">vouchers sanitarios</strong>. El financiamiento seguirá al paciente, permitiendo a los ciudadanos usar fondos públicos en clínicas privadas o públicas que compitan por calidad y precio.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Romper los monopolios ineficientes. El paciente elige, el sistema compite, la calidad sube y la corrupción administrativa se reduce drásticamente.</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El modelo "fee-for-service" (pago por servicio) y los seguros SFS son ineficientes. Recompensan la cantidad de consultas, análisis y cirugías, sin importar si el paciente mejora o no. Los "vouchers" o la elección libre no resuelven esto si el pago sigue siendo por volumen.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica (Integra Principio 3: Bundled Payments):</strong> Implementar <strong class="text-azul-rd">Pagos Agrupados (Bundled Payments)</strong>. El financiamiento (estatal o de seguro) dejará de pagar por servicio. En su lugar, pagará un monto único por el <strong class="font-semibold">ciclo completo de cuidado</strong> de una condición.</p>
+                        
+                        <h4 class="text-lg font-bold text-gray-800 mt-4">Ejemplos de Pagos Agrupados:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li><strong>Diabetes Tipo 2:</strong> Un pago anual por paciente que cubre todas las consultas, análisis (HbA1c), medicamentos, y educación nutricional.</li>
+                            <li><strong>Parto:</strong> Un pago único que cubre los 9 meses de cuidado prenatal, el parto (sea natural o cesárea), y el cuidado postnatal.</li>
+                            <li><strong>Reemplazo de Cadera:</strong> Un pago que cubre la cirugía, la hospitalización, el dispositivo y los 90 días de rehabilitación post-operatoria.</li>
+                        </ul>
+                        
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Alinear los incentivos. Si el hospital previene complicaciones en un diabético, se queda con el ahorro. Si el paciente se complica por negligencia, el hospital cubre el costo. El sistema finalmente recompensa el *valor* (salud) y no el *volumen* (servicios).</p>
                     </div>
                 </div>
 
-                <!-- Directiva 2 -->
+                <!-- Directiva 2: REFORJADA -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content">
-                        <h3 class="text-xl font-bold text-azul-rd">🖥️ 2. Digitalización Total (IA y Blockchain)</h3>
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content" data-directive="2">
+                        <h3 class="text-xl font-bold text-azul-rd">🖥️ 2. La Plataforma Habilitadora de TI</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-2-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">No existe un registro nacional de tumores. Los datos epidemiológicos se manejan en papel o en sistemas aislados. Es imposible responder a una crisis (como la influenza) sin data en tiempo real.</p>
-                        <p class="mt-4 text-gray-700">Crear un <strong class="text-azul-rd">sistema nacional unificado de registros médicos</strong> usando IA y Blockchain. Esto garantiza data segura, inmutable y accesible para rastrear tumores, epidemias y récords de vacunación.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Eliminar el papel y la burocracia. Tener data en tiempo real para tomar decisiones de salud pública en horas, no en semanas. El código es la mejor herramienta epidemiológica.</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> No existe un registro nacional de tumores. Los datos epidemiológicos se manejan en papel. Es imposible implementar Pagos Agrupados (Directiva 1) si no podemos *medir* los resultados y los costos.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica (Integra Principios 2 y 6):</strong> La "digitalización total" no es solo un récord; es la <strong class="text-azul-rd">Plataforma Habilitadora de TI (Principio 6)</strong>. Se creará un sistema nacional unificado (usando IA y Blockchain para seguridad) con un solo propósito: <strong class="font-semibold">Medir costos y resultados para cada paciente (Principio 2)</strong>.</p>
+                        
+                        <h4 class="text-lg font-bold text-gray-800 mt-4">Métricas Clave a Rastrear:</h4>
+                         <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li><strong>Cáncer:</strong> Tasa de supervivencia a 5 años por tipo, tiempo desde diagnóstico a tratamiento. (Resuelve el "no-registro" de tumores).</li>
+                            <li><strong>Diabetes:</strong> % de pacientes con HbA1c < 7.0%, tasa de amputaciones, tasa de fallo renal.</li>
+                            <li><strong>Corazón:</strong> Tasa de re-admisión hospitalaria post-infarto, control de presión arterial.</li>
+                            <li><strong>Costos:</strong> Costo real *total* por paciente, por ciclo de cuidado.</li>
+                        </ul>
+                        
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Eliminaremos el papel y la burocracia. El código es la mejor herramienta epidemiológica. Si no se puede medir, no se puede mejorar. Esta plataforma es el "cerebro" que permite que el resto de la reforma funcione.</p>
                     </div>
                 </div>
                 
-                <!-- Directiva 3 -->
+                <!-- Directiva 3: REFORJADA -->
                 <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content">
-                        <h3 class="text-xl font-bold text-rojo-rd">🌦️ 3. Prevención Climática y Ambiental</h3>
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content" data-directive="3">
+                        <h3 class="text-xl font-bold text-rojo-rd">🧬 3. Unidades de Práctica Integrada (IPUs)</h3>
                         <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-3-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">El cambio climático no es teoría, es una realidad que trae más vectores de enfermedades (como el dengue y la malaria) y emergencias sanitarias por inundaciones (cólera).</p>
-                        <p class="mt-4 text-gray-700">Invertir masivamente en <strong class="text-azul-rd">programas de prevención ambiental</strong>, en alianza con OPS/OMS. Foco en entornos 100% libres de humo y eliminación de criaderos de mosquitos y aguas estancadas.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Dejar de ser reactivos. Atacar la causa (el vector, el agua contaminada) antes de que se convierta en epidemia. La prevención es la inversión en salud más barata y efectiva.</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El cuidado está fragmentado. Un paciente diabético debe visitar a 5 especialistas distintos (endocrinólogo, cardiólogo, nutricionista, podólogo) en 5 lugares distintos, y *ninguno* de ellos se comunica entre sí. Esto es ineficiente y peligroso.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica (Integra Principio 1: IPUs):</strong> Reestructurar el cuidado alrededor de la *condición* del paciente, no de la *especialidad* del médico. Crearemos <strong class="text-azul-rd">Unidades de Práctica Integrada (IPUs)</strong>. El paciente verá a un solo equipo multidisciplinario, en un solo lugar, que gestionará el ciclo completo de su cuidado.</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-4">Ejemplos de IPUs Prioritarias:</h4>
+                         <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li><strong>IPU de Diabetes y Salud Metabólica:</strong> (Endocrino, Nutricionista, Podólogo, Enfermera Educadora).</li>
+                            <li><strong>IPU de Cáncer de Mama:</strong> (Oncólogo, Cirujano, Radiólogo, Soporte Psicológico).</li>
+                            <li><strong>IPU de Salud Preventiva y Climática:</strong> (Epidemiólogo, expertos en vectores, vacunadores, educadores comunitarios). Esto absorbe la Directiva 3 original (prevención ambiental) y la vuelve proactiva.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Dejar de ser reactivos y fragmentados. El paciente es el centro, no el especialista. El equipo multidisciplinario comparte la responsabilidad por el *resultado* del paciente, y será medido (Directiva 2) y pagado (Directiva 1) como una sola unidad.</p>
                     </div>
                 </div>
                 
-                <!-- Directiva 4 -->
+                <!-- Directiva 4: REFORJADA (Fusiona 4 y 5 originales) -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content">
-                        <h3 class="text-xl font-bold text-azul-rd">🧑‍⚕️ 4. Accountability Estricta (Tolerancia Cero)</h3>
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content" data-directive="4">
+                        <h3 class="text-xl font-bold text-azul-rd">🛰️ 4. Red de Cuidado Integrado (Geografía Cero)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-4-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">El ausentismo, la negligencia y la corrupción en la compra de medicamentos son un cáncer dentro del sistema. Los gremios protegen al ineficiente, y el paciente paga las consecuencias.</p>
-                        <p class="mt-4 text-gray-700">Implementar <strong class="text-azul-rd">evaluaciones de desempeño con métricas claras</strong> (tasas de mortalidad hospitalaria, tiempos de atención, asistencia). El pago debe basarse en resultados y se facilitará el despido de personal ineficiente.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Restaurar la meritocracia y la vocación de servicio. Cero tolerancia al ausentismo y la corrupción. El dinero público debe pagar por calidad y resultados medibles.</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> La salud de calidad está concentrada en Santo Domingo y Santiago. Las zonas rurales (donde el cuidado preventivo es más necesario) carecen de especialistas, resultando en muertes prevenibles por falta de acceso.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica (Integra Principios 4 y 5):</strong> Usar la tecnología para <strong class="text-azul-rd">Integrar la Prestación de Servicios (Principio 4)</strong> y <strong class="text-azul-rd">Expandir el Alcance Geográfico (Principio 5)</strong> de las IPUs (Directiva 3). La Telemedicina no será un servicio separado; será la *herramienta* que conecte la red.</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-4">Arquitectura de la Red Integrada:</h4>
+                         <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li><strong>Nivel 1 (Hub):</strong> Las IPUs especializadas (ej. Cáncer, Diabetes) en los hospitales de la capital.</li>
+                            <li><strong>Nivel 2 (Nodo):</strong> Clínicas regionales y provinciales con capacidad de diagnóstico (Rayos X, Laboratorio) conectadas digitalmente.</li>
+                            <li><strong>Nivel 3 (Extremo):</strong> Los "Técnicos de Salud Azul-Collar" (del plan original) en las Unidades de Atención Primaria (UNAP) rurales, equipados con tablets y dispositivos de telemedicina.</li>
+                        </ul>
+                        <p class="mt-4 text-gray-700 font-semibold">El flujo: El Técnico Nivel 3 en Elías Piña atiende al paciente, sube data a la Plataforma IT (Directiva 2), y realiza una teleconsulta *en vivo* con el especialista de la IPU (Nivel 1) en Santo Domingo.</p>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El código postal de un paciente no debe determinar su tasa de supervivencia. Integramos digitalmente el sistema para que el mejor especialista del país esté, virtualmente, en la UNAP más remota.</p>
                     </div>
                 </div>
                 
-                <!-- Directiva 5 -->
+                <!-- Directiva 5: REFORJADA -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content">
-                        <h3 class="text-xl font-bold text-azul-rd">🚑 5. Expansión de Telemedicina y Técnicos</h3>
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content" data-directive="5">
+                        <h3 class="text-xl font-bold text-azul-rd">📈 5. Accountability Basada en Valor (Meritocracia)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-5-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">La salud de calidad está concentrada en Santo Domingo y Santiago. Las zonas rurales y pueblos pequeños carecen de especialistas y atención oportuna, resultando en muertes prevenibles.</p>
-                        <p class="mt-4 text-gray-700">Desarrollar una <strong class="text-azul-rd">plataforma nacional de telemedicina</strong> y crear diplomados técnicos de "salud azul-collar" (enfermería especializada, técnicos en epidemiología, paramédicos avanzados) con becas e incentivos.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Cubrir las brechas en áreas rurales. Usar la tecnología para llevar especialistas a todo el país y crear una fuerza técnica que resuelva el 90% de los casos antes de que lleguen a un hospital saturado.</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El ausentismo, la negligencia y la corrupción son síntomas de un sistema que no mide lo que importa. La "accountability" actual es sobre asistencia y burocracia, no sobre la salud del paciente.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica (Integra Principio 2):</strong> Redefinir "Accountability". Gracias a la <strong class="font-semibold">Plataforma de TI (Directiva 2)</strong>, ahora podemos medir los resultados de salud. La evaluación del personal y de las IPUs se basará en estas métricas de valor, no en volumen.</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-4">Nuevas Métricas de Desempeño:</h4>
+                         <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li>El salario de un director de hospital no dependerá de su presupuesto, sino de la <strong class="font-semibold">reducción en la tasa de mortalidad</strong> por cáncer o infartos en su hospital.</li>
+                            <li>La IPU de Diabetes (Directiva 3) recibirá un bono basado en el <strong class="font-semibold">% de sus pacientes que logran control glucémico</strong>.</li>
+                            <li>Se facilitará el despido de personal, pero la métrica principal será el *resultado del paciente*.</li>
+                        </ul>
+                        
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Restaurar la meritocracia real. El 4% debe pagar por *calidad* y *resultados medibles*, no por antigüedad y ausentismo. Los mejores doctores y equipos (los que salvan más vidas y previenen más complicaciones) serán los mejor pagados. El valor es el rey.</p>
                     </div>
                 </div>
 
@@ -256,16 +349,15 @@
 
     <!-- Sección CTA (Call to Action) -->
     <section id="compartir" class="bg-azul-rd text-white py-16 sm:py-24">
-        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma de salud no espera.</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma de salud es una reforma de valor.</h2>
             <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
-                Nuestra salud no puede depender de un sistema colapsado. Comparte estas directivas.
+                Debemos dejar de pagar por enfermedad y empezar a invertir en salud. Comparte estas directivas.
             </p>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <!-- Botón de Compartir en WhatsApp -->
-                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20estas%205%20directivas%20de%20shock%20para%20reformar%20la%20salud%20en%20RD:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
+                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20estas%205%20directivas%20de%20shock%20para%20reformar%20la%20salud%20en%20RD%20(basado%20en%20valor):%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
                     <span class="text-xl">📲</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
@@ -277,7 +369,6 @@
 
     <!-- Footer -->
     <footer class="bg-azul-rd text-blue-200 py-10">
-        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm">Protocolo independiente realizado en 2025.</p>
             <p class="text-sm mt-2">
@@ -287,7 +378,8 @@
     </footer>
     
     <!-- 
-      JavaScript para Interacción (Acordeón, Menú) y Arte 3D
+      JavaScript para Interacción (Acordeón, Menú) y Arte 2D
+      (Script modificado por Cygnus)
     -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -303,29 +395,52 @@
                 hamburgerIcon.classList.toggle('hidden');
                 closeIcon.classList.toggle('hidden');
             });
-
-            // Lógica para el Acordeón de Misiones
+            
+            // --- Lógica de Acordeón Modificada ---
+            // (Se movió la lógica de interacción del acordeón al script de Cygnus
+            //  para que ambos puedan interactuar, pero la funcionalidad base
+            //  debe estar aquí para que funcione si el script de arte falla.)
+            
             const accordions = document.querySelectorAll('.accordion-toggle');
-
+            let activeDirective = 0; // Variable para el arte
+            
             accordions.forEach(button => {
                 button.addEventListener('click', () => {
                     const targetId = button.getAttribute('data-target');
                     const targetContent = document.getElementById(targetId);
 
+                    // --- Lógica Cygnus: Detectar estado para el arte ---
+                    const directiveId = parseInt(button.getAttribute('data-directive'));
+                    const isOpen = button.classList.contains('open');
+                    activeDirective = isOpen ? 0 : directiveId; // 0 si se está cerrando
+                    // Pasar esta variable al script de arte
+                    if (window.cygnus) {
+                        window.cygnus.setActiveDirective(activeDirective);
+                    }
+                    // --- Fin Lógica Cygnus ---
+
                     // Cerrar todos los demás acordeones
                     accordions.forEach(otherButton => {
                         const otherTargetId = otherButton.getAttribute('data-target');
                         if (otherTargetId !== targetId) {
-                            document.getElementById(otherTargetId).classList.remove('open');
+                            // Asegurarse de que el otro elemento exista antes de cerrarlo
+                            const otherTargetContent = document.getElementById(otherTargetId);
+                            if (otherTargetContent) {
+                                otherTargetContent.classList.remove('open');
+                            }
                             otherButton.classList.remove('open');
                         }
                     });
 
                     // Abrir o cerrar el actual
-                    targetContent.classList.toggle('open');
+                    if (targetContent) {
+                        targetContent.classList.toggle('open');
+                    }
                     button.classList.toggle('open');
                 });
             });
+            // --- Fin Lógica de Acordeón ---
+
 
             // Lógica para el botón de WhatsApp (para incluir la URL actual)
             const shareButton = document.getElementById('whatsapp-share');
@@ -335,187 +450,216 @@
                 shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
             }
             
-            // --- INICIO DE CYGNUS 'THE VITAL STREAM' SCRIPT ---
+            // --- INICIO DE CYGNUS 'THE DATA-STREAM HEARTBEAT' SCRIPT ---
+
+            // Adjuntar el script al objeto window para que el acordeón pueda llamarlo
+            window.cygnus = {}; 
 
             const canvas = document.getElementById('health-canvas');
             const header = document.getElementById('hero-header');
-            if (!canvas || typeof THREE === 'undefined') {
-                 console.error("Cygnus Error: Canvas or Three.js library not found.");
-                 return; // Salir si no hay canvas o Three.js
+            
+            if (!canvas || !header) {
+                console.error("Cygnus Error: Canvas or Header not found.");
+                return;
             }
 
-            // 1. Configuración de la Escena
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, header.clientWidth / header.clientHeight, 0.1, 1000);
-            camera.position.z = 10;
-
-            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
-            renderer.setSize(header.clientWidth, header.clientHeight);
-            renderer.setPixelRatio(window.devicePixelRatio);
-
-            // 2. Iluminación
-            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-            scene.add(ambientLight);
-            const pointLight = new THREE.PointLight(0xffffff, 1);
-            pointLight.position.set(0, 0, 5);
-            scene.add(pointLight);
-
-            // 3. Geometría (Los dos sistemas de partículas)
-            const particleCount = 5000;
-            const rojoRD = 0xCE1126;
-            const azulRD = 0x002D62;
-            const blanco = 0xFFFFFF;
-
-            let crisisParticles, healthParticles;
-            let crisisMaterial, healthMaterial;
-            
-            // --- Sistema 1: "Crisis" (El Sistema Enfermo) ---
-            const crisisGeometry = new THREE.BufferGeometry();
-            const crisisPositions = [];
-            const crisisColors = [];
-            const crisisColor = new THREE.Color(rojoRD);
-
-            for (let i = 0; i < particleCount; i++) {
-                // Forma de una esfera caótica, "clumpy"
-                const radius = 4;
-                const u = Math.random();
-                const v = Math.random();
-                const theta = 2 * Math.PI * u;
-                const phi = Math.acos(2 * v - 1);
-                
-                // Añadir "ruido" para que no sea una esfera perfecta
-                const noise = (Math.random() - 0.5) * 1.5;
-
-                crisisPositions.push(radius * Math.sin(phi) * Math.cos(theta) + noise); // x
-                crisisPositions.push(radius * Math.sin(phi) * Math.sin(theta) + noise); // y
-                crisisPositions.push(radius * Math.cos(phi) + noise); // z
-                
-                crisisColor.toArray(crisisColors, i * 3);
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error("Cygnus Error: 2D Context not available.");
+                return;
             }
-            crisisGeometry.setAttribute('position', new THREE.Float32BufferAttribute(crisisPositions, 3));
-            crisisGeometry.setAttribute('color', new THREE.Float32BufferAttribute(crisisColors, 3));
+
+            // --- 1. Definición de la Paleta y Parámetros ---
+            const azulRD = '#002D62';
+            const rojoRD = '#CE1126';
+            const blanco = '#FFFFFF';
+
+            let width, height, baseline;
+            let time = 0;
+            let heartbeatY = []; // Almacenará las coordenadas 'y' del latido
+
+            // --- 2. Crear Capa de Interacción (Scanline y Data) ---
+            const interactiveLayer = document.createElement('div');
+            interactiveLayer.id = 'cygnus-interactive-layer';
+
+            const scanline = document.createElement('div');
+            scanline.className = 'scanline';
+            interactiveLayer.appendChild(scanline);
+
+            // (Cygnus Nota: Estos data points coinciden con el *prompt* original.
+            //  Se pueden ajustar a "Pagos Agrupados", "IPUs", etc. si se desea.)
+            const dataPoints = [
+                { xPercent: 0.30, text: 'Registros de Tumores' },
+                { xPercent: 0.50, text: 'IA-Epidemiológica' },
+                { xPercent: 0.70, text: 'Telemedicina' }
+            ];
             
-            crisisMaterial = new THREE.PointsMaterial({
-                size: 0.03,
-                vertexColors: true,
-                transparent: true,
-                opacity: 1.0,
-                blending: THREE.AdditiveBlending
+            let dataPointElements = [];
+
+            dataPoints.forEach(dp => {
+                const el = document.createElement('span');
+                el.className = 'data-point';
+                el.textContent = dp.text;
+                el.dataset.xPercent = dp.xPercent; // Guardamos su posición
+                interactiveLayer.appendChild(el);
+                dataPointElements.push(el);
             });
-            crisisParticles = new THREE.Points(crisisGeometry, crisisMaterial);
-            scene.add(crisisParticles);
-
-            // --- Sistema 2: "Health" (El Flujo de Datos) ---
-            const healthGeometry = new THREE.BufferGeometry();
-            const healthPositions = [];
-            const healthColors = [];
-            const colorAzul = new THREE.Color(azulRD);
-            const colorBlanco = new THREE.Color(blanco);
             
-            // Forma de un doble hélice (como ADN o un flujo de datos)
-            const turns = 10;
-            const pointsPerTurn = Math.floor(particleCount / (turns * 2));
-            const radius = 3.5;
+            // Insertar la capa de interacción en el header
+            header.appendChild(interactiveLayer);
 
-            for (let i = 0; i < particleCount; i++) {
-                const t = (i / particleCount) * turns * Math.PI * 2; // ángulo
-                const y = (i / particleCount - 0.5) * 12; // altura
+
+            // --- 3. Funciones de Renderizado de Arte ---
+
+            // Dibuja el "ruido" de fondo (La Crisis)
+            function drawStatic() {
+                ctx.fillStyle = rojoRD;
+                ctx.globalAlpha = 0.05; // Muy sutil
                 
-                healthPositions.push(radius * Math.cos(t)); // x
-                healthPositions.push(y); // y
-                healthPositions.push(radius * Math.sin(t)); // z
-                
-                // Mezcla de colores azul y blanco
-                if (Math.random() > 0.3) {
-                    colorAzul.toArray(healthColors, i * 3);
-                } else {
-                    colorBlanco.toArray(healthColors, i * 3);
+                for (let i = 0; i < 100; i++) {
+                    const x = Math.random() * width;
+                    const y = Math.random() * height;
+                    const size = Math.random() * 2 + 1;
+                    ctx.fillRect(x, y, size, size);
                 }
             }
-            
-            healthGeometry.setAttribute('position', new THREE.Float32BufferAttribute(healthPositions, 3));
-            healthGeometry.setAttribute('color', new THREE.Float32BufferAttribute(healthColors, 3));
 
-            healthMaterial = new THREE.PointsMaterial({
-                size: 0.05,
-                vertexColors: true,
-                transparent: true,
-                opacity: 0.0, // Inicia invisible
-                blending: THREE.AdditiveBlending
-            });
-            healthParticles = new THREE.Points(healthGeometry, healthMaterial);
-            scene.add(healthParticles);
+            // Dibuja el "latido" principal (La Solución Digital)
+            function drawHeartbeat() {
+                ctx.strokeStyle = azulRD;
+                ctx.lineWidth = 3;
+                ctx.globalAlpha = 1.0;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(0, 45, 98, 0.7)'; // Sombra 'azul-rd'
 
-            // 4. Lógica de Animación por Scroll
-            let scrollPercent = 0;
-            const directivasSection = document.getElementById('directivas');
-
-            function updateScrollPercent() {
-                if (!directivasSection) return;
-
-                const rect = directivasSection.getBoundingClientRect();
-                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
-
-                // Empezar a hacer 'fade' cuando la sección de "diagnóstico" está a mitad de pantalla
-                const startElement = document.getElementById('diagnostico');
-                if (!startElement) return;
+                ctx.beginPath();
+                heartbeatY = []; // Limpiar las coordenadas 'y'
                 
-                const startRect = startElement.getBoundingClientRect();
-                const startPoint = startRect.top + startRect.height / 2 - viewHeight / 2;
+                const freq = 0.02;
+                const amp = height * 0.1;
                 
-                // Totalmente 'fade' cuando la sección de directivas llega al 30% superior
-                const endPoint = rect.top - (viewHeight * 0.3);
+                for (let i = 0; i <= width; i++) {
+                    // La onda base
+                    const wave = Math.sin(i * freq + time) * amp;
+                    
+                    // El "pulso" EKG
+                    // Usamos una función de potencia con sin() para crear picos agudos
+                    const pulseFreq = 0.01;
+                    const pulseTime = time * 2.5;
+                    const pulse = Math.pow(Math.abs(Math.sin(i * pulseFreq + pulseTime)), 40) * -100;
+                    
+                    const y = baseline + wave + pulse;
+                    
+                    if (i === 0) {
+                        ctx.moveTo(i, y);
+                    } else {
+                        ctx.lineTo(i, y);
+                    }
+                    heartbeatY[i] = y; // Guardar la coordenada 'y'
+                }
+                ctx.stroke();
                 
-                let totalDistance = endPoint - startPoint;
-                if (totalDistance <= 0) totalDistance = 1; // Evitar división por cero
-                
-                scrollPercent = (startPoint * -1) / totalDistance;
-                scrollPercent = THREE.MathUtils.clamp(scrollPercent, 0, 1);
+                // Resetear sombra
+                ctx.shadowBlur = 0;
             }
 
-            window.addEventListener('scroll', updateScrollPercent, { passive: true });
-            updateScrollPercent(); // Llamar una vez al inicio
-
-            // 5. Bucle de Renderizado
-            const clock = new THREE.Clock();
-
+            // --- 4. El Bucle de Animación (El Corazón) ---
             function animate() {
+                time += 0.03;
+
+                // Limpiar el canvas
+                ctx.globalAlpha = 1.0;
+                ctx.clearRect(0, 0, width, height);
+
+                // Dibujar las capas
+                drawStatic();
+                drawHeartbeat();
+
                 requestAnimationFrame(animate);
-                const elapsedTime = clock.getElapsedTime();
-
-                // 1. Animar el sistema "Crisis"
-                crisisParticles.rotation.y = elapsedTime * 0.05; // Rotación lenta y errática
-                crisisParticles.rotation.x = elapsedTime * 0.02;
-
-                // 2. Animar el sistema "Health"
-                healthParticles.rotation.y = elapsedTime * -0.2; // Rotación rápida y organizada
-
-                // 3. Actualizar opacidad basada en el scroll
-                crisisMaterial.opacity = 1.0 - scrollPercent;
-                healthMaterial.opacity = scrollPercent;
-
-                // 4. Hacer que el sistema "Health" se expanda
-                const scale = 0.5 + scrollPercent * 0.5;
-                healthParticles.scale.set(scale, scale, scale);
-
-                renderer.render(scene, camera);
             }
 
-            // 6. Manejo de Redimensión
-            function onWindowResize() {
-                const width = header.clientWidth;
-                const height = header.clientHeight;
+            // --- 5. Manejadores de Eventos (Interacción) ---
+
+            // Ajustar el canvas al tamaño del header
+            function onResize() {
+                // FALLBACK: Si el header no tiene dimensiones, esperar y reintentar.
+                // Esto es crucial para un inicio robusto.
+                if (header.clientWidth === 0 || header.clientHeight === 0) {
+                    requestAnimationFrame(onResize);
+                    return;
+                }
+
+                width = header.clientWidth;
+                height = header.clientHeight;
+                canvas.width = width * window.devicePixelRatio;
+                canvas.height = height * window.devicePixelRatio;
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
                 
-                camera.aspect = width / height;
-                camera.updateProjectionMatrix();
+                ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
                 
-                renderer.setSize(width, height);
+                baseline = height * 0.5; // El centro vertical
             }
 
-            window.addEventListener('resize', onWindowResize);
+            // El "Scanline" y la "Revelación" de datos
+            function onMouseMove(e) {
+                // Obtenemos la 'x' relativa al header
+                const rect = header.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+
+                // Mover el scanline
+                scanline.style.opacity = '0.7';
+                scanline.style.transform = `translateX(${x}px)`;
+
+                // Revisar si el scanline está cerca de un punto de data
+                dataPointElements.forEach(el => {
+                    const dpX = width * parseFloat(el.dataset.xPercent);
+                    const proximity = 50; // Píxeles de proximidad para revelar
+
+                    if (Math.abs(x - dpX) < proximity) {
+                        // ¡Revelar!
+                        const y = heartbeatY[Math.floor(dpX)] || baseline;
+                        const revealFactor = 1 - (Math.abs(x - dpX) / proximity);
+
+                        el.style.opacity = `${revealFactor}`;
+                        // Mover el texto al punto 'y' correcto, con un offset
+                        el.style.transform = `translate(${dpX}px, ${y - 40}px) scale(${0.9 + revealFactor * 0.1})`;
+                    } else {
+                        // Ocultar
+                        el.style.opacity = '0';
+                        // Asegurarnos de que tenga una posición base incluso oculto
+                        const y = heartbeatY[Math.floor(dpX)] || baseline;
+                        el.style.transform = `translate(${dpX}px, ${y - 30}px) scale(0.9)`;
+                    }
+                });
+            }
+
+            // Ocultar la interacción al salir
+            function onMouseLeave() {
+                scanline.style.opacity = '0';
+                dataPointElements.forEach(el => {
+                    el.style.opacity = '0';
+                });
+            }
             
+            // --- Conexión con el Acordeón ---
+            // (Esta función es llamada por la lógica del acordeón más arriba)
+            window.cygnus.setActiveDirective = (directiveId) => {
+                // (Cygnus Nota: Aquí es donde podríamos cambiar el estado del arte
+                //  basado en el acordeón, si quisiéramos. Por ahora, la interacción
+                //  principal es el hover, así que esto es un placeholder.)
+                 // console.log("Cygnus Art: Directiva activa es", directiveId);
+            };
+            
+
+            // --- 6. Iniciar todo ---
+            window.addEventListener('resize', onResize);
+            header.addEventListener('mousemove', onMouseMove);
+            header.addEventListener('mouseleave', onMouseLeave);
+
             // Iniciar
-            animate();
+            onResize(); // Llamar una vez para setear el tamaño
+            animate();  // Empezar el latido
 
             // --- FIN DE CYGNUS SCRIPT ---
             
@@ -524,3 +668,4 @@
 
 </body>
 </html>
+
