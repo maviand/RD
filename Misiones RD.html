@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Carga de Three.js (Necesario para el arte 3D) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <script>
         // Configuración de Tailwind para usar los colores de la bandera
         tailwind.config = {
@@ -51,12 +55,23 @@
         .accordion-toggle.open .accordion-icon {
             transform: rotate(180deg);
         }
+        /* Estilo para el canvas 3D */
+        #missions-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
 
     <!-- Header / Navegación -->
     <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <!-- ... (El contenido de la NAV no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo / Título -->
@@ -77,11 +92,9 @@
                 <div class="sm:hidden flex items-center">
                     <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                         <span class="sr-only">Abrir menú principal</span>
-                        <!-- Icono Hamburguesa -->
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <!-- Icono X (Cerrar) -->
                         <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -89,7 +102,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Panel Menú Móvil -->
         <div id="mobile-menu" class="sm:hidden hidden"">
             <div class="px-2 pt-2 pb-3 space-y-1">
@@ -100,19 +112,29 @@
         </div>
     </nav>
 
-    <!-- Sección Hero -->
-    <header class="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+    <!-- 
+      Sección Hero con Canvas 3D
+      Cygnus Mod: 
+      - Fondo 'bg-azul-rd'.
+      - 'relative overflow-hidden' para el canvas.
+      - Texto en blanco.
+    -->
+    <header id="hero-header" class="bg-azul-rd pt-24 pb-16 sm:pt-32 sm:pb-24 relative overflow-hidden">
+        
+        <!-- Canvas para "The Holographic Blueprint" -->
+        <canvas id="missions-canvas"></canvas>
+        
+        <!-- Contenido de Texto (z-10) -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-azul-rd leading-tight">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                     🚀 Misiones Estratégicas para República Dominicana
                 </h1>
-                <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
                     Un protocolo de 10 misiones fundacionales para la reforma estructural y la transición acelerada al siglo XXI.
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#misiones" class="bg-azul-rd text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:opacity-90 transition duration-300">
+                    <a href="#misiones" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-200 transition duration-300">
                         👇 Ver las 10 Misiones
                     </a>
                     <a href="#descargar" class="bg-gray-200 text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-300 transition duration-300">
@@ -125,6 +147,7 @@
 
     <!-- Sección de Introducción / Protocolo -->
     <section id="protocolo" class="py-16 sm:py-24 bg-gray-50">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📋 El Protocolo: Proyectos, No Planes</h2>
@@ -146,6 +169,7 @@
 
     <!-- Sección de las 10 Misiones Interactivas -->
     <section id="misiones" class="py-16 sm:py-24 bg-white">
+        <!-- ... (Todo el contenido del acordeón permanece igual) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
                 🎯 Las 10 Misiones Estratégicas
@@ -322,6 +346,7 @@
 
     <!-- Sección CTA (Call to Action) -->
     <section id="descargar" class="bg-azul-rd text-white py-16 sm:py-24">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma requiere ejecución.</h2>
             <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
@@ -330,7 +355,6 @@
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <!-- Botón de Descarga -->
-                <!-- Se actualizó el href al enlace de OneDrive y se eliminó el atributo 'download' -->
                 <a href="https://1drv.ms/b/c/1958615776450e29/EW-XMormw8hGhLPxMxFATkUBbx1SXmht3xkPPnnWUoWTqQ?e=cimR10" target="_blank" rel="noopener noreferrer" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-100 transition duration-300 flex items-center justify-center space-x-2">
                     <span class="text-xl">📥</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
@@ -343,7 +367,7 @@
                 <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20este%20protocolo%20interactivo%20de%2010%20misiones%20estrat%C3%A9gicas%20para%20la%20Rep%C3%BAblica%20Dominicana:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
                     <span class="text-xl">📲</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8.001-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
                     </svg>
                     <span>Compartir en WhatsApp</span>
                 </a>
@@ -353,6 +377,7 @@
 
     <!-- Footer -->
     <footer class="bg-azul-rd text-blue-200 py-10">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm">Protocolo independiente realizado en 2025.</p>
             <p class="text-sm mt-2">
@@ -361,7 +386,9 @@
         </div>
     </footer>
     
-    <!-- JavaScript para Interacción -->
+    <!-- 
+      JavaScript para Interacción (Acordeón, Menú) y Arte 3D
+    -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
@@ -402,13 +429,163 @@
 
             // Lógica para el botón de WhatsApp (para incluir la URL actual)
             const shareButton = document.getElementById('whatsapp-share');
-            const shareUrl = window.location.href;
-            const originalHref = shareButton.getAttribute('href');
-            shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            if (shareButton) {
+                const shareUrl = window.location.href;
+                const originalHref = shareButton.getAttribute('href');
+                shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            }
+            
+            // --- INICIO DE CYGNUS 'HOLOGRAPHIC BLUEPRINT' SCRIPT ---
+
+            const canvas = document.getElementById('missions-canvas');
+            const header = document.getElementById('hero-header');
+            if (!canvas || typeof THREE === 'undefined') {
+                 console.error("Cygnus Error: Canvas or Three.js library not found.");
+                 return; // Salir si no hay canvas o Three.js
+            }
+
+            // 1. Configuración de la Escena
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, header.clientWidth / header.clientHeight, 0.1, 1000);
+            camera.position.z = 6;
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(header.clientWidth, header.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // 2. Iluminación
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            // Luz azul desde el centro
+            const pointLight = new THREE.PointLight(0x002D62, 2, 10); 
+            scene.add(pointLight);
+
+            // 3. Geometría
+            const rojoRD = new THREE.Color(0xCE1126);
+            const blanco = new THREE.Color(0xFFFFFF);
+            
+            // --- Sistema 1: "The Blueprint" (El Protocolo) ---
+            const blueprintGeo = new THREE.SphereGeometry(2.5, 24, 24);
+            const wireframeGeo = new THREE.WireframeGeometry(blueprintGeo);
+            const blueprintMat = new THREE.LineBasicMaterial({
+                color: 0xffffff,
+                transparent: true,
+                opacity: 0.3
+            });
+            const blueprint = new THREE.LineSegments(wireframeGeo, blueprintMat);
+            scene.add(blueprint);
+
+            // --- Sistema 2: "The 10 Missions" (Los Nodos) ---
+            const nodeCount = 10;
+            const nodeRadius = 3.5;
+            const nodeGeo = new THREE.BufferGeometry();
+            const nodePositions = [];
+            const nodeColors = [];
+
+            for (let i = 0; i < nodeCount; i++) {
+                // Distribuir 10 puntos en una esfera
+                const phi = Math.acos(-1 + (2 * i) / (nodeCount - 1));
+                const theta = Math.sqrt(nodeCount * Math.PI) * phi;
+                
+                nodePositions.push(nodeRadius * Math.cos(theta) * Math.sin(phi)); // x
+                nodePositions.push(nodeRadius * Math.sin(theta) * Math.sin(phi)); // y
+                nodePositions.push(nodeRadius * Math.cos(phi)); // z
+
+                // Alternar colores
+                (i % 2 === 0 ? rojoRD : blanco).toArray(nodeColors, i * 3);
+            }
+            nodeGeo.setAttribute('position', new THREE.Float32BufferAttribute(nodePositions, 3));
+            nodeGeo.setAttribute('color', new THREE.Float32BufferAttribute(nodeColors, 3));
+
+            const nodeMat = new THREE.PointsMaterial({
+                size: 0.15,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.5,
+                blending: THREE.AdditiveBlending
+            });
+            const nodes = new THREE.Points(nodeGeo, nodeMat);
+            scene.add(nodes);
+
+
+            // 4. Lógica de Animación por Scroll
+            let scrollPercent = 0;
+            const misionesSection = document.getElementById('misiones');
+
+            function updateScrollPercent() {
+                if (!misionesSection) return;
+                const rect = misionesSection.getBoundingClientRect();
+                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+
+                // Empezar a hacer 'fade' cuando la sección de "protocolo" está a mitad de pantalla
+                const startElement = document.getElementById('protocolo');
+                if (!startElement) return;
+                
+                const startRect = startElement.getBoundingClientRect();
+                const startPoint = startRect.top + startRect.height / 2 - viewHeight / 2;
+                
+                // Totalmente 'fade' cuando la sección de misiones llega al 30% superior
+                const endPoint = rect.top - (viewHeight * 0.3);
+                
+                let totalDistance = endPoint - startPoint;
+                if (totalDistance <= 0) totalDistance = 1;
+                
+                scrollPercent = (startPoint * -1) / totalDistance;
+                scrollPercent = THREE.MathUtils.clamp(scrollPercent, 0, 1);
+            }
+
+            window.addEventListener('scroll', updateScrollPercent, { passive: true });
+            updateScrollPercent();
+
+            // 5. Bucle de Renderizado
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const elapsedTime = clock.getElapsedTime();
+
+                // 1. Rotación constante
+                blueprint.rotation.y = elapsedTime * 0.1;
+                nodes.rotation.y = elapsedTime * 0.05;
+                nodes.rotation.x = elapsedTime * 0.03;
+
+                // 2. "Energizar" con el scroll
+                const scale = 1 + scrollPercent * 0.1; // El sistema se expande
+                blueprint.scale.set(scale, scale, scale);
+                nodes.scale.set(scale, scale, scale);
+
+                // El blueprint se vuelve más nítido
+                blueprintMat.opacity = 0.3 + scrollPercent * 0.4;
+                // Los nodos brillan más
+                nodeMat.opacity = 0.5 + scrollPercent * 0.5;
+                nodeMat.size = 0.15 + scrollPercent * 0.1;
+                
+                // La luz central pulsa
+                pointLight.intensity = 1.5 + Math.sin(elapsedTime * 3) * 0.5 + scrollPercent;
+
+                renderer.render(scene, camera);
+            }
+
+            // 6. Manejo de Redimensión
+            function onWindowResize() {
+                const width = header.clientWidth;
+                const height = header.clientHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                
+                renderer.setSize(width, height);
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            
+            // Iniciar
+            animate();
+
+            // --- FIN DE CYGNUS SCRIPT ---
             
         });
     </script>
 
 </body>
 </html>
-

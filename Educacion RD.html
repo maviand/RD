@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Carga de Three.js (Necesario para el arte 3D) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <script>
         // Configuración de Tailwind para usar los colores de la bandera
         tailwind.config = {
@@ -51,12 +55,23 @@
         .accordion-toggle.open .accordion-icon {
             transform: rotate(180deg);
         }
+        /* Estilo para el canvas 3D */
+        #education-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
 
     <!-- Header / Navegación -->
     <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <!-- ... (El contenido de la NAV no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo / Título -->
@@ -77,11 +92,9 @@
                 <div class="sm:hidden flex items-center">
                     <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                         <span class="sr-only">Abrir menú principal</span>
-                        <!-- Icono Hamburguesa -->
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <!-- Icono X (Cerrar) -->
                         <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -89,7 +102,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Panel Menú Móvil -->
         <div id="mobile-menu" class="sm:hidden hidden"">
             <div class="px-2 pt-2 pb-3 space-y-1">
@@ -100,19 +112,29 @@
         </div>
     </nav>
 
-    <!-- Sección Hero -->
-    <header class="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+    <!-- 
+      Sección Hero con Canvas 3D
+      Cygnus Mod: 
+      - Fondo 'bg-azul-rd'.
+      - 'relative overflow-hidden' para el canvas.
+      - Texto en blanco.
+    -->
+    <header id="hero-header" class="bg-azul-rd pt-24 pb-16 sm:pt-32 sm:pb-24 relative overflow-hidden">
+        
+        <!-- Canvas para "From Dust to Data" -->
+        <canvas id="education-canvas"></canvas>
+
+        <!-- Contenido de Texto (z-10) -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-azul-rd leading-tight">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                     🎓 Mini-Proyecto Táctico: Educación
                 </h1>
-                <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
                     5 directivas de "shock" para rescatar el sistema educativo dominicano y salir del último lugar en métricas mundiales.
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#directivas" class="bg-azul-rd text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:opacity-90 transition duration-300">
+                    <a href="#directivas" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-200 transition duration-300">
                         👇 Ver las 5 Directivas
                     </a>
                 </div>
@@ -122,6 +144,7 @@
 
     <!-- Sección de Introducción / Diagnóstico -->
     <section id="diagnostico" class="py-16 sm:py-24 bg-gray-50">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: Estado de Emergencia</h2>
@@ -143,6 +166,7 @@
 
     <!-- Sección de las 5 Directivas Interactivas -->
     <section id="directivas" class="py-16 sm:py-24 bg-white">
+        <!-- ... (Todo el contenido del acordeón permanece igual) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
                 🎯 Las 5 Directivas Estratégicas
@@ -232,6 +256,7 @@
 
     <!-- Sección CTA (Call to Action) -->
     <section id="compartir" class="bg-azul-rd text-white py-16 sm:py-24">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma educativa no espera.</h2>
             <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
@@ -243,7 +268,7 @@
                 <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20estas%205%20directivas%20de%20shock%20para%20rescatar%20la%20educaci%C3%B3n%20en%20RD:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
                     <span class="text-xl">📲</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8.001-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
                     </svg>
                 </a>
             </div>
@@ -252,6 +277,7 @@
 
     <!-- Footer -->
     <footer class="bg-azul-rd text-blue-200 py-10">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm">Protocolo independiente realizado en 2025.</p>
             <p class="text-sm mt-2">
@@ -260,7 +286,9 @@
         </div>
     </footer>
     
-    <!-- JavaScript para Interacción -->
+    <!-- 
+      JavaScript para Interacción (Acordeón, Menú) y Arte 3D
+    -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
@@ -307,9 +335,176 @@
                 shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
             }
             
+            // --- INICIO DE CYGNUS 'FROM DUST TO DATA' SCRIPT ---
+
+            const canvas = document.getElementById('education-canvas');
+            const header = document.getElementById('hero-header');
+            if (!canvas || typeof THREE === 'undefined') {
+                 console.error("Cygnus Error: Canvas or Three.js library not found.");
+                 return; // Salir si no hay canvas o Three.js
+            }
+
+            // 1. Configuración de la Escena
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, header.clientWidth / header.clientHeight, 0.1, 1000);
+            camera.position.z = 10;
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(header.clientWidth, header.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // 2. Iluminación
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(0, 0, 5);
+            scene.add(pointLight);
+
+            // 3. Geometría (Los dos sistemas de partículas)
+            const particleCount = 5000;
+            const rojoRD = 0xCE1126;
+            const azulRD = 0x002D62;
+            const blanco = 0xFFFFFF;
+
+            let bookParticles, dataParticles;
+            let bookMaterial, dataMaterial;
+            
+            // --- Sistema 1: "Dust" (El libro obsoleto) ---
+            const bookGeometry = new THREE.BufferGeometry();
+            const bookPositions = [];
+            const bookColors = [];
+            const bookColor = new THREE.Color(rojoRD);
+
+            for (let i = 0; i < particleCount; i++) {
+                // Forma de un libro/caja
+                bookPositions.push((Math.random() - 0.5) * 8); // x (ancho)
+                bookPositions.push((Math.random() - 0.5) * 10); // y (alto)
+                bookPositions.push((Math.random() - 0.5) * 1); // z (profundidad)
+                
+                bookColor.toArray(bookColors, i * 3);
+            }
+            bookGeometry.setAttribute('position', new THREE.Float32BufferAttribute(bookPositions, 3));
+            bookGeometry.setAttribute('color', new THREE.Float32BufferAttribute(bookColors, 3));
+            
+            bookMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                vertexColors: true,
+                transparent: true,
+                opacity: 1.0,
+                blending: THREE.AdditiveBlending
+            });
+            bookParticles = new THREE.Points(bookGeometry, bookMaterial);
+            scene.add(bookParticles);
+
+            // --- Sistema 2: "Data" (Las nuevas habilidades) ---
+            const dataGeometry = new THREE.BufferGeometry();
+            const dataPositions = [];
+            const dataColors = [];
+            const colorAzul = new THREE.Color(azulRD);
+            const colorBlanco = new THREE.Color(blanco);
+
+            for (let i = 0; i < particleCount; i++) {
+                // Forma de una esfera expandida (el futuro)
+                const radius = 6;
+                const phi = Math.acos(2 * Math.random() - 1);
+                const theta = Math.sqrt(particleCount * Math.PI) * phi;
+                
+                dataPositions.push(radius * Math.cos(theta) * Math.sin(phi)); // x
+                dataPositions.push(radius * Math.sin(theta) * Math.sin(phi)); // y
+                dataPositions.push(radius * Math.cos(phi)); // z
+                
+                // Mezcla de colores azul y blanco
+                if (Math.random() > 0.3) {
+                    colorAzul.toArray(dataColors, i * 3);
+                } else {
+                    colorBlanco.toArray(dataColors, i * 3);
+                }
+            }
+            dataGeometry.setAttribute('position', new THREE.Float32BufferAttribute(dataPositions, 3));
+            dataGeometry.setAttribute('color', new THREE.Float32BufferAttribute(dataColors, 3));
+
+            dataMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.0, // Inicia invisible
+                blending: THREE.AdditiveBlending
+            });
+            dataParticles = new THREE.Points(dataGeometry, dataMaterial);
+            scene.add(dataParticles);
+
+            // 4. Lógica de Animación por Scroll
+            let scrollPercent = 0;
+            const directivasSection = document.getElementById('directivas');
+
+            function updateScrollPercent() {
+                if (!directivasSection) return;
+
+                const rect = directivasSection.getBoundingClientRect();
+                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+
+                // Empezar a hacer 'fade' cuando la sección de "diagnóstico" está a mitad de pantalla
+                const startElement = document.getElementById('diagnostico');
+                if (!startElement) return;
+                
+                const startRect = startElement.getBoundingClientRect();
+                const startPoint = startRect.top + startRect.height / 2 - viewHeight / 2;
+                
+                // Totalmente 'fade' cuando la sección de directivas llega al 30% superior
+                const endPoint = rect.top - (viewHeight * 0.3);
+                
+                let totalDistance = endPoint - startPoint;
+                if (totalDistance <= 0) totalDistance = 1; // Evitar división por cero
+                
+                scrollPercent = (startPoint * -1) / totalDistance;
+                scrollPercent = THREE.MathUtils.clamp(scrollPercent, 0, 1);
+            }
+
+            window.addEventListener('scroll', updateScrollPercent, { passive: true });
+            updateScrollPercent(); // Llamar una vez al inicio
+
+            // 5. Bucle de Renderizado
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const elapsedTime = clock.getElapsedTime();
+
+                // Rotar ambos sistemas de partículas para darles vida
+                bookParticles.rotation.y = elapsedTime * 0.1;
+                dataParticles.rotation.y = elapsedTime * 0.08;
+                dataParticles.rotation.x = elapsedTime * 0.05;
+
+                // Actualizar opacidad basada en el scroll
+                bookMaterial.opacity = 1.0 - scrollPercent;
+                dataMaterial.opacity = scrollPercent;
+
+                // Hacer que las partículas de "data" pulsen
+                dataMaterial.size = 0.05 + Math.sin(elapsedTime * 2) * 0.01;
+
+                renderer.render(scene, camera);
+            }
+
+            // 6. Manejo de Redimensión
+            function onWindowResize() {
+                const width = header.clientWidth;
+                const height = header.clientHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                
+                renderer.setSize(width, height);
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            
+            // Iniciar
+            animate();
+
+            // --- FIN DE CYGNUS SCRIPT ---
+            
         });
     </script>
 
 </body>
 </html>
-

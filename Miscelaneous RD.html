@@ -1,0 +1,604 @@
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Proyecto: Directivas Críticas RD</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Fuente Inter y Merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Carga de Three.js (Necesario para el arte 3D) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <script>
+        // Configuración de Tailwind para usar los colores de la bandera
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-rd': '#002D62', // Azul Ultramar
+                        'rojo-rd': '#CE1126', // Rojo Bermejo
+                        'whatsapp': '#25D366',
+                        'whatsapp-hover': '#128C7E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilos para los títulos Serif */
+        h1, h2, h3, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        /* Estilos para el acordeón (contenido colapsable) */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            max-height: 1500px; /* Suficientemente grande para el contenido */
+            visibility: visible;
+            opacity: 1;
+            transition: max-height 0.7s ease-in, opacity 0.5s ease-in 0.2s;
+        }
+        /* Rotación del ícono del acordeón */
+        .accordion-toggle.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+        /* Estilo para el canvas 3D */
+        #shackle-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <!-- Header / Navegación -->
+    <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Título -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold font-serif">Proyectos Tácticos RD</span>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="#diagnostico" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">Diagnóstico</a>
+                        <a href="#directivas" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">10 Directivas</a>
+                        <a href="#compartir" class="bg-white text-azul-rd px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">Compartir</a>
+                    </div>
+                </div>
+                
+                <!-- Botón Menú Móvil (Hamburger) -->
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <!-- Icono Hamburguesa -->
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <!-- Icono X (Cerrar) -->
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Menú Móvil -->
+        <div id="mobile-menu" class="sm:hidden hidden"">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#diagnostico" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">Diagnóstico</a>
+                <a href="#directivas" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">10 Directivas</a>
+                <a href="#compartir" class="bg-white text-azul-rd block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 transition-colors">Compartir</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+      Sección Hero con Canvas 3D
+      Cygnus Mod: 
+      - Fondo 'bg-azul-rd'.
+      - 'relative overflow-hidden' para el canvas.
+      - Texto en blanco.
+    -->
+    <header id="hero-header" class="bg-azul-rd pt-24 pb-16 sm:pt-32 sm:pb-24 relative overflow-hidden">
+        
+        <!-- Canvas para "The Shattered Shackle" -->
+        <canvas id="shackle-canvas"></canvas>
+
+        <!-- Contenido de Texto (z-10) -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    ⛓️ Mini-Proyecto: Directivas Críticas
+                </h1>
+                <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
+                    10 directivas de "shock" para romper las fallas estructurales ignoradas que frenan el desarrollo nacional.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#directivas" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-200 transition duration-300">
+                        👇 Ver las 10 Directivas
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Introducción / Diagnóstico -->
+    <section id="diagnostico" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: Los Grilletes Ocultos</h2>
+                <p class="mt-4 text-lg text-gray-700">
+                    El análisis de 50 problemas nacionales revela 10 fallas críticas adicionales, <strong class="font-semibold text-rojo-rd">no abordadas en los protocolos anteriores</strong>. Son los grilletes legales, sociales y de transparencia que impiden el desarrollo.
+                </p>
+            </div>
+            <div class="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-200">
+                <h3 class="text-2xl font-bold text-center text-azul-rd">La Falla Sistémica</h3>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    Estos no son problemas aislados, sino impedimentos sistémicos que <strong class="text-azul-rd">anulan el progreso en otras áreas</strong>. Son los vicios ocultos que garantizan el fracaso de cualquier reforma cosmética.
+                </MP>
+                <p class="mt-4 text-gray-700 leading-relaxed font-bold">
+                    Su resolución no admite gradualismo y es un prerrequisito para el éxito de cualquier otra misión.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de las 10 Directivas Interactivas -->
+    <section id="directivas" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
+                🎯 Las 10 Directivas Estratégicas
+            </h2>
+            
+            <!-- Contenedor de directivas (Acordeón) -->
+            <div class="space-y-4">
+
+                <!-- Directiva 1 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content">
+                        <h3 class="text-xl font-bold text-azul-rd">1. Reforma Estructural del Marco Laboral</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-1-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El código laboral actual es una máquina de informalidad. Provisiones anacrónicas como la cuota del 80% (Art. 135) y la participación del 10% en ganancias (Art. 223) son barreras directas a la inversión extranjera y la atracción de talento.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> El sistema de Cesantía y Desahucio castiga la contratación formal. Funciona como una deuda contingente impagable para las PYMES, forzando al 57.3% de la fuerza laboral a la informalidad, sin protección social y con productividad nula.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Abolición del código actual. Implementar un marco flexible basado en libertad contractual, reemplazando la cesantía por un seguro de desempleo financiado por las partes. Eliminar la cuota del 80% y la participación forzosa en ganancias para atraer capital global y talento STEM.</p>
+                    </div>
+                </div>
+
+                <!-- Directiva 2 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content">
+                        <h3 class="text-xl font-bold text-azul-rd">2. Resolución de la Crisis de Prisión Preventiva</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-2-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El sistema judicial está colapsado. Un 85% de la población carcelaria está en prisión preventiva, sin condena. Esto no es justicia; es un sistema de secuestro estatal que viola masivamente los derechos fundamentales.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> Informes de la CIDH documentan detenidos que exceden el tiempo máximo de la sentencia posible. La defensa pública es inaccesible hasta la etapa de juicio (meses o años después), creando un estado de "indefensión virtual" para el ciudadano sin recursos.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Implementar IA para la auditoría de casos, identificando violaciones al debido proceso. Plazo máximo legal de 90 días para revisión de medidas. Incumplimiento resulta en liberación supervisada (grillete) del imputado y sanciones severas al fiscal o juez responsable.</p>
+                    </div>
+                </div>
+                
+                <!-- Directiva 3 -->
+                <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content">
+                        <h3 class="text-xl font-bold text-rojo-rd">3. Transparencia Fiscal Inmutable de SOEs</h3>
+                        <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-3-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> La Cámara de Cuentas es una entidad de supervisión ineficaz, politizada y reactiva. Sus informes de auditoría son tardíos y carecen de consecuencias reales.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> Las finanzas de las Empresas Estatales (SOE), como las EDEs, operan en total opacidad. Reciben fondos públicos masivos pero no se incluyen de forma transparente en el presupuesto, imposibilitando la auditoría pública y fomentando la nómina parasitaria y la corrupción contractual.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Implementar por ley un sistema de contabilidad pública basado en blockchain. Cada transacción del Estado y de las SOE (contratos, nóminas, compras) debe ser pública, trazable y auditable en tiempo real por cualquier ciudadano. El código reemplaza la auditoría burocrática.</p>
+                    </div>
+                </div>
+                
+                <!-- Directiva 4 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content">
+                        <h3 class="text-xl font-bold text-azul-rd">4. Transformación de Residuos Sólidos en Energía</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-4-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> La gestión de residuos sólidos es una emergencia de salud pública. El modelo se basa en vertederos a cielo abierto (Duquesa) que son focos de contaminación de aire, suelo y agua (lixiviados).</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> El sector es informal, no regulado y carece de infraestructura básica. Esta degradación ambiental es una amenaza directa a la salud y al turismo, costando millones en remediación y pérdida de imagen.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Licitación internacional inmediata para privatizar la gestión integral de residuos. El Estado debe dejar de operar vertederos. Requisito contractual: construcción y operación de 3-4 plantas regionales de 'Waste-to-Energy' (WTE) de última generación, convirtiendo la basura en electricidad para la red nacional.</p>
+                    </div>
+                </div>
+                
+                <!-- Directiva 5 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content">
+                        <h3 class="text-xl font-bold text-azul-rd">5. Intervención Estratégica en el Embarazo Adolescente</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-5-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El país sufre la tasa más alta de uniones tempranas y embarazo adolescente de América Latina (una de cada tres mujeres unida antes de los 18). Esto no es un problema social; es el principal freno económico del país.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> Causa deserción escolar masiva, perpetúa la pobreza intergeneracional y destruye el capital humano. Contribuye directamente a la brecha de participación laboral de 25 puntos entre hombres y mujeres y a las altas tasas de mortalidad materna.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Declarar el embarazo adolescente una emergencia nacional. Implementar educación sexual científica y acceso universal a anticonceptivos de larga duración (implantes, DIU) en todas las unidades primarias, eliminando barreras ideológicas. Endurecer drásticamente las penas por estupro.</p>
+                    </div>
+                </div>
+
+                <!-- Directiva 6 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-6-content">
+                        <h3 class="text-xl font-bold text-azul-rd">6. Integración de Estudiantes con Discapacidades</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-6-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El sistema educativo excluye sistemáticamente a la población con discapacidades. Más de uno de cada cinco niños con discapacidad no asiste a la escuela (UNICEF).</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> Los que asisten enfrentan infraestructura inaccesible, una severa falta de docentes capacitados y un estigma que limita su desarrollo. Esta exclusión es una pérdida inaceptable de capital humano y potencial productivo.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> El sistema de "vouchers" educativos (ver Mini-Proyecto Educación) debe incluir un multiplicador de fondos (ej. 2.5X) para estudiantes con discapacidad certificada. Esto crea un incentivo de mercado para que las escuelas inviertan en infraestructura accesible y personal especializado.</p>
+                    </div>
+                </div>
+
+                <!-- Directiva 7 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-7-content">
+                        <h3 class="text-xl font-bold text-azul-rd">7. Política de Cero Deforestación Neta</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-7-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> La cobertura arbórea se ha reducido en un 15% (394,000 hectáreas) desde 2000 (Global Forest Watch), impulsada por agricultura, ganadería extensiva y tala ilegal.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> Esto es un suicidio hídrico. La degradación destruye las cuencas, reduce la disponibilidad de agua (Misión 1), aumenta la erosión y la vulnerabilidad a inundaciones, amenazando los cimientos del turismo y la agricultura.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Implementar "Control Territorial" ambiental. Usar vigilancia satelital y drones (IA) 24/7 sobre todas las reservas. Prohibición total de tala no autorizada, con decomiso de maquinaria. Financiar la reforestación masiva mediante la titularización y venta de "créditos de carbono" en mercados internacionales.</p>
+                    </div>
+                </div>
+
+                <!-- Directiva 8 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-8-content">
+                        <h3 class="text-xl font-bold text-azul-rd">8. Regulación Ambiental Estricta del Sector Turístico</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-8-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El modelo de turismo masivo "all-inclusive" está matando a la gallina de los huevos de oro. La generación de 20-30 toneladas diarias de basura solo en Punta Cana y la descarga de aguas residuales sin tratar están destruyendo el producto.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> La contaminación de acuíferos y costas destruye los ecosistemas marinos (corales, pastos) que son la base del producto "sol y playa". Es una amenaza directa a la viabilidad a largo plazo de la industria.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Aplicación estricta del principio "El Contaminador PAGA". Exigir por ley que todos los complejos hoteleros instalen y operen plantas de tratamiento de aguas residuales de nivel terciario "on-site", con reutilización obligatoria para riego. Multas equivalentes al 100x del costo de remediación.</p>
+                    </div>
+                </div>
+
+                <!-- Directiva 9 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-9-content">
+                        <h3 class="text-xl font-bold text-azul-rd">9. Fortalecimiento de la Soberanía Digital y Ciberseguridad</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-9-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> La infraestructura digital nacional es vulnerable, con un índice de resiliencia de apenas 40% (Internet Society). El mercado de ISP es oligopólico, poco competitivo y lento.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> La preparación en ciberseguridad es mediocre, exponiendo la infraestructura crítica (bancos, red eléctrica, gobierno, sistemas de agua) a un riesgo inaceptable de parálisis por ciberataques de actores estatales o criminales.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Implementar un "Firewall Soberano" nacional: un CSIRT de nivel militar, gestionado por IA, para proteger la infraestructura crítica. Contratar servicios de internet satelital (Starlink) como 'backbone' redundante para todas las operaciones esenciales del Estado (Gobierno, Hospitales, FF.AA.).</p>
+                    </div>
+                </div>
+
+                <!-- Directiva 10 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-10-content">
+                        <h3 class="text-xl font-bold text-azul-rd">10. Métrica de Desempeño: Mortalidad Materno-Infantil</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-10-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> La tasa de mortalidad materna (127 muertes por 100,000 nacidos vivos) es una de las peores de la región y excede dramáticamente los objetivos de desarrollo (SDG).</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">La Falla:</strong> Esta métrica es un indicador irrefutable del fracaso del sistema de salud pública en proveer cuidados prenatales y obstétricos de calidad. Es un fallo en la función más básica de un estado: proteger la vida.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Directiva:</strong> Establecer la reducción de la mortalidad materno-infantil como el KPI número uno del Ministerio de Salud. El presupuesto y la permanencia de los directores regionales de salud estarán ligados directamente a esta métrica. Implementar IA para predecir embarazos de alto riesgo y auditar cada muerte.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA (Call to Action) -->
+    <section id="compartir" class="bg-azul-rd text-white py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">La Ejecución de la Estrategia es Imperativa.</h2>
+            <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
+                El análisis identifica las fallas estructurales. La acción decisiva es la única solución.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <!-- Botón de Compartir en WhatsApp -->
+                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=An%C3%A1lisis%20de%2010%20directivas%20estrat%C3%A9gicas%20adicionales%20para%20la%20Rep%C3%BAblica%20Dominicana:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
+                    <span class="text-xl">📲</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                    </svg>
+                    <span>Compartir</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-azul-rd text-blue-200 py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">Protocolo independiente realizado en 2025.</p>
+            <p class="text-sm mt-2">
+                Este sitio web es un Mini-Proyecto Táctico derivado del "Protocolo de Misiones Estratégicas".
+            </p>
+        </div>
+    </footer>
+    
+    <!-- 
+      JavaScript para Interacción (Acordeón, Menú) y Arte 3D
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // Lógica para el Menú Móvil (Hamburger)
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = menuButton.querySelector('svg:first-child');
+            const closeIcon = menuButton.querySelector('svg:last-child');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+
+            // Lógica para el Acordeón de Misiones
+            const accordions = document.querySelectorAll('.accordion-toggle');
+
+            accordions.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+
+                    // Cerrar todos los demás acordeones
+                    accordions.forEach(otherButton => {
+                        const otherTargetId = otherButton.getAttribute('data-target');
+                        if (otherTargetId !== targetId) {
+                            document.getElementById(otherTargetId).classList.remove('open');
+                            otherButton.classList.remove('open');
+                        }
+                    });
+
+                    // Abrir o cerrar el actual
+                    targetContent.classList.toggle('open');
+                    button.classList.toggle('open');
+                });
+            });
+
+            // Lógica para el botón de WhatsApp (para incluir la URL actual)
+            const shareButton = document.getElementById('whatsapp-share');
+            if (shareButton) {
+                const shareUrl = window.location.href;
+                const originalHref = shareButton.getAttribute('href');
+                shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            }
+            
+            // --- INICIO DE CYGNUS 'THE SHATTERED SHACKLE' SCRIPT ---
+
+            const canvas = document.getElementById('shackle-canvas');
+            const header = document.getElementById('hero-header');
+            if (!canvas || typeof THREE === 'undefined') {
+                 console.error("Cygnus Error: Canvas or Three.js library not found.");
+                 return; // Salir si no hay canvas o Three.js
+            }
+
+            // 1. Configuración de la Escena
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, header.clientWidth / header.clientHeight, 0.1, 1000);
+            camera.position.z = 8;
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(header.clientWidth, header.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // 2. Iluminación
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            const pointLight = new THREE.PointLight(0xffffff, 1);
+            pointLight.position.set(0, 0, 10);
+            scene.add(pointLight);
+
+            // 3. Geometría (Dos sistemas de partículas)
+            const particleCount = 10000;
+            const rojoRD = new THREE.Color(0xCE1126);
+            const azulRD = new THREE.Color(0x002D62);
+            const blanco = new THREE.Color(0xFFFFFF);
+
+            let shackleParticles, liberatedParticles;
+            let shackleMaterial, liberatedMaterial;
+            
+            // Almacenar velocidades para la explosión
+            const shackleVelocities = [];
+
+            // --- Sistema 1: "The Shackle" (El Grillete) ---
+            const shackleGeometry = new THREE.BufferGeometry();
+            const shacklePositions = [];
+            const shackleColors = [];
+            
+            // Usar una geometría de nudo (TorusKnot) como plantilla
+            const knot = new THREE.TorusKnotGeometry(3, 0.6, 100, 16);
+            const basePositions = knot.attributes.position.array;
+
+            for (let i = 0; i < particleCount; i++) {
+                const index = (i * 3) % basePositions.length;
+                shacklePositions.push(basePositions[index] + (Math.random() - 0.5) * 0.1);
+                shacklePositions.push(basePositions[index+1] + (Math.random() - 0.5) * 0.1);
+                shacklePositions.push(basePositions[index+2] + (Math.random() - 0.5) * 0.1);
+                
+                rojoRD.toArray(shackleColors, i * 3);
+                
+                // Calcular velocidad de explosión (hacia afuera desde el centro)
+                const vec = new THREE.Vector3(shacklePositions[i*3], shacklePositions[i*3+1], shacklePositions[i*3+2]).normalize();
+                shackleVelocities.push((vec.x * 0.1) + (Math.random() - 0.5) * 0.02);
+                shackleVelocities.push((vec.y * 0.1) + (Math.random() - 0.5) * 0.02);
+                shackleVelocities.push((vec.z * 0.1) + (Math.random() - 0.5) * 0.02);
+            }
+            shackleGeometry.setAttribute('position', new THREE.Float32BufferAttribute(shacklePositions, 3));
+            shackleGeometry.setAttribute('color', new THREE.Float32BufferAttribute(shackleColors, 3));
+            shackleGeometry.attributes.position.usage = THREE.DynamicDrawUsage; // Marcar para actualización
+
+            shackleMaterial = new THREE.PointsMaterial({
+                size: 0.03,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.AdditiveBlending
+            });
+            shackleParticles = new THREE.Points(shackleGeometry, shackleMaterial);
+            scene.add(shackleParticles);
+            
+            // --- Sistema 2: "Liberated" (El Núcleo Azul) ---
+            const liberatedGeometry = new THREE.BufferGeometry();
+            const liberatedPositions = [];
+            const liberatedColors = [];
+
+            for (let i = 0; i < particleCount / 2; i++) { // Menos partículas para el núcleo
+                // Esfera central
+                liberatedPositions.push((Math.random() - 0.5) * 0.5);
+                liberatedPositions.push((Math.random() - 0.5) * 0.5);
+                liberatedPositions.push((Math.random() - 0.5) * 0.5);
+                
+                (Math.random() > 0.2 ? azulRD : blanco).toArray(liberatedColors, i * 3);
+            }
+            liberatedGeometry.setAttribute('position', new THREE.Float32BufferAttribute(liberatedPositions, 3));
+            liberatedGeometry.setAttribute('color', new THREE.Float32BufferAttribute(liberatedColors, 3));
+
+            liberatedMaterial = new THREE.PointsMaterial({
+                size: 0.08,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.0, // Inicia invisible
+                blending: THREE.AdditiveBlending
+            });
+            liberatedParticles = new THREE.Points(liberatedGeometry, liberatedMaterial);
+            scene.add(liberatedParticles);
+
+
+            // 4. Lógica de Animación por Scroll
+            let scrollPercent = 0;
+            const directivasSection = document.getElementById('directivas');
+
+            function updateScrollPercent() {
+                if (!directivasSection) return;
+                const rect = directivasSection.getBoundingClientRect();
+                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+                
+                // Empezar a hacer 'fade' cuando la sección de "diagnóstico" está a mitad de pantalla
+                const startElement = document.getElementById('diagnostico');
+                if (!startElement) return;
+                
+                const startRect = startElement.getBoundingClientRect();
+                const startPoint = startRect.top + startRect.height / 2 - viewHeight / 2;
+                
+                // Totalmente 'fade' cuando la sección de directivas llega al 30% superior
+                const endPoint = rect.top - (viewHeight * 0.3);
+                
+                let totalDistance = endPoint - startPoint;
+                if (totalDistance <= 0) totalDistance = 1;
+                
+                scrollPercent = (startPoint * -1) / totalDistance;
+                scrollPercent = THREE.MathUtils.clamp(scrollPercent, 0, 1);
+            }
+
+            window.addEventListener('scroll', updateScrollPercent, { passive: true });
+            updateScrollPercent();
+
+            // 5. Bucle de Renderizado
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const elapsedTime = clock.getElapsedTime();
+
+                // 1. Animación del Grillete (Shackle)
+                const positions = shackleGeometry.attributes.position.array;
+                
+                // Si scrollPercent > 0, la explosión ha comenzado
+                if (scrollPercent > 0) {
+                    for (let i = 0; i < positions.length; i += 3) {
+                        // Aplicar velocidad de explosión
+                        positions[i] += shackleVelocities[i] * (scrollPercent * 1.5);
+                        positions[i+1] += shackleVelocities[i+1] * (scrollPercent * 1.5);
+                        positions[i+2] += shackleVelocities[i+2] * (scrollPercent * 1.5);
+                    }
+                    shackleGeometry.attributes.position.needsUpdate = true;
+                    // Desvanecer el grillete a medida que explota
+                    shackleMaterial.opacity = 0.8 - scrollPercent;
+                } else {
+                    // Vibración sutil antes de romperse
+                    shackleParticles.rotation.x = Math.sin(elapsedTime * 3) * 0.05;
+                    shackleParticles.rotation.y = Math.cos(elapsedTime * 2) * 0.05;
+                }
+
+                // 2. Animación de la Liberación
+                if (scrollPercent > 0.1) {
+                    // Aparece el núcleo azul/blanco
+                    liberatedMaterial.opacity = (scrollPercent - 0.1) * 1.1; // Hacer que aparezca
+                    liberatedParticles.scale.set(scrollPercent, scrollPercent, scrollPercent); // Crecer
+                    liberatedParticles.rotation.y = elapsedTime * 0.1;
+                } else {
+                    liberatedMaterial.opacity = 0;
+                }
+                
+                renderer.render(scene, camera);
+            }
+
+            // 6. Manejo de Redimensión
+            function onWindowResize() {
+                const width = header.clientWidth;
+                const height = header.clientHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                
+                renderer.setSize(width, height);
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            
+            // Iniciar
+            animate();
+
+            // --- FIN DE CYGNUS SCRIPT ---
+            
+        });
+    </script>
+
+</body>
+</html>

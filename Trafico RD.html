@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini-Proyecto: Salud RD</title>
+    <title>Mini-Proyecto: Tránsito RD</title>
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Carga de Fuente Inter y Merriweather -->
@@ -56,7 +56,7 @@
             transform: rotate(180deg);
         }
         /* Estilo para el canvas 3D */
-        #health-canvas {
+        #traffic-canvas {
             display: block;
             width: 100%;
             height: 100%;
@@ -121,17 +121,17 @@
     -->
     <header id="hero-header" class="bg-azul-rd pt-24 pb-16 sm:pt-32 sm:pb-24 relative overflow-hidden">
         
-        <!-- Canvas para "The Vital Stream" -->
-        <canvas id="health-canvas"></canvas>
+        <!-- Canvas para "The Generative Flow" -->
+        <canvas id="traffic-canvas"></canvas>
 
         <!-- Contenido de Texto (z-10) -->
         <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                    🩺 Mini-Proyecto Táctico: Salud
+                    🚗 Mini-Proyecto Táctico: Tránsito
                 </h1>
                 <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
-                    5 directivas de "shock" para transformar el Ministerio de Salud de una burocracia en crisis a un sistema de excelencia preventiva.
+                    5 directivas de "shock" para desmantelar el caos del transporte en Santo Domingo y modernizar la movilidad nacional.
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="#directivas" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-200 transition duration-300">
@@ -147,18 +147,18 @@
         <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: Crisis Epidemiológica</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: El Colapso de la Movilidad</h2>
                 <p class="mt-4 text-lg text-gray-700">
-                    El sector salud enfrenta una crisis evidente en 2025: brotes de <strong class="font-semibold text-rojo-rd">influenza</strong>, impactos del cambio climático, alta <strong class="font-semibold text-rojo-rd">mortalidad por cáncer</strong> y falta de registros.
+                    El tránsito en el Gran Santo Domingo es un fracaso sistémico. Cuesta <strong class="font-semibold text-rojo-rd">miles de millones en productividad perdida</strong>, contamina, y es controlado por un sistema anárquico de "conchos" y carros públicos ineficientes.
                 </p>
             </div>
             <div class="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-200">
                 <h3 class="text-2xl font-bold text-center text-azul-rd">La Falla Sistémica</h3>
                 <p class="mt-4 text-gray-700 leading-relaxed">
-                    Pese a avances en la vigilancia del cólera y la eliminación de muertes por dengue, el sistema falla en lo crónico. Con un <strong class="text-rojo-rd">21% de muertes por cáncer en mujeres menores de 50 años</strong> y problemas socioeconómicos que se reflejan en los boletines epidemiológicos, es claro que el modelo está roto.
+                    Planes existentes como "RD Se Mueve" atacan síntomas (semáforos, parqueo), pero no la raíz del problema. El INTRANT ha fracasado en su misión de regular un modelo obsoleto del siglo 20.
                 </p>
                 <p class="mt-4 text-gray-700 leading-relaxed">
-                    Estas <strong class="text-azul-rd">Directivas Tácticas</strong> son acciones de "shock" para priorizar la prevención, la eficiencia y los resultados medibles, no la burocracia.
+                    Estas <strong class="text-azul-rd">Directivas Tácticas</strong> son acciones de "shock" para reemplazar el caos con un sistema moderno, digital y ordenado, donde el transporte público sea la opción inteligente.
                 </p>
             </div>
         </div>
@@ -178,75 +178,75 @@
                 <!-- Directiva 1 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content">
-                        <h3 class="text-xl font-bold text-azul-rd">💳 1. Vouchers Sanitarios (Elección Libre)</h3>
+                        <h3 class="text-xl font-bold text-azul-rd">🚦 1. Digitalización y Sincronización (IA-TRÁFICO)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-1-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">El monopolio estatal y los seguros SFS son ineficientes, burocráticos y limitan la elección del paciente. El dinero se queda en administración y corrupción, no llega al servicio.</p>
-                        <p class="mt-4 text-gray-700">Implementar <strong class="text-azul-rd">vouchers sanitarios</strong>. El financiamiento seguirá al paciente, permitiendo a los ciudadanos usar fondos públicos en clínicas privadas o públicas que compitan por calidad y precio.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Romper los monopolios ineficientes. El paciente elige, el sistema compite, la calidad sube y la corrupción administrativa se reduce drásticamente.</p>
+                        <p class="mt-2 text-gray-700">El plan "RD Se Mueve" propone ciclos fijos de 110-120 segundos. Esto es tecnología obsoleta. Los semáforos no se "hablan" entre sí y operan con temporizadores fijos, creando tapones innecesarios.</p>
+                        <p class="mt-4 text-gray-700">Implementar un <strong class="text-azul-rd">sistema de semáforos inteligentes (IA)</strong> que usen cámaras para adaptarse al flujo del tráfico en <strong class="text-azul-rd">tiempo real</strong>. Prohibir los giros a la izquierda en las 38 intersecciones más críticas (como se identificó en estudios) para garantizar flujo continuo.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Que la tecnología gestione el flujo, no un temporizador. Eliminar la discreción humana y el "macuteo" de los agentes de AMET/DIGESETT en las intersecciones. Código es Ley.</p>
                     </div>
                 </div>
 
                 <!-- Directiva 2 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content">
-                        <h3 class="text-xl font-bold text-azul-rd">🖥️ 2. Digitalización Total (IA y Blockchain)</h3>
+                        <h3 class="text-xl font-bold text-azul-rd">🅿️ 2. Regulación Estricta del Parqueo (Parquéate Bien)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-2-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">No existe un registro nacional de tumores. Los datos epidemiológicos se manejan en papel o en sistemas aislados. Es imposible responder a una crisis (como la influenza) sin data en tiempo real.</p>
-                        <p class="mt-4 text-gray-700">Crear un <strong class="text-azul-rd">sistema nacional unificado de registros médicos</strong> usando IA y Blockchain. Esto garantiza data segura, inmutable y accesible para rastrear tumores, epidemias y récords de vacunación.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Eliminar el papel y la burocracia. Tener data en tiempo real para tomar decisiones de salud pública en horas, no en semanas. El código es la mejor herramienta epidemiológica.</p>
+                        <p class="mt-2 text-gray-700">La cultura de la doble fila y el parqueo ilegal en zonas como Naco y Piantini nos roba un 33% de la capacidad vial. El plan "Parquéate Bien" es un buen inicio, pero es demasiado tímido y lento.</p>
+                        <p class="mt-4 text-gray-700">Expansión <strong class="text-azul-rd">nacional e inmediata</strong> del plan "Parquéate Bien". Implementación de parquímetros digitales y un sistema de grúas y fiscalización digital con "tolerancia cero" a la doble fila y al bloqueo de intersecciones.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Devolverle los carriles a los vehículos en movimiento. El derecho a parquearse no puede estar por encima del derecho a circular.</p>
                     </div>
                 </div>
                 
                 <!-- Directiva 3 -->
                 <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content">
-                        <h3 class="text-xl font-bold text-rojo-rd">🌦️ 3. Prevención Climática y Ambiental</h3>
+                        <h3 class="text-xl font-bold text-rojo-rd">🚌 3. Reforma Radical del Transporte Público</h3>
                         <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-3-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">El cambio climático no es teoría, es una realidad que trae más vectores de enfermedades (como el dengue y la malaria) y emergencias sanitarias por inundaciones (cólera).</p>
-                        <p class="mt-4 text-gray-700">Invertir masivamente en <strong class="text-azul-rd">programas de prevención ambiental</strong>, en alianza con OPS/OMS. Foco en entornos 100% libres de humo y eliminación de criaderos de mosquitos y aguas estancadas.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Dejar de ser reactivos. Atacar la causa (el vector, el agua contaminada) antes de que se convierta en epidemia. La prevención es la inversión en salud más barata y efectiva.</p>
+                        <p class="mt-2 text-gray-700">Esta es la raíz del problema. El sistema de "conchos" y "carros públicos" (muchos con más de 20 años) es inseguro, ineficiente, contaminante y opera como un cartel anárquico que impide la modernización.</p>
+                        <p class="mt-4 text-gray-700">Reemplazo <strong class="text-azul-rd">total y obligatorio</strong> del sistema de conchos. Retirar de circulación todos los carros públicos y "chatarras" mediante un plan de compensación (bonos) para los choferes y propietarios, condicionado a que no vuelvan a operar.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Reemplazar el caos con un sistema integrado de <strong class="text-gray-900">autobuses (BRT) de alta frecuencia</strong> con carriles exclusivos 24/7 y pago digital único (integrado con el Metro). Un sistema digno, rápido y predecible.</p>
                     </div>
                 </div>
                 
                 <!-- Directiva 4 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content">
-                        <h3 class="text-xl font-bold text-azul-rd">🧑‍⚕️ 4. Accountability Estricta (Tolerancia Cero)</h3>
+                        <h3 class="text-xl font-bold text-azul-rd">⏰ 4. Descongestión de Horarios Laborales</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-4-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">El ausentismo, la negligencia y la corrupción en la compra de medicamentos son un cáncer dentro del sistema. Los gremios protegen al ineficiente, y el paciente paga las consecuencias.</p>
-                        <p class="mt-4 text-gray-700">Implementar <strong class="text-azul-rd">evaluaciones de desempeño con métricas claras</strong> (tasas de mortalidad hospitalaria, tiempos de atención, asistencia). El pago debe basarse en resultados y se facilitará el despido de personal ineficiente.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Restaurar la meritocracia y la vocación de servicio. Cero tolerancia al ausentismo y la corrupción. El dinero público debe pagar por calidad y resultados medibles.</p>
+                        <p class="mt-2 text-gray-700">El tapón de las 8:00 AM y las 5:00 PM es un pico artificial. Todo el sector público y privado entra y sale exactamente a la misma hora, colapsando la infraestructura.</p>
+                        <p class="mt-4 text-gray-700">Implementar por decreto <strong class="text-azul-rd">horarios laborales escalonados</strong> para el sector público (ej. 7:00 AM - 3:00 PM) e incentivos fiscales agresivos para que el sector privado adopte horarios flexibles (ej. 9:00 AM - 6:00 PM o teletrabajo).</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> "Aplanar la curva" de la hora pico. Distribuir la carga vehicular a lo largo del día en lugar de concentrarla en dos horas de caos.</p>
                     </div>
                 </div>
                 
                 <!-- Directiva 5 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content">
-                        <h3 class="text-xl font-bold text-azul-rd">🚑 5. Expansión de Telemedicina y Técnicos</h3>
+                        <h3 class="text-xl font-bold text-azul-rd">🚆 5. Infraestructura de Conexión (Misión 5)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-5-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">La salud de calidad está concentrada en Santo Domingo y Santiago. Las zonas rurales y pueblos pequeños carecen de especialistas y atención oportuna, resultando en muertes prevenibles.</p>
-                        <p class="mt-4 text-gray-700">Desarrollar una <strong class="text-azul-rd">plataforma nacional de telemedicina</strong> y crear diplomados técnicos de "salud azul-collar" (enfermería especializada, técnicos en epidemiología, paramédicos avanzados) con becas e incentivos.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Cubrir las brechas en áreas rurales. Usar la tecnología para llevar especialistas a todo el país y crear una fuerza técnica que resuelva el 90% de los casos antes de que lleguen a un hospital saturado.</p>
+                        <p class="mt-2 text-gray-700">El tráfico de Santo Domingo no es solo de Santo Domingo. El transporte de carga pesada y los pasajeros interurbanos (del Cibao, el Sur y el Este) saturan las autopistas Duarte, 6 de Noviembre y Las Américas, usando la ciudad como un peaje.</p>
+                        <p class="mt-4 text-gray-700">Ejecución prioritaria de la <strong class="text-azul-rd">Misión Estratégica 5 (Red Ferroviaria Nacional)</strong>. Conectar Santo Domingo con Santiago (carga y pasajeros) y con el Este (Punta Cana). Esto saca el 90% del transporte de carga pesada de las autopistas.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Misión:</strong> Crear 5 grandes estacionamientos <strong class="text-gray-900">"Park-and-Ride"</strong> en las entradas de la ciudad (Puente Duarte, Aut. Duarte, etc.) con conexión directa al Metro/BRT. Desincentivar la entrada de vehículos privados al polígono central.</p>
                     </div>
                 </div>
 
@@ -258,14 +258,14 @@
     <section id="compartir" class="bg-azul-rd text-white py-16 sm:py-24">
         <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma de salud no espera.</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold">📢 El caos del tránsito tiene solución.</h2>
             <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
-                Nuestra salud no puede depender de un sistema colapsado. Comparte estas directivas.
+                Se requiere voluntad política radical, no más "parcheos". Comparte estas directivas.
             </p>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
                 <!-- Botón de Compartir en WhatsApp -->
-                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20estas%205%20directivas%20de%20shock%20para%20reformar%20la%20salud%20en%20RD:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
+                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20estas%205%20directivas%20de%20shock%20para%20reformar%20el%20tr%C3%A1nsito%20en%20RD:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
                     <span class="text-xl">📲</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
@@ -279,7 +279,7 @@
     <footer class="bg-azul-rd text-blue-200 py-10">
         <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="text-sm">Protocolo independiente realizado en 2025.</p>
+            <p class="text-sm">Protocolo independiente realizado en 2025. 🇩🇴</p>
             <p class="text-sm mt-2">
                 Este sitio web es un Mini-Proyecto Táctico derivado del "Protocolo de Misiones Estratégicas".
             </p>
@@ -335,9 +335,9 @@
                 shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
             }
             
-            // --- INICIO DE CYGNUS 'THE VITAL STREAM' SCRIPT ---
+            // --- INICIO DE CYGNUS 'THE GENERATIVE FLOW' SCRIPT ---
 
-            const canvas = document.getElementById('health-canvas');
+            const canvas = document.getElementById('traffic-canvas');
             const header = document.getElementById('hero-header');
             if (!canvas || typeof THREE === 'undefined') {
                  console.error("Cygnus Error: Canvas or Three.js library not found.");
@@ -361,90 +361,84 @@
             scene.add(pointLight);
 
             // 3. Geometría (Los dos sistemas de partículas)
-            const particleCount = 5000;
+            const particleCount = 6000;
             const rojoRD = 0xCE1126;
             const azulRD = 0x002D62;
             const blanco = 0xFFFFFF;
 
-            let crisisParticles, healthParticles;
-            let crisisMaterial, healthMaterial;
+            let chaosParticles, orderedParticles;
+            let chaosMaterial, orderedMaterial;
             
-            // --- Sistema 1: "Crisis" (El Sistema Enfermo) ---
-            const crisisGeometry = new THREE.BufferGeometry();
-            const crisisPositions = [];
-            const crisisColors = [];
-            const crisisColor = new THREE.Color(rojoRD);
+            // Almacenar velocidades para el caos
+            const chaosVelocities = [];
+
+            // --- Sistema 1: "Chaos" (Los Conchos) ---
+            const chaosGeometry = new THREE.BufferGeometry();
+            const chaosPositions = [];
+            const chaosColor = new THREE.Color(rojoRD);
 
             for (let i = 0; i < particleCount; i++) {
-                // Forma de una esfera caótica, "clumpy"
-                const radius = 4;
-                const u = Math.random();
-                const v = Math.random();
-                const theta = 2 * Math.PI * u;
-                const phi = Math.acos(2 * v - 1);
+                // Posición aleatoria en un plano 2D (la ciudad)
+                chaosPositions.push((Math.random() - 0.5) * 20); // x
+                chaosPositions.push((Math.random() - 0.5) * 15); // y
+                chaosPositions.push((Math.random() - 0.5) * 2);  // z (profundidad leve)
                 
-                // Añadir "ruido" para que no sea una esfera perfecta
-                const noise = (Math.random() - 0.5) * 1.5;
-
-                crisisPositions.push(radius * Math.sin(phi) * Math.cos(theta) + noise); // x
-                crisisPositions.push(radius * Math.sin(phi) * Math.sin(theta) + noise); // y
-                crisisPositions.push(radius * Math.cos(phi) + noise); // z
-                
-                crisisColor.toArray(crisisColors, i * 3);
+                // Velocidad aleatoria
+                chaosVelocities.push((Math.random() - 0.5) * 0.05);
+                chaosVelocities.push((Math.random() - 0.5) * 0.05);
+                chaosVelocities.push(0); // No se mueven en Z
             }
-            crisisGeometry.setAttribute('position', new THREE.Float32BufferAttribute(crisisPositions, 3));
-            crisisGeometry.setAttribute('color', new THREE.Float32BufferAttribute(crisisColors, 3));
+            chaosGeometry.setAttribute('position', new THREE.Float32BufferAttribute(chaosPositions, 3));
+            chaosGeometry.attributes.position.usage = THREE.DynamicDrawUsage; // Marcar para actualización
             
-            crisisMaterial = new THREE.PointsMaterial({
-                size: 0.03,
-                vertexColors: true,
+            chaosMaterial = new THREE.PointsMaterial({
+                size: 0.04,
+                color: chaosColor,
                 transparent: true,
-                opacity: 1.0,
+                opacity: 0.8,
                 blending: THREE.AdditiveBlending
             });
-            crisisParticles = new THREE.Points(crisisGeometry, crisisMaterial);
-            scene.add(crisisParticles);
+            chaosParticles = new THREE.Points(chaosGeometry, chaosMaterial);
+            scene.add(chaosParticles);
 
-            // --- Sistema 2: "Health" (El Flujo de Datos) ---
-            const healthGeometry = new THREE.BufferGeometry();
-            const healthPositions = [];
-            const healthColors = [];
+            // --- Sistema 2: "Order" (Las Arterias BRT/IA) ---
+            const orderedGeometry = new THREE.BufferGeometry();
+            const orderedPositions = [];
+            const orderedColors = [];
             const colorAzul = new THREE.Color(azulRD);
             const colorBlanco = new THREE.Color(blanco);
             
-            // Forma de un doble hélice (como ADN o un flujo de datos)
-            const turns = 10;
-            const pointsPerTurn = Math.floor(particleCount / (turns * 2));
-            const radius = 3.5;
+            // 8 líneas paralelas (arterias)
+            const numLines = 8;
+            const particlesPerLine = particleCount / numLines;
+            const lineSpacing = 1.5;
+            const gridWidth = (numLines - 1) * lineSpacing;
 
-            for (let i = 0; i < particleCount; i++) {
-                const t = (i / particleCount) * turns * Math.PI * 2; // ángulo
-                const y = (i / particleCount - 0.5) * 12; // altura
-                
-                healthPositions.push(radius * Math.cos(t)); // x
-                healthPositions.push(y); // y
-                healthPositions.push(radius * Math.sin(t)); // z
-                
-                // Mezcla de colores azul y blanco
-                if (Math.random() > 0.3) {
-                    colorAzul.toArray(healthColors, i * 3);
-                } else {
-                    colorBlanco.toArray(healthColors, i * 3);
+            for (let i = 0; i < numLines; i++) {
+                for (let j = 0; j < particlesPerLine; j++) {
+                    // x es fijo por línea, y es aleatorio
+                    orderedPositions.push(i * lineSpacing - gridWidth / 2); // x
+                    orderedPositions.push((Math.random() - 0.5) * 20); // y
+                    orderedPositions.push(0); // z
+                    
+                    // Colores azul y blanco
+                    (Math.random() > 0.3 ? colorAzul : colorBlanco).toArray(orderedColors, (i * particlesPerLine + j) * 3);
                 }
             }
             
-            healthGeometry.setAttribute('position', new THREE.Float32BufferAttribute(healthPositions, 3));
-            healthGeometry.setAttribute('color', new THREE.Float32BufferAttribute(healthColors, 3));
+            orderedGeometry.setAttribute('position', new THREE.Float32BufferAttribute(orderedPositions, 3));
+            orderedGeometry.setAttribute('color', new THREE.Float32BufferAttribute(orderedColors, 3));
+            orderedGeometry.attributes.position.usage = THREE.DynamicDrawUsage;
 
-            healthMaterial = new THREE.PointsMaterial({
+            orderedMaterial = new THREE.PointsMaterial({
                 size: 0.05,
                 vertexColors: true,
                 transparent: true,
                 opacity: 0.0, // Inicia invisible
                 blending: THREE.AdditiveBlending
             });
-            healthParticles = new THREE.Points(healthGeometry, healthMaterial);
-            scene.add(healthParticles);
+            orderedParticles = new THREE.Points(orderedGeometry, orderedMaterial);
+            scene.add(orderedParticles);
 
             // 4. Lógica de Animación por Scroll
             let scrollPercent = 0;
@@ -452,51 +446,71 @@
 
             function updateScrollPercent() {
                 if (!directivasSection) return;
-
                 const rect = directivasSection.getBoundingClientRect();
                 const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
 
-                // Empezar a hacer 'fade' cuando la sección de "diagnóstico" está a mitad de pantalla
                 const startElement = document.getElementById('diagnostico');
                 if (!startElement) return;
                 
                 const startRect = startElement.getBoundingClientRect();
                 const startPoint = startRect.top + startRect.height / 2 - viewHeight / 2;
                 
-                // Totalmente 'fade' cuando la sección de directivas llega al 30% superior
                 const endPoint = rect.top - (viewHeight * 0.3);
                 
                 let totalDistance = endPoint - startPoint;
-                if (totalDistance <= 0) totalDistance = 1; // Evitar división por cero
+                if (totalDistance <= 0) totalDistance = 1;
                 
                 scrollPercent = (startPoint * -1) / totalDistance;
                 scrollPercent = THREE.MathUtils.clamp(scrollPercent, 0, 1);
             }
 
             window.addEventListener('scroll', updateScrollPercent, { passive: true });
-            updateScrollPercent(); // Llamar una vez al inicio
+            updateScrollPercent();
 
             // 5. Bucle de Renderizado
             const clock = new THREE.Clock();
+            const bounds = { x: 10, y: 7.5 };
 
             function animate() {
                 requestAnimationFrame(animate);
-                const elapsedTime = clock.getElapsedTime();
 
-                // 1. Animar el sistema "Crisis"
-                crisisParticles.rotation.y = elapsedTime * 0.05; // Rotación lenta y errática
-                crisisParticles.rotation.x = elapsedTime * 0.02;
+                const positionsChaos = chaosParticles.geometry.attributes.position.array;
+                const positionsOrder = orderedParticles.geometry.attributes.position.array;
 
-                // 2. Animar el sistema "Health"
-                healthParticles.rotation.y = elapsedTime * -0.2; // Rotación rápida y organizada
+                // 1. Animar sistema "Chaos"
+                for (let i = 0; i < positionsChaos.length; i += 3) {
+                    positionsChaos[i] += chaosVelocities[i];
+                    positionsChaos[i+1] += chaosVelocities[i+1];
+                    
+                    // Rebotar en los bordes
+                    if (positionsChaos[i] > bounds.x || positionsChaos[i] < -bounds.x) {
+                        chaosVelocities[i] *= -1;
+                    }
+                    if (positionsChaos[i+1] > bounds.y || positionsChaos[i+1] < -bounds.y) {
+                        chaosVelocities[i+1] *= -1;
+                    }
+                }
+                chaosParticles.geometry.attributes.position.needsUpdate = true;
+                
+                // 2. Animar sistema "Order"
+                const flowSpeed = 0.05;
+                for (let i = 0; i < positionsOrder.length; i += 3) {
+                    positionsOrder[i+1] += flowSpeed; // Moverse hacia arriba
+                    // Resetear al llegar al borde
+                    if (positionsOrder[i+1] > 10) {
+                        positionsOrder[i+1] = -10;
+                    }
+                }
+                orderedParticles.geometry.attributes.position.needsUpdate = true;
+
 
                 // 3. Actualizar opacidad basada en el scroll
-                crisisMaterial.opacity = 1.0 - scrollPercent;
-                healthMaterial.opacity = scrollPercent;
+                chaosMaterial.opacity = 0.8 * (1.0 - scrollPercent);
+                orderedMaterial.opacity = scrollPercent;
 
-                // 4. Hacer que el sistema "Health" se expanda
-                const scale = 0.5 + scrollPercent * 0.5;
-                healthParticles.scale.set(scale, scale, scale);
+                // 4. Rotar cámara levemente
+                camera.position.x = Math.sin(clock.getElapsedTime() * 0.1) * 2;
+                camera.lookAt(scene.position);
 
                 renderer.render(scene, camera);
             }

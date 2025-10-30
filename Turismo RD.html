@@ -10,6 +10,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Carga de Three.js (Necesario para el arte 3D) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
     <script>
         // Configuración de Tailwind para usar los colores de la bandera
         tailwind.config = {
@@ -51,12 +55,23 @@
         .accordion-toggle.open .accordion-icon {
             transform: rotate(180deg);
         }
+        /* Estilo para el canvas 3D */
+        #tourism-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
 
     <!-- Header / Navegación -->
     <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <!-- ... (El contenido de la NAV no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo / Título -->
@@ -77,11 +92,9 @@
                 <div class="sm:hidden flex items-center">
                     <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                         <span class="sr-only">Abrir menú principal</span>
-                        <!-- Icono Hamburguesa -->
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <!-- Icono X (Cerrar) -->
                         <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -89,7 +102,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Panel Menú Móvil -->
         <div id="mobile-menu" class="sm:hidden hidden"">
             <div class="px-2 pt-2 pb-3 space-y-1">
@@ -100,19 +112,29 @@
         </div>
     </nav>
 
-    <!-- Sección Hero -->
-    <header class="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            
+    <!-- 
+      Sección Hero con Canvas 3D
+      Cygnus Mod: 
+      - Fondo 'bg-azul-rd'.
+      - 'relative overflow-hidden' para el canvas.
+      - Texto en blanco.
+    -->
+    <header id="hero-header" class="bg-azul-rd pt-24 pb-16 sm:pt-32 sm:pb-24 relative overflow-hidden">
+        
+        <!-- Canvas para "The Recapture Engine" -->
+        <canvas id="tourism-canvas"></canvas>
+
+        <!-- Contenido de Texto (z-10) -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-azul-rd leading-tight">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                     🌴 Mini-Proyecto Táctico: Turismo
                 </h1>
-                <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
-                    5 directivas de "shock" para transformar el turismo de un modelo 'All-Inclusive' a un motor económico sostenible y diversificado.
+                <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
+                    5 directivas de "shock" para transformar el turismo de un motor de "fuga de divisas" a un motor de "retención de valor".
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#directivas" class="bg-azul-rd text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:opacity-90 transition duration-300">
+                    <a href="#directivas" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-200 transition duration-300">
                         👇 Ver las 5 Directivas
                     </a>
                 </div>
@@ -120,28 +142,40 @@
         </div>
     </header>
 
-    <!-- Sección de Introducción / Diagnóstico -->
+    <!-- 
+      Sección de Introducción / Diagnóstico
+      Cygnus Mod: Contenido expandido.
+    -->
     <section id="diagnostico" class="py-16 sm:py-24 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: Fuga de Divisas</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: La Paradoja del "Todo Incluido"</h2>
                 <p class="mt-4 text-lg text-gray-700">
-                    El turismo es el <strong class="font-semibold text-rojo-rd">14.5% del PIB</strong> (2024) y genera 1 de cada 7 empleos, pero está estancado en un modelo de bajo valor agregado y alta vulnerabilidad.
+                    El turismo es el <strong class="font-semibold text-rojo-rd">14.5% del PIB</strong> (2024), pero es un gigante con pies de barro. El modelo de "sol y playa" todo-incluido, aunque exitoso en atraer volumen (10.8M de turistas), es una trampa de bajo valor.
                 </p>
             </div>
             <div class="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-200">
-                <h3 class="text-2xl font-bold text-center text-azul-rd">La Falla Sistémica</h3>
+                <h3 class="text-2xl font-bold text-center text-azul-rd">La Falla Sistémica: Fuga de Divisas</h3>
                 <p class="mt-4 text-gray-700 leading-relaxed">
-                    En 2025, con el récord de 10.8 millones de turistas, el sector crece... pero el <strong class="text-rojo-rd">70% del gasto se fuga</strong> por importaciones y repatriación de ganancias de cadenas extranjeras.
+                    El problema es la <strong class="text-rojo-rd">fuga de capital</strong>. Se estima que hasta un <strong class="text-rojo-rd">70% del gasto turístico se filtra fuera del país</strong> a través de:
+                    <br>
+                    1. Cadenas hoteleras extranjeras que repatrian ganancias.
+                    <br>
+                    2. Importación masiva de alimentos y bebidas que podrían producirse localmente.
+                    <br>
+                    3. Comisiones de hasta el 20% pagadas a OTAs (Online Travel Agencies) extranjeras como Booking o Expedia.
                 </p>
                 <p class="mt-4 text-gray-700 leading-relaxed">
-                    Estas <strong class="text-azul-rd">Directivas Tácticas</strong> son acciones de "shock" e implementación inmediata para diversificar, retener la riqueza y profesionalizar el sector.
+                    Estas <strong class="text-azul-rd">Directivas Tácticas</strong> son acciones de "shock" para sellar la fuga, retener la riqueza y diversificar la oferta para crear valor real y sostenible.
                 </p>
             </div>
         </div>
     </section>
 
-    <!-- Sección de las 5 Directivas Interactivas -->
+    <!-- 
+      Sección de las 5 Directivas Interactivas
+      Cygnus Mod: Contenido masivamente expandido.
+    -->
     <section id="directivas" class="py-16 sm:py-24 bg-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
@@ -154,102 +188,81 @@
                 <!-- Directiva 1 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content">
-                        <h3 class="text-xl font-bold text-azul-rd">💰 1. Ley de Retención de Valor Turístico</h3>
+                        <h3 class="text-xl font-bold text-azul-rd">💰 1. Directiva de "Fuga Cero" (Retención de Valor)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-1-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700"><strong class="text-azul-rd">Objetivo:</strong> Que al menos el 60% del gasto turístico quede en RD en 5 años.</p>
-                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">Acciones:</strong></p>
-                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
-                            <li>Impuesto del 5% a cadenas extranjeras por repatriación de utilidades → fondo para PYMES locales.</li>
-                            <li>Obligatoriedad de 40% de proveedores dominicanos en hoteles >100 habitaciones (alimentos, artesanía).</li>
-                            <li>Eliminación de exenciones fiscales a resorts pre-2000 que no reinviertan localmente.</li>
-                        </ul>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">Impacto Proyectado:</strong> +US$1,200 millones anuales en economía local.</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El modelo "all-inclusive" opera como un enclave. Importa whisky escocés y carne de Nebraska, es propiedad de cadenas españolas y usa sábanas hechas en Asia. El dinero del turista nunca toca la economía dominicana.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Implementar una <strong class="text-azul-rd">"Ley de Proveedor Local"</strong>. Se requerirá por ley que todos los complejos hoteleros de más de 100 habitaciones certifiquen que un mínimo del 40% de sus insumos (alimentos, bebidas, textiles, amenidades) son de origen dominicano en 24 meses. Los incentivos fiscales (CONFOTUR) se atarán al cumplimiento.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El privilegio de operar en nuestras playas conlleva la responsabilidad de invertir en nuestra gente. La meta no es solo atraer turistas, es crear una cadena de suministro local próspera, desde el agricultor de Constanza hasta el artesano de Higüey.</p>
                     </div>
                 </div>
 
                 <!-- Directiva 2 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content">
-                        <h3 class="text-xl font-bold text-azul-rd">📱 2. 'Turismo 4.0': Plataforma Blockchain Nacional</h3>
+                        <h3 class="text-xl font-bold text-azul-rd">📱 2. Plataforma Nacional "VisitRD" (Desintermediación)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-2-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">Crear un sistema único digital para:</p>
-                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
-                            <li>Reservas directas (sin OTAs como Booking que se llevan 15-20%).</li>
-                            <li>Certificación instantánea de guías, artesanos y transportistas.</li>
-                            <li>Pago en cripto (amigable con activos digitales) para turistas internacionales.</li>
-                            <li>App "VisitRD": IA recomienda rutas personalizadas (eco, cultural) con QR para pago directo a microempresarios.</li>
-                        </ul>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">Impacto Proyectado:</strong> Reduce intermediación → +15% de ingreso neto a comunidades.</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> Las OTAs (Booking, Expedia) extraen comisiones del 15% al 25% por cada reserva, actuando como un peaje digital que se lleva cientos de millones de dólares al año. Los pequeños operadores (eco-lodges, guías turísticos) no tienen poder de negociación.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Lanzar "VisitRD", una plataforma nacional de turismo (App y Web) con comisión cero para operadores locales. Usará <strong class="text-azul-rd">Blockchain para certificar</strong> la identidad e historial de cada guía, transportista y hotel pequeño, eliminando el fraude. Integrará pagos directos (incluyendo cripto) para que el 100% del dinero vaya al proveedor. El marketing internacional de MITUR se enfocará en llevar tráfico a esta plataforma.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Debemos poseer la infraestructura digital de nuestro principal producto. Al eliminar al intermediario extranjero, conectamos al turista directamente con el pueblo, asegurando que el valor se quede en la comunidad, no en una corporación en Ámsterdam.</p>
                     </div>
                 </div>
                 
                 <!-- Directiva 3 -->
                 <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content">
-                        <h3 class="text-xl font-bold text-rojo-rd">🧑‍🍳 3. Diplomados Técnicos en Oficios Turísticos Premium</h3>
+                        <h3 class="text-xl font-bold text-rojo-rd">🧑‍🍳 3. Creación de Oficios Turísticos "Premium"</h3>
                         <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-3-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">Crear programas de 6-9 meses con certificación internacional:</p>
-                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
-                            <li>Bartenders mixólogos (con ron dominicano premium).</li>
-                            <li>Chefs de fusión caribeña.</li>
-                            <li>Técnicos en buceo sostenible y kitesurf.</li>
-                            <li>Guías de ecoturismo (Samaná, Pedernales).</li>
-                        </ul>
-                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">Incentivos:</strong> Beca 100% + salario mínimo en práctica y contrato garantizado.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">Impacto Proyectado:</strong> 20,000 egresados en 3 años. Profesionaliza el sector y reduce la informalidad (actual 60%).</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El sector genera empleo, pero de bajo valor (limpieza, seguridad, servicio básico). La informalidad es del 60%. Carecemos de una clase media técnica y profesional en hospitalidad, por lo que los puestos gerenciales y especializados a menudo van a extranjeros.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Inversión masiva en <strong class="text-azul-rd">Diplomados Técnicos de "Cuello Azul" Premium</strong> (6-9 meses) a través de INFOTEP, con certificación internacional. Foco en: Mixología Avanzada (con ron dominicano), Chefs de Fusión Caribeña, Baristas de Café de especialidad, Guías de Ecoturismo (certificados en biología), y Técnicos de Buceo y Kitesurf. Se ofrecerán becas completas con contrato garantizado.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El futuro del turismo no es cuántos empleos creamos, sino de qué calidad son. Debemos profesionalizar el servicio y crear una élite técnica dominicana que sea la cara y el motor de la hospitalidad de lujo, elevando el salario promedio del sector.</p>
                     </div>
                 </div>
                 
                 <!-- Directiva 4 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content">
-                        <h3 class="text-xl font-bold text-azul-rd">🗺️ 4. Diversificación Geográfica y Temática</h3>
+                        <h3 class="text-xl font-bold text-azul-rd">🗺️ 4. Diversificación de Destinos y Productos</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-4-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">Romper la dependencia de Punta Cana. Foco en nuevos polos con modelos claros:</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El turismo en RD no es "RD". Es "Punta Cana". Esta híper-concentración satura la infraestructura del Este, degrada el medio ambiente local y deja al resto del país (90%) fuera del motor económico. El Sur y el Noroeste no existen en el mapa global.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Crear y mercadear 4 "Zonas de Identidad Turística" con regulaciones y estéticas específicas para evitar el modelo "all-inclusive" en ellas:</p>
                         <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
-                            <li><strong class="text-azul-rd">Pedernales:</strong> Eco-luxury + cruceros (Modelo Cabral).</li>
-                            <li><strong class="text-azul-rd">Samaná:</strong> Whale-watching + glamping digital-nomad.</li>
-                            <li><strong class="text-azul-rd">Constanza/Jarabacoa:</strong> Turismo de aventura + agroexperiencias.</li>
-                            <li><strong class="text-azul-rd">Santo Domingo Colonial:</strong> Cultura UNESCO + nightlife seguro.</li>
+                            <li><strong class="text-azul-rd">Pedernales (El Sur):</strong> Marca = "Lujo Virgen". Modelo de baja densidad, alto valor, y cero emisiones (Proy. Cabo Rojo).</li>
+                            <li><strong class="text-azul-rd">Samaná (Noreste):</strong> Marca = "Aventura Nómada". Foco en Nómadas Digitales, glamping, y ecoturismo de ballenas.</li>
+                            <li><strong class="text-azul-rd">Constanza/Jarabacoa:</strong> Marca = "El Caribe Alpino". Foco en agroturismo, senderismo y turismo de bienestar.</li>
+                            <li><strong class="text-azul-rd">Santo Domingo (Capital):</strong> Marca = "La Cuna Vibrante". Foco en gastronomía, historia (Zona Colonial) y vida nocturna segura.</li>
                         </ul>
-                        <p class="mt-4 text-gray-700"><strong class="text-rojo-rd">Acción Burocrática:</strong> Ventanilla única digital en 48h para licencias.</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">Impacto Proyectado:</strong> Reduce saturación de Punta Cana → +30% crecimiento equilibrado.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Somos más que playas. Somos la montaña más alta del Caribe, el desierto, la primera ciudad. La diversificación no es una opción, es una obligación para distribuir la riqueza y proteger Punta Cana de su propio éxito.</p>
                     </div>
                 </div>
                 
                 <!-- Directiva 5 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
                     <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content">
-                        <h3 class="text-xl font-bold text-azul-rd">🛡️ 5. Seguridad Turística: 'Plan Escudo Playa'</h3>
+                        <h3 class="text-xl font-bold text-azul-rd">🛡️ 5. "Escudo Turístico" (Seguridad como Atractivo)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-5-content" class="accordion-content px-6 pb-6">
-                        <p class="mt-2 text-gray-700">Implementar un plan de tolerancia cero para la delincuencia en polos turísticos.</p>
-                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
-                            <li>Cámaras con reconocimiento facial (financiadas por impuesto hotelero).</li>
-                            <li>Unidad élite de 1,500 agentes capacitados en inglés y primeros auxilios.</li>
-                            <li>App de denuncia anónima con respuesta en menos de 15 min.</li>
-                        </ul>
-                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">Meta:</strong> Tasa de victimización turística = 0.1% (hoy ~2%).</p>
-                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">Impacto Proyectado:</strong> Aumenta estancias promedio de 7 a 10 días → +US$800M en ingresos.</p>
+                        <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> La percepción de inseguridad es el mayor veneno para el turismo. Un solo incidente de crimen menor en una zona turística, amplificado por redes sociales, puede costar millones en cancelaciones y acortar las estadías (los turistas no salen del resort).</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Implementar un "Plan Escudo" de tolerancia cero en los 4 polos turísticos. Esto incluye: 1) Una unidad de POLITUR de élite (1,500 agentes), bilingüe, con mejor salario y entrenamiento en hospitalidad. 2) Despliegue de drones de vigilancia y cámaras con IA (reconocimiento facial) en todos los accesos. 3) Una App de denuncia turística con respuesta garantizada en <10 minutos.</p>
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> La seguridad no debe ser una preocupación; debe ser una garantía. Convertiremos la seguridad en un argumento de venta, creando un entorno donde los turistas se sientan 100% libres para explorar, gastar y conectar con nuestra cultura fuera de los muros del resort.</p>
                     </div>
                 </div>
 
@@ -259,10 +272,11 @@
 
     <!-- Sección CTA (Call to Action) -->
     <section id="compartir" class="bg-azul-rd text-white py-16 sm:py-24">
+        <!-- ... (Contenido similar, pero actualizado) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma turística no espera.</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold">📢 El turismo es nuestro petróleo. No podemos derramarlo.</h2>
             <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
-                El turismo es nuestro motor de despegue. Comparte estas directivas.
+                Retener el valor y profesionalizar el sector es la única vía al desarrollo. Comparte estas directivas.
             </p>
             
             <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -270,7 +284,7 @@
                 <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20estas%205%20directivas%20de%20shock%20para%20reformar%20el%20turismo%20en%20RD:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
                     <span class="text-xl">📲</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8.001-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
                     </svg>
                 </a>
             </div>
@@ -279,6 +293,7 @@
 
     <!-- Footer -->
     <footer class="bg-azul-rd text-blue-200 py-10">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm">Protocolo independiente realizado en 2025.</p>
             <p class="text-sm mt-2">
@@ -287,7 +302,9 @@
         </div>
     </footer>
     
-    <!-- JavaScript para Interacción -->
+    <!-- 
+      JavaScript para Interacción (Acordeón, Menú) y Arte 3D
+    -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
@@ -333,6 +350,253 @@
                 const originalHref = shareButton.getAttribute('href');
                 shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
             }
+            
+            // --- INICIO DE CYGNUS 'THE RECAPTURE ENGINE' SCRIPT ---
+
+            const canvas = document.getElementById('tourism-canvas');
+            const header = document.getElementById('hero-header');
+            if (!canvas || typeof THREE === 'undefined') {
+                 console.error("Cygnus Error: Canvas or Three.js library not found.");
+                 return; // Salir si no hay canvas o Three.js
+            }
+
+            // 1. Configuración de la Escena
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, header.clientWidth / header.clientHeight, 0.1, 1000);
+            camera.position.z = 10;
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(header.clientWidth, header.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+
+            // 2. Colores
+            const rojoRD = 0xCE1126;
+            const azulRD = 0x002D62;
+            const blanco = 0xFFFFFF;
+            
+            // 3. Ratón y Raycaster (para interacción)
+            const mouse = new THREE.Vector2(-1, -1);
+            const interactionPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
+            const mousePoint = new THREE.Vector3();
+
+            function onMouseMove(event) {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+            }
+            window.addEventListener('mousemove', onMouseMove);
+
+            // 4. Geometrías
+            const particleCount = 5000;
+            let orb, leakParticles, captureParticles;
+            let leakMaterial, captureMaterial;
+            const particleVelocities = []; // Almacenar velocidades
+
+            // --- Sistema 0: "The Orb" (El Motor Turístico) ---
+            const orbGeo = new THREE.SphereGeometry(2, 24, 24);
+            const orbWireframe = new THREE.WireframeGeometry(orbGeo);
+            const orbMat = new THREE.LineBasicMaterial({
+                color: azulRD,
+                transparent: true,
+                opacity: 0.3,
+                blending: THREE.AdditiveBlending
+            });
+            orb = new THREE.LineSegments(orbWireframe, orbMat);
+            scene.add(orb);
+
+            // --- Sistema 1: "The Leak" (Fuga de Divisas) ---
+            const leakGeometry = new THREE.BufferGeometry();
+            const leakPositions = [];
+            const leakColor = new THREE.Color(rojoRD);
+
+            for (let i = 0; i < particleCount; i++) {
+                leakPositions.push(0, 0, 0); // Empiezan en el centro
+                // Velocidad: un cono que se aleja de la cámara
+                particleVelocities.push(
+                    (Math.random() - 0.5) * 0.1, // x spread
+                    (Math.random() - 0.5) * 0.1, // y spread
+                    0.05 + Math.random() * 0.05  // z (hacia adelante)
+                );
+            }
+            leakGeometry.setAttribute('position', new THREE.Float32BufferAttribute(leakPositions, 3));
+            leakGeometry.attributes.position.usage = THREE.DynamicDrawUsage;
+
+            leakMaterial = new THREE.PointsMaterial({
+                size: 0.05,
+                color: leakColor,
+                transparent: true,
+                opacity: 1.0,
+                blending: THREE.AdditiveBlending
+            });
+            leakParticles = new THREE.Points(leakGeometry, leakMaterial);
+            scene.add(leakParticles);
+
+            // --- Sistema 2: "The Recapture" (Valor Retenido) ---
+            const captureGeometry = new THREE.BufferGeometry();
+            const capturePositions = [];
+            const captureColors = [];
+            const colorAzul = new THREE.Color(azulRD);
+            const colorBlanco = new THREE.Color(blanco);
+
+            for (let i = 0; i < particleCount; i++) {
+                capturePositions.push(0, 0, 0);
+                (Math.random() > 0.3 ? colorAzul : colorBlanco).toArray(captureColors, i * 3);
+            }
+            captureGeometry.setAttribute('position', new THREE.Float32BufferAttribute(capturePositions, 3));
+            captureGeometry.setAttribute('color', new THREE.Float32BufferAttribute(captureColors, 3));
+            captureGeometry.attributes.position.usage = THREE.DynamicDrawUsage;
+
+            captureMaterial = new THREE.PointsMaterial({
+                size: 0.07,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.0, // Inicia invisible
+                blending: THREE.AdditiveBlending
+            });
+            captureParticles = new THREE.Points(captureGeometry, captureMaterial);
+            scene.add(captureParticles);
+
+
+            // 5. Lógica de Animación por Scroll
+            let scrollPercent = 0;
+            const directivasSection = document.getElementById('directivas');
+
+            function updateScrollPercent() {
+                if (!directivasSection) return;
+                const rect = directivasSection.getBoundingClientRect();
+                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+                const startElement = document.getElementById('diagnostico');
+                if (!startElement) return;
+                
+                const startRect = startElement.getBoundingClientRect();
+                const startPoint = startRect.top + startRect.height / 2 - viewHeight / 2;
+                const endPoint = rect.top - (viewHeight * 0.3);
+                
+                let totalDistance = endPoint - startPoint;
+                if (totalDistance <= 0) totalDistance = 1;
+                
+                scrollPercent = (startPoint * -1) / totalDistance;
+                scrollPercent = THREE.MathUtils.clamp(scrollPercent, 0, 1);
+            }
+
+            window.addEventListener('scroll', updateScrollPercent, { passive: true });
+            updateScrollPercent();
+
+            // 6. Bucle de Renderizado
+            const clock = new THREE.Clock();
+            const tempVec = new THREE.Vector3(); // Vector temporal para cálculos
+            const captureRadius = 2.0; // Radio de atracción del ratón
+
+            function animate() {
+                requestAnimationFrame(animate);
+                const elapsedTime = clock.getElapsedTime();
+
+                // Actualizar punto de interacción del ratón en el plano Z=0
+                // Proyectar el ratón al mundo 3D
+                const raycaster = new THREE.Raycaster();
+                raycaster.setFromCamera(mouse, camera);
+                raycaster.ray.intersectPlane(interactionPlane, mousePoint);
+
+                // Rotar el orbe central
+                orb.rotation.y = elapsedTime * 0.1;
+                orb.rotation.x = elapsedTime * 0.05;
+
+                // Actualizar opacidades
+                const leakOpacity = (1.0 - scrollPercent) * 0.8;
+                const captureOpacity = scrollPercent;
+                leakMaterial.opacity = leakOpacity;
+                captureMaterial.opacity = captureOpacity;
+
+                // Obtener arrays de posiciones
+                const leakPos = leakParticles.geometry.attributes.position.array;
+                const capturePos = captureParticles.geometry.attributes.position.array;
+
+                for (let i = 0; i < particleCount; i++) {
+                    const i3 = i * 3;
+                    
+                    // --- Sistema 1: "The Leak" (ROJO) ---
+                    if (leakOpacity > 0) {
+                        // Mover partícula
+                        leakPos[i3] += particleVelocities[i3];
+                        leakPos[i3+1] += particleVelocities[i3+1];
+                        leakPos[i3+2] += particleVelocities[i3+2];
+                        
+                        // Repeler del ratón
+                        tempVec.set(leakPos[i3], leakPos[i3+1], leakPos[i3+2]);
+                        const dist = tempVec.distanceTo(mousePoint);
+                        if (dist < captureRadius) {
+                            const repelForce = (captureRadius - dist) * 0.01;
+                            tempVec.sub(mousePoint).normalize().multiplyScalar(repelForce);
+                            particleVelocities[i3] += tempVec.x;
+                            particleVelocities[i3+1] += tempVec.y;
+                        }
+
+                        // Resetear partícula si se aleja mucho
+                        if (leakPos[i3+2] > 15 || leakPos[i3+2] < -5) {
+                            leakPos[i3] = 0; leakPos[i3+1] = 0; leakPos[i3+2] = 0;
+                            // Resetear velocidad
+                            particleVelocities[i3] = (Math.random() - 0.5) * 0.1;
+                            particleVelocities[i3+1] = (Math.random() - 0.5) * 0.1;
+                            particleVelocities[i3+2] = 0.05 + Math.random() * 0.05;
+                        }
+                    }
+
+                    // --- Sistema 2: "The Recapture" (BLANCO/AZUL) ---
+                    if (captureOpacity > 0) {
+                        // Mover partícula (usa las mismas velocidades)
+                        capturePos[i3] += particleVelocities[i3];
+                        capturePos[i3+1] += particleVelocities[i3+1];
+                        capturePos[i3+2] += particleVelocities[i3+2];
+                        
+                        // ATRAER al ratón
+                        tempVec.set(capturePos[i3], capturePos[i3+1], capturePos[i3+2]);
+                        const dist = tempVec.distanceTo(mousePoint);
+                        if (dist < captureRadius) {
+                            // Atraer
+                            const attractForce = (captureRadius - dist) * 0.005;
+                            tempVec.sub(mousePoint).normalize().multiplyScalar(-attractForce);
+                            particleVelocities[i3] += tempVec.x;
+                            particleVelocities[i3+1] += tempVec.y;
+                        }
+
+                        // Frenado (damping)
+                        particleVelocities[i3] *= 0.98;
+                        particleVelocities[i3+1] *= 0.98;
+
+                        // Resetear partícula (igual que la otra)
+                        if (capturePos[i3+2] > 15 || capturePos[i3+2] < -5) {
+                            capturePos[i3] = 0; capturePos[i3+1] = 0; capturePos[i3+2] = 0;
+                            particleVelocities[i3] = (Math.random() - 0.5) * 0.1;
+                            particleVelocities[i3+1] = (Math.random() - 0.5) * 0.1;
+                            particleVelocities[i3+2] = 0.05 + Math.random() * 0.05;
+                        }
+                    }
+                }
+
+                // Marcar para actualización
+                leakParticles.geometry.attributes.position.needsUpdate = true;
+                captureParticles.geometry.attributes.position.needsUpdate = true;
+
+                renderer.render(scene, camera);
+            }
+
+            // 7. Manejo de Redimensión
+            function onWindowResize() {
+                const width = header.clientWidth;
+                const height = header.clientHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                
+                renderer.setSize(width, height);
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            
+            // Iniciar
+            animate();
+
+            // --- FIN DE CYGNUS SCRIPT ---
             
         });
     </script>

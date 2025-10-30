@@ -5,11 +5,15 @@
     <title>Análisis de Problemas Políticos de República Dominicana</title>
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Carga de Fuente Inter -->
+    <!-- Carga de Fuente Inter y Merriweather -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Carga de Three.js (Necesario para el arte 3D) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <script>
         // Configuración de Tailwind para usar los colores de la bandera
         tailwind.config = {
@@ -51,12 +55,23 @@
         .accordion-toggle.open .accordion-icon {
             transform: rotate(180deg);
         }
+        /* Estilo para el canvas 3D */
+        #untangling-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
 
     <!-- Header / Navegación -->
     <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <!-- ... (El contenido de la NAV no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo / Título -->
@@ -77,11 +92,9 @@
                 <div class="sm:hidden flex items-center">
                     <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                         <span class="sr-only">Abrir menú principal</span>
-                        <!-- Icono Hamburguesa -->
                         <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         </svg>
-                        <!-- Icono X (Cerrar) -->
                         <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
@@ -89,7 +102,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Panel Menú Móvil -->
         <div id="mobile-menu" class="sm:hidden hidden"">
             <div class="px-2 pt-2 pb-3 space-y-1">
@@ -100,20 +112,29 @@
         </div>
     </nav>
 
-    <!-- Sección Hero -->
-    <header class="bg-white pt-24 pb-16 sm:pt-32 sm:pb-24">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Marcador de posición para arte (Request 5) -->
-            
+    <!-- 
+      Sección Hero
+      Cygnus Mod: 
+      - Fondo cambiado a 'bg-azul-rd' para el arte 3D.
+      - 'relative overflow-hidden' para contener el canvas.
+      - Texto cambiado a blanco para legibilidad.
+    -->
+    <header id="hero-header" class="bg-azul-rd pt-24 pb-16 sm:pt-32 sm:pb-24 relative overflow-hidden">
+        
+        <!-- Canvas para "The Untangling" -->
+        <canvas id="untangling-canvas"></canvas>
+
+        <!-- Contenido de Texto (z-10 para estar al frente) -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-azul-rd leading-tight">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                     🔍 Análisis de Problemas Políticos de República Dominicana
                 </h1>
-                <p class="mt-6 text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+                <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
                     Un análisis crítico de la ineficiencia sistémica en la República Dominicana y una propuesta de reingeniería fundamental.
                 </p>
                 <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="#objetivos" class="bg-azul-rd text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:opacity-90 transition duration-300">
+                    <a href="#objetivos" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-200 transition duration-300">
                         👇 Ver los 10 Objetivos
                     </a>
                     <a href="#descargar" class="bg-gray-200 text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-300 transition duration-300">
@@ -126,6 +147,7 @@
 
     <!-- Sección de Introducción / Diagnóstico -->
     <section id="resumen" class="py-16 sm:py-24 bg-gray-50">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📋 El Diagnóstico: Más Allá de la Ineficiencia</h2>
@@ -147,6 +169,7 @@
 
     <!-- Sección de los 10 Objetivos Interactivos -->
     <section id="objetivos" class="py-16 sm:py-24 bg-white">
+        <!-- ... (Todo el contenido del acordeón permanece igual) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
                 🎯 Los 10 Objetivos de Reingeniería
@@ -183,7 +206,7 @@
                     <div id="obj-2-content" class="accordion-content px-6 pb-6">
                         <p class="mt-2 text-gray-700">Los 24 ministerios actuales no buscan la especialización, sino la atomización de la responsabilidad. Cuando la responsabilidad se difumina entre docenas de entidades, ninguna es responsable del fracaso. Esto crea un escudo de impunidad para la clase política y expande las posiciones directivas de alto nivel sin propósito funcional.</p>
                         <p class="mt-4 text-gray-700">Casos ilustrativos sobran. La coexistencia del "Ministerio de la Presidencia" y el "Ministerio Administrativo de la Presidencia" es una duplicación clara de las funciones del despacho ejecutivo. De igual manera, la división entre el "Ministerio de Economía (MEPYD)" y el "Ministerio de Hacienda" crea un conflicto interno perpetuo entre la planificación (gasto) y la tesorería (ingreso), resultando en déficits crónicos.</p>
-                        <p class="mt-4 text-gray-700">El aparato de política social es otro ejemplo. El "Gabinete de Política Social" (con un presupuesto de RD$146 Mil Millones) coordina una constelación de agencias (SIUBEN, PROSOLI, ADESS) que ejecutan la misma función: pagos de transferencia. Esta estructura multicapa maximiza la fricción administrativa y los puntos de contacto burocráticos, no la eficiencia de la ayuda.</p>
+                        <p class="mt-4 text-gray-700">El aparato de política social es otro ejemplo. El "Gabinete de Política Social" (con un presupuesto de RD$146 Mil Millones) coordina una constelação de agencias (SIUBEN, PROSOLI, ADESS) que ejecutan la misma función: pagos de transferencia. Esta estructura multicapa maximiza la fricción administrativa y los puntos de contacto burocráticos, no la eficiencia de la ayuda.</p>
                         <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Consolidar los 24 ministerios en 8 esenciales (Economía, Infraestructura, Seguridad Nacional, Salud, Educación, Relaciones Exteriores, Justicia y Medio Ambiente). Abolir todas las estructuras de "Gabinete" y aplicar una cláusula de extinción a todos los "Consejos" e "Institutos".</p>
                     </div>
                 </div>
@@ -232,7 +255,7 @@
                     <div id="obj-5-content" class="accordion-content px-6 pb-6">
                         <p class="mt-2 text-gray-700">La causa fundamental de la sobreextensión fiscal es la subdivisión político-territorial del país. Las 31 provincias y 1 Distrito Nacional son un mapa administrativo del siglo XIX, mantenido no por eficacia logística, sino para perpetuar un número inflado de nombramientos políticos.</p>
                         <p class="mt-4 text-gray-700">Esta estructura exige 32 Senadores (uno por provincia, sin importar su población o contribución económica) y 31 Gobernadores (representantes ejecutivos redundantes para gestionar redes de patronazgo local).</p>
-                        <p class="mt-4 text-gray-700">Existe una profunda asimetría. La Región Ozama (Santo Domingo) genera el 40.7% del PIB nacional, pero recibe el mismo escaño senatorial (1) que Pedernales (pob. ~35k). Este sistema de "burgos podridos" constituye una "vetocracia": una tiranía de los improductivos sobre los centros económicos productivos, donde la riqueza de las regiones productivas es sifonada para mantener la superestructura de las improductivas.</p>
+                        <p class="mt-4 text-gray-700">Existe una profunda asimetría. La Región Ozama (Santo Domingo) genera el 40.7% del PIB nacional, pero recibe el mismo escaño senatorial (1) que Pedernales (pob. ~35k). Este sistema de "burgos podridos", constituye una "vetocracia": una tiranía de los improductivos sobre los centros económicos productivos, donde la riqueza de las regiones productivas es sifonada para mantener la superestructura de las improductivas.</p>
                         <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Reforma Constitucional para abolir las 31 provincias. Re-mapear la nación en 6 o 7 Macro-Regiones basadas en lógica económica y densidad de población. Esto eliminaría ~80% de la burocracia política de alto nivel (reduciendo el senado de 32 a 14) y alinearía el poder político con la contribución económica.</p>
                     </div>
                 </div>
@@ -280,7 +303,7 @@
                     </button>
                     <div id="obj-8-content" class="accordion-content px-6 pb-6">
                         <p class="mt-2 text-gray-700">El aparato de seguridad (militar y policial) es indicativo de patronazgo sistémico, caracterizado por un cuerpo de oficiales groseramente inflado. Las Fuerzas Armadas (con 71,000 miembros) tenían 134 generales en servicio activo en 2024. Esto es una ratio de 1 general por cada 530 soldados.</p>
-                        <p class="mt-4 text-gray-700">En comparación, las Fuerzas Armadas de EE.UU. (con ~1.33 millones de miembros) tienen 1 general por cada 2,128 soldados. El ejército dominicano posee una proporción de generales cuatro veces más pesada. Esto no es una estructura de defensa; es una "feudalización de la seguridad", un sistema de patronazgo interno para crear feudos de poder ("cacicazgos") y asegurar la lealtad de la alta oficialidad.</p>
+                        <p class="mt-4 text-gray-700">En comparación, las Fuerzas Armadas de EE.UU. (con ~1.33 millones de miembros) tienen 1 general por cada 2,128 soldados. El ejército dominicano posee una proporción de generales quatro veces más pesada. Esto no es una estructura de defensa; es una "feudalización de la seguridad", un sistema de patronazgo interno para crear feudos de poder ("cacicazgos") y asegurar la lealtad de la alta oficialidad.</p>
                         <p class="mt-4 text-gray-700">Se observa la misma paradoja en la Policía Nacional: una alta densidad de oficiales (1 por cada 312 ciudadanos, comparable a Europa) que coexiste con una alta criminalidad percibida, ineficacia y corrupción endémica. Esto demuestra un fracaso institucional profundo; la cantidad de personal es irrelevante cuando la calidad, doctrina y depuración de la institución son nulas.</p>
                         <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">La Solución:</strong> Racionalización militar, limitando por ley el número de generales a un nivel apropiado (ej. 20-25). Y no una "reforma" policial, sino una "re-fundación": purificación total, reentrenamiento desde cero y reconstrucción de la institución con un enfoque en operaciones basadas en datos y auditables.</p>
                     </div>
@@ -325,6 +348,7 @@
 
     <!-- Sección CTA (Call to Action) -->
     <section id="descargar" class="bg-azul-rd text-white py-16 sm:py-24">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl sm:text-4xl font-bold">📢 El cambio requiere acción.</h2>
             <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
@@ -345,7 +369,7 @@
                 <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20este%20an%C3%A1lisis%20interactivo%20sobre%20la%20administraci%C3%B3n%20p%C3%BAblica%20dominicana%20y%20sus%2010%20propuestas%20de%20reforma:%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
                     <span class="text-xl">📲</span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8.001-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
                     </svg>
                     <span>Compartir en WhatsApp</span>
                 </a>
@@ -355,6 +379,7 @@
 
     <!-- Footer -->
     <footer class="bg-azul-rd text-blue-200 py-10">
+        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm">Análisis independiente realizado en 2025.</p>
             <p class="text-sm mt-2">
@@ -363,7 +388,9 @@
         </div>
     </footer>
     
-    <!-- JavaScript para Interacción -->
+    <!-- 
+      JavaScript para Interacción (Acordeón, Menú) y Arte 3D
+    -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
@@ -404,16 +431,184 @@
 
             // Lógica para el botón de WhatsApp (para incluir la URL actual)
             const shareButton = document.getElementById('whatsapp-share');
-            const shareUrl = window.location.href;
-            const originalHref = shareButton.getAttribute('href');
-            shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            if (shareButton) { // Comprobar si el botón existe en esta página
+                const shareUrl = window.location.href;
+                const originalHref = shareButton.getAttribute('href');
+                shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            }
+            
+            // --- INICIO DE CYGNUS 'THE UNTANGLING' SCRIPT ---
+
+            // 1. Configuración de la Escena
+            const canvas = document.getElementById('untangling-canvas');
+            const header = document.getElementById('hero-header');
+            if (!canvas || typeof THREE === 'undefined') {
+                 console.error("Cygnus Error: Canvas or Three.js library not found.");
+                 return; // Salir si no hay canvas o Three.js
+            }
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, header.clientWidth / header.clientHeight, 0.1, 1000);
+            camera.position.z = 5; // Posición de la cámara
+
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+            renderer.setSize(header.clientWidth, header.clientHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            
+            // 2. Iluminación
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // Luz suave general
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 1); // Luz blanca (la reforma)
+            directionalLight.position.set(-1, 1, 3);
+            scene.add(directionalLight);
+
+            // 3. Creación del "Knot" (El Nudo Burocrático)
+            // Colores
+            const rojoRD = 0xCE1126;
+            const blanco = 0xFFFFFF;
+
+            // --- Geometría del Nudo ---
+            // Vamos a crear 10 tubos.
+            // 'tangledPoints' = Posición inicial (caos)
+            // 'untangledPoints' = Posición final (orden)
+            
+            const numTubes = 10;
+            const tubes = [];
+            let tangledPoints = [];
+            let untangledPoints = [];
+            
+            const material = new THREE.MeshStandardMaterial({
+                color: rojoRD,
+                roughness: 0.3,
+                metalness: 0.2
+            });
+
+            for (let i = 0; i < numTubes; i++) {
+                // Estado final: 10 líneas rectas y paralelas
+                let y = THREE.MathUtils.lerp(-2, 2, i / (numTubes - 1));
+                untangledPoints.push([
+                    new THREE.Vector3(-4, y, 0),
+                    new THREE.Vector3(-2, y, 0),
+                    new THREE.Vector3(2, y, 0),
+                    new THREE.Vector3(4, y, 0)
+                ]);
+
+                // Estado inicial: Un nudo caótico
+                tangledPoints.push([
+                    new THREE.Vector3(Math.random() * 4 - 2, Math.random() * 4 - 2, Math.random() * 2 - 1),
+                    new THREE.Vector3(Math.random() * 4 - 2, Math.random() * 4 - 2, Math.random() * 2 - 1),
+                    new THREE.Vector3(Math.random() * 4 - 2, Math.random() * 4 - 2, Math.random() * 2 - 1),
+                    new THREE.Vector3(Math.random() * 4 - 2, Math.random() * 4 - 2, Math.random() * 2 - 1)
+                ]);
+
+                // Crear la geometría del tubo (inicialmente en estado "tangled")
+                let curve = new THREE.CatmullRomCurve3(tangledPoints[i]);
+                let geometry = new THREE.TubeGeometry(curve, 20, 0.05, 8, false); // 0.05 de grosor
+                let tubeMesh = new THREE.Mesh(geometry, material);
+                scene.add(tubeMesh);
+                tubes.push(tubeMesh);
+            }
+            
+            // 4. Lógica de Animación por Scroll
+            let scrollPercent = 0;
+            const objetivosSection = document.getElementById('objetivos');
+
+            function updateScrollPercent() {
+                // Asegurarse de que objetivosSection existe
+                if (!objetivosSection) return; 
+                
+                const rect = objetivosSection.getBoundingClientRect();
+                const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+                
+                // Calcular qué tan "adentro" de la sección de objetivos estamos
+                // Inicia cuando la sección entra por abajo, termina cuando sale por arriba.
+                let start = rect.top - viewHeight;
+                let end = rect.top + rect.height;
+                // Evitar división por cero si la altura es 0
+                let totalScrollable = (end - start + rect.height);
+                if (totalScrollable === 0) {
+                    scrollPercent = 0;
+                    return;
+                }
+                
+                scrollPercent = (start * -1) / totalScrollable;
+                scrollPercent = THREE.MathUtils.clamp(scrollPercent, 0, 1); // Limitar entre 0 y 1
+            }
+            
+            window.addEventListener('scroll', updateScrollPercent, { passive: true });
+            updateScrollPercent(); // Llamar una vez al inicio
+
+            // 5. Bucle de Renderizado
+            const clock = new THREE.Clock();
+
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                const elapsedTime = clock.getElapsedTime();
+
+                // Actualizar la geometría de los tubos
+                tubes.forEach((tube, i) => {
+                    const currentPoints = [];
+                    const tangled = tangledPoints[i];
+                    const untangled = untangledPoints[i];
+
+                    // Interpolar cada punto de la curva
+                    for (let j = 0; j < tangled.length; j++) {
+                        // VERIFY that tangled[j] and untangled[j] are valid Vector3 objects
+                        if (!tangled[j] || !untangled[j]) {
+                            // console.error("Missing vector point in interpolation.");
+                            continue; // Saltar este punto si falta data
+                        }
+                        let x = THREE.MathUtils.lerp(tangled[j].x, untangled[j].x, scrollPercent);
+                        let y = THREE.MathUtils.lerp(tangled[j].y, untangled[j].y, scrollPercent);
+                        let z = THREE.MathUtils.lerp(tangled[j].z, untangled[j].z, scrollPercent);
+                        currentPoints.push(new THREE.Vector3(x, y, z));
+                    }
+                    
+                    // Añadir una leve rotación/vibración al nudo cuando está enredado
+                    let rotationAmount = (1 - scrollPercent) * 0.5; // Más rotación cuando está enredado
+                    tube.rotation.x = Math.sin(elapsedTime * 0.5 + i) * rotationAmount;
+                    tube.rotation.y = Math.cos(elapsedTime * 0.3 + i) * rotationAmount;
+
+                    // Actualizar la curva y la geometría del tubo
+                    // FIX: Replaced .copy() with .dispose() and reassignment.
+                    // This creates a new geometry from the new curve, disposes the old one, and assigns the new one.
+                    
+                    // Solo actualizar si tenemos puntos válidos
+                    if (currentPoints.length === tangled.length) {
+                        const newCurve = new THREE.CatmullRomCurve3(currentPoints);
+                        const newGeometry = new THREE.TubeGeometry(newCurve, 20, 0.05, 8, false);
+                        
+                        tube.geometry.dispose(); // IMPORTANT: Free memory
+                        tube.geometry = newGeometry; // Replace the old geometry
+                    }
+                });
+
+                renderer.render(scene, camera);
+            }
+
+            // 6. Manejo de Redimensión
+            function onWindowResize() {
+                const width = header.clientWidth;
+                const height = header.clientHeight;
+                
+                camera.aspect = width / height;
+                camera.updateProjectionMatrix();
+                
+                renderer.setSize(width, height);
+            }
+
+            window.addEventListener('resize', onWindowResize);
+            
+            // Iniciar
+            animate();
+
+            // --- FIN DE CYGNUS SCRIPT ---
             
         });
     </script>
 
 </body>
 </html>
-
-
-
 
