@@ -34,7 +34,7 @@
             font-family: 'Inter', sans-serif;
         }
         /* Estilos para los títulos Serif */
-        h1, h2, h3, .font-serif {
+        h1, h2, h3, h4, .font-serif {
             font-family: 'Merriweather', serif;
         }
         /* Estilos para el acordeón (contenido colapsable) */
@@ -46,10 +46,10 @@
             opacity: 0;
         }
         .accordion-content.open {
-            max-height: 1500px; /* Suficientemente grande para el contenido */
+            max-height: 3500px; /* Cygnus Mod: Aumentado para MÁS contenido */
             visibility: visible;
             opacity: 1;
-            transition: max-height 0.7s ease-in, opacity 0.5s ease-in 0.2s;
+            transition: max-height 1.2s ease-in, opacity 0.5s ease-in 0.2s;
         }
         /* Rotación del ícono del acordeón */
         .accordion-toggle.open .accordion-icon {
@@ -65,13 +65,17 @@
             left: 0;
             z-index: 0;
         }
+        
+        /* Estilos para las sub-listas en el acordeón */
+        .content-list {
+            list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
 
     <!-- Header / Navegación -->
     <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
-        <!-- ... (El contenido de la NAV no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <!-- Logo / Título -->
@@ -144,7 +148,6 @@
 
     <!-- 
       Sección de Introducción / Diagnóstico
-      Cygnus Mod: Contenido expandido.
     -->
     <section id="diagnostico" class="py-16 sm:py-24 bg-gray-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -187,7 +190,7 @@
 
                 <!-- Directiva 1 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content" data-directive="1">
                         <h3 class="text-xl font-bold text-azul-rd">💰 1. Directiva de "Fuga Cero" (Retención de Valor)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -195,29 +198,49 @@
                     </button>
                     <div id="mision-1-content" class="accordion-content px-6 pb-6">
                         <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El modelo "all-inclusive" opera como un enclave. Importa whisky escocés y carne de Nebraska, es propiedad de cadenas españolas y usa sábanas hechas en Asia. El dinero del turista nunca toca la economía dominicana.</p>
-                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Implementar una <strong class="text-azul-rd">"Ley de Proveedor Local"</strong>. Se requerirá por ley que todos los complejos hoteleros de más de 100 habitaciones certifiquen que un mínimo del 40% de sus insumos (alimentos, bebidas, textiles, amenidades) son de origen dominicano en 24 meses. Los incentivos fiscales (CONFOTUR) se atarán al cumplimiento.</p>
+                        
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Implementar una <strong class="text-azul-rd">"Ley de Proveedor Local"</strong>. Se requerirá por ley que todos los complejos hoteleros de más de 100 habitaciones certifiquen que un mínimo del 40% de sus insumos son de origen dominicano en 24 meses. Los incentivos fiscales (CONFOTUR) se atarán al cumplimiento.</p>
+                        
+                        <h4 class="text-lg font-bold text-gray-800 mt-4">Catálogo de Suministro Nacional Obligatorio:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li><strong>Alimentos y Bebidas:</strong> Café de especialidad (Jarabacoa, Ocoa), Cacao orgánico (San Fco. de Macorís), rones premium (Brugal, Barceló, etc.), cervezas artesanales (ej. La Quisqueyana), pescado fresco de pesca sostenible (Samaná, Pedernales), frutas tropicales exóticas (chinola, guayaba, níspero, jagua), y vegetales de invernadero (Constanza, Ocoa).</li>
+                            <li><strong>Textiles y Decoración:</strong> Uniformes del personal, ropa de cama, y toallas (deben ser de manufactura local, ej. Zonas Francas textiles). Obras de arte y decoración de artesanos dominicanos (pintura, esculturas de madera, cerámica Taína) para todas las áreas públicas y habitaciones.</li>
+                            <li><strong>Amenidades:</strong> Jabones artesanales (base de aceite de coco o macadamia), lociones, y otros productos de baño deben ser producidos por PYMES dominicanas (ej. laboratorios cosméticos locales).</li>
+                            <li><strong>Mobiliario:</strong> Un porcentaje del mobiliario (sillas, mesas, lámparas) debe ser de ebanistas locales que usen maderas sostenibles certificadas (ej. acacia, roble).</li>
+                        </ul>
+
                         <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El privilegio de operar en nuestras playas conlleva la responsabilidad de invertir en nuestra gente. La meta no es solo atraer turistas, es crear una cadena de suministro local próspera, desde el agricultor de Constanza hasta el artesano de Higüey.</p>
                     </div>
                 </div>
 
                 <!-- Directiva 2 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content">
-                        <h3 class="text-xl font-bold text-azul-rd">📱 2. Plataforma Nacional "VisitRD" (Desintermediación)</h3>
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content" data-directive="2">
+                        <h3 class="text-xl font-bold text-azul-rd">📱 2. Plataforma Nacional (Desintermediación)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
                     <div id="mision-2-content" class="accordion-content px-6 pb-6">
                         <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> Las OTAs (Booking, Expedia) extraen comisiones del 15% al 25% por cada reserva, actuando como un peaje digital que se lleva cientos de millones de dólares al año. Los pequeños operadores (eco-lodges, guías turísticos) no tienen poder de negociación.</p>
-                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Lanzar "VisitRD", una plataforma nacional de turismo (App y Web) con comisión cero para operadores locales. Usará <strong class="text-azul-rd">Blockchain para certificar</strong> la identidad e historial de cada guía, transportista y hotel pequeño, eliminando el fraude. Integrará pagos directos (incluyendo cripto) para que el 100% del dinero vaya al proveedor. El marketing internacional de MITUR se enfocará en llevar tráfico a esta plataforma.</p>
+                        
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Lanzar una plataforma nacional de turismo (App y Web) con comisión cero para operadores locales. Usará <strong class="text-azul-rd">Blockchain para certificar</strong> la identidad e historial de cada guía, transportista y hotel pequeño, eliminando el fraude. Integrará pagos directos (incluyendo cripto) para que el 100% del dinero vaya al proveedor.</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-4">Identidad de Marca y Promesa:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li><strong>Nombres Propuestos:</strong> "Quisqueya Auténtica", "La Llave RD", "Ruta Taína", "Isla Directa".</li>
+                            <li><strong>Slogans (Taglines):</strong> "Sin Intermediarios. Solo República." / "El Corazón de la Isla, Directo a Ti." / "Tu Llave a la Isla Verdadera." / "Reserva Local. Impacta Local."</li>
+                            <li><strong>La Promesa de Marca:</strong> "Cada peso que gastas en esta plataforma va directamente a la familia dominicana que te da el servicio. 100% verificado. 0% comisión extranjera."</li>
+                            <li><strong>Enfoque de Marketing:</strong> No venderá "hoteles", venderá "experiencias certificadas". El marketing internacional de MITUR se enfocará en llevar tráfico directo a esta plataforma, no a Expedia.</li>
+                        </ul>
+
                         <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Debemos poseer la infraestructura digital de nuestro principal producto. Al eliminar al intermediario extranjero, conectamos al turista directamente con el pueblo, asegurando que el valor se quede en la comunidad, no en una corporación en Ámsterdam.</p>
                     </div>
                 </div>
                 
                 <!-- Directiva 3 -->
                 <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content" data-directive="3">
                         <h3 class="text-xl font-bold text-rojo-rd">🧑‍🍳 3. Creación de Oficios Turísticos "Premium"</h3>
                         <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -225,14 +248,32 @@
                     </button>
                     <div id="mision-3-content" class="accordion-content px-6 pb-6">
                         <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El sector genera empleo, pero de bajo valor (limpieza, seguridad, servicio básico). La informalidad es del 60%. Carecemos de una clase media técnica y profesional en hospitalidad, por lo que los puestos gerenciales y especializados a menudo van a extranjeros.</p>
-                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Inversión masiva en <strong class="text-azul-rd">Diplomados Técnicos de "Cuello Azul" Premium</strong> (6-9 meses) a través de INFOTEP, con certificación internacional. Foco en: Mixología Avanzada (con ron dominicano), Chefs de Fusión Caribeña, Baristas de Café de especialidad, Guías de Ecoturismo (certificados en biología), y Técnicos de Buceo y Kitesurf. Se ofrecerán becas completas con contrato garantizado.</p>
+                        
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Inversión masiva en <strong class="text-azul-rd">Diplomados Técnicos de "Cuello Azul" Premium</strong> (6-9 meses) a través de INFOTEP, con certificación internacional. Foco en:</p>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li>Mixología Avanzada (con ron dominicano) y Sommeliers de Ron y Tabaco.</li>
+                            <li>Chefs de Fusión Caribeña (Nueva Cocina Dominicana).</li>
+                            <li>Gestión de Hospitalidad Boutique (para eco-lodges y hoteles no-cadena).</li>
+                            <li>Baristas de Café de especialidad (usando grano de altura local).</li>
+                            <li>Guías de Ecoturismo (certificados en biología y primeros auxilios).</li>
+                            <li>Técnicos de Buceo (PADI Master) y Kitesurf (IKO Nivel 3).</li>
+                            <li>Inglés y Ruso Técnico para Hospitalidad.</li>
+                        </ul>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-4">Estrategias de Integración:</h4>
+                         <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
+                            <li><strong>Modelo "Aprender-Ganando" (Dual):</strong> Alianzas público-privadas donde los hoteles (ej. Meliá, Hard Rock) patrocinan aulas dentro de sus instalaciones. Los estudiantes de INFOTEP pasan 3 días en teoría y 3 días en práctica pagada. El hotel financia al estudiante a cambio de un contrato de trabajo post-graduación de 2 años.</li>
+                            <li><strong>Certificación de Competencia (Re-skilling):</strong> Un programa de 1 mes para certificar formalmente a los miles de trabajadores *actuales* que aprendieron en el trabajo (ej. el "bartender estrella" de un resort). Esto valida sus habilidades y les da una credencial internacional para exigir salarios de nivel internacional.</li>
+                            <li><strong>Track Gerencial (2+2):</strong> Conectar los diplomados técnicos de INFOTEP con carreras universitarias (ITLA, APEC, UNPHU) para crear un camino claro de 2 años técnicos + 2 años de licenciatura en gestión. El Estado beca el 50% de la universidad a cambio de 3 años de servicio en el sector.</li>
+                        </ul>
+
                         <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El futuro del turismo no es cuántos empleos creamos, sino de qué calidad son. Debemos profesionalizar el servicio y crear una élite técnica dominicana que sea la cara y el motor de la hospitalidad de lujo, elevando el salario promedio del sector.</p>
                     </div>
                 </div>
                 
                 <!-- Directiva 4 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content" data-directive="4">
                         <h3 class="text-xl font-bold text-azul-rd">🗺️ 4. Diversificación de Destinos y Productos</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -240,12 +281,36 @@
                     </button>
                     <div id="mision-4-content" class="accordion-content px-6 pb-6">
                         <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> El turismo en RD no es "RD". Es "Punta Cana". Esta híper-concentración satura la infraestructura del Este, degrada el medio ambiente local y deja al resto del país (90%) fuera del motor económico. El Sur y el Noroeste no existen en el mapa global.</p>
-                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Crear y mercadear 4 "Zonas de Identidad Turística" con regulaciones y estéticas específicas para evitar el modelo "all-inclusive" en ellas:</p>
-                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2">
-                            <li><strong class="text-azul-rd">Pedernales (El Sur):</strong> Marca = "Lujo Virgen". Modelo de baja densidad, alto valor, y cero emisiones (Proy. Cabo Rojo).</li>
-                            <li><strong class="text-azul-rd">Samaná (Noreste):</strong> Marca = "Aventura Nómada". Foco en Nómadas Digitales, glamping, y ecoturismo de ballenas.</li>
-                            <li><strong class="text-azul-rd">Constanza/Jarabacoa:</strong> Marca = "El Caribe Alpino". Foco en agroturismo, senderismo y turismo de bienestar.</li>
-                            <li><strong class="text-azul-rd">Santo Domingo (Capital):</strong> Marca = "La Cuna Vibrante". Foco en gastronomía, historia (Zona Colonial) y vida nocturna segura.</li>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Crear y mercadear 4 "Zonas de Identidad Turística" con regulaciones y estéticas específicas, prohibiendo el modelo "all-inclusive" masivo en ellas:</p>
+                        <ul class="list-none ml-0 text-gray-700 space-y-4 mt-2">
+                            <li><strong class="text-lg font-bold text-azul-rd">1. Pedernales (Marca: "Lujo Virgen" / "El Secreto del Caribe"):</strong>
+                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                    <li>Foco en ultra-lujo y sostenibilidad. Modelo de baja densidad (Proy. Cabo Rojo) con "glamping" de alto costo (ej. US$1,000/noche).</li>
+                                    <li>Experiencias: Astroturismo (aprovechando los cielos oscuros de Jaragua), tour gastronómico de "Mar y Montaña" (langosta de Cabo Rojo y chivo de la sierra), senderismo en el Hoyo de Pelempito.</li>
+                                    <li>Regulación: Cero plástico de un solo uso obligatorio. Arquitectura debe usar 70% de materiales locales y ser "invisible" en el paisaje.</li>
+                                </ul>
+                            </li>
+                            <li><strong class="text-lg font-bold text-azul-rd">2. Samaná (Marca: "Aventura Nómada" / "La Jungla Vibrante"):</strong>
+                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                    <li>Foco en Nómadas Digitales y eco-aventura. Desarrollo de centros de co-working en Las Terrenas con internet satelital (Starlink) de alta velocidad.</li>
+                                    <li>Experiencias: Retiros de yoga y bienestar, "bootcamps" de kitesurf, y tours de avistamiento de ballenas liderados por biólogos marinos (no solo por capitanes de bote).</li>
+                                    <li>Regulación: Protección estricta del santuario de ballenas y control de la contaminación acústica y de botes. Incentivos a "hostels" boutique.</li>
+                                </ul>
+                            </li>
+                            <li><strong class="text-lg font-bold text-azul-rd">3. Constanza/Jarabacoa (Marca: "El Caribe Alpino"):</strong>
+                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                    <li>Foco en agroturismo y bienestar. Crear la "Ruta del Café de Altura" y "Ruta del Ron" (degustaciones en fincas).</li>
+                                    <li>Experiencias: Desarrollo de infraestructura de clase mundial para ciclismo de montaña y "paragliding". Mercadear retiros de salud y "cold-plunge" en el clima fresco.</li>
+                                    <li>Regulación: Control estricto de la arquitectura para mantener una estética "alpina". Prohibición de desarrollos que afecten las cuencas de los ríos.</li>
+                                </ul>
+                            </li>
+                            <li><strong class="text-lg font-bold text-azul-rd">4. Santo Domingo (Marca: "La Cuna Vibrante" / "El Origen"):</strong>
+                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                    <li>Foco en cultura y gastronomía. Crear un *Distrito Gastronómico* certificado en la Zona Colonial y Piantini, con estrellas "Michelin del Caribe".</li>
+                                    <li>Experiencias: Lanzar "Noches de Son" como producto cultural oficial. Integrar museos (con tecnología AR), historia, y vida nocturna segura para el turista que busca más que playa.</li>
+                                    <li>Regulación: Peatonalización de la Zona Colonial. Tolerancia cero al crimen en el polígono turístico (ver Directiva 5).</li>
+                                </ul>
+                            </li>
                         </ul>
                         <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Somos más que playas. Somos la montaña más alta del Caribe, el desierto, la primera ciudad. La diversificación no es una opción, es una obligación para distribuir la riqueza y proteger Punta Cana de su propio éxito.</p>
                     </div>
@@ -253,7 +318,7 @@
                 
                 <!-- Directiva 5 -->
                 <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
-                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content" data-directive="5">
                         <h3 class="text-xl font-bold text-azul-rd">🛡️ 5. "Escudo Turístico" (Seguridad como Atractivo)</h3>
                         <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -261,7 +326,30 @@
                     </button>
                     <div id="mision-5-content" class="accordion-content px-6 pb-6">
                         <p class="mt-2 text-gray-700"><strong class="text-rojo-rd">El Problema:</strong> La percepción de inseguridad es el mayor veneno para el turismo. Un solo incidente de crimen menor en una zona turística, amplificado por redes sociales, puede costar millones en cancelaciones y acortar las estadías (los turistas no salen del resort).</p>
-                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Implementar un "Plan Escudo" de tolerancia cero en los 4 polos turísticos. Esto incluye: 1) Una unidad de POLITUR de élite (1,500 agentes), bilingüe, con mejor salario y entrenamiento en hospitalidad. 2) Despliegue de drones de vigilancia y cámaras con IA (reconocimiento facial) en todos los accesos. 3) Una App de denuncia turística con respuesta garantizada en <10 minutos.</p>
+                        <p class="mt-4 text-gray-700"><strong class="text-azul-rd">La Directiva Táctica:</strong> Implementar un "Plan Escudo" de tolerancia cero en los 4 polos turísticos, con 3 componentes:</p>
+                        <ul class="list-none ml-0 text-gray-700 space-y-3 mt-2">
+                            <li><strong class="text-lg font-bold text-azul-rd">1. POLITUR de Élite:</strong>
+                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                    <li>Disolver la unidad actual y re-fundarla con 1,500 agentes nuevos. Reclutamiento basado en aptitud, no en conexiones.</li>
+                                    <li>Entrenamiento: Salario doble al de la P.N. Entrenamiento obligatorio en de-escalada, primeros auxilios, hospitalidad (protocolo de servicio), e idiomas (inglés/portugués/ruso/francés).</li>
+                                    <li>Misión: Cero tolerancia a la corrupción interna y cero tolerancia al acoso al turista. Su métrica de éxito es la *prevención* de incidentes.</li>
+                                </ul>
+                            </li>
+                             <li><strong class="text-lg font-bold text-azul-rd">2. C5i Turístico (Comando, Control, Cómputo, Comunicaciones e Inteligencia):</strong>
+                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                    <li>Un centro de comando unificado (en Punta Cana y Santo Domingo) que integre todas las cámaras públicas y privadas (hoteles, plazas) de los polos turísticos.</li>
+                                    <li>IA de Detección: El sistema usará IA para detectar anomalías en tiempo real (ej. una riña, una persona en el suelo, un vehículo sospechoso detenido) y despachar unidades de Élite proactivamente.</li>
+                                    <li>Vigilancia Aérea: Despliegue de drones con patrullaje térmico nocturno en playas y zonas de ocio para prevenir asaltos.</li>
+                                </ul>
+                            </li>
+                             <li><strong class="text-lg font-bold text-azul-rd">3. App "Escudo RD" (Respuesta Rápida):</strong>
+                                <ul class="list-disc list-inside ml-4 mt-1 space-y-1">
+                                    <li>Una aplicación obligatoria (promovida en migración y check-in de hotel) para turistas con un "botón de pánico" geolocalizado.</li>
+                                    <li>Garantía de Respuesta: La app garantiza una respuesta visual (cámara/drone) del C5i en <60 segundos y una unidad de Élite en el lugar en <5 minutos, 24/7.</li>
+                                    <li>Integración: La app también servirá como portal de información segura (taxis certificados, restaurantes) y traductor de emergencia.</li>
+                                </ul>
+                            </li>
+                        </ul>
                         <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> La seguridad no debe ser una preocupación; debe ser una garantía. Convertiremos la seguridad en un argumento de venta, creando un entorno donde los turistas se sientan 100% libres para explorar, gastar y conectar con nuestra cultura fuera de los muros del resort.</p>
                     </div>
                 </div>
@@ -272,7 +360,6 @@
 
     <!-- Sección CTA (Call to Action) -->
     <section id="compartir" class="bg-azul-rd text-white py-16 sm:py-24">
-        <!-- ... (Contenido similar, pero actualizado) ... -->
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl sm:text-4xl font-bold">📢 El turismo es nuestro petróleo. No podemos derramarlo.</h2>
             <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
@@ -293,7 +380,6 @@
 
     <!-- Footer -->
     <footer class="bg-azul-rd text-blue-200 py-10">
-        <!-- ... (El contenido de esta sección no cambia) ... -->
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <p class="text-sm">Protocolo independiente realizado en 2025.</p>
             <p class="text-sm mt-2">
@@ -319,45 +405,14 @@
                 hamburgerIcon.classList.toggle('hidden');
                 closeIcon.classList.toggle('hidden');
             });
-
-            // Lógica para el Acordeón de Misiones
-            const accordions = document.querySelectorAll('.accordion-toggle');
-
-            accordions.forEach(button => {
-                button.addEventListener('click', () => {
-                    const targetId = button.getAttribute('data-target');
-                    const targetContent = document.getElementById(targetId);
-
-                    // Cerrar todos los demás acordeones
-                    accordions.forEach(otherButton => {
-                        const otherTargetId = otherButton.getAttribute('data-target');
-                        if (otherTargetId !== targetId) {
-                            document.getElementById(otherTargetId).classList.remove('open');
-                            otherButton.classList.remove('open');
-                        }
-                    });
-
-                    // Abrir o cerrar el actual
-                    targetContent.classList.toggle('open');
-                    button.classList.toggle('open');
-                });
-            });
-
-            // Lógica para el botón de WhatsApp (para incluir la URL actual)
-            const shareButton = document.getElementById('whatsapp-share');
-            if (shareButton) {
-                const shareUrl = window.location.href;
-                const originalHref = shareButton.getAttribute('href');
-                shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
-            }
             
-            // --- INICIO DE CYGNUS 'THE RECAPTURE ENGINE' SCRIPT ---
+            // --- INICIO DE CYGNUS 'THE RECAPTURE ENGINE' SCRIPT (v3) ---
 
             const canvas = document.getElementById('tourism-canvas');
             const header = document.getElementById('hero-header');
             if (!canvas || typeof THREE === 'undefined') {
                  console.error("Cygnus Error: Canvas or Three.js library not found.");
-                 return; // Salir si no hay canvas o Three.js
+                 return;
             }
 
             // 1. Configuración de la Escena
@@ -374,7 +429,7 @@
             const azulRD = 0x002D62;
             const blanco = 0xFFFFFF;
             
-            // 3. Ratón y Raycaster (para interacción)
+            // 3. Ratón y Raycaster
             const mouse = new THREE.Vector2(-1, -1);
             const interactionPlane = new THREE.Plane(new THREE.Vector3(0, 0, 1), 0);
             const mousePoint = new THREE.Vector3();
@@ -384,45 +439,49 @@
                 mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
                 mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
             }
-            window.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('mousemove', onMouseMove, { passive: true });
+            window.addEventListener('touchmove', function(event) {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = ((event.touches[0].clientX - rect.left) / rect.width) * 2 - 1;
+                mouse.y = -((event.touches[0].clientY - rect.top) / rect.height) * 2 + 1;
+            }, { passive: true });
 
             // 4. Geometrías
-            const particleCount = 5000;
+            const particleCount = 2000; // Calibrado
             let orb, leakParticles, captureParticles;
-            let leakMaterial, captureMaterial;
-            const particleVelocities = []; // Almacenar velocidades
+            let orbMat, leakMaterial, captureMaterial;
+            const particleVelocities = []; 
 
-            // --- Sistema 0: "The Orb" (El Motor Turístico) ---
+            // --- Sistema 0: "The Orb" ---
             const orbGeo = new THREE.SphereGeometry(2, 24, 24);
             const orbWireframe = new THREE.WireframeGeometry(orbGeo);
-            const orbMat = new THREE.LineBasicMaterial({
+            orbMat = new THREE.LineBasicMaterial({
                 color: azulRD,
                 transparent: true,
-                opacity: 0.3,
+                opacity: 0.3, // Opacidad base
                 blending: THREE.AdditiveBlending
             });
             orb = new THREE.LineSegments(orbWireframe, orbMat);
             scene.add(orb);
 
-            // --- Sistema 1: "The Leak" (Fuga de Divisas) ---
+            // --- Sistema 1: "The Leak" ---
             const leakGeometry = new THREE.BufferGeometry();
             const leakPositions = [];
             const leakColor = new THREE.Color(rojoRD);
 
             for (let i = 0; i < particleCount; i++) {
-                leakPositions.push(0, 0, 0); // Empiezan en el centro
-                // Velocidad: un cono que se aleja de la cámara
+                leakPositions.push(0, 0, 0); 
                 particleVelocities.push(
-                    (Math.random() - 0.5) * 0.1, // x spread
-                    (Math.random() - 0.5) * 0.1, // y spread
-                    0.05 + Math.random() * 0.05  // z (hacia adelante)
+                    (Math.random() - 0.5) * 0.1,
+                    (Math.random() - 0.5) * 0.1,
+                    0.05 + Math.random() * 0.05
                 );
             }
             leakGeometry.setAttribute('position', new THREE.Float32BufferAttribute(leakPositions, 3));
             leakGeometry.attributes.position.usage = THREE.DynamicDrawUsage;
 
             leakMaterial = new THREE.PointsMaterial({
-                size: 0.05,
+                size: 0.04,
                 color: leakColor,
                 transparent: true,
                 opacity: 1.0,
@@ -431,7 +490,7 @@
             leakParticles = new THREE.Points(leakGeometry, leakMaterial);
             scene.add(leakParticles);
 
-            // --- Sistema 2: "The Recapture" (Valor Retenido) ---
+            // --- Sistema 2: "The Recapture" ---
             const captureGeometry = new THREE.BufferGeometry();
             const capturePositions = [];
             const captureColors = [];
@@ -447,10 +506,10 @@
             captureGeometry.attributes.position.usage = THREE.DynamicDrawUsage;
 
             captureMaterial = new THREE.PointsMaterial({
-                size: 0.07,
+                size: 0.05,
                 vertexColors: true,
                 transparent: true,
-                opacity: 0.0, // Inicia invisible
+                opacity: 0.0, 
                 blending: THREE.AdditiveBlending
             });
             captureParticles = new THREE.Points(captureGeometry, captureMaterial);
@@ -482,88 +541,157 @@
             window.addEventListener('scroll', updateScrollPercent, { passive: true });
             updateScrollPercent();
 
+            // --- CYGNUS MOD V3: Interacción por Acordeón ---
+            let activeDirective = 0;
+            const accordions = document.querySelectorAll('.accordion-toggle');
+
+            accordions.forEach(button => {
+                button.addEventListener('click', () => {
+                    const directiveId = parseInt(button.getAttribute('data-directive'));
+                    const isOpen = button.classList.contains('open'); // Estado *antes* del toggle
+                    
+                    if (isOpen) {
+                        // Si se está cerrando, volver al estado 0
+                        activeDirective = 0;
+                    } else {
+                        // Si se está abriendo
+                        activeDirective = directiveId;
+                    }
+                    
+                    // Cerrar todos los demás acordeones (lógica existente)
+                    accordions.forEach(otherButton => {
+                        const otherTargetId = otherButton.getAttribute('data-target');
+                        if (otherButton !== button) {
+                            document.getElementById(otherTargetId).classList.remove('open');
+                            otherButton.classList.remove('open');
+                        }
+                    });
+
+                    // Abrir o cerrar el actual (lógica existente)
+                    const targetId = button.getAttribute('data-target');
+                    document.getElementById(targetId).classList.toggle('open');
+                    button.classList.toggle('open');
+                });
+            });
+
+
             // 6. Bucle de Renderizado
             const clock = new THREE.Clock();
-            const tempVec = new THREE.Vector3(); // Vector temporal para cálculos
-            const captureRadius = 2.0; // Radio de atracción del ratón
-
+            const tempVec = new THREE.Vector3(); 
+            
+            // Variables de estado de animación
+            let currentCaptureRadius = 2.5;
+            let currentAttractForce = 0.001;
+            let currentParticleSize = 0.05;
+            let currentGroupRotation = 0;
+            let currentFlowSpeed = 0.98; // Damping
+            
             function animate() {
                 requestAnimationFrame(animate);
                 const elapsedTime = clock.getElapsedTime();
+                const deltaTime = clock.getDelta();
 
-                // Actualizar punto de interacción del ratón en el plano Z=0
-                // Proyectar el ratón al mundo 3D
+                // Proyectar ratón
                 const raycaster = new THREE.Raycaster();
                 raycaster.setFromCamera(mouse, camera);
                 raycaster.ray.intersectPlane(interactionPlane, mousePoint);
 
-                // Rotar el orbe central
+                // Rotar el orbe
                 orb.rotation.y = elapsedTime * 0.1;
                 orb.rotation.x = elapsedTime * 0.05;
 
-                // Actualizar opacidades
+                // Opacidades
                 const leakOpacity = (1.0 - scrollPercent) * 0.8;
                 const captureOpacity = scrollPercent;
                 leakMaterial.opacity = leakOpacity;
                 captureMaterial.opacity = captureOpacity;
 
-                // Obtener arrays de posiciones
+                // --- Lógica de Interacción V3 ---
+                // Interpolar suavemente a los estados objetivo
+                let targetRadius = 2.5;
+                let targetAttract = 0.001;
+                let targetSize = 0.05;
+                let targetRotationSpeed = 0;
+                let targetFlowSpeed = 0.98;
+                let targetOrbOpacity = 0.3;
+
+                switch(activeDirective) {
+                    case 1: // Fuga Cero
+                        targetOrbOpacity = 0.8; // Orbe brilla
+                        break;
+                    case 2: // Plataforma
+                        targetRadius = 1.0; // Radio pequeño
+                        targetAttract = 0.005; // Atracción fuerte
+                        break;
+                    case 3: // Oficios
+                        targetSize = 0.08; // Partículas más grandes
+                        break;
+                    case 4: // Diversificación
+                        targetRotationSpeed = 0.2; // Rotación de grupo
+                        break;
+                    case 5: // Escudo
+                        targetFlowSpeed = 0.96; // Más rápido (menos damping)
+                        break;
+                }
+
+                // Aplicar interpolación (lerp) para suavizar
+                const lerpFactor = deltaTime * 2.0;
+                currentCaptureRadius = THREE.MathUtils.lerp(currentCaptureRadius, targetRadius, lerpFactor);
+                currentAttractForce = THREE.MathUtils.lerp(currentAttractForce, targetAttract, lerpFactor);
+                currentParticleSize = THREE.MathUtils.lerp(currentParticleSize, targetSize, lerpFactor);
+                currentGroupRotation += targetRotationSpeed * deltaTime;
+                currentFlowSpeed = THREE.MathUtils.lerp(currentFlowSpeed, targetFlowSpeed, lerpFactor);
+                orbMat.opacity = THREE.MathUtils.lerp(orbMat.opacity, targetOrbOpacity, lerpFactor);
+                
+                captureMaterial.size = currentParticleSize;
+                captureParticles.rotation.y = currentGroupRotation;
+                
+                // Actualizar posiciones
                 const leakPos = leakParticles.geometry.attributes.position.array;
                 const capturePos = captureParticles.geometry.attributes.position.array;
 
                 for (let i = 0; i < particleCount; i++) {
                     const i3 = i * 3;
                     
-                    // --- Sistema 1: "The Leak" (ROJO) ---
                     if (leakOpacity > 0) {
-                        // Mover partícula
                         leakPos[i3] += particleVelocities[i3];
                         leakPos[i3+1] += particleVelocities[i3+1];
                         leakPos[i3+2] += particleVelocities[i3+2];
                         
-                        // Repeler del ratón
                         tempVec.set(leakPos[i3], leakPos[i3+1], leakPos[i3+2]);
                         const dist = tempVec.distanceTo(mousePoint);
-                        if (dist < captureRadius) {
-                            const repelForce = (captureRadius - dist) * 0.01;
+                        if (dist < currentCaptureRadius) {
+                            const repelForce = (currentCaptureRadius - dist) * 0.003;
                             tempVec.sub(mousePoint).normalize().multiplyScalar(repelForce);
                             particleVelocities[i3] += tempVec.x;
                             particleVelocities[i3+1] += tempVec.y;
                         }
 
-                        // Resetear partícula si se aleja mucho
                         if (leakPos[i3+2] > 15 || leakPos[i3+2] < -5) {
                             leakPos[i3] = 0; leakPos[i3+1] = 0; leakPos[i3+2] = 0;
-                            // Resetear velocidad
                             particleVelocities[i3] = (Math.random() - 0.5) * 0.1;
                             particleVelocities[i3+1] = (Math.random() - 0.5) * 0.1;
                             particleVelocities[i3+2] = 0.05 + Math.random() * 0.05;
                         }
                     }
 
-                    // --- Sistema 2: "The Recapture" (BLANCO/AZUL) ---
                     if (captureOpacity > 0) {
-                        // Mover partícula (usa las mismas velocidades)
                         capturePos[i3] += particleVelocities[i3];
                         capturePos[i3+1] += particleVelocities[i3+1];
                         capturePos[i3+2] += particleVelocities[i3+2];
                         
-                        // ATRAER al ratón
                         tempVec.set(capturePos[i3], capturePos[i3+1], capturePos[i3+2]);
                         const dist = tempVec.distanceTo(mousePoint);
-                        if (dist < captureRadius) {
-                            // Atraer
-                            const attractForce = (captureRadius - dist) * 0.005;
+                        if (dist < currentCaptureRadius) {
+                            const attractForce = (currentCaptureRadius - dist) * currentAttractForce;
                             tempVec.sub(mousePoint).normalize().multiplyScalar(-attractForce);
                             particleVelocities[i3] += tempVec.x;
                             particleVelocities[i3+1] += tempVec.y;
                         }
 
-                        // Frenado (damping)
-                        particleVelocities[i3] *= 0.98;
-                        particleVelocities[i3+1] *= 0.98;
+                        particleVelocities[i3] *= currentFlowSpeed;
+                        particleVelocities[i3+1] *= currentFlowSpeed;
 
-                        // Resetear partícula (igual que la otra)
                         if (capturePos[i3+2] > 15 || capturePos[i3+2] < -5) {
                             capturePos[i3] = 0; capturePos[i3+1] = 0; capturePos[i3+2] = 0;
                             particleVelocities[i3] = (Math.random() - 0.5) * 0.1;
@@ -603,3 +731,5 @@
 
 </body>
 </html>
+
+
