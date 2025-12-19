@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+:root {
+  --background: #fdfdfd;
+  --foreground: #1a1a1a;
+
+  /* Constitutional Palette */
+  --state-blue: #002D62;      /* Azul Ultramar - Authority */
+  --action-red: #CE1126;      /* Rojo Bermejo - Urgency */
+  --growth-green: #25D366;    /* Growth/Digital (WhatsApp) */
+  --whatsapp-hover: #128C7E;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Semantic Aliases */
+  --color-azul-rd: var(--state-blue);
+  --color-rojo-rd: var(--action-red);
+  --color-whatsapp: var(--growth-green);
+  --color-whatsapp-hover: var(--whatsapp-hover);
+
+  /* Fonts */
+  --font-inter: var(--font-inter);
+  --font-merriweather: var(--font-merriweather);
+  
+  --font-sans: var(--font-inter);
+  --font-serif: var(--font-merriweather);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-merriweather), serif;
+}

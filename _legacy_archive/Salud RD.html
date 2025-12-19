@@ -1,0 +1,778 @@
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini-Proyecto: Salud RD (10 Puntos de Valor)</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Carga de Fuente Inter y Merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <script>
+        // Configuración de Tailwind para usar los colores de la bandera
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'azul-rd': '#002D62', // Azul Ultramar
+                        'rojo-rd': '#CE1126', // Rojo Bermejo
+                        'whatsapp': '#25D366',
+                        'whatsapp-hover': '#128C7E',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Estilos para los títulos Serif */
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Merriweather', serif;
+        }
+        /* Estilos para el acordeón (contenido colapsable) */
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            visibility: hidden;
+            opacity: 0;
+        }
+        .accordion-content.open {
+            max-height: 3500px; /* Aumentado para más contenido */
+            visibility: visible;
+            opacity: 1;
+            transition: max-height 1.2s ease-in, opacity 0.5s ease-in 0.2s;
+        }
+        /* Rotación del ícono del acordeón */
+        .accordion-toggle.open .accordion-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* --- INICIO ESTILOS CYGNUS 'DATA-STREAM HEARTBEAT' --- */
+        #health-canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+            /* Añadimos un sutil desenfoque para que el texto resalte */
+            filter: blur(0.5px);
+        }
+
+        /* El contenedor de los elementos interactivos */
+        #cygnus-interactive-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1; /* Sutilmente por encima del canvas */
+            pointer-events: none; /* Dejamos que el mouse pase al header */
+            overflow: hidden;
+        }
+
+        /* La línea de escaneo */
+        .scanline {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(
+                to bottom,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+            will-change: transform;
+        }
+
+        /* Los puntos de data revelados */
+        .data-point {
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50px); /* Posicionado arriba del punto */
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease-out, transform 0.2s ease-out;
+            will-change: opacity, transform;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        /* --- FIN ESTILOS CYGNUS --- */
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <!-- Header / Navegación -->
+    <nav class="bg-azul-rd shadow-lg fixed w-full z-20 top-0 text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Título -->
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold font-serif">Proyectos Tácticos RD</span>
+                </div>
+                
+                <!-- Menú Desktop -->
+                <div class="hidden sm:block sm:ml-6">
+                    <div class="flex space-x-4">
+                        <a href="#diagnostico" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">Diagnóstico</a>
+                        <a href="#directivas" class="text-gray-200 hover:bg-white hover:text-azul-rd px-3 py-2 rounded-md text-sm font-medium transition-colors">10 Puntos de Valor</a>
+                        <a href="#compartir" class="bg-white text-azul-rd px-3 py-2 rounded-md text-sm font-medium hover:bg-gray-200 transition-colors">Compartir</a>
+                    </div>
+                </div>
+                
+                <!-- Botón Menú Móvil (Hamburger) -->
+                <div class="sm:hidden flex items-center">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-200 hover:text-white hover:bg-azul-rd focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+                        <span class="sr-only">Abrir menú principal</span>
+                        <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Panel Menú Móvil -->
+        <div id="mobile-menu" class="sm:hidden hidden"">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#diagnostico" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">Diagnóstico</a>
+                <a href="#directivas" class="text-gray-200 hover:bg-white hover:text-azul-rd block px-3 py-2 rounded-md text-base font-medium transition-colors">10 Puntos de Valor</a>
+                <a href="#compartir" class="bg-white text-azul-rd block px-3 py-2 rounded-md text-base font-medium hover:bg-gray-200 transition-colors">Compartir</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 
+      Sección Hero con Canvas 2D
+    -->
+    <header id="hero-header" class="bg-azul-rd pt-24 pb-16 sm:pt-32 sm:pb-24 relative overflow-hidden">
+        
+        <!-- Canvas para "The Data-Stream Heartbeat" -->
+        <canvas id="health-canvas"></canvas>
+        <!-- La capa de interacción (scanline, data points) será añadida por JS -->
+
+        <!-- Contenido de Texto (z-10) -->
+        <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                    🩺 Mini-Proyecto Táctico: Salud
+                </h1>
+                <p class="mt-6 text-lg sm:text-xl text-gray-200 max-w-3xl mx-auto">
+                    10 Puntos Tácticos para transformar el Ministerio de Salud de una burocracia en crisis a un sistema de <strong class="text-white font-bold">Salud Basada en Valor</strong>.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="#directivas" class="bg-white text-azul-rd px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-gray-200 transition duration-300">
+                        👇 Ver los 10 Puntos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sección de Introducción / Diagnóstico -->
+    <section id="diagnostico" class="py-16 sm:py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold text-azul-rd">📉 El Diagnóstico: Crisis Epidemiológica y de Valor</h2>
+                <p class="mt-4 text-lg text-gray-700">
+                    El sector salud enfrenta una crisis evidente en 2025: brotes de <strong class="font-semibold text-rojo-rd">influenza</strong>, alta <strong class="font-semibold text-rojo-rd">mortalidad por cáncer</strong> y falta de registros.
+                </p>
+            </div>
+            <div class="mt-12 bg-white p-6 sm:p-8 rounded-xl shadow-xl border border-gray-200">
+                <h3 class="text-2xl font-bold text-center text-azul-rd">La Falla Sistémica: Pago por Volumen, no por Valor</h3>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    El modelo actual <strong class="text-rojo-rd">recompensa el volumen de servicios (fee-for-service)</strong>, no los resultados de salud del paciente. Los hospitales ganan más si un paciente diabético se complica y requiere amputación. Esto es un incentivo perverso. Con un <strong class="text-rojo-rd">21% de muertes por cáncer en mujeres menores de 50</strong>, el sistema falla en lo crónico.
+                </p>
+                <p class="mt-4 text-gray-700 leading-relaxed">
+                    Estos <strong class="text-azul-rd">10 Puntos Tácticos</strong> son acciones de "shock" para implementar una arquitectura de <strong class="font-bold">Salud Basada en Valor (Value-Based Health Care)</strong>: un sistema que paga por mantener al paciente sano, no por tratarlo cuando está enfermo.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+      Sección de los 10 Puntos Tácticos (Acordeón)
+      *** CONTENIDO AMPLIADO 4X ***
+    -->
+    <section id="directivas" class="py-16 sm:py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl sm:text-4xl font-bold text-center text-rojo-rd mb-12">
+                🎯 Los 10 Puntos Tácticos de Valor
+            </h2>
+            
+            <!-- Contenedor de directivas (Acordeón) -->
+            <div class="space-y-4">
+
+                <!-- Punto 1 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-1-content" data-directive="1">
+                        <h3 class="text-xl font-bold text-azul-rd">🏛️ 1. Adopción del Modelo "Salud Basada en Valor" (VBHC)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-1-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> El sistema actual opera bajo un modelo obsoleto de "pago por servicio" (fee-for-service). Esto significa que el ingreso de un hospital o clínica depende de *cuántas* consultas, análisis y procedimientos realiza, sin importar si el paciente mejora, empeora o tiene una mala experiencia. Este modelo incentiva el sobreuso de servicios caros, la repetición de pruebas y una atención fragmentada y reactiva, especialmente desastrosa para enfermedades crónicas.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Adoptar oficialmente el modelo VBHC como la filosofía central de la reforma. Esto redefine el "éxito" con una ecuación simple: `Valor = Resultados de Salud / Costo`. El objetivo ya no es "más consultas", sino "mejor salud al menor costo posible". El pago se vinculará directamente a la calidad de los resultados obtenidos para el paciente, forzando al sistema a ser eficiente y centrarse en la prevención.</p>
+                        
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Crear el "Consejo Nacional de Valor en Salud" (CONAVALOR), un ente público-privado para definir los estándares, métricas y "episodios de cuidado" que guiarán la reforma.</li>
+                            <li>Lanzar una campaña nacional de "Cultura de Valor" para educar y alinear a médicos, administradores de hospitales, ARS y pacientes sobre el nuevo enfoque.</li>
+                            <li>Iniciar con 3-5 proyectos piloto obligatorios (ej. diabetes tipo 2, parto, reemplazo de cadera) en los principales hospitales públicos y privados para validar el modelo.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Este es el cambio filosófico que lo sustenta todo. Dejaremos de pagar por la enfermedad para empezar a invertir en la salud. El valor es el rey.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 2 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-2-content" data-directive="2">
+                        <h3 class="text-xl font-bold text-azul-rd">💳 2. Implementación de "Pagos Agrupados"</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-2-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> Los "incentivos perversos" del pago por servicio son la raíz de la crisis. Un hospital gana más dinero si un paciente diabético se complica y requiere una amputación, ya que esto genera múltiples cirugías, hospitalizaciones y análisis caros. No hay ningún incentivo financiero para *prevenir* esa amputación.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Implementar "Bundled Payments" (Pagos Agrupados) como herramienta financiera principal. Se negociará y pagará una tarifa *única* por el "episodio de cuidado" completo. Por ejemplo, un pago único de X pesos cubrirá todo el cuidado de un paciente diabético tipo 2 por un año (consultas, análisis, medicamentos, educación). Otro pago cubrirá la cirugía de cadera *y* los 90 días de rehabilitación post-operatoria.</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Definir los 10 "episodios de cuidado" más costosos y crónicos del país (ej. diabetes, hipertensión, parto, cáncer de mama, infartos) como los primeros en migrar a este modelo.</li>
+                            <li>Establecer las tarifas justas basadas en el costo *real* de un cuidado eficiente (determinado por la PNDS), no en la facturación inflada actual.</li>
+                            <li>Exigir que los proveedores (hospitales, ARS) asuman el riesgo financiero de las complicaciones. Si un paciente reingresa por una infección post-quirúrgica prevenible, el hospital cubre el costo, no el sistema.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Alinear los incentivos. Si el hospital previene la complicación, se queda con el ahorro. Si el paciente se complica por negligencia, el hospital asume el costo. El valor triunfa sobre el volumen.</p>
+                    </div>
+                </div>
+                
+                <!-- Punto 3 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-3-content" data-directive="3">
+                        <h3 class="text-xl font-bold text-azul-rd">🖥️ 3. Creación de la Plataforma Nacional de Datos de Salud (PNDS)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-3-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> No hay un récord único. Los datos de salud del país están en un "archipiélago" de sistemas aislados (cada ARS, cada hospital grande) y, peor aún, en archivos de papel. No existe un registro nacional de tumores fiable. Es *imposible* medir la calidad, el costo real, o responder a epidemias en tiempo real.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Crear una plataforma digital *única*, centralizada y obligatoria, la PNDS. Esta será la "columna vertebral" tecnológica de la reforma, usando estándares internacionales (HL7/FHIR) para interoperabilidad y tecnología Blockchain para garantizar la seguridad, privacidad e inmutabilidad de los récords médicos. Esta plataforma integrará datos clínicos, de costos y epidemiológicos.</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Decretar la PNDS como infraestructura crítica nacional, con un mandato legal que obligue a *todas* las ARS, hospitales, clínicas y laboratorios a integrarse vía API en un plazo de 24 meses.</li>
+                            <li>Crear dentro de la PNDS el "Registro Nacional de Tumores" y el "Registro Epidemiológico en Tiempo Real" (para influenza, dengue, etc.), alimentados automáticamente.</li>
+                            <li>Asegurar que la plataforma sea la única fuente para el pago (Punto 2) y la medición de resultados (Punto 4).</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El código es la mejor herramienta epidemiológica. Esta plataforma es el "cerebro" que permite que el resto de la reforma funcione. Sin datos, no hay valor.</p>
+                    </div>
+                </div>
+                
+                <!-- Punto 4 -->
+                <div class="bg-white rounded-lg shadow-lg border-2 border-rojo-rd overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-4-content" data-directive="4">
+                        <h3 class="text-xl font-bold text-rojo-rd">📈 4. Medición y Transparencia de Resultados (PROMs)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-rojo-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-4-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> El "éxito" en salud se mide actualmente por métricas de proceso (se hizo la cirugía, se dio de alta al paciente) o por la opinión del médico. No le preguntamos sistemáticamente al paciente si su calidad de vida realmente mejoró, si el dolor desapareció, o si su experiencia fue digna.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Implementar la recolección obligatoria de "PROMs" (Resultados Reportados por el Paciente) y "PREMs" (Experiencia del Paciente). Esto significa rastrear activamente los resultados que *importan* al paciente: ¿El paciente de reemplazo de cadera volvió a caminar sin dolor? ¿El paciente de cáncer tiene una buena calidad de vida 6 meses después del tratamiento? ¿El diabético se siente en control de su enfermedad?</p>
+                        
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Integrar la recolección de PROMs directamente en la PNDS, usando encuestas automatizadas (SMS, email, app) en intervalos clave (ej. 30 días, 6 meses, 1 año post-tratamiento).</li>
+                            <li>Definir los sets de PROMs estándar para cada "episodio de cuidado" (Punto 2) basándose en estándares internacionales (ej. ICHOM).</li>
+                            <li>Publicar un "Ranking Nacional de Calidad en Salud" (anonimizado por paciente, pero público por hospital/médico) para que los ciudadanos puedan comparar quién ofrece los *mejores resultados reales*.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> La voz del paciente será la métrica principal. Haremos públicos los resultados para que la gente elija en base a la *calidad real* probada, no en base a la publicidad.</p>
+                    </div>
+                </div>
+                
+                <!-- Punto 5 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-5-content" data-directive="5">
+                        <h3 class="text-xl font-bold text-azul-rd">🧬 5. Reorganización en Unidades de Práctica Integrada (IPUs)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-5-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> El cuidado está peligrosamente fragmentado. Un paciente diabético debe peregrinar para ver a 5 especialistas (endocrino, cardiólogo, nefrólogo, nutricionista, podólogo) en 5 lugares y fechas distintas. *Nadie* coordina el plan de cuidado, los médicos no se comunican, se repiten pruebas y se producen errores médicos.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Reestructurar el cuidado alrededor de la *condición* del paciente, no de la *especialidad* del médico. Crearemos "Unidades de Práctica Integrada" (IPUs). El paciente va a un solo lugar (ej. la "IPU de Diabetes") y es visto por un equipo multidisciplinario (médicos, enfermeras, nutricionistas) que trabaja coordinadamente en un mismo espacio físico, compartiendo datos en la PNDS.</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Lanzar IPUs piloto para las condiciones de mayor impacto: Cáncer de Mama, Diabetes y Salud Metabólica, y Salud Cardiovascular.</li>
+                            <li>Co-localizar físicamente al equipo: el paciente no se mueve, el equipo colabora en un mismo piso o clínica, discutiendo los casos en conjunto.</li>
+                            <li>Medir y pagar (con Pagos Agrupados, Punto 2) al *equipo* de la IPU como una sola unidad, basándose en los *resultados* (PROMs, Punto 4) de su población de pacientes.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El paciente es el centro, no la especialidad. El equipo completo comparte la responsabilidad por el *resultado total* del paciente. Eficiencia, menos errores y mejor salud.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 6 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-6-content" data-directive="6">
+                        <h3 class="text-xl font-bold text-azul-rd">🛰️ 6. Red Nacional de Acceso y Telemedicina</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-6-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> La salud de alta calidad está concentrada geográficamente en Santo Domingo y Santiago. Si un paciente sufre un infarto o tiene un diagnóstico de cáncer en una provincia fronteriza, su probabilidad de supervivencia es drásticamente menor por la falta de acceso a especialistas y diagnóstico avanzado a tiempo.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Usar la Telemedicina no como un servicio cosmético, sino como el *pegamento* que integra una red nacional de 3 niveles. Las IPUs (Punto 5) en las ciudades (Nivel 1) usarán la PNDS (Punto 3) para dar soporte y guía experta a clínicas regionales (Nivel 2) y a técnicos de salud en Unidades de Atención Primaria (UNAP) rurales (Nivel 3).</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>El flujo: Paciente en una UNAP de Elías Piña (Nivel 3) es evaluado por un técnico. Los datos (vía un kit de tele-diagnóstico) suben a la PNDS. El especialista en la IPU de Cardiología en Santo Domingo (Nivel 1) revisa los datos y realiza una interconsulta en vivo.</li>
+                            <li>Financiar kits de tele-diagnóstico (estetoscopios digitales, otoscopios, EKG portátiles) para todas las UNAPs del país.</li>
+                            <li>Establecer protocolos claros de "tele-triage" para que las emergencias se manejen virtualmente antes y durante el traslado, salvando vidas.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El código postal de un paciente no determinará su tasa de supervivencia. Llevaremos al mejor especialista del país, virtualmente, a la UNAP más remota.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 7 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-7-content" data-directive="7">
+                        <h3 class="text-xl font-bold text-azul-rd">🌦️ 7. Enfoque Proactivo en Salud Pública y Prevención</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-7-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> El sistema es abrumadoramente *reactivo*. Esperamos a que surja el brote de dengue para fumigar, esperamos la epidemia de cólera para repartir cloro, esperamos que el paciente esté crónicamente enfermo para tratarlo. Gastamos millones en curar lo que pudimos haber prevenido por centavos.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Mover recursos presupuestarios y humanos de lo curativo a lo *preventivo*. Esto incluye la prevención ambiental (control de vectores de dengue, calidad del agua, calidad del aire) y la creación de una "IPU de Salud Preventiva y Climática", que usará la PNDS (Punto 3) para predecir y mitigar crisis antes de que ocurran.</p>
+                        
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Usar la PNDS (Punto 3) para análisis predictivo (IA) de brotes epidemiológicos, cruzando datos de clima, saneamiento y primeros síntomas.</li>
+                            <li>Invertir agresivamente en saneamiento básico (acceso a agua potable) y control de vectores como la política de salud más costo-efectiva.</li>
+                            <li>Relanzar la vacunación como pilar central, usando la PNDS para rastrear el estatus de cada ciudadano y enviar recordatorios proactivos.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> El escudo antes que la espada. Atacaremos la causa (el mosquito, el agua contaminada, la falta de vacunación) antes de que se convierta en una emergencia nacional.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 8 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-8-content" data-directive="8">
+                        <h3 class="text-xl font-bold text-azul-rd">🧑‍⚕️ 8. Desarrollo y Meritocracia del Personal de Salud</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-8-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> El ausentismo, la negligencia, la falta de formación continua y la "captura" del sistema por gremios son síntomas de un modelo que no premia la excelencia ni castiga la mediocridad. El personal bueno y el malo ganan lo mismo, desincentivando la vocación y el esfuerzo.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Ligar la *accountability* (rendición de cuentas) y la compensación variable del personal directamente a los *resultados de salud* (Punto 4) y la eficiencia de costos (Punto 2). Los mejores equipos (las IPUs que salvan más vidas y tienen pacientes más satisfechos) serán los mejor pagados. Esto se combina con la creación de nuevos roles técnicos.</p>
+                        
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Crear un sistema de bonos por desempeño para las IPUs basado en sus métricas de PROMs (Punto 4) y su eficiencia en el Pago Agrupado (Punto 2).</li>
+                            <li>Lanzar programas de formación técnica acelerada (ej. "Técnico de Telemedicina", "Técnico de Data en Salud") para suplir la alta demanda en las UNAPs (Nivel 3).</li>
+                            <li>Facilitar mecanismos legales (basados en data de la PNDS) para sancionar o despedir personal por negligencia o bajo desempeño comprobado.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> Restaurar la meritocracia real. El 4% debe pagar por *calidad* y *resultados medibles*, no por antigüedad y ausentismo. La excelencia debe ser recompensada.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 9 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-9-content" data-directive="9">
+                        <h3 class="text-xl font-bold text-azul-rd">👤 9. Empoderamiento y Transparencia para el Paciente</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-9-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> El paciente es tratado como un sujeto pasivo. No tiene acceso a su propio historial médico, no entiende su tratamiento, y no tiene forma de saber qué hospital o médico tiene mejores resultados para su condición. El paciente "elige" a ciegas, basándose en recomendaciones o publicidad, no en data.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Convertir al paciente en un socio activo de su salud. Esto se logra dándole acceso total y simple a su propio historial médico digital (alojado en la PNDS) y a los reportes públicos de calidad de los proveedores (generados por el Punto 4).</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Crear la aplicación "MiSaludRD", un portal único y seguro donde cada ciudadano pueda ver su historial médico completo, resultados de laboratorio, citas, y estatus de vacunación.</li>
+                            <li>Exigir que todos los proveedores (clínicas, hospitales) publiquen sus métricas de calidad (PROMs, tasas de infección, tiempos de espera) de forma estandarizada.</li>
+                            <li>Integrar módulos de educación en salud en la app "MiSaludRD" para que el paciente entienda su condición, la importancia de su tratamiento y cómo navegar el nuevo sistema.</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> La información es poder. Un paciente informado se convierte en un socio activo de su salud, toma mejores decisiones y exige un mejor servicio.</p>
+                    </div>
+                </div>
+
+                <!-- Punto 10 -->
+                <div class="bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+                    <button class="accordion-toggle w-full flex justify-between items-center p-6 text-left" data-target="mision-10-content" data-directive="10">
+                        <h3 class="text-xl font-bold text-azul-rd">🔎 10. Gobernanza y Transparencia Financiera (Auditoría del 4%)</h3>
+                        <svg class="accordion-icon h-6 w-6 text-azul-rd transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+                    <div id="mision-10-content" class="accordion-content px-6 pb-6">
+                        <p class="mt-2 text-gray-700 leading-relaxed"><strong class="text-rojo-rd">El Problema:</strong> El 4% del PIB (y los fondos de la seguridad social) se gasta con una opacidad casi total. La corrupción, el clientelismo, las compras con sobreprecio y la mala gestión drenan recursos vitales que deberían ir a los pacientes. No hay forma de saber si el dinero se está traduciendo en salud.</p>
+                        <p class="mt-4 text-gray-700 leading-relaxed"><strong class="text-azul-rd">El Punto Táctico:</strong> Usar la PNDS (Punto 3) para habilitar una auditoría digital, pública y en tiempo real de todo el gasto en salud. El sistema debe cruzar *costos* vs. *resultados* (Punto 4) automáticamente. Se debe implementar una política de "Tolerancia Cero" a la corrupción, usando la tecnología como principal herramienta de vigilancia.</p>
+
+                        <h4 class="text-lg font-bold text-gray-800 mt-6">Acciones Clave de Implementación:</h4>
+                        <ul class="list-disc list-inside ml-4 text-gray-700 space-y-2 mt-2 leading-relaxed">
+                            <li>Implementar un sistema de "Trazabilidad del Gasto" en la PNDS. Cada peso gastado (compra de medicamentos, pago de nómina, insumos) debe estar ligado a una actividad y a un paciente.</li>
+                            <li>Publicar un "Observatorio del Gasto en Salud" en línea para que la ciudadanía, la prensa y organismos de control puedan auditar el uso del 4% en tiempo real.</li>
+                            <li>Utilizar la PNDS para identificar automáticamente patrones de corrupción (ej. sobreprecio sistemático en insumos en un hospital, facturación de servicios no prestados).</li>
+                        </ul>
+
+                        <p class="mt-6 text-green-700 font-semibold text-lg"><strong class="text-gray-900">El Manifiesto:</strong> La confianza se construye con transparencia. Cada peso gastado debe ser justificable no por una factura, sino por un *resultado de salud* medible y público.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección CTA (Call to Action) -->
+    <section id="compartir" class="bg-azul-rd text-white py-16 sm:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold">📢 La reforma de salud es una reforma de valor.</h2>
+            <p class="mt-4 text-lg text-blue-200 max-w-2xl mx-auto">
+                Debemos dejar de pagar por enfermedad y empezar a invertir en salud. Comparte estos 10 puntos.
+            </p>
+            
+            <div class="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+                <!-- Botón de Compartir en WhatsApp -->
+                <a id="whatsapp-share" href="https://api.whatsapp.com/send?text=Mira%20estos%2010%20puntos%20para%20reformar%20la%20salud%20en%20RD%20(basado%20en%20valor):%20" target="_blank" rel="noopener noreferrer" class="bg-whatsapp text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-whatsapp-hover transition duration-300 flex items-center justify-center space-x-2">
+                    <span class="text-xl">📲</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path d="M10.001 2C5.58 2 2 5.58 2 10.001c0 1.503.414 2.914 1.14 4.142l-.998 3.648 3.72-1.02c1.17.65 2.502 1.003 3.88 1.003 4.42 0 8-3.58 8-8.001 0-4.421-3.58-8-8-8.001zM10 3.668c3.504 0 6.332 2.83 6.332 6.333 0 3.504-2.828 6.333-6.332 6.333-1.234 0-2.38-.35-3.357-.96l-.234-.14-.24.067-2.31 1.01.9-2.22.13-.31-.15-.24c-.65-1.02-.99-2.21-.99-3.48 0-3.504 2.828-6.333 6.332-6.333zm-2.36 3.19c-.103 0-.43.22-.53.38-.11.16-.43.51-.43.51-.11.16-.23.23-.35.23-.11 0-.28-.05-.41-.11-.3-.15-.8-.34-1.2-.55-.7-.35-1.1-1-1.1-1-.1-.1-.1-.1-.1-.2 0-.1.1-.1.2-.2.1-.1.2-.2.3-.2.1 0 .2 0 .3.1.1.1.3.3.3.3.1.1.1.2.2.2.1.1.1.1.2.1.1 0 .2-.1.3-.2.1-.1.1-.1.2-.2.1-.1.1-.2.2-.2.1-.1.3-.3.3-.3.1-.1.2-.2.3-.3.1-.1.2-.1.3-.1h.3c.1 0 .3.1.4.2.1.1.4.4.4.4.1.1.1.1.1.2s0 .2 0 .3c0 .1-.1.2-.2.3-.1.1-.2.2-.3.3-.1.1-.2.2-.2.2s-.1.1-.2.2c-.1.1-.2.2-.3.3-.1.1-.3.3-.3.3s-.1.1-.1.2c0 .1 0 .2.1.3.1.1.2.1.3.1.1 0 .2 0 .3-.1.1 0 .2-.1.3-.1.1 0 .2-.1.3-.1.4 0 1.1.5 1.1.5.1.1.2.1.3.2.1.1.1.2.1.3s0 .2 0 .3c-.1.1-.2.2-.3.3-.1.1-.4.3-.6.3-.2.1-.4.1-.6.1s-.4 0-.6-.1c-.2-.1-.4-.1-.5-.2z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-azul-rd text-blue-200 py-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-sm">Protocolo independiente realizado en 2025.</p>
+            <p class="text-sm mt-2">
+                Este sitio web es un Mini-Proyecto Táctico derivado del "Protocolo de Misiones Estratégicas".
+            </p>
+        </div>
+    </footer>
+    
+    <!-- 
+      JavaScript para Interacción (Acordeón, Menú) y Arte 2D
+    -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // Lógica para el Menú Móvil (Hamburger)
+            const menuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const hamburgerIcon = menuButton.querySelector('svg:first-child');
+            const closeIcon = menuButton.querySelector('svg:last-child');
+
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                hamburgerIcon.classList.toggle('hidden');
+                closeIcon.classList.toggle('hidden');
+            });
+            
+            // --- Lógica de Acordeón Modificada ---
+            const accordions = document.querySelectorAll('.accordion-toggle');
+            let activeDirective = 0; // Variable para el arte
+            
+            accordions.forEach(button => {
+                button.addEventListener('click', () => {
+                    const targetId = button.getAttribute('data-target');
+                    const targetContent = document.getElementById(targetId);
+
+                    // --- Lógica Cygnus: Detectar estado para el arte ---
+                    const directiveId = parseInt(button.getAttribute('data-directive'));
+                    const isOpen = button.classList.contains('open');
+                    activeDirective = isOpen ? 0 : directiveId; // 0 si se está cerrando
+                    // Pasar esta variable al script de arte
+                    if (window.cygnus) {
+                        window.cygnus.setActiveDirective(activeDirective);
+                    }
+                    // --- Fin Lógica Cygnus ---
+
+                    // Cerrar todos los demás acordeones
+                    accordions.forEach(otherButton => {
+                        const otherTargetId = otherButton.getAttribute('data-target');
+                        if (otherTargetId !== targetId) {
+                            // Asegurarse de que el otro elemento exista antes de cerrarlo
+                            const otherTargetContent = document.getElementById(otherTargetId);
+                            if (otherTargetContent) {
+                                otherTargetContent.classList.remove('open');
+                            }
+                            otherButton.classList.remove('open');
+                        }
+                    });
+
+                    // Abrir o cerrar el actual
+                    if (targetContent) {
+                        targetContent.classList.toggle('open');
+                    }
+                    button.classList.toggle('open');
+                });
+            });
+            // --- Fin Lógica de Acordeón ---
+
+
+            // Lógica para el botón de WhatsApp (para incluir la URL actual)
+            const shareButton = document.getElementById('whatsapp-share');
+            if (shareButton) {
+                const shareUrl = window.location.href;
+                let originalHref = shareButton.getAttribute('href');
+                // Limpiar cualquier URL anterior si existe
+                originalHref = originalHref.split('?text=')[0] + '?text=Mira%20estos%2010%20puntos%20para%20reformar%20la%20salud%20en%20RD%20(basado%20en%20valor):%20';
+                shareButton.setAttribute('href', originalHref + encodeURIComponent(shareUrl));
+            }
+            
+            // --- INICIO DE CYGNUS 'THE DATA-STREAM HEARTBEAT' SCRIPT ---
+
+            // Adjuntar el script al objeto window para que el acordeón pueda llamarlo
+            window.cygnus = {}; 
+
+            const canvas = document.getElementById('health-canvas');
+            const header = document.getElementById('hero-header');
+            
+            if (!canvas || !header) {
+                console.error("Cygnus Error: Canvas or Header not found.");
+                return;
+            }
+
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error("Cygnus Error: 2D Context not available.");
+                return;
+            }
+
+            // --- 1. Definición de la Paleta y Parámetros ---
+            const azulRD = '#002D62';
+            const rojoRD = '#CE1126';
+            const blanco = '#FFFFFF';
+
+            let width, height, baseline;
+            let time = 0;
+            let heartbeatY = []; // Almacenará las coordenadas 'y' del latido
+
+            // --- 2. Crear Capa de Interacción (Scanline y Data) ---
+            const interactiveLayer = document.createElement('div');
+            interactiveLayer.id = 'cygnus-interactive-layer';
+
+            const scanline = document.createElement('div');
+            scanline.className = 'scanline';
+            interactiveLayer.appendChild(scanline);
+
+            // (Cygnus Nota: Estos data points coinciden con el *prompt* original.
+            //  Se pueden ajustar a "Pagos Agrupados", "IPUs", etc. si se desea.)
+            const dataPoints = [
+                { xPercent: 0.30, text: 'Registros de Tumores' },
+                { xPercent: 0.50, text: 'IA-Epidemiológica' },
+                { xPercent: 0.70, text: 'Telemedicina' }
+            ];
+            
+            let dataPointElements = [];
+
+            dataPoints.forEach(dp => {
+                const el = document.createElement('span');
+                el.className = 'data-point';
+                el.textContent = dp.text;
+                el.dataset.xPercent = dp.xPercent; // Guardamos su posición
+                interactiveLayer.appendChild(el);
+                dataPointElements.push(el);
+            });
+            
+            // Insertar la capa de interacción en el header
+            header.appendChild(interactiveLayer);
+
+
+            // --- 3. Funciones de Renderizado de Arte ---
+
+            // Dibuja el "ruido" de fondo (La Crisis)
+            function drawStatic() {
+                ctx.fillStyle = rojoRD;
+                ctx.globalAlpha = 0.05; // Muy sutil
+                
+                for (let i = 0; i < 100; i++) {
+                    const x = Math.random() * width;
+                    const y = Math.random() * height;
+                    const size = Math.random() * 2 + 1;
+                    ctx.fillRect(x, y, size, size);
+                }
+            }
+
+            // Dibuja el "latido" principal (La Solución Digital)
+            function drawHeartbeat() {
+                ctx.strokeStyle = azulRD;
+                ctx.lineWidth = 3;
+                ctx.globalAlpha = 1.0;
+                ctx.shadowBlur = 10;
+                ctx.shadowColor = 'rgba(0, 45, 98, 0.7)'; // Sombra 'azul-rd'
+
+                ctx.beginPath();
+                heartbeatY = []; // Limpiar las coordenadas 'y'
+                
+                const freq = 0.02;
+                const amp = height * 0.1;
+                
+                for (let i = 0; i <= width; i++) {
+                    // La onda base
+                    const wave = Math.sin(i * freq + time) * amp;
+                    
+                    // El "pulso" EKG
+                    // Usamos una función de potencia con sin() para crear picos agudos
+                    const pulseFreq = 0.01;
+                    const pulseTime = time * 2.5;
+                    const pulse = Math.pow(Math.abs(Math.sin(i * pulseFreq + pulseTime)), 40) * -100;
+                    
+                    const y = baseline + wave + pulse;
+                    
+                    if (i === 0) {
+                        ctx.moveTo(i, y);
+                    } else {
+                        ctx.lineTo(i, y);
+                    }
+                    heartbeatY[i] = y; // Guardar la coordenada 'y'
+                }
+                ctx.stroke();
+                
+                // Resetear sombra
+                ctx.shadowBlur = 0;
+            }
+
+            // --- 4. El Bucle de Animación (El Corazón) ---
+            function animate() {
+                time += 0.03;
+
+                // Limpiar el canvas
+                ctx.globalAlpha = 1.0;
+                ctx.clearRect(0, 0, width, height);
+
+                // Dibujar las capas
+                drawStatic();
+                drawHeartbeat();
+
+                requestAnimationFrame(animate);
+            }
+
+            // --- 5. Manejadores de Eventos (Interacción) ---
+
+            // Ajustar el canvas al tamaño del header
+            function onResize() {
+                // FALLBACK: Si el header no tiene dimensiones, esperar y reintentar.
+                // Esto es crucial para un inicio robusto.
+                if (header.clientWidth === 0 || header.clientHeight === 0) {
+                    requestAnimationFrame(onResize);
+                    return;
+                }
+
+                width = header.clientWidth;
+                height = header.clientHeight;
+                canvas.width = width * window.devicePixelRatio;
+                canvas.height = height * window.devicePixelRatio;
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
+                
+                ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
+                
+                baseline = height * 0.5; // El centro vertical
+            }
+
+            // El "Scanline" y la "Revelación" de datos
+            function onMouseMove(e) {
+                // Obtenemos la 'x' relativa al header
+                const rect = header.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+
+                // Mover el scanline
+                scanline.style.opacity = '0.7';
+                scanline.style.transform = `translateX(${x}px)`;
+
+                // Revisar si el scanline está cerca de un punto de data
+                dataPointElements.forEach(el => {
+                    const dpX = width * parseFloat(el.dataset.xPercent);
+                    const proximity = 50; // Píxeles de proximidad para revelar
+
+                    if (Math.abs(x - dpX) < proximity) {
+                        // ¡Revelar!
+                        const y = heartbeatY[Math.floor(dpX)] || baseline;
+                        const revealFactor = 1 - (Math.abs(x - dpX) / proximity);
+
+                        el.style.opacity = `${revealFactor}`;
+                        // Mover el texto al punto 'y' correcto, con un offset
+                        el.style.transform = `translate(${dpX}px, ${y - 40}px) scale(${0.9 + revealFactor * 0.1})`;
+                    } else {
+                        // Ocultar
+                        el.style.opacity = '0';
+                        // Asegurarnos de que tenga una posición base incluso oculto
+                        const y = heartbeatY[Math.floor(dpX)] || baseline;
+                        el.style.transform = `translate(${dpX}px, ${y - 30}px) scale(0.9)`;
+                    }
+                });
+            }
+
+            // Ocultar la interacción al salir
+            function onMouseLeave() {
+                scanline.style.opacity = '0';
+                dataPointElements.forEach(el => {
+                    el.style.opacity = '0';
+                });
+            }
+            
+            // --- Conexión con el Acordeón ---
+            // (Esta función es llamada por la lógica del acordeón más arriba)
+            window.cygnus.setActiveDirective = (directiveId) => {
+                // (Cygnus Nota: Aquí es donde podríamos cambiar el estado del arte
+                //  basado en el acordeón, si quisiéramos. Por ahora, la interacción
+                //  principal es el hover, así que esto es un placeholder.)
+                 // console.log("Cygnus Art: Directiva activa es", directiveId);
+            };
+            
+
+            // --- 6. Iniciar todo ---
+            window.addEventListener('resize', onResize);
+            header.addEventListener('mousemove', onMouseMove);
+            header.addEventListener('mouseleave', onMouseLeave);
+
+            // Iniciar
+            onResize(); // Llamar una vez para setear el tamaño
+            animate();  // Empezar el latido
+
+            // --- FIN DE CYGNUS SCRIPT ---
+            
+        });
+    </script>
+
+</body>
+</html>
+
