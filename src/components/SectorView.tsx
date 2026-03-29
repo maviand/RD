@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, ChevronUp, LucideIcon, Filter, ThumbsUp, ThumbsDown, ExternalLink, Search, Rocket, Twitter, Instagram, MessageCircle, Share2 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import TerritorialSavingsChart from './TerritorialSavingsChart';
 import MinistryConsolidationChart from './MinistryConsolidationChart';
 import MilitaryEfficiencyChart from './MilitaryEfficiencyChart';
@@ -176,6 +177,7 @@ interface Solution {
   expectedOutcomes?: string[];
   chartData?: { name: string; value: number }[];
   imageUrl?: string;
+  internalRoute?: string;
 }
 
 interface Problem {
@@ -525,6 +527,7 @@ const ProblemCard: React.FC<{
   onVote
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const navigate = useNavigate();
   
   const score = voteData ? voteData.up - voteData.down : 0;
   const userVote = voteData?.userVote;
@@ -620,15 +623,25 @@ const ProblemCard: React.FC<{
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--color-gov-gold)] text-[var(--color-gov-blue)] text-[10px] font-bold tracking-widest uppercase font-heading">
                         Solución Detallada
                       </div>
-                      <a 
-                        href={searchUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-gov-blue)] hover:bg-[#001f44] text-white text-xs font-bold font-heading uppercase tracking-wider rounded-sm transition-colors shadow-sm"
-                      >
-                        Más Información
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
+                      <div className="flex gap-2">
+                        {problem.solution.internalRoute && (
+                          <button
+                            onClick={(e) => { e.stopPropagation(); navigate(problem.solution.internalRoute!); }}
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-[#FBBF24] hover:bg-[#F59E0B] text-[#002855] text-xs font-bold font-heading uppercase tracking-wider rounded-sm transition-colors shadow-sm"
+                          >
+                            Ver Presentación Interactiva
+                          </button>
+                        )}
+                        <a 
+                          href={searchUrl} 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-gov-blue)] hover:bg-[#001f44] text-white text-xs font-bold font-heading uppercase tracking-wider rounded-sm transition-colors shadow-sm"
+                        >
+                          Más Información
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </div>
                     </div>
                     
                     <div className="space-y-3">

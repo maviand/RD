@@ -48,7 +48,8 @@ export const sectors = [
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/gov-1-solution/800/400'
+          imageUrl: 'https://picsum.photos/seed/gov-1-solution/800/400',
+          internalRoute: '/gabinetes'
         }
       },
       {
@@ -82,7 +83,8 @@ export const sectors = [
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/gov-2-solution/800/400'
+          imageUrl: 'https://picsum.photos/seed/gov-2-solution/800/400',
+          internalRoute: '/gasto-militar'
         }
       },
       {
@@ -116,7 +118,8 @@ export const sectors = [
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/gov-3-solution/800/400'
+          imageUrl: 'https://picsum.photos/seed/gov-3-solution/800/400',
+          internalRoute: '/reorganizacion-territorial'
         }
       },
       {

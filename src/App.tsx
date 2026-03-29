@@ -12,6 +12,9 @@ import SectorView from './components/SectorView';
 import HomeView from './components/HomeView';
 import ProjectionsView from './components/ProjectionsView';
 import NewCitiesView from './components/NewCitiesView';
+import GastoMilitarView from './components/external/GastoMilitar';
+import GabinetesView from './components/external/Gabinetes';
+import ReorganizacionTerritorialView from './components/external/ReorganizacionTerritorial';
 
 function AppContent() {
   const location = useLocation();
@@ -25,15 +28,16 @@ function AppContent() {
   const isHome = currentPath === '' || currentPath === 'home';
   const isProjections = currentPath === 'proyecciones';
   const isNewCities = currentPath === 'nuevas-ciudades';
-  const activeSectorId = (isHome || isProjections || isNewCities) ? '' : (sectors.find(s => s.id === currentPath)?.id || '');
+  const isExternalRoute = currentPath === 'gasto-militar' || currentPath === 'gabinetes' || currentPath === 'reorganizacion-territorial';
+  const activeSectorId = (isHome || isProjections || isNewCities || isExternalRoute) ? '' : (sectors.find(s => s.id === currentPath)?.id || '');
   const activeSector = sectors.find(s => s.id === activeSectorId);
 
   // Redirect to home if invalid path
   useEffect(() => {
-    if (!isHome && !isProjections && !isNewCities && !sectors.find(s => s.id === currentPath)) {
+    if (!isHome && !isProjections && !isNewCities && !isExternalRoute && !sectors.find(s => s.id === currentPath)) {
       navigate('/', { replace: true });
     }
-  }, [currentPath, isHome, isProjections, isNewCities, navigate]);
+  }, [currentPath, isHome, isProjections, isNewCities, isExternalRoute, navigate]);
 
   // Scroll to top when sector changes
   useEffect(() => {
@@ -111,6 +115,9 @@ function AppContent() {
             <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/proyecciones" element={<ProjectionsView />} />
             <Route path="/nuevas-ciudades" element={<NewCitiesView />} />
+            <Route path="/gasto-militar" element={<GastoMilitarView />} />
+            <Route path="/gabinetes" element={<GabinetesView />} />
+            <Route path="/reorganizacion-territorial" element={<ReorganizacionTerritorialView />} />
             {activeSector && (
               <Route path="/:sectorId" element={<SectorView sector={activeSector} />} />
             )}
