@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { 
-  BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer,
-  AreaChart, Area, PieChart, Pie, Cell
+  XAxis, YAxis, CartesianGrid, Tooltip as RechartsTooltip, Legend, ResponsiveContainer,
+  AreaChart, Area, PieChart, Pie, Cell, ScatterChart, Scatter, ZAxis
 } from 'recharts';
-import { TrendingUp, DollarSign, ShieldCheck, Activity, Landmark, GraduationCap } from 'lucide-react';
+import { TrendingUp, DollarSign, Activity, ArrowUpDown, ChevronDown, ChevronUp } from 'lucide-react';
 import { sectors } from '../data';
 
 export default function ProjectionsView() {
@@ -94,7 +94,7 @@ export default function ProjectionsView() {
     totalImpact,
   };
 
-  const COLORS = ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6'];
+  const COLORS = ['#ef4444', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#ec4899', '#0ea5e9', '#84cc16'];
 
   const sectorImpacts = initiativesBySector.map(group => {
     const totalSectorRetorno = group.items.reduce((sum, item) => sum + item.retorno, 0);
@@ -124,6 +124,26 @@ export default function ProjectionsView() {
     value: i.retorno,
     type: (i.sectorId === 'tourism' || i.sectorId === 'finance') ? 'Ingreso' : 'Ahorro'
   }));
+
+  // Sorting state for the Table
+  type InitiativeKeys = keyof typeof allInitiatives[0];
+  const [sortField, setSortField] = useState<InitiativeKeys>('retorno');
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
+
+  const handleSort = (field: InitiativeKeys) => {
+    if (sortField === field) {
+      setSortDir(sortDir === 'asc' ? 'desc' : 'asc');
+    } else {
+      setSortField(field);
+      setSortDir('desc');
+    }
+  };
+
+  const sortedInitiatives = [...allInitiatives].sort((a, b) => {
+    if (a[sortField] < b[sortField]) return sortDir === 'asc' ? -1 : 1;
+    if (a[sortField] > b[sortField]) return sortDir === 'asc' ? 1 : -1;
+    return 0;
+  });
 
   return (
     <motion.div 
@@ -251,64 +271,128 @@ export default function ProjectionsView() {
         </div>
       </div>
 
-      {/* Sector-by-Sector ROI Charts */}
+      {/* Global Scatter Chart */}
       <div className="mb-12">
-        <h2 className="text-2xl font-heading font-extrabold text-[var(--color-gov-blue)] uppercase tracking-tight mb-6">
-          Inversión vs. Retorno por Sector
+        <h2 className="text-2xl font-heading font-extrabold text-[var(--color-gov-blue)] uppercase tracking-tight mb-2">
+          Rentabilidad de los Proyectos (ROI) General
         </h2>
         <p className="text-gray-600 mb-8 max-w-3xl">
-          Desglose detallado del costo de capital (CAPEX) estimado frente al impacto financiero anual de cada solución y megaproyecto, categorizado por sector estratégico.
+          Visualiza cada solución como una burbuja. Mientras más a la derecha, mayor es la inversión necesaria. Mientras más arriba, mayor es el retorno. Las inversiones ideales se ubican en la parte superior izquierda.
         </p>
         
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-          {initiativesBySector.map(({ sector, items }) => {
-            const Icon = sector.icon;
-            const chartHeight = Math.max(280, items.length * 55);
-            
-            return (
-              <div key={sector.id} className="bg-white rounded-xl shadow-md border border-gray-200 p-6 flex flex-col">
-                <div className="flex items-center gap-3 mb-6 border-b border-gray-100 pb-4">
-                  <div className="p-2 bg-gray-50 rounded-lg text-[var(--color-gov-blue)]">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-lg font-bold text-gray-900">{sector.title}</h3>
-                </div>
-                
-                <div style={{ height: `${chartHeight}px`, minHeight: '280px' }} className="w-full mt-auto">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart 
-                      data={items} 
-                      layout="vertical" 
-                      margin={{ top: 10, right: 30, left: 0, bottom: 10 }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#e5e7eb" />
-                      <XAxis type="number" stroke="#6b7280" tickFormatter={(value) => `$${value.toLocaleString('en-US')}M`} />
-                      <YAxis 
-                        type="category" 
-                        dataKey="name" 
-                        stroke="#4b5563" 
-                        width={240} 
-                        tickFormatter={(val) => val.length > 38 ? val.substring(0, 38) + '...' : val}
-                        tick={{fontSize: 11, fill: '#374151'}} 
-                        interval={0}
-                      />
-                      <RechartsTooltip 
-                        formatter={(value: number, name: string) => [
-                          `$${value.toLocaleString('en-US')}M USD`, 
-                          name === 'inversion' ? 'Inversión (CAPEX)' : 'Retorno Anual'
-                        ]} 
-                        cursor={{fill: 'rgba(0,0,0,0.05)'}}
-                        contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}
-                      />
-                      <Legend verticalAlign="top" height={36} wrapperStyle={{ fontSize: '12px' }} />
-                      <Bar dataKey="inversion" name="Inversión" fill="#ef4444" radius={[0, 4, 4, 0]} barSize={10} />
-                      <Bar dataKey="retorno" name="Retorno" fill="#10b981" radius={[0, 4, 4, 0]} barSize={10} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-            );
-          })}
+        <div className="bg-white rounded-xl shadow-md border border-gray-200 p-6 w-full h-[600px]">
+          <ResponsiveContainer width="100%" height="100%">
+            <ScatterChart margin={{ top: 20, right: 60, bottom: 40, left: 40 }}>
+              <CartesianGrid strokeDasharray="3 3" opacity={0.5} />
+              <XAxis 
+                type="number" 
+                dataKey="inversion" 
+                name="Inversión" 
+                unit="M" 
+                label={{ value: 'Inversión (Millones USD)', position: 'insideBottom', offset: -25, fill: '#6b7280' }} 
+              />
+              <YAxis 
+                type="number" 
+                dataKey="retorno" 
+                name="Retorno Anual" 
+                unit="M" 
+                label={{ value: 'Retorno Anual (Millones USD)', angle: -90, position: 'insideLeft', offset: -20, fill: '#6b7280' }}
+              />
+              <ZAxis type="category" dataKey="name" name="Proyecto" />
+              <RechartsTooltip 
+                cursor={{ strokeDasharray: '3 3' }} 
+                content={({ active, payload }) => {
+                  if (active && payload && payload.length) {
+                    const data = payload[0].payload;
+                    return (
+                      <div className="bg-white p-4 border border-gray-200 shadow-lg rounded-md">
+                        <p className="font-bold text-gray-900 mb-1 leading-tight max-w-xs">{data.name}</p>
+                        <p className="text-xs text-gray-500 mb-3">{data.sector}</p>
+                        <p className="text-sm font-semibold text-red-500">Inversión: ${data.inversion}M</p>
+                        <p className="text-sm font-semibold text-emerald-600">Retorno Anual: ${data.retorno}M</p>
+                      </div>
+                    );
+                  }
+                  return null;
+                }}
+              />
+              <Legend verticalAlign="top" height={50} />
+              {initiativesBySector.map((group, index) => (
+                <Scatter 
+                  key={group.sector.id} 
+                  name={group.sector.title} 
+                  data={group.items} 
+                  fill={COLORS[index % COLORS.length]} 
+                  fillOpacity={group.sector.id === 'mega' ? 1 : 0.7}
+                  line={false}
+                />
+              ))}
+            </ScatterChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+
+      {/* Interactive Data Table */}
+      <div className="mb-12">
+        <h2 className="text-2xl font-heading font-extrabold text-[var(--color-gov-blue)] uppercase tracking-tight mb-2">
+          Tabla Detallada de Inversiones
+        </h2>
+        <p className="text-gray-600 mb-8 max-w-3xl">
+          Explora la lista completa de todas las soluciones proyectadas. Haz clic en los encabezados para ordenar por Sector, Inversión o Retorno Anual esperado.
+        </p>
+        
+        <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+          <div className="overflow-x-auto max-h-[600px] overflow-y-auto w-full">
+            <table className="w-full text-left border-collapse">
+              <thead className="bg-[#f8fafc] sticky top-0 border-b border-gray-200 shadow-sm z-10">
+                <tr>
+                  <th 
+                    className="p-4 cursor-pointer hover:bg-gray-100 text-sm font-bold text-gray-600 uppercase tracking-widest whitespace-nowrap"
+                    onClick={() => handleSort('name')}
+                  >
+                    <div className="flex items-center gap-2">Proyecto <ArrowUpDown className="w-3 h-3 text-gray-400" /></div>
+                  </th>
+                  <th 
+                    className="p-4 cursor-pointer hover:bg-gray-100 text-sm font-bold text-gray-600 uppercase tracking-widest whitespace-nowrap"
+                    onClick={() => handleSort('sector')}
+                  >
+                    <div className="flex items-center gap-2">Sector <ArrowUpDown className="w-3 h-3 text-gray-400" /></div>
+                  </th>
+                  <th 
+                    className="p-4 cursor-pointer hover:bg-gray-100 text-sm font-bold text-gray-600 uppercase tracking-widest whitespace-nowrap text-right"
+                    onClick={() => handleSort('inversion')}
+                  >
+                    <div className="flex items-center justify-end gap-2">Inversión (USD) <ArrowUpDown className="w-3 h-3 text-gray-400" /></div>
+                  </th>
+                  <th 
+                    className="p-4 cursor-pointer hover:bg-gray-100 text-sm font-bold text-gray-600 uppercase tracking-widest whitespace-nowrap text-right"
+                    onClick={() => handleSort('retorno')}
+                  >
+                    <div className="flex items-center justify-end gap-2">Retorno (USD) <ArrowUpDown className="w-3 h-3 text-gray-400" /></div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-gray-100">
+                {sortedInitiatives.map((item) => (
+                  <tr key={item.id} className="hover:bg-blue-50 transition-colors">
+                    <td className="p-4 py-3">
+                      <p className="font-semibold text-gray-900 text-sm">{item.name}</p>
+                      {item.type === 'Megaproyecto' && <span className="inline-block mt-1 px-2 py-0.5 bg-purple-100 text-purple-800 text-[10px] font-bold uppercase rounded-sm border border-purple-200">Megaproyecto</span>}
+                    </td>
+                    <td className="p-4 py-3 text-sm text-gray-600 font-medium">
+                      {item.sector}
+                    </td>
+                    <td className="p-4 py-3 text-right font-mono text-sm text-red-600 font-bold">
+                      ${item.inversion.toLocaleString('en-US')}M
+                    </td>
+                    <td className="p-4 py-3 text-right font-mono text-sm text-emerald-600 font-bold">
+                      +${item.retorno.toLocaleString('en-US')}M
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
@@ -341,43 +425,6 @@ export default function ProjectionsView() {
         </div>
       </div>
 
-      {/* Sector Summaries */}
-      <h2 className="text-2xl font-heading font-extrabold text-[var(--color-gov-blue)] uppercase tracking-tight mb-6">
-        Resumen por Sector
-      </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {sectorImpacts.map((sector, idx) => {
-          const Icon = sector.icon;
-          return (
-            <div key={idx} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-start gap-4">
-              <div className="p-3 rounded-lg" style={{ backgroundColor: `${sector.color}20` }}>
-                <Icon className="w-6 h-6" style={{ color: sector.color }} />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{sector.name}</h3>
-                {sector.note ? (
-                  <p className="text-sm text-gray-600 italic">{sector.note}</p>
-                ) : (
-                  <div className="space-y-2">
-                    {sector.savings > 0 && (
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">Ahorros Proyectados:</span>
-                        <span className="font-bold text-emerald-600">+${sector.savings.toLocaleString('en-US')}M</span>
-                      </div>
-                    )}
-                    {sector.income > 0 && (
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-gray-600">Nuevos Ingresos:</span>
-                        <span className="font-bold text-blue-600">+${sector.income.toLocaleString('en-US')}M</span>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          );
-        })}
-      </div>
     </motion.div>
   );
 }

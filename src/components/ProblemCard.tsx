@@ -338,7 +338,7 @@ const ProblemCard: React.FC<{
 
                     {problem.solution.imageUrl && (
                       <div className="rounded-md overflow-hidden border border-gray-300 shadow-sm my-6">
-                        <img src={problem.solution.imageUrl} alt="Ilustración de la solución" className="w-full h-64 object-cover" referrerPolicy="no-referrer" />
+                        <img src={problem.solution.imageUrl} alt="Ilustración de la solución" className="w-full max-h-[600px] object-contain bg-gray-50" referrerPolicy="no-referrer" />
                       </div>
                     )}
 

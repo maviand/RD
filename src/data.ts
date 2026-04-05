@@ -49,8 +49,7 @@ export const sectors: Sector[] = [
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/gov-1-solution/800/400',
-          internalRoute: '/gabinetes',
+                    internalRoute: '/gabinetes',
           enrichedContent: {
             tldr: 'Reducir de 24 a 8 ministerios eliminará cuellos de botella y ahorrará millones anualmente en nómina superflua.',
             leaderQuote: { quote: 'No hay plata. El Estado no genera riqueza, solo la gasta. Hay que pasar la motosierra a la burocracia.', author: 'Javier Milei', context: 'Discurso de Asunción 2023' },
@@ -117,8 +116,7 @@ export const sectors: Sector[] = [
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/gov-2-solution/800/400',
-          internalRoute: '/gasto-militar'
+                    internalRoute: '/gasto-militar'
         }
       },
       {
@@ -152,8 +150,7 @@ export const sectors: Sector[] = [
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/gov-3-solution/800/400',
-          internalRoute: '/reorganizacion-territorial'
+                    internalRoute: '/reorganizacion-territorial'
         }
       },
       {
@@ -193,8 +190,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 120 },
             { name: 'Año 5', value: 180 }
           ],
-          imageUrl: 'https://picsum.photos/seed/fueltax/800/400'
-        }
+                  }
       }
     ]
   },
@@ -290,6 +286,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Control excesivo Sindical y Protección de la Bajo rendimiento',
         description: 'El sindicato ADP ejerce un control casi absoluto, resiste las evaluaciones basadas en el mérito y protege a los educadores de bajo rendimiento, mientras que las pagos forzosos afectan los salarios de los maestros.',
         solution: {
+        imageUrl: "https://i.imgur.com/UU9MdZ8.jpeg",
           leader: 'Margaret Thatcher',
           model: 'Modelo de Alemania',
           description: 'Apertura a Nuevas Opciones y Certificación Transparente. Descentralizar la certificación a entidades independientes, introducir pago por desempeño y hacer que las cuotas sindicales sean estrictamente voluntarias.',
@@ -314,8 +311,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-4',
@@ -324,6 +320,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Infraestructura Escolar Deficiente',
         description: 'A pesar del presupuesto, muchas escuelas carecen de servicios básicos, conectividad y espacios adecuados para el aprendizaje moderno.',
         solution: {
+        imageUrl: "https://i.imgur.com/UU9MdZ8.jpeg",
           leader: 'Nayib Bukele',
           model: 'Modelo de Construcción Acelerada',
           description: 'Implementar un plan de choque de infraestructura utilizando diseños modulares estandarizados y alianzas público-privadas para renovar el 100% de las escuelas críticas en 24 meses.',
@@ -348,8 +345,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-5',
@@ -358,6 +354,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Brecha Digital y Tecnológica',
         description: 'Desigualdad extrema en el acceso a dispositivos y conectividad de alta velocidad, limitando la educación STEM en zonas rurales y marginadas.',
         solution: {
+        imageUrl: "https://i.imgur.com/wedTrfk.jpeg",
           leader: 'Elon Musk',
           model: 'Conectividad Satelital Universal',
           description: 'Desplegar internet satelital (ej. Starlink) en todas las escuelas rurales y proveer dispositivos de bajo costo con software educativo pre-cargado y tutores de IA offline.',
@@ -382,8 +379,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-6',
@@ -392,6 +388,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Deficiencia Crítica en Bilingüismo',
         description: 'El dominio del inglés es extremadamente bajo entre los graduados de escuelas públicas, excluyéndolos de la economía global de servicios y tecnología.',
         solution: {
+        imageUrl: "https://i.imgur.com/yfNi3ZH.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Bilingüismo Obligatorio Inmersivo',
           description: 'Implementar el inglés como segundo idioma de instrucción obligatoria desde preescolar, importando maestros nativos temporalmente mientras se recapacita intensivamente al personal local.',
@@ -416,8 +413,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-7',
@@ -426,6 +422,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Fallas en la Alimentación Escolar (INABIE)',
         description: 'Problemas recurrentes de calidad, intoxicaciones y corrupción en la adjudicación de contratos de almuerzos escolares, afectando la nutrición y el aprendizaje.',
         solution: {
+        imageUrl: "https://i.imgur.com/D2RtOdS.jpeg",
           leader: 'Nayib Bukele',
           model: 'Centralización y Auditoría Estricta',
           description: 'Digitalizar y centralizar las compras públicas de alimentos mediante subastas inversas transparentes, con penalidades penales severas por incumplimiento de estándares nutricionales y de salubridad.',
@@ -450,8 +447,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-8',
@@ -460,6 +456,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Ausencia de Educación Cívica y Financiera',
         description: 'Los estudiantes se gradúan sin conocimientos básicos sobre el manejo del dinero, impuestos, o sus deberes y derechos constitucionales.',
         solution: {
+        imageUrl: "https://i.imgur.com/GiWsa3T.jpeg",
           leader: 'Warren Buffett',
           model: 'Alfabetización Práctica Obligatoria',
           description: 'Integrar un currículo obligatorio de finanzas personales, inversión básica y civismo práctico en la escuela secundaria, como requisito indispensable para la graduación.',
@@ -484,8 +481,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-9',
@@ -494,6 +490,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Profesores Fantasmas ("Botellas") en la Nómina',
         description: 'Miles de personas cobran salarios como maestros sin presentarse a las aulas, drenando el presupuesto educativo y la calidad de la enseñanza.',
         solution: {
+        imageUrl: "https://i.imgur.com/94hhaSd.jpeg",
           leader: 'Javier Milei',
           model: 'Auditoría Forense y Revisión profunda',
           description: 'Ejecutar una auditoría forense financiera constante de la nómina y terminar inmediatamente a todo el personal no verificado.',
@@ -518,8 +515,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-10',
@@ -528,6 +524,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Educadores con Deficiencias de Dominio',
         description: 'Maestros mal capacitados que dependen de la memorización tradicional en lugar del dominio de la materia y metodologías modernas.',
         solution: {
+        imageUrl: "https://i.imgur.com/LvPibBh.jpeg",
           leader: 'Elon Musk',
           model: 'Tutores de IA Offline',
           description: 'Evitar la brecha de calidad docente equipando a los estudiantes con tabletas resistentes que ejecuten tutores de IA locales y fuera de línea.',
@@ -552,8 +549,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-11',
@@ -562,6 +558,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Carencia Severa de Enfoque STEM',
         description: 'Falta de énfasis en ciencia, tecnología, ingeniería y matemáticas, dejando a los estudiantes sin preparación para el futuro.',
         solution: {
+        imageUrl: "https://i.imgur.com/d1A795R.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Enfoque STEM Singapurense',
           description: 'Desviar fondos directamente a las vías de tecnología e ingeniería, utilizando herramientas de IA para enseñar conceptos avanzados a un ritmo individual.',
@@ -586,8 +583,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-12',
@@ -596,6 +592,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Violencia y Pandillas en Entornos Escolares',
         description: 'Inseguridad, violencia y reclutamiento de pandillas dentro y alrededor de las escuelas en zonas urbanas de alto riesgo.',
         solution: {
+        imageUrl: "https://i.imgur.com/SlJrK8N.jpeg",
           leader: 'Nayib Bukele',
           model: 'Perímetros de Seguridad de Tolerancia Cero',
           description: 'Mapear escuelas urbanas de alto riesgo y establecer perímetros militares seguros y de tolerancia cero para detener el reclutamiento de pandillas y la violencia.',
@@ -620,8 +617,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-13',
@@ -630,6 +626,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Altas Tasas de Embarazo Adolescente',
         description: 'El embarazo adolescente descarrila la educación de las estudiantes femeninas, perpetuando el ciclo de pobreza y deserción escolar.',
         solution: {
+        imageUrl: "https://i.imgur.com/vAB4epI.jpeg",
           leader: 'Jacinda Ardern',
           model: 'Clínicas de Salud Reproductiva Integradas',
           description: 'Integrar clínicas de salud reproductiva gratuitas y confidenciales directamente en la infraestructura física de las escuelas secundarias.',
@@ -654,8 +651,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-14',
@@ -664,6 +660,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Desconexión con el Mercado Laboral',
         description: 'Ausencia de vías vocacionales rigurosas y un diploma de secundaria genérico que no prepara a los estudiantes para las industrias locales.',
         solution: {
+        imageUrl: "https://i.imgur.com/TNpmoiS.jpeg",
           leader: 'Angela Merkel',
           model: 'Sistema Dual Alemán',
           description: 'Eliminar el diploma de secundaria genérico y dirigir a los estudiantes hacia aprendizajes vocacionales directos (Politécnicos) cofinanciados con el sector privado.',
@@ -688,8 +685,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-15',
@@ -698,6 +694,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Cobertura Insuficiente de Educación Infantil (INAIPI)',
         description: 'Falta de centros de atención a la primera infancia, lo que provoca déficits cognitivos permanentes desde una edad temprana.',
         solution: {
+        imageUrl: "https://i.imgur.com/qCqTRsn.jpeg",
           leader: 'Sanna Marin',
           model: 'Expansión Nórdica de Primera Infancia',
           description: 'Expandir rápidamente los centros de primera infancia para prevenir déficits cognitivos permanentes, financiados por la riqueza soberana de la minería y el turismo.',
@@ -722,8 +719,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-16',
@@ -732,6 +728,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Infraestructura Inadecuada para Educación Especial',
         description: 'Estudiantes con discapacidades cognitivas y físicas carecen de apoyo, infraestructura y planes de estudio adaptados a sus necesidades.',
         solution: {
+        imageUrl: "https://i.imgur.com/z7ITSga.jpeg",
           leader: 'Sam Altman',
           model: 'Educación Especial Adaptativa por IA',
           description: 'Utilizar tutores de IA para generar planes de lecciones hiperpersonalizados y adaptativos que atiendan con precisión las discapacidades cognitivas y físicas individuales.',
@@ -756,8 +753,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-17',
@@ -766,6 +762,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Altas Tasas de Repetición y Progresión Estudiantil Débil',
         description: 'La alta repetición frena la progresión, creando cuellos de botella en los niveles primario y secundario que desperdician recursos y desmotivan a los estudiantes.',
         solution: {
+        imageUrl: "https://i.imgur.com/Xd9a93k.jpeg",
           leader: 'Javier Milei & Nayib Bukele',
           model: 'Financiamiento por Desempeño y Programas Acelerados',
           description: 'Introducir financiamiento basado en el desempeño donde las escuelas pierden subsidios por alta repetición, combinado con programas acelerados obligatorios para garantizar vías eficientes hacia la graduación.',
@@ -790,8 +787,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-18',
@@ -800,6 +796,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Inequidad en el Acceso y Aulas Sobrepobladas por Migración',
         description: 'Las zonas rurales carecen de acceso de calidad, mientras que las zonas urbanas marginales y la afluencia de inmigrantes indocumentados abruman los recursos públicos y exacerban las divisiones.',
         solution: {
+        imageUrl: "https://i.imgur.com/sAokOh9.jpeg",
           leader: 'Javier Milei & Elon Musk',
           model: 'Vouchers Educativos y Conectividad Satelital',
           description: 'Implementar un sistema de vouchers (cheques escolares) para empoderar a las familias y romper monopolios, apoyado por internet satelital (Starlink) para garantizar el acceso a recursos de primer nivel en zonas marginadas.',
@@ -824,8 +821,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'edu-19',
@@ -834,6 +830,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Currículo Obsoleto y Falta de Habilidades del Siglo XXI',
         description: 'Los planes de estudio están obsoletos, fallando en incorporar tecnología, criptomonedas o habilidades modernas, dejando a los graduados sin competitividad a nivel global.',
         solution: {
+        imageUrl: "https://i.imgur.com/VzHtMeK.jpeg",
           leader: 'Elon Musk & Nayib Bukele',
           model: 'Integración Tecnológica y Educación Cripto',
           description: 'Rediseñar el currículo desde los primeros principios para integrar IA, programación y emprendimiento desde los primeros grados, junto con la adopción audaz de educación sobre Bitcoin y finanzas descentralizadas.',
@@ -858,8 +855,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/edu-19-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -885,6 +881,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Seguridad Ciudadana y del Visitante',
         description: 'El crimen violento persistente y un sistema judicial opaco siguen siendo elementos disuasorios críticos para el turismo de alto patrimonio, manteniendo a la RD bajo una advertencia de viaje de Nivel 2.',
         solution: {
+        imageUrl: "https://i.imgur.com/FgwssFK.jpeg",
           leader: 'Nayib Bukele & Elon Musk',
           model: 'Dinamarca / Corea del Sur',
           description: 'Desplegar una red de seguridad altamente concentrada y aumentada por IA (CCTV con seguimiento biométrico) sobre zonas turísticas, regida por las leyes de transparencia danesas.',
@@ -909,14 +906,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tourism-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-2',
         title: 'Riesgo Biológico del Sargazo',
         description: 'Acumulaciones catastróficas de macroalgas asfixian los arrecifes de coral y causan una disminución reportada del 30% en las reservas de los resorts afectados.',
         solution: {
+        imageUrl: "https://i.imgur.com/yVmn7kc.jpeg",
           leader: 'Ronald Reagan & Lee Kuan Yew',
           model: 'Tecnología Agrícola de los Países Bajos',
           description: 'Otorgar licencias de derechos de recolección en alta mar a conglomerados tecnológicos privados para exportar bioestimulantes derivados del sargazo, neutralizando el peligro a través de las fuerzas del mercado.',
@@ -941,14 +938,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-3',
         title: 'Fuga Económica Severa',
         description: 'La fuga económica del turismo se estima entre el 40% y el 80% debido a la importación masiva de alimentos y equipos por parte de resorts de propiedad extranjera.',
         solution: {
+        imageUrl: "https://i.imgur.com/wlD6HsT.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Modelo de Singapur',
           description: 'Establecer una "Cuota de Abastecimiento Local". Los resorts que logren un 60% de adquisiciones localizadas a través de cadenas de suministro de agricultura de precisión certificadas reciben reducciones de impuestos corporativos.',
@@ -973,14 +970,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-4',
         title: 'Dependencia del Modelo Todo Incluido',
         description: 'La sobredependencia en resorts de sol y playa limita el gasto de los turistas fuera de los hoteles y estanca el desarrollo de las comunidades locales.',
         solution: {
+        imageUrl: "https://i.imgur.com/SMNkCYx.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Modelo Suizo de Diversificación',
           description: 'Incentivar fiscalmente el desarrollo de turismo médico, ecoturismo de lujo y turismo cultural, creando corredores turísticos integrados que obliguen al gasto local.',
@@ -1005,14 +1002,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-5',
         title: 'Erosión Costera y Degradación Ambiental',
         description: 'La construcción descontrolada y el cambio climático están destruyendo las playas, el activo principal del sector turístico dominicano.',
         solution: {
+        imageUrl: "https://i.imgur.com/QJFgQ8R.jpeg",
           leader: 'Mark Rutte',
           model: 'Ingeniería Costera de Países Bajos',
           description: 'Implementar soluciones de ingeniería holandesa (Sand Motor) e imponer estrictas regulaciones de retroceso de construcción, financiadas por un impuesto verde a las llegadas internacionales.',
@@ -1037,14 +1034,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-6',
         title: 'Colapso de Servicios Básicos en Polos Turísticos',
         description: 'Zonas como Punta Cana y Bávaro sufren de deficiencias graves en el manejo de aguas residuales, recolección de basura y ordenamiento territorial.',
         solution: {
+        imageUrl: "https://i.imgur.com/qDODzKZ.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Impuesto de Infraestructura Directa',
           description: 'Crear distritos autónomos de gestión turística donde un porcentaje de los impuestos generados se reinvierta obligatoria y exclusivamente en la infraestructura de esa misma zona.',
@@ -1069,14 +1066,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-7',
         title: 'Monopolio y Mafias del Transporte Turístico',
         description: 'Sindicatos de transporte mantienen un control absoluto y a menudo violento sobre los traslados, inflando precios y acosando a plataformas como Uber.',
         solution: {
+        imageUrl: "https://i.imgur.com/KcWo36U.jpeg",
           leader: 'Margaret Thatcher',
           model: 'Desregulación Total del Transporte',
           description: 'Romper los monopolios sindicales mediante la desregulación total del transporte turístico, garantizando protección policial para la libre competencia y plataformas de transporte compartido.',
@@ -1101,14 +1098,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-8',
         title: 'Pérdida de Identidad Cultural en Destinos',
         description: 'Los destinos turísticos se han homogeneizado, ofreciendo poca conexión con la auténtica cultura, gastronomía e historia dominicana.',
         solution: {
+        imageUrl: "https://i.imgur.com/bUYr6IY.jpeg",
           leader: 'Jigme Khesar Namgyel Wangchuck',
           model: 'Turismo de Alto Valor y Autenticidad',
           description: 'Incentivar el desarrollo de rutas culturales, gastronómicas e históricas certificadas, exigiendo a los mega-resorts integrar experiencias y productos culturales locales en su oferta.',
@@ -1133,14 +1130,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-9',
         title: 'Conectividad Deficiente entre Polos Turísticos',
         description: 'Transporte público inadecuado y falta de conectividad rápida entre los principales centros turísticos (ej. Punta Cana a Puerto Plata).',
         solution: {
+        imageUrl: "https://i.imgur.com/Gtj8rEL.jpeg",
           leader: 'Shinzo Abe',
           model: 'Red Ferroviaria de Alta Velocidad',
           description: 'Construir una red ferroviaria electrificada de alta velocidad que conecte todos los principales aeropuertos internacionales y zonas costeras.',
@@ -1165,14 +1162,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-10',
         title: 'Barrera del Idioma en el Personal de Servicio',
         description: 'Falta de dominio del inglés y otros idiomas secundarios entre el personal de servicio fuera de los grandes resorts.',
         solution: {
+        imageUrl: "https://i.imgur.com/GNYLVMl.jpeg",
           leader: 'Lee Hsien Loong',
           model: 'Certificación Lingüística Impulsada por IA',
           description: 'Exigir certificación de idiomas impulsada por IA para todas las licencias de hospitalidad, financiada por un impuesto de salida nominal.',
@@ -1197,14 +1194,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-11',
         title: 'Degradación Ecológica en Áreas Protegidas',
         description: 'Explotación de recursos naturales y degradación ecológica en parques nacionales y áreas protegidas (ej. Los Haitises).',
         solution: {
+        imageUrl: "https://i.imgur.com/mUc8rgX.jpeg",
           leader: 'Carlos Alvarado Quesada',
           model: 'Capacidad de Carga Biológica Estricta',
           description: 'Implementar capacidades de carga biológica estrictas aplicadas mediante monitoreo satelital en tiempo real y sanciones financieras severas.',
@@ -1229,14 +1226,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-12',
         title: 'Inseguridad Vial para Turistas',
         description: 'Altas tasas de accidentes de tránsito y condiciones viales inseguras para los turistas que alquilan vehículos.',
         solution: {
+        imageUrl: "https://i.imgur.com/1f5ph3Y.jpeg",
           leader: 'Modelo Vision Zero (Suecia)',
           model: 'Infraestructura Vial Inteligente',
           description: 'Modernizar la infraestructura de carreteras con sensores inteligentes y hacer cumplir estrictamente las leyes de tránsito utilizando cámaras automatizadas de velocidad y semáforo en rojo.',
@@ -1261,14 +1258,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-13',
         title: 'Turismo Sexual y Explotación Infantil',
         description: 'Presencia de turismo sexual y explotación infantil en pueblos costeros históricamente vulnerables.',
         solution: {
+        imageUrl: "https://i.imgur.com/Wmq9ZWQ.jpeg",
           leader: 'Nayib Bukele',
           model: 'Unidades Especializadas de Tolerancia Cero',
           description: 'Establecer unidades policiales especializadas contra la trata, altamente remuneradas, con aplicación de tolerancia cero e intercambio de inteligencia internacional.',
@@ -1293,14 +1290,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-14',
         title: 'Infraestructura Deficiente para Ecoturismo',
         description: 'Falta de diversificación e infraestructura adecuada para el ecoturismo y el turismo de montaña (ej. Constanza, Jarabacoa).',
         solution: {
+        imageUrl: "https://i.imgur.com/g6ksojg.jpeg",
           leader: 'Jacinda Ardern',
           model: 'Fondo Soberano de Infraestructura Verde',
           description: 'Crear un fondo soberano específico para pavimentar caminos de acceso a las montañas y desarrollar redes de senderismo reguladas de clase mundial.',
@@ -1325,14 +1322,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-15',
         title: 'Competencia Desleal de Alquileres a Corto Plazo',
         description: 'Alquileres a corto plazo informales y no regulados (ej. Airbnb) que socavan a los hoteles tradicionales y evaden impuestos.',
         solution: {
+        imageUrl: "https://i.imgur.com/TrD2urh.jpeg",
           leader: 'Emmanuel Macron',
           model: 'Retención Fiscal Automática Digital',
           description: 'Exigir registro digital obligatorio y retención automática de impuestos directamente a través de las plataformas de reserva para nivelar el campo de juego.',
@@ -1357,14 +1354,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-16',
         title: 'Acoso de Vendedores Informales en Playas',
         description: 'Acoso a turistas por parte de vendedores informales y guías turísticos no regulados en las playas públicas.',
         solution: {
+        imageUrl: "https://i.imgur.com/arLVIVu.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Zonificación Comercial Estricta',
           description: 'Instituir un sistema de licencias digitales y establecer zonas comerciales designadas para vendedores, estrictamente aplicadas por la policía turística (POLITUR).',
@@ -1389,14 +1386,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-17',
         title: 'Subutilización del Patrimonio Histórico',
         description: 'Mala preservación y subutilización comercial de sitios históricos, particularmente en la Zona Colonial.',
         solution: {
+        imageUrl: "https://i.imgur.com/drAMvnL.jpeg",
           leader: 'Rey Carlos III',
           model: 'Fideicomiso de Patrimonio Público-Privado',
           description: 'Establecer un fideicomiso público-privado para financiar la restauración estructural y curar experiencias culturales de alta gama e históricamente precisas.',
@@ -1421,14 +1418,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-18',
         title: 'Altas Tasas Aeroportuarias',
         description: 'Altos impuestos y tarifas aeroportuarias que disuaden a las aerolíneas de mercados emisores emergentes y de larga distancia.',
         solution: {
+        imageUrl: "https://i.imgur.com/4hFyeSF.jpeg",
           leader: 'Mohammed bin Rashid Al Maktoum',
           model: 'Acuerdos de Cielos Abiertos',
           description: 'Reducir las tarifas aeronáuticas para nuevas rutas y negociar acuerdos de cielos abiertos para atraer aerolíneas asiáticas y de Medio Oriente.',
@@ -1453,14 +1450,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-19',
         title: 'Procesamiento Migratorio Ineficiente',
         description: 'Procesamiento de inmigración y aduanas ineficiente, lento y manual en los principales aeropuertos internacionales.',
         solution: {
+        imageUrl: "https://i.imgur.com/CoHU3am.jpeg",
           leader: 'Lee Hsien Loong',
           model: 'E-Gates Biométricos Automatizados',
           description: 'Implementar puertas electrónicas biométricas totalmente automatizadas y sistemas de autorización previa para viajeros que llegan de los principales mercados emisores.',
@@ -1485,14 +1482,14 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'tour-20',
         title: 'Falta de Estrategia de Comunicación de Crisis',
         description: 'Carencia de una estrategia de comunicación de crisis unificada y transparente durante eventos de relaciones públicas internacionales negativos.',
         solution: {
+        imageUrl: "https://i.imgur.com/yVmn7kc.jpeg",
           leader: 'Jacinda Ardern',
           model: 'Panel de Transparencia en Tiempo Real',
           description: 'Retener permanentemente a una firma internacional de relaciones públicas de primer nivel e implementar un panel público que proporcione métricas de salud y seguridad en tiempo real.',
@@ -1517,8 +1514,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/tour-20-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -1546,6 +1542,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Apatridia y Exclusión del Bienestar',
         description: 'La falta de identificación legal excluye a cientos de miles del mercado laboral formal, la educación secundaria y la atención médica subsidiada.',
         solution: {
+        imageUrl: "https://i.imgur.com/tVM7qWP.jpeg",
           leader: 'Elon Musk & Lee Kuan Yew',
           model: 'Corea del Sur Digital',
           description: 'Desplegar unidades de registro biométrico descentralizadas para emitir una credencial de residente económico biométrico sin derecho a voto, integrando la economía sumergida en la base impositiva.',
@@ -1570,8 +1567,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/welfare-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-2',
@@ -1580,6 +1576,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Informalidad Laboral y Vulnerabilidad de las Pensiones',
         description: 'La informalidad laboral desenfrenada (~50%) socava el sistema de pensiones privado, dejando a una gran mayoría enfrentando pobreza severa en la vejez.',
         solution: {
+        imageUrl: "https://i.imgur.com/p0gLx0f.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'CPF de Singapur',
           description: 'Exigir microcontribuciones de pensiones fraccionarias y automáticas vinculadas directamente a transacciones digitales dentro del sector informal a través de la banca móvil.',
@@ -1604,8 +1601,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-3',
@@ -1614,6 +1610,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Fraude de Asistencia Social en Supérate',
         description: 'Los mecanismos de focalización tradicionales exponen el sistema masivo de transferencias monetarias condicionadas a fugas, clientelismo político y fraude sofisticado.',
         solution: {
+        imageUrl: "https://i.imgur.com/Uupc8VS.jpeg",
           leader: 'Nayib Bukele & Elon Musk',
           model: 'IA de Corea del Sur',
           description: 'Implementar algoritmos centralizados de aprendizaje automático sobre la base de datos del SIUBEN para detectar instantáneamente patrones de pago irregulares y reclamos duplicados en tiempo real.',
@@ -1638,8 +1635,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-4',
@@ -1648,6 +1644,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Dependencia Intergeneracional de Subsidios',
         description: 'Los programas de asistencia social a menudo crean trampas de pobreza, donde los beneficiarios prefieren no trabajar formalmente para no perder las ayudas del Estado.',
         solution: {
+        imageUrl: "https://i.imgur.com/I3ZFt8I.jpeg",
           leader: 'Margaret Thatcher',
           model: 'Modelo Nórdico de Activación',
           description: 'Transformar las transferencias incondicionales en subsidios temporales estrictamente vinculados a la capacitación laboral obligatoria y la búsqueda activa de empleo verificable.',
@@ -1672,8 +1669,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-5',
@@ -1682,6 +1678,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Ineficiencia en la Distribución de Ayudas',
         description: 'La logística de entrega de ayudas sociales es lenta, costosa y propensa a la corrupción de intermediarios locales.',
         solution: {
+        imageUrl: "https://i.imgur.com/wwuZWsX.jpeg",
           leader: 'Narendra Modi',
           model: 'India Stack (Transferencias Directas)',
           description: 'Eliminar intermediarios mediante la implementación de un sistema de identidad digital nacional vinculado a billeteras móviles, permitiendo transferencias de fondos directas e instantáneas.',
@@ -1706,8 +1703,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-6',
@@ -1716,6 +1712,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Gasto de Bolsillo Médico Elevado (SENASA)',
         description: 'Altos gastos médicos de bolsillo a pesar de la cobertura del seguro público de salud (SENASA).',
         solution: {
+        imageUrl: "https://i.imgur.com/wwuZWsX.jpeg",
           leader: 'Modelo NHI (Taiwán)',
           model: 'Pagador Único Impulsado por Tecnología',
           description: 'Transición a un modelo donde SENASA utilice su poder adquisitivo absoluto para limitar tarifas de clínicas privadas y negociar precios de medicamentos al por mayor.',
@@ -1740,8 +1737,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-7',
@@ -1750,6 +1746,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Fragmentación de Programas Sociales',
         description: 'Programas de asistencia fragmentados en agencias redundantes (Gabinete Social, ADESS, Supérate) creando desperdicio burocrático.',
         solution: {
+        imageUrl: "https://i.imgur.com/rom8obO.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Ministerio de Desarrollo Humano Centralizado',
           description: 'Consolidar toda la asistencia social en un único ministerio agresivamente simplificado que opere a través de un portal digital centralizado.',
@@ -1774,8 +1771,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-8',
@@ -1784,6 +1780,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Hospitales Públicos Desfinanciados y Politizados',
         description: 'Hospitales públicos (SNS) mal equipados y gestionados políticamente, afectando la calidad de la atención.',
         solution: {
+        imageUrl: "https://i.imgur.com/ufPSWoL.jpeg",
           leader: 'Paul Kagame',
           model: 'Gestión Hospitalaria Meritocrática',
           description: 'Instituir una administración hospitalaria estricta y basada en el mérito, desvinculada de los ciclos políticos, aplicando KPIs de rendimiento rigurosos y seguimiento automatizado de la cadena de suministro.',
@@ -1808,8 +1805,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-9',
@@ -1818,6 +1814,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Ausencia de Seguro de Desempleo Universal',
         description: 'Falta total de un marco universal de seguro de desempleo para proteger a los trabajadores en tiempos de crisis.',
         solution: {
+        imageUrl: "https://i.imgur.com/ulw70dO.jpeg",
           leader: 'Modelo Flexicurity (Dinamarca)',
           model: 'Cuentas de Indemnización Portátiles',
           description: 'Exigir la creación de cuentas individuales y portátiles de indemnización/desempleo financiadas conjuntamente por empleadores y contribuciones estatales para los tramos de bajos ingresos.',
@@ -1842,8 +1839,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-10',
@@ -1852,6 +1848,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Violencia de Género y Refugios Inadecuados',
         description: 'Altas tasas de violencia de género (feminicidios) con sistemas de refugios estatales peligrosamente inadecuados.',
         solution: {
+        imageUrl: "https://i.imgur.com/IRrG18y.jpeg",
           leader: 'Jacinda Ardern',
           model: 'Casas de Seguridad Financiadas por Incautaciones',
           description: 'Establecer casas de seguridad altamente seguras y geográficamente no reveladas con capacitación laboral integrada, financiadas directamente por la incautación de activos del crimen organizado.',
@@ -1876,8 +1873,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-11',
@@ -1886,6 +1882,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Crisis en Medicamentos de Alto Costo',
         description: 'Retrasos sistémicos, corrupción y denegación de atención en el programa de Medicamentos de Alto Costo.',
         solution: {
+        imageUrl: "https://i.imgur.com/r7bfjEs.jpeg",
           leader: 'Modelo OPS',
           model: 'Bloques de Compras Internacionales',
           description: 'Unirse a bloques de adquisiciones internacionales para eludir los monopolios locales y aprovechar el volumen multinacional para reducir drásticamente el costo de los medicamentos oncológicos y biotecnológicos.',
@@ -1910,8 +1907,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-12',
@@ -1920,6 +1916,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Abandono de la Población Envejeciente',
         description: 'Falta de atención integral, asilos y redes de apoyo para la población de edad avanzada cada vez más empobrecida.',
         solution: {
+        imageUrl: "https://i.imgur.com/ooQjjvK.jpeg",
           leader: 'Modelo Japonés',
           model: 'Atención Geriátrica Comunitaria',
           description: 'Subsidiar centros médicos y de atención diurna geriátrica basados en la comunidad, coadministrados por municipios locales y ONG estrictamente auditadas.',
@@ -1944,8 +1941,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-13',
@@ -1954,6 +1950,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Desamparo a Cuidadores de Personas con Discapacidad',
         description: 'Apoyo financiero y de infraestructura insuficiente para las familias que cuidan a personas con discapacidades severas.',
         solution: {
+        imageUrl: "https://i.imgur.com/xtfZXhB.jpeg",
           leader: 'Angela Merkel',
           model: 'Transferencias Directas a Cuidadores',
           description: 'Proporcionar transferencias de efectivo digitales directas e incondicionales y exenciones de impuestos a los cuidadores verificados médicamente para evitar el colapso económico familiar.',
@@ -1978,8 +1975,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-14',
@@ -1988,6 +1984,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Saturación Hospitalaria por Migración Indocumentada',
         description: 'Fuerte presión sobre las salas de maternidad y emergencias públicas debido a poblaciones masivas de inmigrantes indocumentados.',
         solution: {
+        imageUrl: "https://i.imgur.com/TlhI6fk.jpeg",
           leader: 'Lee Hsien Loong',
           model: 'Fondo de Salud para Migrantes Prepagado',
           description: 'Exigir que todos los sectores agrícolas y de construcción que utilizan mano de obra extranjera paguen por adelantado a un fondo de atención médica para migrantes para aliviar la carga de los contribuyentes dominicanos.',
@@ -2012,8 +2009,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-15',
@@ -2022,6 +2018,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Impacto Nutricional Deficiente de Subsidios',
         description: 'Pobre impacto nutricional de los programas de asistencia alimentaria debido a la compra de bienes altamente procesados.',
         solution: {
+        imageUrl: "https://i.imgur.com/USbnmFc.jpeg",
           leader: 'Lula da Silva',
           model: 'Billeteras Restringidas a Productos Locales',
           description: 'Restringir las billeteras digitales de subsidios a una lista formulada científicamente de productos agrícolas locales densos en nutrientes, impulsando simultáneamente el sector agrícola nacional.',
@@ -2046,8 +2043,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-16',
@@ -2056,6 +2052,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Dependencia Intergeneracional de Asistencia Social',
         description: 'Dependencia generacional de la asistencia social que atrapa a las familias en la pobreza.',
         solution: {
+        imageUrl: "https://i.imgur.com/RzFPbeD.jpeg",
           leader: 'Bill Clinton',
           model: 'Subsidios Condicionados a Capacitación',
           description: 'Vincular la recepción de subsidios a largo plazo para adultos sin discapacidades a la inscripción obligatoria en programas vocacionales y de mejora de habilidades técnicas de alta demanda.',
@@ -2080,8 +2077,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-17',
@@ -2090,6 +2086,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Carencia de Infraestructura de Salud Mental',
         description: 'Grave falta de infraestructura de salud mental y estigmatización de la atención psiquiátrica.',
         solution: {
+        imageUrl: "https://i.imgur.com/BmI7yst.jpeg",
           leader: 'Modelo Australiano',
           model: 'Telepsiquiatría por IA y Centros Regionales',
           description: 'Integrar telepsiquiatría clasificada por IA en todas las clínicas de atención primaria y financiar centros regionales modernos de estabilización de salud mental para despejar las salas de emergencia.',
@@ -2114,8 +2111,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-18',
@@ -2124,6 +2120,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Exclusión de Trabajadoras Informales de Licencia por Maternidad',
         description: 'La licencia de maternidad y el apoyo para el cuidado infantil benefician exclusivamente al sector formal, castigando a las trabajadoras informales pobres.',
         solution: {
+        imageUrl: "https://i.imgur.com/D6dLgNd.jpeg",
           leader: 'Modelo Nórdico',
           model: 'Subvención Universal "Primeros 1000 Días"',
           description: 'Crear una subvención universal materna de los "Primeros 1000 Días" pagada directamente a las madres tras visitas clínicas prenatales verificadas, independientemente de su situación laboral.',
@@ -2148,8 +2145,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-19',
@@ -2158,6 +2154,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Erosión de Subsidios por Inflación',
         description: 'Los subsidios pierden rápidamente su poder adquisitivo debido a la inflación y los choques económicos.',
         solution: {
+        imageUrl: "https://i.imgur.com/m2KRSK2.jpeg",
           leader: 'Kaja Kallas',
           model: 'Indexación Automática por Contratos Inteligentes',
           description: 'Integrar contratos inteligentes en el sistema de distribución de asistencia social que indexen automáticamente todos los montos de transferencias sociales al Índice de Precios al Consumidor (IPC) en tiempo real.',
@@ -2182,8 +2179,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'wel-20',
@@ -2192,6 +2188,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Exclusión Financiera de Beneficiarios',
         description: 'Falta total de inclusión financiera; los beneficiarios de subsidios permanecen no bancarizados y vulnerables a préstamos predatorios.',
         solution: {
+        imageUrl: "https://i.imgur.com/f7Um90A.jpeg",
           leader: 'Nandan Nilekani',
           model: 'Inclusión Financiera Biométrica',
           description: 'Utilizar el sistema de distribución de asistencia social biométrica como puerta de entrada para emitir microcréditos sin comisiones y cuentas de ahorro, integrando a los más pobres directamente en el sistema financiero formal.',
@@ -2216,8 +2213,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/wel-20-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -2269,8 +2265,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/energy-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-2',
@@ -2303,8 +2298,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-3',
@@ -2337,8 +2331,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-4',
@@ -2371,8 +2364,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-5',
@@ -2405,8 +2397,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-6',
@@ -2439,8 +2430,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-7',
@@ -2473,8 +2463,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-8',
@@ -2507,8 +2496,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-9',
@@ -2541,8 +2529,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-10',
@@ -2575,8 +2562,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-11',
@@ -2609,8 +2595,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-12',
@@ -2643,8 +2628,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-13',
@@ -2677,8 +2661,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-14',
@@ -2711,8 +2694,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-15',
@@ -2745,8 +2727,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-16',
@@ -2779,8 +2760,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-17',
@@ -2813,8 +2793,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-18',
@@ -2847,8 +2826,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-19',
@@ -2881,8 +2859,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-20',
@@ -2915,8 +2892,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-20-solution/800/400'
-        }
+                  }
       },
       {
         id: 'nrg-21',
@@ -2949,8 +2925,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/nrg-21-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -3002,8 +2977,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/justice-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-2',
@@ -3036,8 +3010,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/jus-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-3',
@@ -3070,8 +3043,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/jus-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-4',
@@ -3104,8 +3076,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/jus-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-5',
@@ -3138,8 +3109,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/jus-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-6',
@@ -3155,8 +3125,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño de arquitectura de datos', 'Fase 2: Integración de sistemas existentes', 'Fase 3: Capacitación y despliegue nacional'],
           expectedOutcomes: ['Coordinación en tiempo real', 'Reducción de casos perdidos'],
           chartData: [{ name: 'Año 1', value: 10 }, { name: 'Año 2', value: 20 }, { name: 'Año 3', value: 30 }, { name: 'Año 4', value: 40 }, { name: 'Año 5', value: 50 }],
-          imageUrl: 'https://picsum.photos/seed/jus-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-7',
@@ -3172,8 +3141,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Asignación presupuestaria', 'Fase 2: Contratación masiva de defensores', 'Fase 3: Mejora de condiciones laborales'],
           expectedOutcomes: ['Defensa justa garantizada', 'Reducción de condenas injustas'],
           chartData: [{ name: 'Año 1', value: 15 }, { name: 'Año 2', value: 25 }, { name: 'Año 3', value: 35 }, { name: 'Año 4', value: 45 }, { name: 'Año 5', value: 55 }],
-          imageUrl: 'https://picsum.photos/seed/jus-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-8',
@@ -3189,8 +3157,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Auditoría de necesidades', 'Fase 2: Construcción de laboratorios regionales', 'Fase 3: Adquisición de tecnología avanzada'],
           expectedOutcomes: ['Pruebas procesadas rápidamente', 'Investigaciones ágiles'],
           chartData: [{ name: 'Año 1', value: 20 }, { name: 'Año 2', value: 30 }, { name: 'Año 3', value: 40 }, { name: 'Año 4', value: 50 }, { name: 'Año 5', value: 60 }],
-          imageUrl: 'https://picsum.photos/seed/jus-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-9',
@@ -3206,8 +3173,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Implementación de expediente electrónico', 'Fase 2: Adopción de firma digital', 'Fase 3: Prohibición de uso de papel'],
           expectedOutcomes: ['Justicia digitalizada', 'Procesos más rápidos'],
           chartData: [{ name: 'Año 1', value: 25 }, { name: 'Año 2', value: 35 }, { name: 'Año 3', value: 45 }, { name: 'Año 4', value: 55 }, { name: 'Año 5', value: 65 }],
-          imageUrl: 'https://picsum.photos/seed/jus-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-10',
@@ -3223,8 +3189,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Propuesta de reforma constitucional', 'Fase 2: Debate y aprobación', 'Fase 3: Implementación de nueva composición'],
           expectedOutcomes: ['Independencia judicial', 'Jueces de carrera'],
           chartData: [{ name: 'Año 1', value: 30 }, { name: 'Año 2', value: 40 }, { name: 'Año 3', value: 50 }, { name: 'Año 4', value: 60 }, { name: 'Año 5', value: 70 }],
-          imageUrl: 'https://picsum.photos/seed/jus-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-11',
@@ -3240,8 +3205,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Auditoría de cumplimiento', 'Fase 2: Automatización de desembolsos', 'Fase 3: Sanciones por incumplimiento'],
           expectedOutcomes: ['Autonomía financiera', 'Recursos garantizados'],
           chartData: [{ name: 'Año 1', value: 35 }, { name: 'Año 2', value: 45 }, { name: 'Año 3', value: 55 }, { name: 'Año 4', value: 65 }, { name: 'Año 5', value: 75 }],
-          imageUrl: 'https://picsum.photos/seed/jus-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-12',
@@ -3257,8 +3221,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Creación de tribunales especializados', 'Fase 2: Contratación de personal capacitado', 'Fase 3: Construcción de refugios integrados'],
           expectedOutcomes: ['Protección a víctimas', 'Justicia rápida'],
           chartData: [{ name: 'Año 1', value: 40 }, { name: 'Año 2', value: 50 }, { name: 'Año 3', value: 60 }, { name: 'Año 4', value: 70 }, { name: 'Año 5', value: 80 }],
-          imageUrl: 'https://picsum.photos/seed/jus-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-13',
@@ -3274,8 +3237,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Marco legal para mediación obligatoria', 'Fase 2: Capacitación de mediadores', 'Fase 3: Implementación en tribunales'],
           expectedOutcomes: ['Descongestión judicial', 'Resolución rápida de conflictos'],
           chartData: [{ name: 'Año 1', value: 45 }, { name: 'Año 2', value: 55 }, { name: 'Año 3', value: 65 }, { name: 'Año 4', value: 75 }, { name: 'Año 5', value: 85 }],
-          imageUrl: 'https://picsum.photos/seed/jus-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-14',
@@ -3291,8 +3253,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Adquisición de unidades móviles', 'Fase 2: Contratación de personal itinerante', 'Fase 3: Despliegue en áreas remotas'],
           expectedOutcomes: ['Acceso universal a la justicia', 'Reducción de costos para ciudadanos'],
           chartData: [{ name: 'Año 1', value: 50 }, { name: 'Año 2', value: 60 }, { name: 'Año 3', value: 70 }, { name: 'Año 4', value: 80 }, { name: 'Año 5', value: 90 }],
-          imageUrl: 'https://picsum.photos/seed/jus-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-15',
@@ -3308,8 +3269,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño de la plataforma blockchain', 'Fase 2: Registro biométrico de notarios', 'Fase 3: Implementación obligatoria'],
           expectedOutcomes: ['Cero fraude notarial', 'Seguridad jurídica'],
           chartData: [{ name: 'Año 1', value: 55 }, { name: 'Año 2', value: 65 }, { name: 'Año 3', value: 75 }, { name: 'Año 4', value: 85 }, { name: 'Año 5', value: 95 }],
-          imageUrl: 'https://picsum.photos/seed/jus-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-16',
@@ -3325,8 +3285,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Creación de la Fuerza Pública', 'Fase 2: Capacitación especializada', 'Fase 3: Despliegue operativo'],
           expectedOutcomes: ['Ejecución rápida de sentencias', 'Cumplimiento de la ley'],
           chartData: [{ name: 'Año 1', value: 60 }, { name: 'Año 2', value: 70 }, { name: 'Año 3', value: 80 }, { name: 'Año 4', value: 90 }, { name: 'Año 5', value: 100 }],
-          imageUrl: 'https://picsum.photos/seed/jus-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-17',
@@ -3342,8 +3301,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Reforma legal', 'Fase 2: Creación de centros socioeducativos', 'Fase 3: Implementación de programas de rehabilitación'],
           expectedOutcomes: ['Rehabilitación juvenil', 'Reducción de reincidencia'],
           chartData: [{ name: 'Año 1', value: 65 }, { name: 'Año 2', value: 75 }, { name: 'Año 3', value: 85 }, { name: 'Año 4', value: 95 }, { name: 'Año 5', value: 105 }],
-          imageUrl: 'https://picsum.photos/seed/jus-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-18',
@@ -3359,8 +3317,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Identificación de necesidades lingüísticas', 'Fase 2: Contratación de intérpretes', 'Fase 3: Despliegue en tribunales clave'],
           expectedOutcomes: ['Juicios justos', 'Inclusión lingüística'],
           chartData: [{ name: 'Año 1', value: 70 }, { name: 'Año 2', value: 80 }, { name: 'Año 3', value: 90 }, { name: 'Año 4', value: 100 }, { name: 'Año 5', value: 110 }],
-          imageUrl: 'https://picsum.photos/seed/jus-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-19',
@@ -3376,8 +3333,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Creación de nuevos tribunales comerciales', 'Fase 2: Capacitación de jueces especializados', 'Fase 3: Implementación de procedimientos rápidos'],
           expectedOutcomes: ['Resolución rápida de disputas', 'Aumento de inversión extranjera'],
           chartData: [{ name: 'Año 1', value: 75 }, { name: 'Año 2', value: 85 }, { name: 'Año 3', value: 95 }, { name: 'Año 4', value: 105 }, { name: 'Año 5', value: 115 }],
-          imageUrl: 'https://picsum.photos/seed/jus-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-20',
@@ -3393,8 +3349,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño de procedimientos de vía rápida', 'Fase 2: Creación de tribunales especializados', 'Fase 3: Implementación operativa'],
           expectedOutcomes: ['Procesamiento inmediato', 'Descongestión del sistema'],
           chartData: [{ name: 'Año 1', value: 80 }, { name: 'Año 2', value: 90 }, { name: 'Año 3', value: 100 }, { name: 'Año 4', value: 110 }, { name: 'Año 5', value: 120 }],
-          imageUrl: 'https://picsum.photos/seed/jus-20-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-21',
@@ -3410,8 +3365,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño del programa de recertificación', 'Fase 2: Implementación obligatoria', 'Fase 3: Evaluación continua'],
           expectedOutcomes: ['Jueces actualizados', 'Mejora en la calidad de la justicia'],
           chartData: [{ name: 'Año 1', value: 85 }, { name: 'Año 2', value: 95 }, { name: 'Año 3', value: 105 }, { name: 'Año 4', value: 115 }, { name: 'Año 5', value: 125 }],
-          imageUrl: 'https://picsum.photos/seed/jus-21-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -3463,8 +3417,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agriculture-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-2',
@@ -3497,8 +3450,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-3',
@@ -3531,8 +3483,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-4',
@@ -3565,8 +3516,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-5',
@@ -3599,8 +3549,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-6',
@@ -3633,8 +3582,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-7',
@@ -3667,8 +3615,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-8',
@@ -3701,8 +3648,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-9',
@@ -3735,8 +3681,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-10',
@@ -3769,8 +3714,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-11',
@@ -3803,8 +3747,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-12',
@@ -3837,8 +3780,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-13',
@@ -3871,8 +3813,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-14',
@@ -3905,8 +3846,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-15',
@@ -3939,8 +3879,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-16',
@@ -3973,8 +3912,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-17',
@@ -4007,8 +3945,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-18',
@@ -4041,8 +3978,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-19',
@@ -4075,8 +4011,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-20',
@@ -4109,8 +4044,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-20-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-21',
@@ -4143,8 +4077,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-21-solution/800/400'
-        }
+                  }
       },
       {
         id: 'agr-22',
@@ -4177,8 +4110,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/agr-22-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -4230,8 +4162,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/healthcare-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-2',
@@ -4264,8 +4195,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-3',
@@ -4298,8 +4228,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-4',
@@ -4332,8 +4261,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-5',
@@ -4366,8 +4294,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-6',
@@ -4400,8 +4327,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-7',
@@ -4434,8 +4360,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-8',
@@ -4468,8 +4393,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-9',
@@ -4502,8 +4426,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-10',
@@ -4536,8 +4459,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-11',
@@ -4570,8 +4492,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-12',
@@ -4604,8 +4525,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-13',
@@ -4638,8 +4558,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-14',
@@ -4672,8 +4591,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-15',
@@ -4706,8 +4624,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-16',
@@ -4740,8 +4657,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-17',
@@ -4774,8 +4690,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-18',
@@ -4808,8 +4723,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-19',
@@ -4842,8 +4756,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-20',
@@ -4876,8 +4789,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-20-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-21',
@@ -4910,8 +4822,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-21-solution/800/400'
-        }
+                  }
       },
       {
         id: 'hlt-22',
@@ -4944,8 +4855,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/hlt-22-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -4997,8 +4907,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/finance-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-2',
@@ -5031,8 +4940,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/fin-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-3',
@@ -5065,8 +4973,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/fin-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-4',
@@ -5099,8 +5006,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/fin-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-5',
@@ -5133,8 +5039,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/fin-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-6',
@@ -5150,8 +5055,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Análisis de datos', 'Fase 2: Desarrollo del modelo', 'Fase 3: Implementación'],
           expectedOutcomes: ['Mejor planificación', 'Reducción de déficits imprevistos'],
           chartData: [{ name: 'Año 1', value: 10 }, { name: 'Año 2', value: 20 }, { name: 'Año 3', value: 30 }, { name: 'Año 4', value: 40 }, { name: 'Año 5', value: 50 }],
-          imageUrl: 'https://picsum.photos/seed/fin-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-7',
@@ -5167,8 +5071,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Auditoría de fondos', 'Fase 2: Marco legal', 'Fase 3: Transferencia de fondos'],
           expectedOutcomes: ['Mayor liquidez', 'Mejor control de fondos'],
           chartData: [{ name: 'Año 1', value: 15 }, { name: 'Año 2', value: 25 }, { name: 'Año 3', value: 35 }, { name: 'Año 4', value: 45 }, { name: 'Año 5', value: 55 }],
-          imageUrl: 'https://picsum.photos/seed/fin-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-8',
@@ -5184,8 +5087,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño del portafolio', 'Fase 2: Asignación de fondos', 'Fase 3: Gestión activa'],
           expectedOutcomes: ['Generación de rendimientos', 'Optimización de excedentes'],
           chartData: [{ name: 'Año 1', value: 20 }, { name: 'Año 2', value: 30 }, { name: 'Año 3', value: 40 }, { name: 'Año 4', value: 50 }, { name: 'Año 5', value: 60 }],
-          imageUrl: 'https://picsum.photos/seed/fin-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-9',
@@ -5201,8 +5103,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Automatización', 'Fase 2: Diseño de factoring', 'Fase 3: Implementación'],
           expectedOutcomes: ['Pagos a tiempo', 'Mejora en la liquidez de proveedores'],
           chartData: [{ name: 'Año 1', value: 25 }, { name: 'Año 2', value: 35 }, { name: 'Año 3', value: 45 }, { name: 'Año 4', value: 55 }, { name: 'Año 5', value: 65 }],
-          imageUrl: 'https://picsum.photos/seed/fin-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-10',
@@ -5218,8 +5119,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Redacción de la ley', 'Fase 2: Aprobación legislativa', 'Fase 3: Implementación'],
           expectedOutcomes: ['Sostenibilidad fiscal', 'Control del gasto'],
           chartData: [{ name: 'Año 1', value: 30 }, { name: 'Año 2', value: 40 }, { name: 'Año 3', value: 50 }, { name: 'Año 4', value: 60 }, { name: 'Año 5', value: 70 }],
-          imageUrl: 'https://picsum.photos/seed/fin-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-11',
@@ -5235,8 +5135,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Análisis legal', 'Fase 2: Redacción', 'Fase 3: Aprobación'],
           expectedOutcomes: ['Marco legal moderno', 'Mejor gestión financiera'],
           chartData: [{ name: 'Año 1', value: 35 }, { name: 'Año 2', value: 45 }, { name: 'Año 3', value: 55 }, { name: 'Año 4', value: 65 }, { name: 'Año 5', value: 75 }],
-          imageUrl: 'https://picsum.photos/seed/fin-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-12',
@@ -5252,8 +5151,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño del sistema', 'Fase 2: Desarrollo', 'Fase 3: Implementación'],
           expectedOutcomes: ['Procesos ágiles', 'Reducción de burocracia'],
           chartData: [{ name: 'Año 1', value: 40 }, { name: 'Año 2', value: 50 }, { name: 'Año 3', value: 60 }, { name: 'Año 4', value: 70 }, { name: 'Año 5', value: 80 }],
-          imageUrl: 'https://picsum.photos/seed/fin-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-13',
@@ -5269,8 +5167,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Establecimiento de reglas', 'Fase 2: Comunicación', 'Fase 3: Ejecución'],
           expectedOutcomes: ['Adopción de SIAFE', 'Estandarización'],
           chartData: [{ name: 'Año 1', value: 45 }, { name: 'Año 2', value: 55 }, { name: 'Año 3', value: 65 }, { name: 'Año 4', value: 75 }, { name: 'Año 5', value: 85 }],
-          imageUrl: 'https://picsum.photos/seed/fin-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-14',
@@ -5286,8 +5183,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Despliegue de auditores', 'Fase 2: Desarrollo de API', 'Fase 3: Monitoreo en tiempo real'],
           expectedOutcomes: ['Mejor supervisión', 'Transparencia en tiempo real'],
           chartData: [{ name: 'Año 1', value: 50 }, { name: 'Año 2', value: 60 }, { name: 'Año 3', value: 70 }, { name: 'Año 4', value: 80 }, { name: 'Año 5', value: 90 }],
-          imageUrl: 'https://picsum.photos/seed/fin-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-15',
@@ -5303,8 +5199,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño de la academia', 'Fase 2: Desarrollo de currículo', 'Fase 3: Implementación de compensación'],
           expectedOutcomes: ['Personal capacitado', 'Mayor motivación'],
           chartData: [{ name: 'Año 1', value: 55 }, { name: 'Año 2', value: 65 }, { name: 'Año 3', value: 75 }, { name: 'Año 4', value: 85 }, { name: 'Año 5', value: 95 }],
-          imageUrl: 'https://picsum.photos/seed/fin-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-16',
@@ -5320,8 +5215,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Evaluación de seguridad', 'Fase 2: Implementación zero-trust', 'Fase 3: Monitoreo continuo'],
           expectedOutcomes: ['Sistemas seguros', 'Reducción de vulnerabilidades'],
           chartData: [{ name: 'Año 1', value: 60 }, { name: 'Año 2', value: 70 }, { name: 'Año 3', value: 80 }, { name: 'Año 4', value: 90 }, { name: 'Año 5', value: 100 }],
-          imageUrl: 'https://picsum.photos/seed/fin-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-17',
@@ -5337,8 +5231,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Planificación del despliegue', 'Fase 2: Ejecución', 'Fase 3: Integración de datos'],
           expectedOutcomes: ['Sistemas unificados', 'Interoperabilidad de datos'],
           chartData: [{ name: 'Año 1', value: 65 }, { name: 'Año 2', value: 75 }, { name: 'Año 3', value: 85 }, { name: 'Año 4', value: 95 }, { name: 'Año 5', value: 105 }],
-          imageUrl: 'https://picsum.photos/seed/fin-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-18',
@@ -5354,8 +5247,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño de la nube', 'Fase 2: Migración', 'Fase 3: Operación y mantenimiento'],
           expectedOutcomes: ['Infraestructura moderna', 'Cumplimiento NORTIC'],
           chartData: [{ name: 'Año 1', value: 70 }, { name: 'Año 2', value: 80 }, { name: 'Año 3', value: 90 }, { name: 'Año 4', value: 100 }, { name: 'Año 5', value: 110 }],
-          imageUrl: 'https://picsum.photos/seed/fin-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-19',
@@ -5371,8 +5263,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño de OKRs', 'Fase 2: Capacitación', 'Fase 3: Seguimiento y evaluación'],
           expectedOutcomes: ['Alineación interna', 'Cultura de eficiencia'],
           chartData: [{ name: 'Año 1', value: 75 }, { name: 'Año 2', value: 85 }, { name: 'Año 3', value: 95 }, { name: 'Año 4', value: 105 }, { name: 'Año 5', value: 115 }],
-          imageUrl: 'https://picsum.photos/seed/fin-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-20',
@@ -5388,8 +5279,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Marco regulatorio', 'Fase 2: Incentivos al ahorro', 'Fase 3: Desarrollo del mercado'],
           expectedOutcomes: ['Menor dependencia externa', 'Mercados locales fuertes'],
           chartData: [{ name: 'Año 1', value: 80 }, { name: 'Año 2', value: 90 }, { name: 'Año 3', value: 100 }, { name: 'Año 4', value: 110 }, { name: 'Año 5', value: 120 }],
-          imageUrl: 'https://picsum.photos/seed/fin-20-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-21',
@@ -5405,8 +5295,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Evaluación de riesgos', 'Fase 2: Estructuración de bonos', 'Fase 3: Negociación de líneas de crédito'],
           expectedOutcomes: ['Resiliencia financiera', 'Fondos para desastres'],
           chartData: [{ name: 'Año 1', value: 85 }, { name: 'Año 2', value: 95 }, { name: 'Año 3', value: 105 }, { name: 'Año 4', value: 115 }, { name: 'Año 5', value: 125 }],
-          imageUrl: 'https://picsum.photos/seed/fin-21-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-22',
@@ -5422,8 +5311,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño de informes', 'Fase 2: Publicación mensual', 'Fase 3: Diálogo con agencias'],
           expectedOutcomes: ['Mejor calificación crediticia', 'Transparencia fiscal'],
           chartData: [{ name: 'Año 1', value: 90 }, { name: 'Año 2', value: 100 }, { name: 'Año 3', value: 110 }, { name: 'Año 4', value: 120 }, { name: 'Año 5', value: 130 }],
-          imageUrl: 'https://picsum.photos/seed/fin-22-solution/800/400'
-        }
+                  }
       },
       {
         id: 'fin-23',
@@ -5439,8 +5327,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Análisis de exposición', 'Fase 2: Ejecución de swaps', 'Fase 3: Monitoreo de riesgos'],
           expectedOutcomes: ['Protección contra volatilidad', 'Mitigación de riesgos'],
           chartData: [{ name: 'Año 1', value: 95 }, { name: 'Año 2', value: 105 }, { name: 'Año 3', value: 115 }, { name: 'Año 4', value: 125 }, { name: 'Año 5', value: 135 }],
-          imageUrl: 'https://picsum.photos/seed/fin-23-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -5476,6 +5363,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Déficit Severo de Vivienda',
         description: 'Un déficit de 2.1 millones de unidades de vivienda, en su mayoría cualitativo, que impacta severamente los niveles de vida.',
         solution: {
+        imageUrl: "https://i.imgur.com/jgJtAwo.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Infraestructura de Singapur',
           description: 'Establecer una Junta de Vivienda y Desarrollo (HDB). Aprovechar los ahorros del fondo de previsión obligatorio para financiar y construir viviendas públicas verticales altamente integradas.',
@@ -5500,8 +5388,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/infrastructure-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-2',
@@ -5510,6 +5397,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Congestión del Tráfico Urbano',
         description: 'El grave embotellamiento en Santo Domingo paraliza la productividad económica y degrada la calidad de vida.',
         solution: {
+        imageUrl: "https://i.imgur.com/3O5kyjU.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Modelo de Singapur',
           description: 'Implementar la Tarificación Vial Electrónica (ERP). Desplegar un cargo por congestión dinámico, protegiendo los ingresos exclusivamente para financiar la expansión del transporte masivo.',
@@ -5534,8 +5422,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-3',
@@ -5544,6 +5431,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Ineficiencia de Agua y Saneamiento',
         description: 'Las altas tasas de agua no facturada y la débil capacidad de los proveedores amenazan la seguridad hídrica y los ecosistemas costeros.',
         solution: {
+        imageUrl: "https://i.imgur.com/HyrLPUR.jpeg",
           leader: 'Ronald Reagan',
           model: 'Tecnología Agrícola de los Países Bajos',
           description: 'Descentralizar a través de "Waterschappen". Adoptar el modelo holandés de autoridades de agua regionales e independientes financiadas directamente por tarifas locales transparentes.',
@@ -5568,8 +5456,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-4',
@@ -5578,6 +5465,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Mantenimiento Vial Deficiente',
         description: 'Las carreteras y puentes sufren de un deterioro rápido debido a la falta de mantenimiento preventivo y sobrepeso de vehículos de carga.',
         solution: {
+        imageUrl: "https://i.imgur.com/qTRqK6R.jpeg",
           leader: 'Shinzo Abe',
           model: 'Concesiones de Calidad de Japón',
           description: 'Privatizar el mantenimiento vial mediante contratos de concesión a largo plazo basados estrictamente en métricas de rendimiento y calidad de la superficie, penalizando económicamente los baches.',
@@ -5602,8 +5490,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-5',
@@ -5612,6 +5499,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Vulnerabilidad Sísmica y Ciclónica',
         description: 'Gran parte de la infraestructura crítica y viviendas informales no cumplen con los códigos de construcción para resistir terremotos o huracanes de categoría 5.',
         solution: {
+        imageUrl: "https://i.imgur.com/k5Wqnbs.jpeg",
           leader: 'Sebastián Piñera',
           model: 'Resiliencia Estructural de Chile',
           description: 'Actualizar y hacer cumplir constantemente un código de construcción sísmica de clase mundial, ofreciendo subsidios fiscales para el reforzamiento estructural de edificios comerciales y residenciales.',
@@ -5636,8 +5524,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-6',
@@ -5646,6 +5533,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Drenaje Pluvial Inexistente',
         description: 'Drenaje pluvial inexistente en las principales ciudades, causando inundaciones urbanas catastróficas durante tormentas severas.',
         solution: {
+        imageUrl: "https://i.imgur.com/ZLA6jro.jpeg",
           leader: 'Modelo Suizo',
           model: 'Túneles Profundos de Aguas Pluviales',
           description: 'Ejecutar un sistema subterráneo de gestión de aguas pluviales de túnel profundo al estilo suizo, financiado por un porcentaje dedicado de los impuestos inmobiliarios nacionales.',
@@ -5670,8 +5558,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-7',
@@ -5680,6 +5567,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Dependencia Total del Transporte de Carga Terrestre',
         description: 'Dependencia total del transporte de carga pesada por camiones, destruyendo carreteras y causando accidentes fatales.',
         solution: {
+        imageUrl: "https://i.imgur.com/AGoZuVf.jpeg",
           leader: 'Modelo Europeo',
           model: 'Corredor Ferroviario de Carga Electrificado',
           description: 'Construir un corredor ferroviario de carga electrificado de alta velocidad que conecte directamente el Puerto de Caucedo y Haina con el centro industrial del norte en Santiago.',
@@ -5704,8 +5592,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-8',
@@ -5714,6 +5601,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Alta Mortalidad en Carreteras Interurbanas',
         description: 'Tasas de mortalidad extremadamente altas en las principales carreteras interurbanas (ej. Autopista Duarte) debido a cruces ilegales y mal diseño.',
         solution: {
+        imageUrl: "https://i.imgur.com/0aOFsPa.jpeg",
           leader: 'Angela Merkel',
           model: 'Estándar Autobahn y Control por IA',
           description: 'Mejorar las arterias principales a los estándares de las Autobahn alemanas cerrando los puntos de acceso, reemplazando los cruces a nivel con pasos elevados y utilizando control de velocidad por IA.',
@@ -5738,8 +5626,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-9',
@@ -5748,6 +5635,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Vertederos a Cielo Abierto',
         description: 'Desastre ambiental y logístico de los vertederos municipales a cielo abierto (ej. Duquesa).',
         solution: {
+        imageUrl: "https://i.imgur.com/afalXoE.jpeg",
           leader: 'Modelo Nórdico',
           model: 'Plantas de Conversión de Residuos en Energía (WtE)',
           description: 'Desmantelar todos los vertederos a cielo abierto y reemplazarlos con plantas de incineración de conversión de residuos en energía altamente filtradas bajo estrictas APPs.',
@@ -5772,8 +5660,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-10',
@@ -5782,6 +5669,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Crecimiento Urbano Vertical Desregulado',
         description: 'Crecimiento urbano vertical no regulado que abruma por completo las tuberías y redes de servicios públicos de los vecindarios heredados.',
         solution: {
+        imageUrl: "https://i.imgur.com/5D6rRhL.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Moratoria de Zonificación Algorítmica',
           description: 'Instituir una moratoria de zonificación algorítmica: no se emiten permisos para rascacielos a menos que el desarrollador cofinancie la mejora proporcional de la infraestructura municipal inmediata.',
@@ -5806,8 +5694,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-11',
@@ -5816,6 +5703,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Cuellos de Botella Logísticos en Puertos',
         description: 'Cuellos de botella logísticos masivos y estacionamiento de camiones que paralizan el acceso a los principales puertos comerciales.',
         solution: {
+        imageUrl: "https://i.imgur.com/xYXHkJF.jpeg",
           leader: 'Modelo de Singapur',
           model: 'Puertos Secos Gestionados por IA',
           description: 'Desarrollar "puertos secos" interiores gestionados por IA fuera de los límites de la ciudad, conectados a los puertos marítimos a través de corredores elevados exclusivos para camiones financiados con peajes.',
@@ -5840,8 +5728,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-12',
@@ -5850,6 +5737,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Contaminación Visual y Riesgo de Cableado Aéreo',
         description: 'Redes peligrosas y visualmente contaminantes de cableado aéreo de telecomunicaciones y electricidad.',
         solution: {
+        imageUrl: "https://i.imgur.com/ceFlCDg.jpeg",
           leader: 'Modelo Europeo',
           model: 'Programa de Soterramiento Obligatorio',
           description: 'Exigir un programa de soterramiento en fases de 10 años donde las empresas de servicios públicos se vean legalmente obligadas a enterrar todos los cables, financiado conjuntamente por los sectores de telecomunicaciones y energía.',
@@ -5874,8 +5762,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-13',
@@ -5884,6 +5771,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Ausencia de Aceras Transitables',
         description: 'Ausencia virtual de aceras transitables y continuas, obligando a los peatones a invadir carriles de tráfico peligrosos.',
         solution: {
+        imageUrl: "https://i.imgur.com/WLb1F8x.jpeg",
           leader: 'Anne Hidalgo',
           model: 'Recuperación del Derecho de Vía Peatonal',
           description: 'Recuperar el derecho de vía público instalando bolardos de acero físicos y utilizando flotas de grúas automatizadas para penalizar constantemente a los vehículos estacionados en infraestructura peatonal.',
@@ -5908,8 +5796,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-14',
@@ -5918,6 +5805,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Desconexión de Tránsito Masivo en Aeropuertos',
         description: 'Falta de tránsito público de alta capacidad que conecte los principales aeropuertos internacionales con los centros urbanos.',
         solution: {
+        imageUrl: "https://i.imgur.com/mSB8vX6.jpeg",
           leader: 'Modelo Asiático',
           model: 'Conexión Ferroviaria Aeroportuaria de Alta Velocidad',
           description: 'Construir ramales ferroviarios directos de alta velocidad que conecten los aeropuertos internacionales de Las Américas (AILA) y el Cibao directamente con los centros de Metro centrales de sus respectivas ciudades.',
@@ -5942,8 +5830,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-15',
@@ -5952,6 +5839,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Deterioro de Caminos Vecinales',
         description: 'Redes de caminos rurales (caminos vecinales) degradadas que aíslan a los sectores agrícolas y las comunidades rurales.',
         solution: {
+        imageUrl: "https://i.imgur.com/2vKLfPk.jpeg",
           leader: 'Paul Kagame',
           model: 'Cuerpo de Ingenieros y Estabilización de Suelos',
           description: 'Desplegar el Cuerpo de Ingenieros de las Fuerzas Armadas equipado con puentes de acero modulares y prefabricados y tecnología de estabilización de suelos con polímeros para endurecer permanentemente las arterias rurales.',
@@ -5976,8 +5864,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-16',
@@ -5986,6 +5873,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Asentamientos Informales Vulnerables en Riberas',
         description: 'Asentamientos informales altamente vulnerables construidos precariamente en riberas propensas a inundaciones (Ozama, Isabela).',
         solution: {
+        imageUrl: "https://i.imgur.com/J5OGj1V.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Reubicación por Dominio Eminente y Parques Ecológicos',
           description: 'Ejecutar un programa de reubicación por dominio eminente al estilo de Singapur, trasladando a los residentes a viviendas modulares seguras y convirtiendo permanentemente las riberas en parques ecológicos protegidos.',
@@ -6010,8 +5898,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-17',
@@ -6020,6 +5907,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Déficit Severo de Estacionamiento Público',
         description: 'Déficit severo de estacionamiento público urbano que causa un estancamiento estructural en las calles secundarias.',
         solution: {
+        imageUrl: "https://i.imgur.com/z7kext8.jpeg",
           leader: 'Modelo Japonés',
           model: 'Estacionamientos Robóticos y Parquímetros Dinámicos',
           description: 'Desplegar garajes de estacionamiento robóticos automatizados de alta densidad en terrenos estatales, financiados mediante la implementación de parquímetros algorítmicos de precios dinámicos en toda la ciudad.',
@@ -6044,8 +5932,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-18',
@@ -6054,6 +5941,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Erosión Costera y Degradación de Malecones',
         description: 'Rápida erosión costera y degradación de los frentes marítimos urbanos (Malecón) debido a marejadas ciclónicas.',
         solution: {
+        imageUrl: "https://i.imgur.com/vRBYz1N.jpeg",
           leader: 'Modelo Holandés',
           model: 'Rompeolas en Alta Mar y Arrecifes Artificiales',
           description: 'Diseñar rompeolas en alta mar al estilo holandés y sistemas de arrecifes artificiales para disipar la energía de las olas, junto con una restauración agresiva y legalmente protegida de manglares y dunas.',
@@ -6078,8 +5966,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-19',
@@ -6088,6 +5975,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Escasez de Espacios Verdes y Parques',
         description: 'Proporción abismal de espacios públicos verdes y parques per cápita en las principales áreas metropolitanas.',
         solution: {
+        imageUrl: "https://i.imgur.com/b6Y1uhD.jpeg",
           leader: 'Michael Bloomberg',
           model: 'Rezonificación de Sitios Industriales Abandonados',
           description: 'Auditar y rezonificar inmediatamente todos los sitios industriales abandonados y propiedades estatales sin uso dentro de los límites de la ciudad estrictamente para el desarrollo de parques públicos de alto dosel.',
@@ -6112,8 +6000,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inf-20',
@@ -6122,6 +6009,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Cultura de "Construir y Olvidar" en Obras Públicas',
         description: 'Una cultura sistémica de "construir y olvidar" que resulta en el rápido deterioro de las obras públicas recién inauguradas.',
         solution: {
+        imageUrl: "https://i.imgur.com/3O5kyjU.jpeg",
           leader: 'Modelo Suizo',
           model: 'Fondo Fiduciario de Mantenimiento Automatizado',
           description: 'Consagrar una ley que requiera que el 10% del presupuesto de capital para cualquier nueva infraestructura pública quede bloqueado permanentemente en un fondo fiduciario de mantenimiento automatizado que genere rendimientos.',
@@ -6146,8 +6034,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inf-20-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -6199,8 +6086,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/innovation-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-2',
@@ -6233,8 +6119,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inn-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-3',
@@ -6267,8 +6152,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inn-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-4',
@@ -6301,8 +6185,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inn-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-5',
@@ -6335,8 +6218,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/inn-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-6',
@@ -6352,8 +6234,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Mapeo de áreas desatendidas', 'Fase 2: Asignación de subsidios', 'Fase 3: Despliegue de infraestructura'],
           expectedOutcomes: ['Conectividad rural', 'Inclusión digital'],
           chartData: [{ name: 'Año 1', value: 10 }, { name: 'Año 2', value: 20 }, { name: 'Año 3', value: 30 }, { name: 'Año 4', value: 40 }, { name: 'Año 5', value: 50 }],
-          imageUrl: 'https://picsum.photos/seed/inn-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-7',
@@ -6369,8 +6250,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Acuerdos con telcos', 'Fase 2: Identificación de beneficiarios', 'Fase 3: Implementación de zero-rating'],
           expectedOutcomes: ['Acceso equitativo', 'Reducción de costos de conectividad'],
           chartData: [{ name: 'Año 1', value: 15 }, { name: 'Año 2', value: 25 }, { name: 'Año 3', value: 35 }, { name: 'Año 4', value: 45 }, { name: 'Año 5', value: 55 }],
-          imageUrl: 'https://picsum.photos/seed/inn-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-8',
@@ -6386,8 +6266,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño de arquitectura SSO', 'Fase 2: Integración de portales', 'Fase 3: Lanzamiento nacional'],
           expectedOutcomes: ['Identidad digital única', 'Trámites simplificados'],
           chartData: [{ name: 'Año 1', value: 20 }, { name: 'Año 2', value: 30 }, { name: 'Año 3', value: 40 }, { name: 'Año 4', value: 50 }, { name: 'Año 5', value: 60 }],
-          imageUrl: 'https://picsum.photos/seed/inn-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-9',
@@ -6403,8 +6282,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Implementación de X-Road', 'Fase 2: Conexión de bases de datos', 'Fase 3: Prohibición de solicitud de documentos redundantes'],
           expectedOutcomes: ['Interoperabilidad total', 'Cero papel redundante'],
           chartData: [{ name: 'Año 1', value: 25 }, { name: 'Año 2', value: 35 }, { name: 'Año 3', value: 45 }, { name: 'Año 4', value: 55 }, { name: 'Año 5', value: 65 }],
-          imageUrl: 'https://picsum.photos/seed/inn-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-10',
@@ -6420,8 +6298,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Marco regulatorio', 'Fase 2: Subsidios de certificados', 'Fase 3: Mandato de aceptación'],
           expectedOutcomes: ['Firma digital universal', 'Contratos ágiles'],
           chartData: [{ name: 'Año 1', value: 30 }, { name: 'Año 2', value: 40 }, { name: 'Año 3', value: 50 }, { name: 'Año 4', value: 60 }, { name: 'Año 5', value: 70 }],
-          imageUrl: 'https://picsum.photos/seed/inn-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-11',
@@ -6437,8 +6314,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Auditoría de sistemas heredados', 'Fase 2: Asignación de fondos', 'Fase 3: Migración a sistemas modernos'],
           expectedOutcomes: ['Sistemas modernos', 'Reducción de vulnerabilidades'],
           chartData: [{ name: 'Año 1', value: 35 }, { name: 'Año 2', value: 45 }, { name: 'Año 3', value: 55 }, { name: 'Año 4', value: 65 }, { name: 'Año 5', value: 75 }],
-          imageUrl: 'https://picsum.photos/seed/inn-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-12',
@@ -6454,8 +6330,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Auditorías de cumplimiento', 'Fase 2: Pruebas de penetración', 'Fase 3: Remediación de vulnerabilidades'],
           expectedOutcomes: ['Entidades seguras', 'Resiliencia cibernética'],
           chartData: [{ name: 'Año 1', value: 40 }, { name: 'Año 2', value: 50 }, { name: 'Año 3', value: 60 }, { name: 'Año 4', value: 70 }, { name: 'Año 5', value: 80 }],
-          imageUrl: 'https://picsum.photos/seed/inn-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-13',
@@ -6471,8 +6346,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño del SOC', 'Fase 2: Contratación y equipamiento', 'Fase 3: Operación 24/7'],
           expectedOutcomes: ['Monitoreo continuo', 'Respuesta rápida a incidentes'],
           chartData: [{ name: 'Año 1', value: 45 }, { name: 'Año 2', value: 55 }, { name: 'Año 3', value: 65 }, { name: 'Año 4', value: 75 }, { name: 'Año 5', value: 85 }],
-          imageUrl: 'https://picsum.photos/seed/inn-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-14',
@@ -6488,8 +6362,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Análisis comparativo', 'Fase 2: Redacción de la nueva ley', 'Fase 3: Aprobación e implementación'],
           expectedOutcomes: ['Privacidad garantizada', 'Confianza digital'],
           chartData: [{ name: 'Año 1', value: 50 }, { name: 'Año 2', value: 60 }, { name: 'Año 3', value: 70 }, { name: 'Año 4', value: 80 }, { name: 'Año 5', value: 90 }],
-          imageUrl: 'https://picsum.photos/seed/inn-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-15',
@@ -6505,8 +6378,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño del currículo', 'Fase 2: Alianzas institucionales', 'Fase 3: Ejecución de bootcamps'],
           expectedOutcomes: ['Nuevos profesionales de ciberseguridad', 'Reducción de la brecha de talento'],
           chartData: [{ name: 'Año 1', value: 55 }, { name: 'Año 2', value: 65 }, { name: 'Año 3', value: 75 }, { name: 'Año 4', value: 85 }, { name: 'Año 5', value: 95 }],
-          imageUrl: 'https://picsum.photos/seed/inn-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-16',
@@ -6522,8 +6394,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Acuerdo nacional', 'Fase 2: Plataforma digital de permisos', 'Fase 3: Despliegue acelerado'],
           expectedOutcomes: ['Despliegue 5G rápido', 'Reducción de burocracia'],
           chartData: [{ name: 'Año 1', value: 60 }, { name: 'Año 2', value: 70 }, { name: 'Año 3', value: 80 }, { name: 'Año 4', value: 90 }, { name: 'Año 5', value: 100 }],
-          imageUrl: 'https://picsum.photos/seed/inn-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-17',
@@ -6539,8 +6410,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño y licitación', 'Fase 2: Construcción del Data Center', 'Fase 3: Migración a la nube soberana'],
           expectedOutcomes: ['Soberanía de datos', 'Infraestructura resiliente'],
           chartData: [{ name: 'Año 1', value: 65 }, { name: 'Año 2', value: 75 }, { name: 'Año 3', value: 85 }, { name: 'Año 4', value: 95 }, { name: 'Año 5', value: 105 }],
-          imageUrl: 'https://picsum.photos/seed/inn-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-18',
@@ -6556,8 +6426,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño del programa', 'Fase 2: Registro de proveedores', 'Fase 3: Distribución de vales'],
           expectedOutcomes: ['MiPymes digitalizadas', 'Aumento de competitividad'],
           chartData: [{ name: 'Año 1', value: 70 }, { name: 'Año 2', value: 80 }, { name: 'Año 3', value: 90 }, { name: 'Año 4', value: 100 }, { name: 'Año 5', value: 110 }],
-          imageUrl: 'https://picsum.photos/seed/inn-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-19',
@@ -6573,8 +6442,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Marco regulatorio Open Banking', 'Fase 2: Infraestructura de pagos', 'Fase 3: Adopción masiva'],
           expectedOutcomes: ['Pagos sin fricción', 'Reducción del uso de efectivo'],
           chartData: [{ name: 'Año 1', value: 75 }, { name: 'Año 2', value: 85 }, { name: 'Año 3', value: 95 }, { name: 'Año 4', value: 105 }, { name: 'Año 5', value: 115 }],
-          imageUrl: 'https://picsum.photos/seed/inn-19-solution/800/400'
-        }
+                  }
       },
       {
         id: 'inn-20',
@@ -6590,8 +6458,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Formulación de estrategia', 'Fase 2: Proyectos piloto de IA', 'Fase 3: Adopción a escala'],
           expectedOutcomes: ['Adopción ética de IA', 'Mejora en servicios públicos'],
           chartData: [{ name: 'Año 1', value: 80 }, { name: 'Año 2', value: 90 }, { name: 'Año 3', value: 100 }, { name: 'Año 4', value: 110 }, { name: 'Año 5', value: 120 }],
-          imageUrl: 'https://picsum.photos/seed/inn-20-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-1',
@@ -6607,8 +6474,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Reforma procesal', 'Fase 2: Adquisición de software', 'Fase 3: Capacitación y despliegue'],
           expectedOutcomes: ['Reducción de mora judicial', 'Justicia expedita'],
           chartData: [{ name: 'Año 1', value: 10 }, { name: 'Año 2', value: 20 }, { name: 'Año 3', value: 30 }, { name: 'Año 4', value: 40 }, { name: 'Año 5', value: 50 }],
-          imageUrl: 'https://picsum.photos/seed/jus-1-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-2',
@@ -6624,8 +6490,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Reforma legal', 'Fase 2: Adquisición de tecnología de monitoreo', 'Fase 3: Capacitación de jueces'],
           expectedOutcomes: ['Reducción de prisión preventiva', 'Descongestión carcelaria'],
           chartData: [{ name: 'Año 1', value: 15 }, { name: 'Año 2', value: 25 }, { name: 'Año 3', value: 35 }, { name: 'Año 4', value: 45 }, { name: 'Año 5', value: 55 }],
-          imageUrl: 'https://picsum.photos/seed/jus-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-3',
@@ -6641,8 +6506,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Censo penitenciario', 'Fase 2: Liberación de reclusos elegibles', 'Fase 3: Construcción de nuevas cárceles'],
           expectedOutcomes: ['Fin del hacinamiento', 'Rehabilitación efectiva'],
           chartData: [{ name: 'Año 1', value: 20 }, { name: 'Año 2', value: 30 }, { name: 'Año 3', value: 40 }, { name: 'Año 4', value: 50 }, { name: 'Año 5', value: 60 }],
-          imageUrl: 'https://picsum.photos/seed/jus-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-4',
@@ -6658,8 +6522,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Diseño del sistema unificado', 'Fase 2: Integración de bases de datos existentes', 'Fase 3: Despliegue nacional'],
           expectedOutcomes: ['Coordinación interinstitucional', 'Trazabilidad de casos'],
           chartData: [{ name: 'Año 1', value: 25 }, { name: 'Año 2', value: 35 }, { name: 'Año 3', value: 45 }, { name: 'Año 4', value: 55 }, { name: 'Año 5', value: 65 }],
-          imageUrl: 'https://picsum.photos/seed/jus-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'jus-5',
@@ -6675,8 +6538,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           implementationSteps: ['Fase 1: Reasignación presupuestaria', 'Fase 2: Contratación de defensores', 'Fase 3: Capacitación continua'],
           expectedOutcomes: ['Defensa pública robusta', 'Acceso equitativo a la justicia'],
           chartData: [{ name: 'Año 1', value: 30 }, { name: 'Año 2', value: 40 }, { name: 'Año 3', value: 50 }, { name: 'Año 4', value: 60 }, { name: 'Año 5', value: 70 }],
-          imageUrl: 'https://picsum.photos/seed/jus-5-solution/800/400'
-        }
+                  }
       }
     ]
   },
@@ -6704,6 +6566,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Cesantía Rígida',
         description: 'Las responsabilidades de indemnización retroactivas y altamente punitivas sofocan la contratación formal y atrapan a las mipymes en la economía informal.',
         solution: {
+        imageUrl: "https://i.imgur.com/l1WYq3p.jpeg",
           leader: 'Javier Milei',
           model: 'Finanzas de Singapur',
           description: 'Reemplazar la cesantía retroactiva con Cuentas de Capitalización Individual financiadas por una contribución continua y predecible del 2% del empleador.',
@@ -6728,8 +6591,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/labor-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-2',
@@ -6738,6 +6600,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Alta Informalidad Laboral',
         description: 'El 54.7% de la fuerza laboral opera fuera de la base fiscal y regulatoria formal.',
         solution: {
+        imageUrl: "https://i.imgur.com/efW96Tf.jpeg",
           leader: 'Margaret Thatcher',
           model: 'Trabajo Alemán',
           description: 'Ofrecer alivio inmediato del impuesto sobre la nómina a las mipymes, condicionado a su adopción del modelo Dual-VET alemán para contratar jóvenes aprendices.',
@@ -6762,8 +6625,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-2-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-3',
@@ -6772,6 +6634,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Tasa Severa de Jóvenes NINI',
         description: 'El 25.7% de los jóvenes no estudian ni trabajan, lo que representa una pérdida masiva de capital humano.',
         solution: {
+        imageUrl: "https://i.imgur.com/TLtyntA.jpeg",
           leader: 'FDR',
           model: 'Bienestar de Noruega',
           description: 'Implementar una Garantía Juvenil Condicional. Vincular las transferencias de bienestar del estado directamente a la inscripción obligatoria de jóvenes en las vías tecnológicas de INFOTEP.',
@@ -6796,8 +6659,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-3-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-4',
@@ -6806,6 +6668,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Desajuste de Habilidades (Skills Mismatch)',
         description: 'Las universidades producen un exceso de profesionales en humanidades mientras el sector privado sufre escasez de técnicos especializados e ingenieros.',
         solution: {
+        imageUrl: "https://i.imgur.com/sZKwHBu.jpeg",
           leader: 'Angela Merkel',
           model: 'Educación Dual Alemana',
           description: 'Redirigir los subsidios universitarios hacia programas técnicos donde los estudiantes dividen su tiempo entre el aula y el aprendizaje remunerado directamente en empresas privadas.',
@@ -6830,8 +6693,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-4-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-5',
@@ -6840,6 +6702,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Baja Participación Laboral Femenina',
         description: 'La falta de infraestructura de cuidado infantil obliga a muchas mujeres a abandonar la fuerza laboral formal o aceptar subempleo.',
         solution: {
+        imageUrl: "https://i.imgur.com/cZuOGrP.jpeg",
           leader: 'Sanna Marin',
           model: 'Cuidado Infantil Nórdico',
           description: 'Implementar un sistema nacional de vales (vouchers) de cuidado infantil cofinanciado por el estado y los empleadores, permitiendo a las madres reincorporarse al mercado laboral formal.',
@@ -6864,8 +6727,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-5-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-6',
@@ -6874,6 +6736,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Obsolescencia de la Formación Técnico-Profesional (INFOTEP)',
         description: 'Capacitación vocacional desactualizada que va años por detrás de las necesidades tecnológicas reales del sector privado.',
         solution: {
+        imageUrl: "https://i.imgur.com/l3Wvwv0.jpeg",
           leader: 'Modelo Suizo',
           model: 'Junta Curricular Dirigida por la Industria',
           description: 'Exigir que el 50% de la junta curricular nacional esté compuesta por directores ejecutivos industriales activos, con actualizaciones en tiempo real impulsadas por análisis de IA de bolsas de trabajo globales.',
@@ -6898,8 +6761,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-6-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-7',
@@ -6908,6 +6770,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Déficit Severo de Dominio del Idioma Inglés',
         description: 'Falta severa de dominio del idioma inglés que limita la integración en la economía remota global y el turismo de alto nivel.',
         solution: {
+        imageUrl: "https://i.imgur.com/NnaqorW.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Bootcamps de Inmersión Lingüística por IA',
           description: 'Subsidiar bootcamps de idiomas inmersivos impulsados por IA con colocación garantizada en trabajo remoto para los graduados, eludiendo las escuelas de idiomas tradicionales de varios años.',
@@ -6932,8 +6795,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-7-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-8',
@@ -6942,6 +6804,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Dependencia de Mano de Obra de Baja Cualificación en Zonas Francas',
         description: 'Fuerte dependencia de la mano de obra manual de baja cualificación en las Zonas Francas, altamente vulnerable a la automatización.',
         solution: {
+        imageUrl: "https://i.imgur.com/kInFQBL.jpeg",
           leader: 'Modelo Surcoreano',
           model: 'Fondo Soberano de Transición Industrial',
           description: 'Establecer un fondo de transición soberano para capacitar proactivamente a los trabajadores de ensamblaje manual y convertirlos en técnicos de robótica, operadores CNC y especialistas en control de calidad.',
@@ -6966,8 +6829,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-8-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-9',
@@ -6976,6 +6838,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Fuga de Cerebros en Ingeniería y Tecnología',
         description: 'Constante "fuga de cerebros" de talento técnico y de ingeniería de primer nivel que emigra a Estados Unidos y Europa.',
         solution: {
+        imageUrl: "https://i.imgur.com/DqLQ4WG.jpeg",
           leader: 'Emmanuel Macron',
           model: 'Hubs de Innovación y Retención de Talento',
           description: 'Crear "Hubs de Innovación" con cero impuesto sobre la renta para profesionales certificados en tecnología profunda (deep-tech) e igualar legalmente sus salarios del sector privado mediante subsidios estatales durante los primeros tres años.',
@@ -7000,8 +6863,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-9-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-10',
@@ -7010,6 +6872,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Brecha de Género en Sectores Tecnológicos e Industriales',
         description: 'Brecha de género masiva, con mujeres fuertemente subrepresentadas en roles técnicos, de construcción y de TI bien remunerados.',
         solution: {
+        imageUrl: "https://i.imgur.com/XsIhp2g.jpeg",
           leader: 'Sanna Marin',
           model: 'Cuotas Corporativas y Subsidios de Capacitación',
           description: 'Ofrecer capacitación 100% subsidiada, estipendios de cuidado infantil garantizados y cuotas de contratación corporativa obligatorias para mujeres que ingresan a la industria pesada y el desarrollo de software.',
@@ -7034,8 +6897,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-10-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-11',
@@ -7044,6 +6906,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Carencia Sistémica de Habilidades Blandas (Soft Skills)',
         description: 'Falta sistémica de "habilidades blandas"; los empleadores informan que los graduados carecen de pensamiento crítico, resolución de conflictos y etiqueta profesional básica.',
         solution: {
+        imageUrl: "https://i.imgur.com/tUSfKH9.jpeg",
           leader: 'Modelo Finlandés',
           model: 'Entrenamiento Conductual Simulado',
           description: 'Integrar un entrenamiento conductual riguroso, calificado y simulado en entornos corporativos durante el primer año de todos los programas vocacionales y universitarios.',
@@ -7068,8 +6931,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-11-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-12',
@@ -7078,6 +6940,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Vulnerabilidad Extrema de los Trabajadores Gig (Plataformas)',
         description: 'Vulnerabilidad extrema de la fuerza laboral de plataformas de aplicaciones en rápida expansión (entrega, viajes compartidos).',
         solution: {
+        imageUrl: "https://i.imgur.com/I5TOLZX.jpeg",
           leader: 'Gavin Newsom',
           model: 'Seguridad Social Integrada por API',
           description: 'Obligar a las plataformas gig a integrar una API que deduzca y aporte automáticamente un micro-porcentaje de cada transacción directamente a un fondo de seguridad social administrado por el estado.',
@@ -7102,8 +6965,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-12-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-13',
@@ -7112,6 +6974,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Centralización Geográfica de la Capacitación de Alta Calidad',
         description: 'Centralización geográfica de la capacitación de alta calidad en la capital, abandonando las provincias fronterizas y rurales.',
         solution: {
+        imageUrl: "https://i.imgur.com/I5TOLZX.jpeg",
           leader: 'Modelo Australiano',
           model: 'Laboratorios Vocacionales Móviles Off-Grid',
           description: 'Desplegar una flota masiva de laboratorios vocacionales móviles fuera de la red (camiones equipados con simuladores de realidad virtual e impresoras 3D) que rotan continuamente por municipios remotos.',
@@ -7136,8 +6999,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-13-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-14',
@@ -7146,6 +7008,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Exclusión Laboral de Personas con Discapacidad',
         description: 'Exclusión sistémica y escasa integración en el mercado laboral de personas con discapacidades físicas o cognitivas.',
         solution: {
+        imageUrl: "https://i.imgur.com/165o0Le.jpeg",
           leader: 'Angela Merkel',
           model: 'Cuotas de Inclusión y Subsidios Tecnológicos',
           description: 'Subsidiar configuraciones de trabajo remoto de alta tecnología y proporcionar exenciones fiscales masivas para las empresas que cumplan con un estricto umbral del 5% de fuerza laboral para personas con discapacidades verificadas.',
@@ -7170,8 +7033,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-14-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-15',
@@ -7180,6 +7042,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Inflación de Títulos Universitarios (Degree Inflation)',
         description: 'Inflación desenfrenada de títulos donde los empleadores exigen títulos universitarios para roles técnicos básicos, excluyendo a trabajadores capaces.',
         solution: {
+        imageUrl: "https://i.imgur.com/B51JFfp.jpeg",
           leader: 'Modelo de Singapur',
           model: 'Contratación Basada en Competencias Ciegas',
           description: 'Prohibir legalmente los requisitos de títulos universitarios para el empleo estatal a menos que sea estrictamente necesario legalmente (ej. medicina), cambiando exclusivamente a pruebas de competencia ciegas basadas en habilidades.',
@@ -7204,8 +7067,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-15-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-16',
@@ -7214,6 +7076,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Baja Productividad Laboral Crónica',
         description: 'Productividad laboral crónicamente baja (producción por hora) en comparación con los competidores regionales.',
         solution: {
+        imageUrl: "https://i.imgur.com/Da72q9d.jpeg",
           leader: 'Javier Milei',
           model: 'Incentivos Fiscales para Automatización',
           description: 'Incentivar la inversión de capital permitiendo a las empresas deducir instantáneamente el 100% del costo de la automatización y el software que mejoran la productividad en el primer año de compra.',
@@ -7238,8 +7101,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 160 },
             { name: 'Año 5', value: 220 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-16-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-17',
@@ -7248,6 +7110,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Inflexibilidad de Contratos Laborales (Trabajo Remoto y Parcial)',
         description: 'Contratos laborales altamente inflexibles que hacen que el trabajo a tiempo parcial, estacional y remoto sea legalmente riesgoso para los empleadores.',
         solution: {
+        imageUrl: "https://i.imgur.com/4AG5eUw.jpeg",
           leader: 'Modelo Estonio',
           model: 'Ley de Trabajo Digital y Flexible',
           description: 'Promulgar una "Ley de Trabajo Digital y Flexible" modernizada que reconozca y proteja legalmente los contratos por hora, basados en proyectos y remotos sin la amenaza de clasificaciones punitivas retroactivas.',
@@ -7272,8 +7135,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 185 },
             { name: 'Año 5', value: 250 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-17-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-18',
@@ -7306,8 +7168,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 210 },
             { name: 'Año 5', value: 280 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-18-solution/800/400'
-        }
+                  }
       },
       {
         id: 'lab-19',
@@ -7316,6 +7177,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         title: 'Dependencia de Mano de Obra Extranjera Indocumentada',
         description: 'Alta dependencia de mano de obra extranjera indocumentada y de bajos salarios en la construcción y la agricultura, lo que suprime los salarios nacionales.',
         solution: {
+        imageUrl: "https://i.imgur.com/gahI7ff.jpeg",
           leader: 'Lee Kuan Yew',
           model: 'Visas de Trabajador Temporal Biométricas',
           description: 'Implementar un estricto sistema biométrico de visas para trabajadores temporales con un salario mínimo obligatorio, aplicando penalizaciones financieras paralizantes para los empleadores que operen fuera del sistema.',
@@ -7340,8 +7202,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 4', value: 110 },
             { name: 'Año 5', value: 160 }
           ],
-          imageUrl: 'https://picsum.photos/seed/lab-19-solution/800/400'
-        }
+                  }
       }
     ]
   }
