@@ -151,40 +151,6 @@ export default function NewCitiesView() {
   const [activeTab, setActiveTab] = useState(0);
   const activeCity = cities[activeTab];
 
-  // Form State
-  const [formData, setFormData] = useState({ name: '', email: '', interest: cities[0].id, message: '' });
-  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-
-  const handleFormSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const errors: Record<string, string> = {};
-    
-    if (!formData.name.trim()) errors.name = 'El nombre es obligatorio';
-    if (!formData.email.trim()) {
-      errors.email = 'El correo es obligatorio';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errors.email = 'El correo no es válido';
-    }
-    if (!formData.message.trim()) errors.message = 'El mensaje es obligatorio';
-
-    if (Object.keys(errors).length > 0) {
-      setFormErrors(errors);
-      return;
-    }
-
-    setFormErrors({});
-    setIsSubmitting(true);
-    
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', interest: cities[0].id, message: '' });
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
-  };
 
   return (
     <motion.div 
@@ -422,86 +388,24 @@ export default function NewCitiesView() {
             </div>
           </div>
 
-          <div className="lg:w-1/2 bg-white/10 p-6 md:p-8 rounded-xl backdrop-blur-sm border border-white/20">
-            {isSuccess ? (
-              <motion.div 
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                className="h-full flex flex-col items-center justify-center text-center py-12"
-              >
-                <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mb-4">
-                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
-                </div>
-                <h3 className="text-2xl font-bold mb-2">¡Registro Exitoso!</h3>
-                <p className="text-gray-300">Hemos recibido su información. Nuestro equipo de desarrollo se pondrá en contacto pronto.</p>
-              </motion.div>
-            ) : (
-              <form onSubmit={handleFormSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">Nombre Completo / Empresa *</label>
-                  <input 
-                    type="text" 
-                    value={formData.name}
-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
-                    className={`w-full bg-white/5 border ${formErrors.name ? 'border-red-400' : 'border-white/20'} rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-gov-gold)]`}
-                    placeholder="Ej. Constructora Nacional S.A."
-                  />
-                  {formErrors.name && <p className="text-red-400 text-xs mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3"/> {formErrors.name}</p>}
-                </div>
-                
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">Correo Electrónico Institucional *</label>
-                  <input 
-                    type="email" 
-                    value={formData.email}
-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
-                    className={`w-full bg-white/5 border ${formErrors.email ? 'border-red-400' : 'border-white/20'} rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-gov-gold)]`}
-                    placeholder="contacto@empresa.com"
-                  />
-                  {formErrors.email && <p className="text-red-400 text-xs mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3"/> {formErrors.email}</p>}
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">Proyecto de Interés Principal</label>
-                  <select 
-                    value={formData.interest}
-                    onChange={(e) => setFormData({...formData, interest: e.target.value})}
-                    className="w-full bg-[#001f44] border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-gov-gold)]"
-                  >
-                    {cities.map(c => (
-                      <option key={c.id} value={c.id}>{c.name}</option>
-                    ))}
-                  </select>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-300 mb-1">Mensaje o Área de Especialidad *</label>
-                  <textarea 
-                    value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
-                    rows={3}
-                    className={`w-full bg-white/5 border ${formErrors.message ? 'border-red-400' : 'border-white/20'} rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-gov-gold)] resize-none`}
-                    placeholder="Describa brevemente su interés o capacidad técnica..."
-                  ></textarea>
-                  {formErrors.message && <p className="text-red-400 text-xs mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3"/> {formErrors.message}</p>}
-                </div>
-
-                <button 
-                  type="submit" 
-                  disabled={isSubmitting}
-                  className="w-full bg-[var(--color-gov-gold)] hover:bg-amber-500 text-[#001f44] font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 mt-2 disabled:opacity-70"
-                >
-                  {isSubmitting ? (
-                    <div className="w-5 h-5 border-2 border-[#001f44] border-t-transparent rounded-full animate-spin"></div>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5" />
-                      Solicitar Información
-                    </>
-                  )}
-                </button>
-              </form>
-            )}
+          <div className="lg:w-1/2 bg-white/10 p-6 md:p-8 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center justify-center text-center">
+            <div className="w-16 h-16 bg-[var(--color-gov-gold)]/20 rounded-full flex items-center justify-center mb-6">
+               <Send className="w-8 h-8 text-[var(--color-gov-gold)]" />
+            </div>
+            <h3 className="text-2xl font-bold mb-4">Contacto Oficial</h3>
+            <p className="text-gray-300 mb-8">
+              Para participar en las Rondas de Inversión y obtener pliegos de las Licitaciones de estos polos de desarrollo, por favor escriba directamente a nuestro comité evaluador:
+            </p>
+            <a 
+              href="mailto:contacto@reformatotalrd.org" 
+              className="w-full bg-[var(--color-gov-gold)] hover:bg-amber-500 text-[#001f44] font-bold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg"
+            >
+               <Send className="w-5 h-5" />
+               contacto@reformatotalrd.org
+            </a>
+            <p className="text-xs text-gray-400 mt-6 font-mono">
+              Nota: Esta plataforma es un modelo académico de políticas públicas, no una entidad gubernamental.
+            </p>
           </div>
         </div>
       </div>

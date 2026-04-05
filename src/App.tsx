@@ -4,7 +4,7 @@
  */
 
 import { useState, useEffect, useRef } from 'react';
-import { HashRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, ArrowUp } from 'lucide-react';
 import { sectors } from './data';
 import Sidebar from './components/Sidebar';
@@ -123,6 +123,15 @@ function AppContent() {
             )}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
+          
+          {/* Disclaimer Footer */}
+          <footer className="w-full bg-gray-50 border-t border-gray-200 mt-12 py-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+              <p className="text-xs md:text-sm text-gray-500 font-mono tracking-wide leading-relaxed">
+                <strong>AVISO IMPORTANTE:</strong> Esta plataforma es un modelo académico, conceptual e independiente diseñado para visualizar ideas de políticas públicas. <br className="hidden md:block" />No guarda afiliación, no está respaldado, ni representa a ninguna institución del Gobierno de la República Dominicana ni de ningún otro estado. Este sitio web no recopila información personal.
+              </p>
+            </div>
+          </footer>
         </div>
 
         {/* Back to top button */}
@@ -142,8 +151,8 @@ function AppContent() {
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter basename="/RD">
       <AppContent />
-    </HashRouter>
+    </BrowserRouter>
   );
 }

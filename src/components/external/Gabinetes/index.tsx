@@ -219,6 +219,7 @@ function ConsolidationCard({
   isExpanded, 
   onToggle 
 }: { 
+  key?: React.Key,
   item: typeof consolidations[0], 
   isExpanded: boolean, 
   onToggle: () => void 

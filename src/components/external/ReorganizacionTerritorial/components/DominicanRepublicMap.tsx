@@ -284,7 +284,9 @@ export default function DominicanRepublicMap() {
       .attr('id', (d: any) => `province-${d.id}`)
       .attr('stroke', '#fff')
       .attr('stroke-width', 1)
-      .style('transition', 'fill 0.3s ease, transform 0.2s ease'); // Smooth color and scale transition!
+      .style('transition', 'fill 0.3s ease, transform 0.2s ease')
+      .append('title')
+      .text((d: any) => `Provincia: ${d.properties.name}`); // Accessibility title
 
     gLabels.selectAll('text.province-label')
       .data(features)

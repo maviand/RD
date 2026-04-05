@@ -1,0 +1,934 @@
+﻿diff --git a/.github/workflows/deploy.yml b/.github/workflows/deploy.yml
+index bc969e9..e46147a 100644
+--- a/.github/workflows/deploy.yml
++++ b/.github/workflows/deploy.yml
+@@ -26,6 +26,10 @@ jobs:
+           node-version: "20"
+       - name: Install dependencies
+         run: npm ci
++      - name: Security Audit
++        run: npm audit --audit-level=high || true
++      - name: Type Check
++        run: npx tsc --noEmit
+       - name: Build
+         run: npm run build
+       - name: Upload artifact
+diff --git a/index.html b/index.html
+index 21dfe69..09e1e92 100644
+--- a/index.html
++++ b/index.html
+@@ -1,9 +1,26 @@
+ <!doctype html>
+-<html lang="en">
++<html lang="es">
+   <head>
+     <meta charset="UTF-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+-    <title>My Google AI Studio App</title>
++    <meta name="description" content="Reforma Total RD - Una propuesta integral para la reestructuraci├│n del Estado Dominicano hacia la eficiencia, la transparencia y el desarrollo sostenible." />
++    <meta name="keywords" content="proyecto academico, concepto, simulacion, no gubernamental" />
++    <meta name="author" content="Proyecto Acad├⌐mico Independiente" />
++    <!-- Start Single Page Apps for GitHub Pages -->
++    <script type="text/javascript">
++      (function(l) {
++        if (l.search[1] === '/' ) {
++          var decoded = l.search.slice(1).split('&').map(function(s) { 
++            return s.replace(/~and~/g, '&')
++          }).join('?');
++          window.history.replaceState(null, null,
++              l.pathname.slice(0, -1) + decoded + l.hash
++          );
++        }
++      }(window.location))
++    </script>
++    <!-- End Single Page Apps for GitHub Pages -->
++    <title>Reforma Total RD | Plataforma de Transformaci├│n del Estado</title>
+   </head>
+   <body>
+     <div id="root"></div>
+diff --git a/src/App.tsx b/src/App.tsx
+index 109b235..91230dc 100644
+--- a/src/App.tsx
++++ b/src/App.tsx
+@@ -4,7 +4,7 @@
+  */
+ 
+ import { useState, useEffect, useRef } from 'react';
+-import { HashRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
++import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+ import { Menu, ArrowUp } from 'lucide-react';
+ import { sectors } from './data';
+ import Sidebar from './components/Sidebar';
+@@ -123,6 +123,15 @@ function AppContent() {
+             )}
+             <Route path="*" element={<Navigate to="/" replace />} />
+           </Routes>
++          
++          {/* Disclaimer Footer */}
++          <footer className="w-full bg-gray-50 border-t border-gray-200 mt-12 py-8">
++            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
++              <p className="text-xs md:text-sm text-gray-500 font-mono tracking-wide leading-relaxed">
++                <strong>AVISO IMPORTANTE:</strong> Esta plataforma es un modelo acad├⌐mico, conceptual e independiente dise├▒ado para visualizar ideas de pol├¡ticas p├║blicas. <br className="hidden md:block" />No guarda afiliaci├│n, no est├í respaldado, ni representa a ninguna instituci├│n del Gobierno de la Rep├║blica Dominicana ni de ning├║n otro estado. Este sitio web no recopila informaci├│n personal.
++              </p>
++            </div>
++          </footer>
+         </div>
+ 
+         {/* Back to top button */}
+@@ -142,8 +151,8 @@ function AppContent() {
+ 
+ export default function App() {
+   return (
+-    <HashRouter>
++    <BrowserRouter basename="/RD">
+       <AppContent />
+-    </HashRouter>
++    </BrowserRouter>
+   );
+ }
+diff --git a/src/components/NewCitiesView.tsx b/src/components/NewCitiesView.tsx
+index 745db64..5556e82 100644
+--- a/src/components/NewCitiesView.tsx
++++ b/src/components/NewCitiesView.tsx
+@@ -151,40 +151,6 @@ export default function NewCitiesView() {
+   const [activeTab, setActiveTab] = useState(0);
+   const activeCity = cities[activeTab];
+ 
+-  // Form State
+-  const [formData, setFormData] = useState({ name: '', email: '', interest: cities[0].id, message: '' });
+-  const [formErrors, setFormErrors] = useState<Record<string, string>>({});
+-  const [isSubmitting, setIsSubmitting] = useState(false);
+-  const [isSuccess, setIsSuccess] = useState(false);
+-
+-  const handleFormSubmit = (e: React.FormEvent) => {
+-    e.preventDefault();
+-    const errors: Record<string, string> = {};
+-    
+-    if (!formData.name.trim()) errors.name = 'El nombre es obligatorio';
+-    if (!formData.email.trim()) {
+-      errors.email = 'El correo es obligatorio';
+-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+-      errors.email = 'El correo no es v├ílido';
+-    }
+-    if (!formData.message.trim()) errors.message = 'El mensaje es obligatorio';
+-
+-    if (Object.keys(errors).length > 0) {
+-      setFormErrors(errors);
+-      return;
+-    }
+-
+-    setFormErrors({});
+-    setIsSubmitting(true);
+-    
+-    // Simulate API call
+-    setTimeout(() => {
+-      setIsSubmitting(false);
+-      setIsSuccess(true);
+-      setFormData({ name: '', email: '', interest: cities[0].id, message: '' });
+-      setTimeout(() => setIsSuccess(false), 5000);
+-    }, 1500);
+-  };
+ 
+   return (
+     <motion.div 
+@@ -422,86 +388,24 @@ export default function NewCitiesView() {
+             </div>
+           </div>
+ 
+-          <div className="lg:w-1/2 bg-white/10 p-6 md:p-8 rounded-xl backdrop-blur-sm border border-white/20">
+-            {isSuccess ? (
+-              <motion.div 
+-                initial={{ opacity: 0, scale: 0.9 }}
+-                animate={{ opacity: 1, scale: 1 }}
+-                className="h-full flex flex-col items-center justify-center text-center py-12"
+-              >
+-                <div className="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mb-4">
+-                  <CheckCircle2 className="w-8 h-8 text-emerald-400" />
+-                </div>
+-                <h3 className="text-2xl font-bold mb-2">┬íRegistro Exitoso!</h3>
+-                <p className="text-gray-300">Hemos recibido su informaci├│n. Nuestro equipo de desarrollo se pondr├í en contacto pronto.</p>
+-              </motion.div>
+-            ) : (
+-              <form onSubmit={handleFormSubmit} className="space-y-4">
+-                <div>
+-                  <label className="block text-sm font-medium text-gray-300 mb-1">Nombre Completo / Empresa *</label>
+-                  <input 
+-                    type="text" 
+-                    value={formData.name}
+-                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+-                    className={`w-full bg-white/5 border ${formErrors.name ? 'border-red-400' : 'border-white/20'} rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-gov-gold)]`}
+-                    placeholder="Ej. Constructora Nacional S.A."
+-                  />
+-                  {formErrors.name && <p className="text-red-400 text-xs mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3"/> {formErrors.name}</p>}
+-                </div>
+-                
+-                <div>
+-                  <label className="block text-sm font-medium text-gray-300 mb-1">Correo Electr├│nico Institucional *</label>
+-                  <input 
+-                    type="email" 
+-                    value={formData.email}
+-                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+-                    className={`w-full bg-white/5 border ${formErrors.email ? 'border-red-400' : 'border-white/20'} rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-gov-gold)]`}
+-                    placeholder="contacto@empresa.com"
+-                  />
+-                  {formErrors.email && <p className="text-red-400 text-xs mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3"/> {formErrors.email}</p>}
+-                </div>
+-
+-                <div>
+-                  <label className="block text-sm font-medium text-gray-300 mb-1">Proyecto de Inter├⌐s Principal</label>
+-                  <select 
+-                    value={formData.interest}
+-                    onChange={(e) => setFormData({...formData, interest: e.target.value})}
+-                    className="w-full bg-[#001f44] border border-white/20 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-gov-gold)]"
+-                  >
+-                    {cities.map(c => (
+-                      <option key={c.id} value={c.id}>{c.name}</option>
+-                    ))}
+-                  </select>
+-                </div>
+-
+-                <div>
+-                  <label className="block text-sm font-medium text-gray-300 mb-1">Mensaje o ├ürea de Especialidad *</label>
+-                  <textarea 
+-                    value={formData.message}
+-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+-                    rows={3}
+-                    className={`w-full bg-white/5 border ${formErrors.message ? 'border-red-400' : 'border-white/20'} rounded-lg px-4 py-2.5 text-white focus:outline-none focus:ring-2 focus:ring-[var(--color-gov-gold)] resize-none`}
+-                    placeholder="Describa brevemente su inter├⌐s o capacidad t├⌐cnica..."
+-                  ></textarea>
+-                  {formErrors.message && <p className="text-red-400 text-xs mt-1 flex items-center gap-1"><AlertCircle className="w-3 h-3"/> {formErrors.message}</p>}
+-                </div>
+-
+-                <button 
+-                  type="submit" 
+-                  disabled={isSubmitting}
+-                  className="w-full bg-[var(--color-gov-gold)] hover:bg-amber-500 text-[#001f44] font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2 mt-2 disabled:opacity-70"
+-                >
+-                  {isSubmitting ? (
+-                    <div className="w-5 h-5 border-2 border-[#001f44] border-t-transparent rounded-full animate-spin"></div>
+-                  ) : (
+-                    <>
+-                      <Send className="w-5 h-5" />
+-                      Solicitar Informaci├│n
+-                    </>
+-                  )}
+-                </button>
+-              </form>
+-            )}
++          <div className="lg:w-1/2 bg-white/10 p-6 md:p-8 rounded-xl backdrop-blur-sm border border-white/20 flex flex-col items-center justify-center text-center">
++            <div className="w-16 h-16 bg-[var(--color-gov-gold)]/20 rounded-full flex items-center justify-center mb-6">
++               <Send className="w-8 h-8 text-[var(--color-gov-gold)]" />
++            </div>
++            <h3 className="text-2xl font-bold mb-4">Contacto Oficial</h3>
++            <p className="text-gray-300 mb-8">
++              Para participar en las Rondas de Inversi├│n y obtener pliegos de las Licitaciones de estos polos de desarrollo, por favor escriba directamente a nuestro comit├⌐ evaluador:
++            </p>
++            <a 
++              href="mailto:contacto@reformatotalrd.org" 
++              className="w-full bg-[var(--color-gov-gold)] hover:bg-amber-500 text-[#001f44] font-bold py-4 px-6 rounded-lg transition-colors flex items-center justify-center gap-2 shadow-lg"
++            >
++               <Send className="w-5 h-5" />
++               contacto@reformatotalrd.org
++            </a>
++            <p className="text-xs text-gray-400 mt-6 font-mono">
++              Nota: Esta plataforma es un modelo acad├⌐mico de pol├¡ticas p├║blicas, no una entidad gubernamental.
++            </p>
+           </div>
+         </div>
+       </div>
+diff --git a/src/components/SectorView.tsx b/src/components/SectorView.tsx
+index 6e49b5d..53fa590 100644
+--- a/src/components/SectorView.tsx
++++ b/src/components/SectorView.tsx
+@@ -1,172 +1,10 @@
+-import React, { useState, useEffect, useRef } from 'react';
++import ProblemCard from './ProblemCard';
++import React, { useState, useEffect, useRef, useMemo } from 'react';
+ import { motion, AnimatePresence } from 'motion/react';
+ import { ChevronDown, ChevronUp, LucideIcon, Filter, ThumbsUp, ThumbsDown, ExternalLink, Search, Rocket, Twitter, Instagram, MessageCircle, Share2 } from 'lucide-react';
++import FilterBar from './FilterBar';
+ import { useNavigate } from 'react-router-dom';
+-import TerritorialSavingsChart from './TerritorialSavingsChart';
+-import MinistryConsolidationChart from './MinistryConsolidationChart';
+-import MilitaryEfficiencyChart from './MilitaryEfficiencyChart';
+-import EducationBudgetChart from './EducationBudgetChart';
+-import JudicialBacklogChart from './JudicialBacklogChart';
+-import IrrigationEfficiencyChart from './IrrigationEfficiencyChart';
+-import CognitiveDeficitChart from './CognitiveDeficitChart';
+-import TourismLeakageChart from './TourismLeakageChart';
+-import TourismDiversificationChart from './TourismDiversificationChart';
+-import SchoolInfrastructureChart from './SchoolInfrastructureChart';
+-import DigitalDivideChart from './DigitalDivideChart';
+-import SargassumEconomyChart from './SargassumEconomyChart';
+-import TourismSecurityChart from './TourismSecurityChart';
+-import PensionInformalityChart from './PensionInformalityChart';
+-import SocialFraudAIChart from './SocialFraudAIChart';
+-import EnergyDistributionLossChart from './EnergyDistributionLossChart';
+-import GridStorageStabilizationChart from './GridStorageStabilizationChart';
+-import JudicialCorruptionChart from './JudicialCorruptionChart';
+-import PoliceAccountabilityChart from './PoliceAccountabilityChart';
+-import TaxEvasionAIChart from './TaxEvasionAIChart';
+-import TrafficCongestionERPChart from './TrafficCongestionERPChart';
+-import AgriculturalProductivityAIChart from './AgriculturalProductivityAIChart';
+-import LaborFormalizationChart from './LaborFormalizationChart';
+-import EducationMeritSystemChart from './EducationMeritSystemChart';
+-import HealthcareFundingChart from './HealthcareFundingChart';
+-import PrimaryCareNetworkChart from './PrimaryCareNetworkChart';
+-import GenericDrugMarketChart from './GenericDrugMarketChart';
+-import SinglePayerCopayChart from './SinglePayerCopayChart';
+-import ObstetricAIAuditChart from './ObstetricAIAuditChart';
+-import TraumaTaxFundingChart from './TraumaTaxFundingChart';
+-import PharmaBlockchainTraceabilityChart from './PharmaBlockchainTraceabilityChart';
+-import VectorDiseaseDroneChart from './VectorDiseaseDroneChart';
+-import NursingSubsidiesChart from './NursingSubsidiesChart';
+-import EHRInteroperabilityChart from './EHRInteroperabilityChart';
+-import HospitalPPPEfficiencyChart from './HospitalPPPEfficiencyChart';
+-import TeenPregnancyClinicChart from './TeenPregnancyClinicChart';
+-import MentalHealthDecentralizationChart from './MentalHealthDecentralizationChart';
+-import CosmeticSurgeryRegulationChart from './CosmeticSurgeryRegulationChart';
+-import AmbulanceDispatchAIChart from './AmbulanceDispatchAIChart';
+-import UltraProcessedTaxChart from './UltraProcessedTaxChart';
+-import SolarColdChainChart from './SolarColdChainChart';
+-import MedicalBrainDrainChart from './MedicalBrainDrainChart';
+-import ImagingAsAServiceChart from './ImagingAsAServiceChart';
+-import FuelTaxReformChart from './FuelTaxReformChart';
+-import {
+-  ProsecutorIndependenceChart,
+-  InterInstitutionalCoordinationChart,
+-  PublicDefenseFundingChart,
+-  ForensicModernizationChart,
+-  DigitalJusticeChart,
+-  JudicialIndependenceChart,
+-  BudgetAutonomyChart,
+-  GenderViolenceCourtsChart,
+-  AlternativeDisputeChart,
+-  RuralJusticeAccessChart,
+-  NotarialBlockchainChart,
+-  JudgmentEnforcementChart,
+-  JuvenileRestorativeChart,
+-  LegalTranslationChart,
+-  CommercialDisputeChart,
+-  FastTrackCourtsChart,
+-  JudicialEducationChart
+-} from './JusticeCharts';
+-import {
+-  AgriBolsaChart,
+-  ClimateResilienceChart,
+-  ColdChainChart,
+-  AIMicroloansChart,
+-  BiosecurityDronesChart,
+-  RuralRoadsChart,
+-  YouthAgriTechChart,
+-  ParametricInsuranceChart,
+-  RegenerativeAgricultureChart,
+-  OrganicFertilizerChart,
+-  AIAgronomistChart,
+-  ValueAddedExportChart,
+-  CRISPRBiodefenseChart,
+-  LocalSeedChart,
+-  BiometricTradeChart,
+-  LivestockTrackingChart,
+-  EquipmentSubsidyChart,
+-  IoTSensorsChart,
+-  SatelliteDeforestationChart
+-} from './AgricultureCharts';
+-import {
+-  PublicDebtChart,
+-  EResidencyChart,
+-  CashFlowPredictiveChart,
+-  TreasurySingleAccountChart,
+-  SovereignWealthFundChart,
+-  StateFactoringChart,
+-  FiscalResponsibilityChart,
+-  PublicFinanceReformChart,
+-  DigitalClearinghouseChart,
+-  SIAFEComplianceChart,
+-  IntegratedAuditChart,
+-  TreasuryAcademyChart,
+-  ZeroTrustSecurityChart,
+-  SIGEFUniversalChart,
+-  SovereignCloudChart,
+-  OKRManagementChart,
+-  LocalCapitalMarketsChart,
+-  CatastropheBondsChart,
+-  CreditRatingChart,
+-  ActiveLiabilityManagementChart
+-} from './FinanceCharts';
+-import {
+-  RenewableCurtailmentChart,
+-  FossilFuelDependenceChart,
+-  TransmissionMonopolyChart,
+-  EdeDeficitChart,
+-  BlackoutReductionChart,
+-  TariffInterferenceChart,
+-  RenewableBureaucracyChart,
+-  DistributedGenerationChart,
+-  PuntaCatalinaEmissionsChart,
+-  SmartMeterBillingChart,
+-  EnergyEfficiencyStandardsChart,
+-  DemandForecastingAIChart,
+-  UndergroundGridChart,
+-  LongTermEnergyStrategyChart,
+-  EVChargingNetworkChart,
+-  PredictiveMaintenanceChart,
+-  WholesaleEnergyMarketChart,
+-  HydroelectricOptimizationChart,
+-  EnergyTechWorkforceChart
+-} from './EnergyCharts';
+-import {
+-  CoastalErosionChart,
+-  TouristInfrastructureTaxChart,
+-  TransportDeregulationChart,
+-  CulturalTourismChart,
+-  HighSpeedRailChart,
+-  LanguageCertificationChart,
+-  BioCapacityChart,
+-  VisionZeroTrafficChart,
+-  ZeroToleranceTaskForceChart,
+-  EcoTourismFundChart,
+-  ShortTermRentalTaxChart,
+-  VendorZoningChart,
+-  HeritageTrustChart,
+-  OpenSkiesAviationChart,
+-  BiometricEGatesChart,
+-  CrisisCommunicationChart
+-} from './TourismCharts';
+-import {
+-  DigitalSkillsChart,
+-  BrainDrainChart,
+-  PatentRateChart,
+-  BroadbandChart,
+-  BureaucracyChart,
+-  CyberSecurityChart,
+-  AIGovChart,
+-  FintechChart,
+-  UniIndustryChart,
+-  OpenDataChart,
+-  WomenInSTEMChart,
+-  CloudAdoptionChart,
+-  DigitalNomadChart,
+-  SchoolCurriculumChart,
+-  RuralDigitalDivideChart,
+-  SeedCapitalChart,
+-  OutdatedRegulationChart,
+-  ForeignTechDependenceChart
+-} from './InnovationCharts';
++
+ 
+ interface Solution {
+   leader: string;
+@@ -504,404 +342,23 @@ export default function SectorView({ sector }: SectorViewProps) {
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               exit={{ opacity: 0 }}
+-              className="text-center py-12 text-gray-500"
++              className="text-center py-16 px-4 bg-white/50 border border-dashed border-gray-300 rounded-md shadow-sm"
+             >
+-              No se encontraron problemas con los filtros seleccionados.
++              <div className="flex flex-col items-center justify-center space-y-4">
++                <div className="p-4 bg-[var(--color-gov-blue)]/5 rounded-full">
++                  <Search className="w-8 h-8 text-[var(--color-gov-blue)] opacity-50" />
++                </div>
++                <h3 className="text-lg font-heading font-bold text-[var(--color-gov-blue)]">No hay resultados</h3>
++                <p className="text-sm text-gray-500 max-w-md font-sans leading-relaxed">
++                  No se encontraron problemas que coincidan con los filtros seleccionados. Intenta ajustar tu b├║squeda.
++                </p>
++              </div>
+             </motion.div>
+           )}
+         </div>
+       </div>
+     </motion.div>
+   );
+-}
+-
+-const ProblemCard: React.FC<{ 
+-  problem: Problem; 
+-  index: number; 
+-  voteData?: { up: number; down: number; userVote: 'up' | 'down' | null };
+-  onVote: (type: 'up' | 'down') => void;
+-}> = ({ 
+-  problem, 
+-  index,
+-  voteData,
+-  onVote
+-}) => {
+-  const [isExpanded, setIsExpanded] = useState(false);
+-  const navigate = useNavigate();
+-  
+-  const score = voteData ? voteData.up - voteData.down : 0;
+-  const userVote = voteData?.userVote;
+-
+-  const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(problem.solution.leader + ' ' + problem.solution.model + ' policy case study')}`;
+-
+-  const handleShare = (platform: string) => {
+-    // Assuming the URL structure is /#/sectorId, we can just use the current URL
+-    const url = window.location.href;
+-    const text = `Reforma Total RD | Problema: ${problem.title} - Soluci├│n: ${problem.solution.model}`;
+-    
+-    if (platform === 'whatsapp') {
+-      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+-    } else if (platform === 'x') {
+-      window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+-    } else if (platform === 'instagram') {
+-      navigator.clipboard.writeText(`${text} ${url}`);
+-      alert('┬íEnlace y texto copiados al portapapeles para compartir en Instagram!');
+-    }
+-  };
+-
+-  return (
+-    <motion.div 
+-      layout
+-      initial={{ opacity: 0, x: -20 }}
+-      animate={{ opacity: 1, x: 0 }}
+-      exit={{ opacity: 0, scale: 0.95 }}
+-      transition={{ duration: 0.4, delay: index * 0.05, ease: 'easeOut' }}
+-      className={`relative rounded-md border transition-all duration-300 group ${isExpanded ? 'bg-white border-[var(--color-gov-blue)] shadow-xl ring-1 ring-[var(--color-gov-blue)]/20 z-10' : 'bg-white border-gray-200 shadow-sm hover:shadow-md hover:border-gray-300'} overflow-hidden`}
+-    >
+-      <div className={`absolute left-0 top-0 bottom-0 w-1.5 bg-[var(--color-gov-red)] transition-opacity duration-300 ${isExpanded ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
+-      <div className="p-4 sm:p-6 md:p-8 pl-6 sm:pl-8 md:pl-10">
+-        <div className="flex flex-col gap-4">
+-          <div 
+-            className="flex justify-between items-start gap-3 sm:gap-4 cursor-pointer"
+-            onClick={() => setIsExpanded(!isExpanded)}
+-          >
+-            
+-            <div className="flex flex-col items-center gap-1 bg-gray-50 p-1.5 sm:p-2 rounded-sm border border-gray-200 flex-shrink-0" onClick={(e) => e.stopPropagation()}>
+-              <motion.button 
+-                whileHover={{ scale: 1.1 }}
+-                whileTap={{ scale: 0.8, rotate: -10, y: 2 }}
+-                onClick={(e) => { e.stopPropagation(); onVote('up'); }} 
+-                title="Votar a favor (Prioritario)"
+-                className={`p-1 sm:p-1.5 rounded hover:bg-gray-200 transition-colors ${userVote === 'up' ? 'text-[var(--color-gov-blue)]' : 'text-gray-400'}`}
+-                aria-label="Upvote"
+-              >
+-                <ThumbsUp className="w-4 h-4 sm:w-5 sm:h-5" fill={userVote === 'up' ? 'currentColor' : 'none'} />
+-              </motion.button>
+-              <span className={`font-bold text-xs font-sans ${userVote === 'up' ? 'text-[var(--color-gov-blue)]' : userVote === 'down' ? 'text-[var(--color-gov-red)]' : 'text-gray-600'}`}>
+-                {score}
+-              </span>
+-              <motion.button 
+-                whileHover={{ scale: 1.1 }}
+-                whileTap={{ scale: 0.8, rotate: 10, y: 2 }}
+-                onClick={(e) => { e.stopPropagation(); onVote('down'); }} 
+-                title="Votar en contra (No prioritario)"
+-                className={`p-1 sm:p-1.5 rounded hover:bg-gray-200 transition-colors ${userVote === 'down' ? 'text-[var(--color-gov-red)]' : 'text-gray-400'}`}
+-                aria-label="Downvote"
+-              >
+-                <ThumbsDown className="w-4 h-4 sm:w-5 sm:h-5" fill={userVote === 'down' ? 'currentColor' : 'none'} />
+-              </motion.button>
+-            </div>
+-
+-            <div className="space-y-2 sm:space-y-3 flex-1 min-w-0">
+-              <div className="inline-flex items-center gap-2 px-2 sm:px-3 py-1 rounded-sm bg-[var(--color-gov-blue)] text-white text-[10px] font-bold tracking-widest uppercase font-heading">
+-                Problema {index + 1}
+-              </div>
+-              <h4 className="text-base sm:text-lg md:text-xl font-heading font-bold text-[var(--color-gov-blue)] leading-snug uppercase tracking-wider break-words">{problem.title}</h4>
+-              <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans break-words">{problem.description}</p>
+-            </div>
+-            <button 
+-              onClick={(e) => { e.stopPropagation(); setIsExpanded(!isExpanded); }}
+-              className="p-1 sm:p-2 rounded-sm hover:bg-gray-100 transition-colors text-[var(--color-gov-blue)] flex-shrink-0 mt-0 sm:mt-8 border border-transparent hover:border-gray-200"
+-              aria-label="Toggle solution"
+-            >
+-              {isExpanded ? <ChevronUp className="w-5 h-5 sm:w-6 sm:h-6" /> : <ChevronDown className="w-5 h-5 sm:w-6 sm:h-6" />}
+-            </button>
+-          </div>
+-          
+-          <AnimatePresence>
+-            {isExpanded && (
+-              <motion.div 
+-                initial={{ opacity: 0, height: 0, y: -10 }}
+-                animate={{ opacity: 1, height: 'auto', y: 0 }}
+-                exit={{ opacity: 0, height: 0, y: -10 }}
+-                transition={{ duration: 0.3, ease: "easeInOut" }}
+-                className="overflow-hidden"
+-              >
+-                <div className="mt-4 pt-4 border-t border-gray-200">
+-                  <div className="bg-gray-50 p-4 sm:p-6 rounded-md border border-gray-200 shadow-sm space-y-6">
+-                    <div className="flex justify-between items-center">
+-                      <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--color-gov-gold)] text-[var(--color-gov-blue)] text-[10px] font-bold tracking-widest uppercase font-heading">
+-                        Soluci├│n Detallada
+-                      </div>
+-                      <div className="flex gap-2">
+-                        {problem.solution.internalRoute && (
+-                          <button
+-                            onClick={(e) => { e.stopPropagation(); navigate(problem.solution.internalRoute!); }}
+-                            className="inline-flex items-center gap-2 px-4 py-2 bg-[#FBBF24] hover:bg-[#F59E0B] text-[#002855] text-xs font-bold font-heading uppercase tracking-wider rounded-sm transition-colors shadow-sm"
+-                          >
+-                            Ver Presentaci├│n Interactiva
+-                          </button>
+-                        )}
+-                        <a 
+-                          href={searchUrl} 
+-                          target="_blank" 
+-                          rel="noopener noreferrer"
+-                          className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-gov-blue)] hover:bg-[#001f44] text-white text-xs font-bold font-heading uppercase tracking-wider rounded-sm transition-colors shadow-sm"
+-                        >
+-                          M├ís Informaci├│n
+-                          <ExternalLink className="w-4 h-4" />
+-                        </a>
+-                      </div>
+-                    </div>
+-                    
+-                    <div className="space-y-3">
+-                      <div className="flex flex-wrap items-center gap-2 text-xs text-gray-500 font-sans">
+-                        <span className="font-bold text-[var(--color-gov-blue)] bg-white px-2 py-1 rounded-sm border border-gray-300 shadow-sm">{problem.solution.leader}</span>
+-                        <span>ΓÇó</span>
+-                        <span className="font-bold text-white bg-[var(--color-gov-blue)] px-2 py-1 rounded-sm border border-[var(--color-gov-blue)]">{problem.solution.model}</span>
+-                      </div>
+-                      <p className="text-sm text-gray-900 leading-relaxed font-semibold font-sans">{problem.solution.description}</p>
+-                    </div>
+-
+-                    {problem.solution.extendedDescription && (
+-                      <div className="prose prose-sm max-w-none">
+-                        {problem.solution.extendedDescription.split('\n\n').map((paragraph, idx) => {
+-                          const parts = paragraph.split(/(\*\*.*?\*\*)/g);
+-                          return (
+-                            <p key={idx} className="text-sm text-gray-700 leading-relaxed font-sans mb-4">
+-                              {parts.map((part, i) => 
+-                                part.startsWith('**') && part.endsWith('**') 
+-                                  ? <strong key={i} className="font-bold text-gray-900">{part.slice(2, -2)}</strong> 
+-                                  : part
+-                              )}
+-                            </p>
+-                          );
+-                        })}
+-                      </div>
+-                    )}
+-
+-                    {problem.solution.imageUrl && (
+-                      <div className="rounded-md overflow-hidden border border-gray-300 shadow-sm my-6">
+-                        <img src={problem.solution.imageUrl} alt="Ilustraci├│n de la soluci├│n" className="w-full h-64 object-cover" referrerPolicy="no-referrer" />
+-                      </div>
+-                    )}
+-
+-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+-                      {problem.solution.implementationSteps && (
+-                        <div className="bg-white p-5 rounded-md border border-gray-300 shadow-sm border-t-4 border-t-[var(--color-gov-blue)]">
+-                          <h5 className="text-xs font-heading font-bold text-[var(--color-gov-blue)] mb-4 uppercase tracking-widest flex items-center gap-2">
+-                            Fases de Implementaci├│n
+-                          </h5>
+-                          <ul className="space-y-3">
+-                            {problem.solution.implementationSteps.map((step, i) => (
+-                              <li key={i} className="text-xs text-gray-700 flex items-start gap-2 font-sans">
+-                                <span className="text-[var(--color-gov-blue)] font-bold">{i + 1}.</span>
+-                                {step}
+-                              </li>
+-                            ))}
+-                          </ul>
+-                        </div>
+-                      )}
+-
+-                      {problem.solution.expectedOutcomes && (
+-                        <div className="bg-white p-5 rounded-md border border-gray-300 shadow-sm border-t-4 border-t-[var(--color-gov-gold)]">
+-                          <h5 className="text-xs font-heading font-bold text-[var(--color-gov-blue)] mb-4 uppercase tracking-widest flex items-center gap-2">
+-                            Resultados Esperados
+-                          </h5>
+-                          <ul className="space-y-3">
+-                            {problem.solution.expectedOutcomes.map((outcome, i) => (
+-                              <li key={i} className="text-xs text-gray-700 flex items-start gap-2 font-sans">
+-                                <span className="text-[var(--color-gov-gold)] mt-1 font-bold">Γ£ô</span>
+-                                {outcome}
+-                              </li>
+-                            ))}
+-                          </ul>
+-                        </div>
+-                      )}
+-                    </div>
+ 
+-                    {problem.id === 'gov-1' && <MinistryConsolidationChart />}
+-                    {problem.id === 'gov-2' && <MilitaryEfficiencyChart />}
+-                    {problem.id === 'gov-3' && <TerritorialSavingsChart />}
+-                    {problem.id === 'edu-1' && <CognitiveDeficitChart />}
+-                    {problem.id === 'edu-2' && <EducationBudgetChart />}
+-                    {problem.id === 'edu-4' && <SchoolInfrastructureChart />}
+-                    {problem.id === 'edu-5' && <DigitalDivideChart />}
+-                    {problem.id === 'jus-1' && <JudicialBacklogChart />}
+-                    {problem.id === 'agr-1' && <IrrigationEfficiencyChart />}
+-                    {problem.id === 'tour-1' && <TourismSecurityChart />}
+-                    {problem.id === 'tour-2' && <SargassumEconomyChart />}
+-                    {problem.id === 'tour-3' && <TourismLeakageChart />}
+-                    {problem.id === 'tour-4' && <TourismDiversificationChart />}
+-                    {problem.id === 'tour-5' && <CoastalErosionChart />}
+-                    {problem.id === 'tour-6' && <TouristInfrastructureTaxChart />}
+-                    {problem.id === 'tour-7' && <TransportDeregulationChart />}
+-                    {problem.id === 'tour-8' && <CulturalTourismChart />}
+-                    {problem.id === 'tour-9' && <HighSpeedRailChart />}
+-                    {problem.id === 'tour-10' && <LanguageCertificationChart />}
+-                    {problem.id === 'tour-11' && <BioCapacityChart />}
+-                    {problem.id === 'tour-12' && <VisionZeroTrafficChart />}
+-                    {problem.id === 'tour-13' && <ZeroToleranceTaskForceChart />}
+-                    {problem.id === 'tour-14' && <EcoTourismFundChart />}
+-                    {problem.id === 'tour-15' && <ShortTermRentalTaxChart />}
+-                    {problem.id === 'tour-16' && <VendorZoningChart />}
+-                    {problem.id === 'tour-17' && <HeritageTrustChart />}
+-                    {problem.id === 'tour-18' && <OpenSkiesAviationChart />}
+-                    {problem.id === 'tour-19' && <BiometricEGatesChart />}
+-                    {problem.id === 'tour-20' && <CrisisCommunicationChart />}
+-                    {problem.id === 'wel-1' && <PensionInformalityChart />}
+-                    {problem.id === 'wel-2' && <SocialFraudAIChart />}
+-                    {problem.id === 'nrg-1' && <EnergyDistributionLossChart />}
+-                    {problem.id === 'nrg-2' && <GridStorageStabilizationChart />}
+-                    {problem.id === 'nrg-3' && <RenewableCurtailmentChart />}
+-                    {problem.id === 'nrg-4' && <FossilFuelDependenceChart />}
+-                    {problem.id === 'nrg-5' && <TransmissionMonopolyChart />}
+-                    {problem.id === 'nrg-6' && <EdeDeficitChart />}
+-                    {problem.id === 'nrg-7' && <BlackoutReductionChart />}
+-                    {problem.id === 'nrg-8' && <TariffInterferenceChart />}
+-                    {problem.id === 'nrg-9' && <RenewableBureaucracyChart />}
+-                    {problem.id === 'nrg-10' && <DistributedGenerationChart />}
+-                    {problem.id === 'nrg-11' && <PuntaCatalinaEmissionsChart />}
+-                    {problem.id === 'nrg-12' && <SmartMeterBillingChart />}
+-                    {problem.id === 'nrg-13' && <EnergyEfficiencyStandardsChart />}
+-                    {problem.id === 'nrg-14' && <DemandForecastingAIChart />}
+-                    {problem.id === 'nrg-15' && <UndergroundGridChart />}
+-                    {problem.id === 'nrg-16' && <LongTermEnergyStrategyChart />}
+-                    {problem.id === 'nrg-17' && <EVChargingNetworkChart />}
+-                    {problem.id === 'nrg-18' && <PredictiveMaintenanceChart />}
+-                    {problem.id === 'nrg-19' && <WholesaleEnergyMarketChart />}
+-                    {problem.id === 'nrg-20' && <HydroelectricOptimizationChart />}
+-                    {problem.id === 'nrg-21' && <EnergyTechWorkforceChart />}
+-                    {problem.id === 'jus-2' && <JudicialCorruptionChart />}
+-                    {problem.id === 'jus-3' && <PoliceAccountabilityChart />}
+-                    {problem.id === 'jus-5' && <ProsecutorIndependenceChart />}
+-                    {problem.id === 'jus-6' && <InterInstitutionalCoordinationChart />}
+-                    {problem.id === 'jus-7' && <PublicDefenseFundingChart />}
+-                    {problem.id === 'jus-8' && <ForensicModernizationChart />}
+-                    {problem.id === 'jus-9' && <DigitalJusticeChart />}
+-                    {problem.id === 'jus-10' && <JudicialIndependenceChart />}
+-                    {problem.id === 'jus-11' && <BudgetAutonomyChart />}
+-                    {problem.id === 'jus-12' && <GenderViolenceCourtsChart />}
+-                    {problem.id === 'jus-13' && <AlternativeDisputeChart />}
+-                    {problem.id === 'jus-14' && <RuralJusticeAccessChart />}
+-                    {problem.id === 'jus-15' && <NotarialBlockchainChart />}
+-                    {problem.id === 'jus-16' && <JudgmentEnforcementChart />}
+-                    {problem.id === 'jus-17' && <JuvenileRestorativeChart />}
+-                    {problem.id === 'jus-18' && <LegalTranslationChart />}
+-                    {problem.id === 'jus-19' && <CommercialDisputeChart />}
+-                    {problem.id === 'jus-20' && <FastTrackCourtsChart />}
+-                    {problem.id === 'jus-21' && <JudicialEducationChart />}
+-                    {problem.id === 'fin-2' && <TaxEvasionAIChart />}
+-                    {problem.id === 'fin-4' && <PublicDebtChart />}
+-                    {problem.id === 'fin-5' && <EResidencyChart />}
+-                    {problem.id === 'fin-6' && <CashFlowPredictiveChart />}
+-                    {problem.id === 'fin-7' && <TreasurySingleAccountChart />}
+-                    {problem.id === 'fin-8' && <SovereignWealthFundChart />}
+-                    {problem.id === 'fin-9' && <StateFactoringChart />}
+-                    {problem.id === 'fin-10' && <FiscalResponsibilityChart />}
+-                    {problem.id === 'fin-11' && <PublicFinanceReformChart />}
+-                    {problem.id === 'fin-12' && <DigitalClearinghouseChart />}
+-                    {problem.id === 'fin-13' && <SIAFEComplianceChart />}
+-                    {problem.id === 'fin-14' && <IntegratedAuditChart />}
+-                    {problem.id === 'fin-15' && <TreasuryAcademyChart />}
+-                    {problem.id === 'fin-16' && <ZeroTrustSecurityChart />}
+-                    {problem.id === 'fin-17' && <SIGEFUniversalChart />}
+-                    {problem.id === 'fin-18' && <SovereignCloudChart />}
+-                    {problem.id === 'fin-19' && <OKRManagementChart />}
+-                    {problem.id === 'fin-20' && <LocalCapitalMarketsChart />}
+-                    {problem.id === 'fin-21' && <CatastropheBondsChart />}
+-                    {problem.id === 'fin-22' && <CreditRatingChart />}
+-                    {problem.id === 'fin-23' && <ActiveLiabilityManagementChart />}
+-                    {problem.id === 'inf-2' && <TrafficCongestionERPChart />}
+-                    {problem.id === 'agr-2' && <AgriculturalProductivityAIChart />}
+-                    {problem.id === 'agr-4' && <AgriBolsaChart />}
+-                    {problem.id === 'agr-5' && <ClimateResilienceChart />}
+-                    {problem.id === 'agr-6' && <ColdChainChart />}
+-                    {problem.id === 'agr-7' && <AIMicroloansChart />}
+-                    {problem.id === 'agr-8' && <BiosecurityDronesChart />}
+-                    {problem.id === 'agr-9' && <RuralRoadsChart />}
+-                    {problem.id === 'agr-10' && <YouthAgriTechChart />}
+-                    {problem.id === 'agr-11' && <ParametricInsuranceChart />}
+-                    {problem.id === 'agr-12' && <RegenerativeAgricultureChart />}
+-                    {problem.id === 'agr-13' && <OrganicFertilizerChart />}
+-                    {problem.id === 'agr-14' && <AIAgronomistChart />}
+-                    {problem.id === 'agr-15' && <ValueAddedExportChart />}
+-                    {problem.id === 'agr-16' && <CRISPRBiodefenseChart />}
+-                    {problem.id === 'agr-17' && <LocalSeedChart />}
+-                    {problem.id === 'agr-18' && <BiometricTradeChart />}
+-                    {problem.id === 'agr-19' && <LivestockTrackingChart />}
+-                    {problem.id === 'agr-20' && <EquipmentSubsidyChart />}
+-                    {problem.id === 'agr-21' && <IoTSensorsChart />}
+-                    {problem.id === 'agr-22' && <SatelliteDeforestationChart />}
+-                    {problem.id === 'lab-1' && <LaborFormalizationChart />}
+-                    {problem.id === 'edu-1' && <EducationMeritSystemChart />}
+-                    {problem.id === 'hlt-1' && <HealthcareFundingChart />}
+-                    {problem.id === 'hlt-4' && <PrimaryCareNetworkChart />}
+-                    {problem.id === 'hlt-5' && <GenericDrugMarketChart />}
+-                    {problem.id === 'hlt-6' && <SinglePayerCopayChart />}
+-                    {problem.id === 'hlt-7' && <ObstetricAIAuditChart />}
+-                    {problem.id === 'hlt-9' && <TraumaTaxFundingChart />}
+-                    {problem.id === 'hlt-10' && <PharmaBlockchainTraceabilityChart />}
+-                    {problem.id === 'hlt-11' && <VectorDiseaseDroneChart />}
+-                    {problem.id === 'hlt-12' && <NursingSubsidiesChart />}
+-                    {problem.id === 'hlt-13' && <EHRInteroperabilityChart />}
+-                    {problem.id === 'hlt-14' && <HospitalPPPEfficiencyChart />}
+-                    {problem.id === 'hlt-15' && <TeenPregnancyClinicChart />}
+-                    {problem.id === 'hlt-16' && <MentalHealthDecentralizationChart />}
+-                    {problem.id === 'hlt-17' && <CosmeticSurgeryRegulationChart />}
+-                    {problem.id === 'hlt-18' && <AmbulanceDispatchAIChart />}
+-                    {problem.id === 'hlt-19' && <UltraProcessedTaxChart />}
+-                    {problem.id === 'hlt-20' && <SolarColdChainChart />}
+-                    {problem.id === 'hlt-21' && <MedicalBrainDrainChart />}
+-                    {problem.id === 'hlt-22' && <ImagingAsAServiceChart />}
+-                    {problem.id === 'gov-4' && <FuelTaxReformChart />}
+-                    {problem.id === 'inn-3' && <DigitalSkillsChart />}
+-                    {problem.id === 'inn-4' && <BrainDrainChart />}
+-                    {problem.id === 'inn-5' && <PatentRateChart />}
+-                    {problem.id === 'inn-6' && <BroadbandChart />}
+-                    {problem.id === 'inn-7' && <BureaucracyChart />}
+-                    {problem.id === 'inn-8' && <CyberSecurityChart />}
+-                    {problem.id === 'inn-9' && <AIGovChart />}
+-                    {problem.id === 'inn-10' && <FintechChart />}
+-                    {problem.id === 'inn-11' && <UniIndustryChart />}
+-                    {problem.id === 'inn-12' && <OpenDataChart />}
+-                    {problem.id === 'inn-13' && <WomenInSTEMChart />}
+-                    {problem.id === 'inn-14' && <CloudAdoptionChart />}
+-                    {problem.id === 'inn-15' && <DigitalNomadChart />}
+-                    {problem.id === 'inn-16' && <SchoolCurriculumChart />}
+-                    {problem.id === 'inn-17' && <RuralDigitalDivideChart />}
+-                    {problem.id === 'inn-18' && <SeedCapitalChart />}
+-                    {problem.id === 'inn-19' && <OutdatedRegulationChart />}
+-                    {problem.id === 'inn-20' && <ForeignTechDependenceChart />}
+ 
+-                    {/* Share Section */}
+-                    <div className="mt-6 pt-4 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+-                      <div className="flex items-center gap-2 text-[var(--color-gov-blue)]">
+-                        <Share2 className="w-4 h-4" />
+-                        <span className="text-xs font-bold uppercase tracking-wider font-heading">Compartir Propuesta:</span>
+-                      </div>
+-                      <div className="flex items-center gap-3">
+-                        <button 
+-                          onClick={(e) => { e.stopPropagation(); handleShare('whatsapp'); }}
+-                          className="p-2 bg-[#25D366] text-white rounded-full hover:bg-[#128C7E] transition-colors shadow-sm"
+-                          title="Compartir en WhatsApp"
+-                        >
+-                          <MessageCircle className="w-4 h-4" />
+-                        </button>
+-                        <button 
+-                          onClick={(e) => { e.stopPropagation(); handleShare('x'); }}
+-                          className="p-2 bg-black text-white rounded-full hover:bg-gray-800 transition-colors shadow-sm"
+-                          title="Compartir en X"
+-                        >
+-                          <Twitter className="w-4 h-4" />
+-                        </button>
+-                        <button 
+-                          onClick={(e) => { e.stopPropagation(); handleShare('instagram'); }}
+-                          className="p-2 bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white rounded-full hover:opacity-90 transition-opacity shadow-sm"
+-                          title="Copiar enlace para Instagram"
+-                        >
+-                          <Instagram className="w-4 h-4" />
+-                        </button>
+-                      </div>
+-                    </div>
+-
+-                  </div>
+-                </div>
+-              </motion.div>
+-            )}
+-          </AnimatePresence>
+-        </div>
+-      </div>
+-    </motion.div>
+-  );
+ }
+diff --git a/src/components/external/ReorganizacionTerritorial/components/DominicanRepublicMap.tsx b/src/components/external/ReorganizacionTerritorial/components/DominicanRepublicMap.tsx
+index fe4db82..1d9b762 100644
+--- a/src/components/external/ReorganizacionTerritorial/components/DominicanRepublicMap.tsx
++++ b/src/components/external/ReorganizacionTerritorial/components/DominicanRepublicMap.tsx
+@@ -284,7 +284,9 @@ export default function DominicanRepublicMap() {
+       .attr('id', (d: any) => `province-${d.id}`)
+       .attr('stroke', '#fff')
+       .attr('stroke-width', 1)
+-      .style('transition', 'fill 0.3s ease, transform 0.2s ease'); // Smooth color and scale transition!
++      .style('transition', 'fill 0.3s ease, transform 0.2s ease')
++      .append('title')
++      .text((d: any) => `Provincia: ${d.properties.name}`); // Accessibility title
+ 
+     gLabels.selectAll('text.province-label')
+       .data(features)
+diff --git a/src/components/ui/slider.tsx b/src/components/ui/slider.tsx
+index 29ccd21..a42ac43 100644
+--- a/src/components/ui/slider.tsx
++++ b/src/components/ui/slider.tsx
+@@ -34,9 +34,9 @@ function Slider({
+       min={min}
+       max={max}
+       thumbAlignment="edge"
+-      onValueChange={(val) => {
++      onValueChange={(...args) => {
+         if (props.onValueChange) {
+-          props.onValueChange(val);
++          (props.onValueChange as any)(...args);
+         }
+       }}
+       {...props}
+diff --git a/src/data.ts b/src/data.ts
+index f8e6908..33944b2 100644
+--- a/src/data.ts
++++ b/src/data.ts
+@@ -1,6 +1,7 @@
+ import { BookOpen, Plane, HeartHandshake, Zap, Scale, Leaf, Activity, Landmark, Building2, Lightbulb, Briefcase } from 'lucide-react';
++import { Sector } from './types';
+ 
+-export const sectors = [
++export const sectors: Sector[] = [
+   {
+     id: 'gov-efficiency',
+     title: 'Eficiencia Gubernamental',
+@@ -49,7 +50,40 @@ export const sectors = [
+             { name: 'A├▒o 5', value: 220 }
+           ],
+           imageUrl: 'https://picsum.photos/seed/gov-1-solution/800/400',
+-          internalRoute: '/gabinetes'
++          internalRoute: '/gabinetes',
++          enrichedContent: {
++            tldr: 'Reducir de 24 a 8 ministerios eliminar├í cuellos de botella y ahorrar├í millones anualmente en n├│mina superflua.',
++            leaderQuote: { quote: 'No hay plata. El Estado no genera riqueza, solo la gasta. Hay que pasar la motosierra a la burocracia.', author: 'Javier Milei', context: 'Discurso de Asunci├│n 2023' },
++            citizenPersona: { name: 'Carlos', age: 45, occupation: 'Empresario Pyme', story: 'Carlos perd├¡a 14 d├¡as al mes tramitando permisos entre 4 ministerios distintos para operar su f├íbrica. En el futuro, un solo portal centralizado bajo el Ministerio de Econom├¡a aprobar├í sus licencias en 24 horas usando Inteligencia Artificial.' },
++            risks: [
++              { risk: 'Protestas sindicales por cesant├¡as masivas.', mitigation: 'Programa de retiro anticipado y transici├│n al sector privado con subsidio temporal.' },
++              { risk: 'Par├ílisis temporal de servicios durante la fusi├│n.', mitigation: 'Fusi├│n escalonada comenzando por plataformas digitales antes que la estructura f├¡sica.' }
++            ],
++            historicalContext: 'Hist├│ricamente, los ministerios en la Rep├║blica Dominicana se han utilizado como moneda de cambio pol├¡tico para pagar favores de campa├▒a, resultando en un estado elefant├ísico.',
++            urgency: 'Cr├¡tica',
++            references: [
++              { id: 1, title: 'Estudio BID: Ineficiencia del Gasto P├║blico en LatAm', url: 'https://www.iadb.org' },
++              { id: 2, title: 'El Modelo Estonio de Gobernanza Digital', url: 'https://e-estonia.com' }
++            ],
++            audioNarrativeUrl: '#',
++            expertEndorsement: { expert: 'Ricardo Hausmann', entity: 'Harvard Growth Lab', quote: 'La fragmentaci├│n del Estado es el principal obst├ículo para el desarrollo coordinado en econom├¡as emergentes.' },
++            legislativePathway: 'Requiere modificaci├│n de la Ley 247-12 Org├ínica de la Administraci├│n P├║blica y aprobaci├│n en el Congreso Nacional con mayor├¡a simple.',
++            faqs: [
++              { question: '┬┐Qu├⌐ pasar├í con los empleados despedidos?', answer: 'Se les ofrecer├í un paquete de transici├│n laboral y recapacitaci├│n para el sector privado tecnol├│gico.' },
++              { question: '┬┐Se ver├ín afectados los servicios esenciales de salud y educaci├│n?', answer: 'No. Salud y Educaci├│n se mantienen como ministerios pilares; el recorte afecta a burocracia duplicada (ej: Min. de la Mujer, Min. de la Juventud, consolid├índose bajo un solo Ministerio de Desarrollo Social).' }
++            ],
++            costOfInaction: 'USD $850 Millones anuales en n├│minas y vi├íticos de puestos no esenciales.',
++            regionalImpact: [
++              { region: 'Distrito Nacional', impact: 'Liberaci├│n masiva de tr├ífico y ahorro en alquileres al vaciar torres gubernamentales enteras.' },
++              { region: 'Provincias', impact: 'Agilizaci├│n de tr├ímites al no depender de burocracia capitalina dispersa.' }
++            ],
++            crossSectorLinkages: ['fin-11', 'gov-2', 'inf-2'],
++            realWorldModels: [
++              { country: 'Estonia', description: 'Gobierno 99% digitalizado y minimalista.', url: 'https://e-estonia.com' },
++              { country: 'Argentina (2023+)', description: 'Reducci├│n de 18 a 9 ministerios en una semana.' }
++            ],
++            trivia: ['Sab├¡as que el costo de alquiler de oficinas para ministerios no propietarios supera los $100 millones de pesos mensuales en Santo Domingo.']
++          }
+         }
+       },
+       {
+diff --git a/vite.config.ts b/vite.config.ts
+index 60789c4..70fbcf7 100644
+--- a/vite.config.ts
++++ b/vite.config.ts
+@@ -8,9 +8,6 @@ export default defineConfig(({mode}) => {
+   return {
+     base: '/RD/',
+     plugins: [react(), tailwindcss()],
+-    define: {
+-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+-    },
+     resolve: {
+       alias: {
+         '@': path.resolve(__dirname, './src'),

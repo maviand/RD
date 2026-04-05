@@ -34,9 +34,9 @@ function Slider({
       min={min}
       max={max}
       thumbAlignment="edge"
-      onValueChange={(val) => {
+      onValueChange={(...args) => {
         if (props.onValueChange) {
-          props.onValueChange(val);
+          (props.onValueChange as any)(...args);
         }
       }}
       {...props}
