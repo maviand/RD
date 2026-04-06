@@ -208,7 +208,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/gazhLNZ.jpeg'
     },
     problems: [
       {
@@ -1532,7 +1533,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/6kVTjb9.jpeg'
     },
     problems: [
       {
@@ -2231,7 +2233,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/EgpvybV.jpeg'
     },
     problems: [
       {
@@ -2943,7 +2946,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/XDLPJQh.jpeg'
     },
     problems: [
       {
@@ -3383,7 +3387,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/9QXz1f0.jpeg'
     },
     problems: [
       {
@@ -4128,7 +4133,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: ['https://i.imgur.com/swIOrLf.jpeg', 'https://i.imgur.com/jqKtQk8.jpeg']
     },
     problems: [
       {
@@ -4873,7 +4879,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/jb339s4.jpeg'
     },
     problems: [
       {
@@ -5353,7 +5360,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/qnqT90Y.jpeg'
     },
     problems: [
       {
@@ -6052,7 +6060,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/ZwmEh4s.jpeg'
     },
     problems: [
       {
@@ -6556,7 +6565,8 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         { phase: '2028-2029', description: 'Despliegue de infraestructura base y programas piloto en zonas clave.' },
         { phase: '2030+', description: 'Expansión a nivel nacional, optimización continua y evaluación de impacto.' }
       ],
-      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
+      partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)'],
+        imageUrl: 'https://i.imgur.com/icDAzxt.jpeg'
     },
     problems: [
       {

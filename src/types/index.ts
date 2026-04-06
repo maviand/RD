@@ -53,6 +53,7 @@ export interface Sector {
     details?: string[];
     timeline?: { phase: string; description: string }[];
     partners?: string[];
+    imageUrl?: string | string[];
   };
   problems: Problem[];
 }
