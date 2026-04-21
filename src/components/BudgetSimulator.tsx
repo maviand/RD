@@ -23,7 +23,7 @@ export default function BudgetSimulator() {
     initialBudget.reduce((acc, item) => ({ ...acc, [item.id]: item.current }), {})
   );
 
-  const totalAllocation = Object.values(allocations).reduce((acc, val) => acc + val, 0);
+  const totalAllocation = Object.values(allocations).reduce<number>((acc: number, val: number) => acc + Number(val), 0);
   const deficit = totalAllocation - 100;
   
   const handleSliderChange = (id: string, value: number) => {
