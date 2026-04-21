@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronDown, ChevronUp, ExternalLink, ThumbsUp, ThumbsDown, Share2, Twitter, Instagram, MessageCircle, Quote, User, AlertCircle, BookOpen, PlayCircle, Award, Scale, MessageSquare, AlertOctagon, Map, Link as LinkIcon, Lightbulb, BookCheck, HelpCircle } from 'lucide-react';
+import { ChevronDown, ChevronUp, ExternalLink, ThumbsUp, ThumbsDown, Share2, Twitter, Instagram, MessageCircle, Quote, User, AlertCircle, BookOpen, PlayCircle, Award, Scale, MessageSquare, AlertOctagon, Map, Link as LinkIcon, Lightbulb, BookCheck, HelpCircle, FileDown, ArrowRight, ArrowLeft } from 'lucide-react';
+import html2canvas from 'html2canvas';
+import { jsPDF } from 'jspdf';
 import { useNavigate } from 'react-router-dom';
 import { Problem, EnrichedContent } from '../types';
 
@@ -184,6 +186,69 @@ const ProblemCard: React.FC<{
   onVote
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
+  
+  const handleDownloadPdf = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!cardRef.current || isGeneratingPdf) return;
+    
+    if (window.innerWidth < 768) {
+      alert("Para una mejor visualización del PDF, te recomendamos descargarlo desde un computador de escritorio.");
+    }
+    
+    setIsGeneratingPdf(true);
+    try {
+      if (!isExpanded) {
+        setIsExpanded(true);
+        await new Promise(resolve => setTimeout(resolve, 500));
+      }
+      
+      const canvas = await html2canvas(cardRef.current, {
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        backgroundColor: '#ffffff'
+      });
+      
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF({
+        orientation: canvas.width > canvas.height ? 'l' : 'p',
+        unit: 'px',
+        format: [canvas.width, canvas.height]
+      });
+      
+      pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+      const safeTitle = problem.title ? problem.title.substring(0, 30).replace(/[^a-zA-Z0-9]/g, '-') : 'propuesta';
+      pdf.save(`reforma-rd-${safeTitle}.pdf`);
+    } catch (error) {
+      console.error('Error generating PDF:', error);
+      alert('Hubo un error al generar el PDF. Por favor, asegúrese de tener buena conexión.');
+    } finally {
+      setIsGeneratingPdf(false);
+    }
+  };
+
+  const scrollToAdjacent = (direction: 1 | -1, e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!cardRef.current) return;
+    
+    const parentChildren = Array.from(cardRef.current.parentElement?.children || []);
+    const currentIndex = parentChildren.indexOf(cardRef.current);
+    const targetElement = parentChildren[currentIndex + direction] as HTMLElement;
+    
+    if (targetElement) {
+      const chevronBtn = targetElement.querySelector('button[aria-label="Toggle solution"]') as HTMLButtonElement;
+      if (chevronBtn) chevronBtn.click();
+      
+      setTimeout(() => {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+      setIsExpanded(false);
+    } else {
+      alert(direction === 1 ? 'Este es el último problema del sector.' : 'Este es el primer problema del sector.');
+    }
+  };
   const navigate = useNavigate();
   
   const score = voteData ? voteData.up - voteData.down : 0;

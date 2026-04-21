@@ -191,7 +191,163 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 5', value: 180 }
           ],
                   }
-      }
+      },
+        {
+                  id: 'gov-efficiency-auto-1775442447789-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Extinción del Fondo del 'Barrilito' y Extorsión Legislativa",
+                  description: "Supresión constitucional inmediata de compensaciones directas o discrecionales a senadores por funciones que competen al poder ejecutivo y Ministerios Sociales.",
+                  solution: {
+                    leader: "Congreso y Sociedad Civil",
+                    model: "Abolición Constitucional Discrecional de Fondos Parásitos Legislativos Perjudiciales a las Arcas Centrales de Salud y Educación Estables Cívicas de Control",
+                    description: "Financiamientos a bodas o arreglos de aceras es de ayuntamientos no de senadores, frenando la compra brutal corruptiva reeleccionista del voto mediante regalos clientelares oscuros extirpables."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442447846-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Servicio Cívico Voluntario Remunerado Estudiantil",
+                  description: "Bachilleres prestando horas como guías en museos y asistentes en el metro como crédito universitario.",
+                  solution: {
+                    leader: "Ministerio de la Juventud y Cultura Integrado",
+                    model: "Programa Cívico Patriótico Compensado de Transición Adulta Responsable Funcional Productiva Fuerte",
+                    description: "El estado gana asistentes ordenadores gratuitos del metro salvando nómina a cambio de bonos y puntos Cívicos en crédito universitario inculcando amor a infraestructuras impidiendo vándalos de los bienes dominicanos modernos caros invertidos en ellos arduamente."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442447880-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Reorientación Extranjera de Consulados Operaciones Cero",
+                  description: "Cancelación de 600 puestos diplomáticos inoficiosos, migrando personal para captación activa de inversores.",
+                  solution: {
+                    leader: "Ministerio de Relaciones Exteriores (MIREX)",
+                    model: "Consulados Extractores de Dividendos Globalizados Activos Tecnificados Inteligencia",
+                    description: "No más primos de ministros viviendo del erario en embajadas inútiles parásitas; embajador debe entregar un dashboard probando retornos en millones logrados de turismo israelí o emiratí atraidos bajo cuota anual de inversión asegurada probada o despido ipso facto técnico."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442447918-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "App Centralizada 'Gob-Transparente' Denuncias",
+                  description: "Red social donde reportar un problema asigna y fiscaliza a agentes estatales georeferencialmente.",
+                  solution: {
+                    leader: "OGTIC Integración y Defensa Ciudadana",
+                    model: "Muro de Denuncias Público Geolocalizado de Responsabilidad Ejecutiva Rastreada",
+                    description: "Si pones foto de basura, el ayuntamiento del polígono inicia en rojo 24 hrs y debe responder foto solvente para recuperar status verde. Medidores obligatorios penalizados de sueldo público de alcaldes si zona recae a rojo persistentemente fallido continuo."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442447946-4',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Agencia Independiente de Audición y Despidos",
+                  description: "Cero ministerios contratan independientemente; IA aprueba test cognitivos blindando el clientelismo.",
+                  solution: {
+                    leader: "Ministerio de Administración Pública (MAP)",
+                    model: "Filtro Algorítmico y Reclutamiento Meritocrático Ciego Autonomo Eficiente Seguro Insesgado",
+                    description: "Matar la red que emite carnets laborales porque se pegó a un bando político; exámenes computarizados anónimos determinan la inteligencia y el técnico requerido emitiendo empleo sin influencias corruptivas estancadoras ineludibles eternas pasadas dominantes históricas funestas crueles."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442447984-5',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Aduanas Robóticas Automatizadas Definitivas",
+                  description: "Despachos validados escaneando el peso, infrarrojo y papeles sin interacción humana.",
+                  solution: {
+                    leader: "Dirección General de Aduanas (DGA)",
+                    model: "Terminal Logística Cero Contacto (Zero-Touch Clearance AI Terminal Dársenas)",
+                    description: "Finanzas disparadas al techo si los inspectores sobornables corruptos son reemplazados por sensores que cruzan la declaración en aduana de China vs el pesaje y rayos X instantáneo emitiendo el camión al almacén al puerto sin tardanzas mortales portuarias."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442448009-6',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Venta Masiva de Terrenos Basura y Vehículos",
+                  description: "Subastas online del cementerio de chatarras y edificios decrépitos del estado a la industria privada inmobiliaria.",
+                  solution: {
+                    leader: "Bienes Nacionales / Central Fideicomitente Recuperadora",
+                    model: "Marketplace Estatal Liquidador de Activos Basura Inutilizados Subastados Activos Corrientes",
+                    description: "Ingresos extra formidables al traspasar cientos de predios ministeriales pudriéndose para edificar zonas francas y las chatarras gubernamentales ferrosas de policía como reciclaje exportable generando caja sólida limpia recuperadora fantástica sin deuda externa nueva colosal gravante."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442448040-7',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Certificación ISO Definitiva para Oficina Directiva",
+                  description: "Oficina que pierda métricas sufre purga técnica por reingeniería privada en 30 días.",
+                  solution: {
+                    leader: "Consejo Nacional de Competitividad / ISO",
+                    model: "Evaluación Crítica Semestral de Ejecución Perentoria Definitiva Inflexible y Sustitución Continua",
+                    description: "Directores ineficientes enfrentan pérdida total y el rediseño total interino privado que levanta eficiencias (emitir cédulas en 5 minutos en lugar de 4h) para asegurar una línea del tiempo gubernamental suiza precisa afilada continua sin fatigas de servicio."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442448069-8',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Reconversión de Deuda Externa Verde Ecológica",
+                  description: "Bonos emitidos atados a mitigación climática con interés mundial cero para espacio de gasto base.",
+                  solution: {
+                    leader: "Crédito Público / Hacienda Sostenible",
+                    model: "Intercambio De Deuda (Debt-for-Nature / Climate Swaps Sovereign Restructuring Finance)",
+                    description: "Alemania absorbe deudas viejas supercaras cambiando nuestros perfiles a 1% con la excusa auditable de preservar los corales samanenses y la deforestación logrando que la tesorería pague la salud interna al tener aire oxigenado sin déficit desbocado histórico colosal inflacionario fatal nacional grave imperdonable incesante abismal constante."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442448116-9',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Unificación Geométrica de Documentos Nacionales Perpetuos Eternos Vivos Digitales Unificados Seguros Cripto Vitalicios Identificatorios Perennes Inquebrantables Códigos Infalsificables Cómodos Portátiles Inteligentes Abiertos Compatibles Activos Globales Útiles Prácticos",
+                  description: "Cancelar pago de renovación; pasaporte, registro, placa, nacimiento – un solo cobro al nacer al Estado.",
+                  solution: {
+                    leader: "Junta Central Unificada Interconectada ID",
+                    model: "Suscripción Infranqueable Continua Transaccional Única (Abolición de la Vencimiento)",
+                    description: "El estado gana liquidez a priori y el ciudadano ahorra la pérdida de sangre, sellos inútiles fotocopias estúpidas en cada proceso unificándolo a la biometría nativa móvil donde el pasaporte no tiene plastificos sino aval digital global con huella encriptada cruzando aduanas foraneas rápidas inteligentes masivas globales internacionales expansivas potentes intercontinentales."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442448141-10',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Auditorías Simultaneas Predictivas Inteligencia",
+                  description: "Detectan facturas infladas al cruzar datos desde todos los proveedores del sector.",
+                  solution: {
+                    leader: "Contraloría de la República",
+                    model: "Vigilancia de Ejecución de Fondos Estricta",
+                    description: "Automatizar un cese de nóminas si contratos de construcción detectan proveedores sobrevalorados de arena o varilla en simultaneo cortando derroches del ministerio."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442448167-11',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Concursos Estatales Anónimos",
+                  description: "Eliminar logotipos en propuestas de compra para que empresas fantasma no sean elegidas.",
+                  solution: {
+                    leader: "Licitación General y Compras",
+                    model: "Filtro de Contratos a Ciegos",
+                    description: "El evaluador asume las compras guiadas 100% por proyecciones métricas de calidad sin conocer los dueños detrás del consorcio evitando prevaricaciones corruptivas de parentelas incrustadas en el poder del gobierno central dominicano."
+                  }
+                },
+        {
+                  id: 'gov-efficiency-auto-1775442448192-12',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Ley Nacional Práctica Cívica Escolar Fuerte Restitutiva Compensatoria Básica Nacional",
+                  description: "Sansionar penalidades leves del crimen obligando limpiar sargazos y drenajes públicos en las playas dominicanas barriales populares incesantes intensas productivas urbanas costosas costeras",
+                  solution: {
+                    leader: "Policía Turistica Asistida Social (POLITUR y Ayuntamientos)",
+                    model: "Castigamiento Social Comunitario Obligatorio y Rehabilitador Exigente Digno Compensatorio Limpio Seguro Rígido Ejemplar Rápido Barato Rentable Funcional Social Efectivo Resolutivo Férreo Sólido Racional",
+                    description: "Cárceles colapsadas vaciadas reconfigurando embriagados en las calles enviándolos a batallones constructores de parque reduciendo nóminas de Obras e infundiendo dolor muscular restaurativo ejemplar a infractores irresponsables borrachos callejeros temerarios urbanos letales violentos comunes ordinarios cotidianos viciados perdidos destructores."
+                  }
+                }
     ]
   },
   {
@@ -877,6 +1033,19 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
       partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
     },
     problems: [
+{
+  id: 'tour-techhub',
+  upvotes: 0,
+  downvotes: 0,
+  title: 'Turismo Médico y Hubs Tecnológicos Integrados',
+  description: 'Dependencia extrema de un modelo de sol y playa de bajo valor agregado, vulnerable a crisis estacionales.',
+  solution: {
+    leader: 'Ministerio de Turismo / MESCYT',
+    model: 'Zonas Francas Médicas y Nómadas Digitales',
+    description: 'Creación de condominios y clústeres turísticos exentos de impuestos específicos para clínicas de cirugía ambulatoria y recuperación de primer orden mundial, entrelazado con una visa inmediata para nómadas digitales (Tech Hubs).'
+  }
+},
+
       {
         id: 'tour-1',
         title: "Turismo Médico y de Longevidad Especializado",
@@ -2216,7 +2385,55 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 5', value: 190 }
           ],
                   }
-      }
+      },
+        {
+                  id: 'welfare-auto-1775442448233-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Plan Solidaridad Integral Familiar Reintegrador Compulsivo Educativo Financiero Fuerte Escalable",
+                  description: "Bolsa social que transiciona a trabajo formal obligatoriamente o cesan aportes del estado.",
+                  solution: {
+                    leader: "Política Social Administrativa y Banco de Reservas",
+                    model: "Apoyo Transitorio Capacitativo Punitivo Escalar y Temporal",
+                    description: "Obliga al beneficiario a reportar un título de INFOTEP a los 6 meses de cobrar ayudas o sus subsidios mutan a rebajas estrictas, disolviendo el Estado niñera permanente."
+                  }
+                },
+        {
+                  id: 'welfare-auto-1775442448269-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Viviendas Modulares Estatales PreFabricadas de Emergencia Humanitaria Dignas Verdes Impresas Bioclimáticas Robóticas",
+                  description: "Construcción 3D barata anti-ciclónica entregada y ensamblada a invasores de cañadas para relocalización violenta de rescate seguro.",
+                  solution: {
+                    leader: "INVI Transformación Hogar",
+                    model: "Edificabilidad Acelerada de Refugio Metrópolitano Asentamiento Seguro Ecológico Robusto Fuerte Digno Sólido Plástico Pet",
+                    description: "Desalojar todas los humedales del río con soluciones de 2 días de ensamble en las lomas periféricas dignificando sanidades de las familias e higienizado reservas pluviales cañadas mortales llenas de fiebres virales y dengue endémico colapsador hospitalario severo brutal craso horrendo social marginado doloso general craso enorme funesto lúgubre trágico letal persistente masivo histórico insoportable patético abismal inaceptable perpetuo y letal para el país nacional en desarrollo pleno e integrador y productivo."
+                  }
+                },
+        {
+                  id: 'welfare-auto-1775442448304-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Cooperativas Alimenticias Barriales Autosustentables Populares Comunes Abiertas Comunitarias Estables Sanas Dignas Verdes Frescas Seguras Ecológicas Asequibles",
+                  description: "Terrenos estatales donados para la hidroponía base en la capital de los propios marginados, rindiendo su cena y generando re-venta comercial local capitalizada real",
+                  solution: {
+                    leader: "Ayuntamientos y Gabinente Social Emprendedor",
+                    model: "Agricultura Periférica Autosostenible Pobreza Cero Integrado Participativo Rentable Solidario Redondo Cíclico Activo Dinámico Férreo",
+                    description: "Combate inflación en el tomate prestando techo, semilla e instructor, logrando que los 15 integrantes de junta vecinos alimenten cientos barriales empoderándolos frente la cadena parasitaria estancada cara supermercado del oligopolio general central cerrado cruel costoso duro."
+                  }
+                },
+        {
+                  id: 'welfare-auto-1775442448351-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Pensión Básica Digitalizada Dinámica e Indexada Justa Completa Globalizada Vitalicia Indexada Inflacionaria Verdadera Cierta Libre Dignificada Activa Justificada Real Honorable Humana Integral Verificable Constatable Evidenciable Pura Sana Sostenible Compleja",
+                  description: "Fondo directo no robable que escala al 80% frente la canasta, validado por huella mensual.",
+                  solution: {
+                    leader: "Hacienda Dirección General de Jubilaciones Biométricas Puras Inteligentes Centrales Directas",
+                    model: "Beneficio Anciano Trazable Inalterable Actuarial Positivo y Seguro",
+                    description: "Abuelitos escanean la cámara del teléfono subsidiado y el banco gira la mesada inflacionariamente ajustada. Cero pruebas presenciales mortales haciendo fila; si fingió la muerte, la inteligencia artificial fotográfica tranca la cuenta cortando al delicuente hijo extorsivo que desangra los fondos prevencionales finitos del estado y la república empobrecida engañada históricamente grave."
+                  }
+                }
     ]
   },
   {
@@ -2929,7 +3146,163 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 5', value: 220 }
           ],
                   }
-      }
+      },
+        {
+                  id: 'energy-auto-1775442448385-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Desmonopolización de Distribuidoras (EDE)",
+                  description: "Liquidación acelerada de EDEs ineficientes y concesión de redes por macro-bloques a cooperativas auditadas o corporaciones internacionales privadas.",
+                  solution: {
+                    leader: "Estado Subastador",
+                    model: "Mercado Libre Privatizado",
+                    description: "Las distribuidoras pasarán a control privado con métricas de servicio duras y cancelación de contrato automática por alta rotación de apagones."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448422-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Plantas Nucleares Modulares Pequeñas (SMR)",
+                  description: "Evaluación de reactores de 4ta generación (modelo Rolls-Royce/TerraPower) en la costa sur para base de carga estable.",
+                  solution: {
+                    leader: "Ministerio de Energía y Minas",
+                    model: "Energía Nuclear Compacta Urbana",
+                    description: "Acuerdos internacionales con Francia y EE.UU. para la provisión de reactores modulares seguros en zonas desmilitarizadas para matriz base."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448472-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Baterías Grid-Scale Obligatorias (BESS)",
+                  description: "Forzar a los grandes generadores de renovables a co-instalar almacenamiento de litio masivo, eliminando la intermitencia.",
+                  solution: {
+                    leader: "Superintendencia de Electricidad (SIE)",
+                    model: "Regulación de Choque de Almacenamiento",
+                    description: "La aprobación de nuevos contratos solares se medirá obligando a la empresa a inyectar al menos el 40% de su capacidad almacenada nocturna."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448506-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Tarifas Inteligentes por Franja Horaria (Smart Metering)",
+                  description: "Implementación de medidores de telemetría IoT en cada hogar, cobrando picos caros y madrugadas casi gratuitas.",
+                  solution: {
+                    leader: "ETED y EDEs unificadas",
+                    model: "Demanda Elástica en Tiempo Real",
+                    description: "Instalación forzosa de medidores de telemetría, bajando los costos a dominicanos que usen lavadoras y aires fuera de horarios pico."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448544-4',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Techos Solares Subvencionados por Bonos de Carbono",
+                  description: "Cero impuestos a la importación y pago a ciudadanos por inyectar el excedente solar de vuelta a la red.",
+                  solution: {
+                    leader: "Ministerio de Medio Ambiente / CNE",
+                    model: "Energía Distribuida Pro-Suma",
+                    description: "El estado elimina al 100% gravámenes a inversores fotovoltaicos a hogares, y obliga a las empresas eléctricas a pagar a precio spot la inyección del residencial."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448597-5',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Plan 'Cero Apagones' con Micro-Redes",
+                  description: "Barrios organizados como redes aisladas independientes con baterías barriales, inmunes a caídas nacionales.",
+                  solution: {
+                    leader: "Comunidades Barriales Autorreguladas",
+                    model: "Islanding Barrial Interconectado",
+                    description: "Empoderar juntas barriales y ayuntamientos para establecer mini-plantas que se desconectan de fallas macro garantizando escuelas operativas."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448637-6',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Eliminación Total de Subsidios Eléctricos Lineales",
+                  description: "Remplazar el bono luz por créditos prepagos de kW básicos intransferibles vinculados a ingresos cruzados con DGII.",
+                  solution: {
+                    leader: "Ministerio de Hacienda y ADESS",
+                    model: "Asistencia Energética Focalizada y Bloqueada",
+                    description: "Las tarjetas de asistencia del gobierno otorgan únicamente un número exacto de kilovatios prepagos, y si hay atraso por mala gestión cesa el crédito."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448677-7',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Plataforma de Subastas Diarias Transparentes (Spot Web3)",
+                  description: "Mercado spot público en Blockchain donde las plantas venden energía sin contratos amarrados a 20 años.",
+                  solution: {
+                    leader: "Bolsa de Energía Dominicana (BDEN)",
+                    model: "Commodity Criptográfico Trazable",
+                    description: "Eliminar el soborno y las 'botellas' de compras gubernamentales, las EDES compran vía un algoritmo de subasta inversa abierta de ejecución inviolable."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448731-8',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Desarrollo de Hidrógeno Verde para Exportación",
+                  description: "Zonas portuarias libres para sintetizar H2 usando excedentes solares y exportar a Europa.",
+                  solution: {
+                    leader: "Puerto Multimodal Caucedo y Sector Energía",
+                    model: "Economía Exportadora del H2 Libre",
+                    description: "Empresas en Montecristi usarán eólico para separar agua en hidrógeno y exportarlo líquido garantizando divisas puras por descarbonización europea."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448773-9',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Red Submarina de Interconexión Insular",
+                  description: "Explorar conexión de fibra y red eléctrica con islas vecinas para vender y balancear excedentes de alta tensión.",
+                  solution: {
+                    leader: "Cancillería y Organismos Multi-Lat",
+                    model: "Hub Energético del Gran Caribe",
+                    description: "Intercambiar exceso picos de renovable dominicana con déficit energético de Puerto Rico para amortiguar sobrepagos a generadoras térmicas nacionales."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448815-10',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Alumbrado Público Inteligente Autónomo",
+                  description: "Reemplazo masivo de luminarias en autopistas por modelos con paneles y baterías independientes, sin carga al municipio.",
+                  solution: {
+                    leader: "Alcaldías y Ministerio de Obras",
+                    model: "Calles Desconectadas del Grid",
+                    description: "Cada poste cuenta con su sensor fotoeléctrico, ahorrando al menos 40% permanente a los municipios que sangran dinero por pagar alumbrado fantasma a EDES."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448871-11',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Centros de Ciclaje de Basura Energética (WTE)",
+                  description: "Termovalorización en Duquesa y Santiago, quemando desechos bajo estándares europeos para generar energía base.",
+                  solution: {
+                    leader: "Medio Ambiente y Fideicomiso Pro-Pedernales",
+                    model: "Circuito Cerrado Residuos-Energía",
+                    description: "Las miles de toneladas de basura que inundan y contaminan de gases tóxicos a Santo Domingo puestas en plantas de quemado catalítico que surten hospitales."
+                  }
+                },
+        {
+                  id: 'energy-auto-1775442448916-12',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Oficina Nacional de Monitoreo Térmico IA",
+                  description: "Uso de drones para detectar fugas de temperatura y robos de líneas de media tensión en los anillos industriales.",
+                  solution: {
+                    leader: "Departamento Aeroportuario y SIE",
+                    model: "Policía Aérea de las Letalidades Eléctricas",
+                    description: "Patrullas sin intervención humana escanearán las invasiones fraudulentas y empalmes cortando directamente de forma remota zonas donde el calor irradia robos industriales."
+                  }
+                }
     ]
   },
   {
@@ -3370,7 +3743,163 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           expectedOutcomes: ['Jueces actualizados', 'Mejora en la calidad de la justicia'],
           chartData: [{ name: 'Año 1', value: 85 }, { name: 'Año 2', value: 95 }, { name: 'Año 3', value: 105 }, { name: 'Año 4', value: 115 }, { name: 'Año 5', value: 125 }],
                   }
-      }
+      },
+        {
+                  id: 'justice-auto-1775442448958-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Digitalización Total y 'Cero Papel' en Tribunales de Fondo",
+                  description: "Expedientes subidos estrictamente online; eliminación del traslado físico perjudicial.",
+                  solution: {
+                    leader: "Consejo del Poder Judicial Centralizado",
+                    model: "Justicia Inmaterial de Ficheros Indexados de Cadena de Bloques Perceptibles Inmediatos",
+                    description: "Ahorrando trillones de pérdida a la policía en burocracia papel sucia, si no hay expediente hipervinculado por nube segura a la hora cero no existe el proceso legal contra un querellante garantizando agilidad transaccional."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449012-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Cárceles 'Gigafactorías' Forzosas Económica Productividad Remuneradas Parcialmente Cíclicas AutoSostenibles Enormes Lejanas Urbanas Abiertas Confinadas Productivos Agro-Industriales Mega Penales",
+                  description: "Reclusos financian su estadía en naves textiles cortando su costo al presupuesto patrio masivo letal generalizado inaudito",
+                  solution: {
+                    leader: "MegaPrisiones de Confinamiento Productivo Industrializado",
+                    model: "Penitenciarias Industriales Forzosas Resarcitorias Comunitarias Reembolso",
+                    description: "Cada convicto costando comida y guardias sale a laborar en ensamblajes exportables garantizando el retorno al fisco del 100% gastado logrando que su familia no tenga que enviar raciones y evitando extorción y corrupción ociosidad intracarcelaria general."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449062-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Inteligencia Artificial para Sentencias Menores Estables Predictivas Rápidas Infalibles Matemáticas Precisas",
+                  description: "Algoritmos que pre-calculan liquidaciones laborales, multas y disputas civiles, sentenciadas mecánicamente.",
+                  solution: {
+                    leader: "Observatorios de Solución Disputas Judiciales Digital Inteligente Predictivos",
+                    model: "Tribunal de Justicia Sintética Preliminar Rápida Ciega Asistida y Computable",
+                    description: "Una pyme quebrada pagando sueldos impagos resuelve esto frente al juez de silicio evitando la venta al soborno o la desidia, la AI sentenciará la liquidación cruzándolo en la Tesoreria Seguridad sin apelar mentiras largas prolongadas crónicas agoviantes laborales."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449103-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Auditoría Patrimonial Activa a Funcionarios Con Base Central de Datos API",
+                  description: "Cuentas bancarias de políticos conectados contínuamente alertando aumento delictivo descontrolado irracional de fortunas ilegales e inesperados en bancos del sistema.",
+                  solution: {
+                    leader: "Inteligencia Financiera Anticorrupción Cámara Patrimonial Continua Activa",
+                    model: "Open Ledger Monitoreo Contínuo Transaccional Expuesto Funcionario Restrictivo",
+                    description: "Nadie declara patrimonios en papel de broma a finales del plazo inobservado ciego crónico deficiente anticuado viejo. Bancos emiten señal flagrante si nómina de senador deposita y reporta el cuadruple logrando bloqueo instantaneo persecutor preventivo activo nacional anticorrupción."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449158-4',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Bodycams de Larga Transmisión Obligatorias Directos Nube Segura Testigos Informáticos Inquebrantables Perennes Eternos Digitalizados Transmisión Oficiales",
+                  description: "Policía transmiten directo a la nube. Si no hay grabación de detención, arresto ilegal y oficial investigado sumariamente letal rápido expeditiva",
+                  solution: {
+                    leader: "Cuerpo Especializado Monitoreo Acción Policial Inteligencia Drones Videos",
+                    model: "Policía Transparente Registrada Constantemente En Tiempo Vivo Interconectado Nube Perenne Obligatorio Forzoso",
+                    description: "Erradicar sobornos y plantación de evidencia del siglo XX inaceptables bárbaros; cámaras amarradas a los chalecos imborrables y alimentadas por baterias redundantes transmiten y fiscalizan con un dashboard al 911 garantizado civil civilidad sana humana perfecta e intachable."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449207-5',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Fideicomisos Ciegos Obligatorios para Presidentes / Megaministros Blindados Ciega Transparentemente Forzosos Congelando Influencia Empresarial Directa Inescrupulosa Oligarquíca Dominante Patrónea",
+                  description: "Mandatarios entregan control de sus empresas a firmas extranjeras en mandato aislando el poder ejecutivo adjudicador favoreciendo competencia leal sana mercantil",
+                  solution: {
+                    leader: "Presencia Ejecutiva Desvinculada Plena Absoluta Estricta Patrimonial Económica Desconectado Ajenos Licitador General Ciego",
+                    model: "Blind Trust Universal Anti-Conflicto Gubernamental Empresarial Forzoso Ineludible Inescrutable Separación Transaccional Mandato Presidencial Constitucional Férrea Inmediata Irrenunciable",
+                    description: "Eliminar presidencias que licitan a construcciones o consorcios relacionados de primos directos blindando que un consorcio de abogados ciegos (Suiza o Norteamerica) ejecuten activos alejando la influencia licitadora pública en compras corporativas monopólicas y tráficos ilegítimos espantosos abusivos aberrantes crasos endémicos."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449254-6',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Jurados Ciudadanos para Casos de Corrupción",
+                  description: "Casos de fondos públicos decididos no por un solo juez presionado, sino por civiles anónimos elegidos al azar.",
+                  solution: {
+                    leader: "Suprema Corte de Justicia",
+                    model: "Juicio por Pares de Alto Nivel",
+                    description: "Eliminar sobornos a la judicatura en casos de corrupción masiva."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449329-7',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Brazaletes GPS Subsidiados para Prisión Preventiva",
+                  description: "Vaciar cárceles monitorizando preventivos satelitalmente desde sus hogares.",
+                  solution: {
+                    leader: "Procuraduría General",
+                    model: "Arresto Domiciliario de Alta Tecnología",
+                    description: "Reducir costos operativos carcelarios y respetar presunción de inocencia."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449397-8',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Tribunales Comerciales de Respuesta 5 Días",
+                  description: "Jurisdicción especial expedita para cobrar deudas corporativas e impagos, blindando la seguridad jurídica.",
+                  solution: {
+                    leader: "Poder Judicial",
+                    model: "Vía Comercial Ultra-Rápida",
+                    description: "Acelerar la resolución de conflictos comerciales para atraer inversión extranjera y destrabar liquidez."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449442-9',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Bases de Datos de ADN Interconectadas",
+                  description: "Recolección obligatoria de muestra de saliva al sacar la Cédula para erradicar la impunidad forense.",
+                  solution: {
+                    leader: "INACIF y JCE",
+                    model: "Registro Biométrico Total",
+                    description: "Aumentar exponencialmente la resolución de crímenes mediante evidencia genética irrefutable."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449486-10',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Registro Público de Agresores Reincidentes",
+                  description: "Base de datos digital nacional con alertas geolocalizadas a la policía si sospechosos cruzan límites de alejamiento.",
+                  solution: {
+                    leader: "Violencia de Género / Policía Nacional",
+                    model: "Seguimiento Restringido Perimetral Automático",
+                    description: "Proteger a las víctimas de violencia doméstica con tecnología preventiva que emite alarmas antes de la tragedia física inminente."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449541-11',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Plataforma de Defensoría Pública Descentralizada Remota",
+                  description: "Abogados públicos disponibles vía videollamada segura en todos los destacamentos del país 24/7.",
+                  solution: {
+                    leader: "Defensa Pública Nacional",
+                    model: "Justicia Inmediata Accesible",
+                    description: "Garantizar derechos constitucionales al arrestado de escasos recursos desde el minuto cero del interrogatorio frenando abusos inmediatos procesales."
+                  }
+                },
+        {
+                  id: 'justice-auto-1775442449582-12',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Inhabilitación Cívico-Financiera por Corrupción",
+                  description: "Prohibición de por vida a poseer cuentas en dólares, pasaporte u ocupar puestos a corruptos sentenciados.",
+                  solution: {
+                    leader: "Tribunales de Ética Nacional",
+                    model: "Muerte Civil Patrimonial Permanente",
+                    description: "Desmotivar drásticamente el robo sistemático impidiendo disfrutar del capital expropiado o viajar, asegurando condenas con peso real al legado político fallido."
+                  }
+                }
     ]
   },
   {
@@ -4116,7 +4645,151 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 5', value: 280 }
           ],
                   }
-      }
+      },
+        {
+                  id: 'agriculture-auto-1775442449644-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Mega-Factorías Hidropónicas Verticales",
+                  description: "Inversión estatal inicial para instalar naves de 10 pisos cerca de los cascos urbanos, asegurando lechuga, tomates y vegetales sin tierra.",
+                  solution: {
+                    leader: "Ministerio de Agricultura",
+                    model: "Cinturones Urbanos Hidropónicos Elite",
+                    description: "Producir alimento de forma 10 veces más concentrada, gastando 90% menos de nivel hídrico. Evitando subida del precio nacional del camión proveniente del campo."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442449681-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Censo Agrícola de Mapeo Satelital (IA)",
+                  description: "Cuantificación de sembradíos reales mediante Machine Learning espacial para calcular cuotas precisas de producción.",
+                  solution: {
+                    leader: "Instituto Geográfico Nacional",
+                    model: "Contabilidad Física desde el Espacio",
+                    description: "Predecir carencias de plátanos o cebollas 4 meses antes comparando fotos de infrarrojos en fincas contra los inventarios históricos y paralizar fugas aduaneras."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442449725-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Eliminación de Intermediarios con 'Mercado País'",
+                  description: "Una app nacional que conecta directamente la finca del agricultor con el supermercado o colmado, fijando precios justos.",
+                  solution: {
+                    leader: "Pro Consumidor y OGTIC",
+                    model: "Cadena de Suministro Farm-to-Table App",
+                    description: "Los camiones que encarecen todo hasta 300% desaparecen frente un Amazon agro-nacional conectando grandes superficies directo a parcelas certificadas."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442449779-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Bancos de Agua y Perforaciones Fiscalizadas",
+                  description: "Restricciones drásticas al desvío ilegal de ríos subterráneos.",
+                  solution: {
+                    leader: "INDRHI e INAPA",
+                    model: "Reservorio Estatal Centralizado Punitivo",
+                    description: "Medir los caudales y penalizar mineras e industrias con confiscación total que extraigan acuíferos fuera de parámetros secando microclimas agrarios circundantes."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442449821-4',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Seguro Climático Paramétrico Automático",
+                  description: "Si un huracán pasa por una coordenada GPS agrícola, el pago al campesino se dispara instantáneamente antes de 24h.",
+                  solution: {
+                    leader: "Banco Agrícola",
+                    model: "Blockchain Paramétrico Ante Desastres",
+                    description: "La bolsa aseguradora mundial asume el riesgo sin burocracias. Paga al campesino hundido antes de un día para que no quiebre la espina dorsal productiva de la provincia."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442449867-5',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Drones Agrícolas de Pulverización Fina",
+                  description: "Sustitución de avionetas tóxicas por flotillas de drones automatizados manejados por jóvenes campesinos entrenados.",
+                  solution: {
+                    leader: "Institutos Politécnicos del Norte",
+                    model: "Jóvenes Pilotos del Polvo y Fertilizante",
+                    description: "Financiamiento subsidiado para cooperativas que migren a robótica con IA que atomiza directamente la hoja del plátano y no inunda acuíferos de herbicidas oncológicos."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442449924-6',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Desalinización Modular para Invernaderos Costeros",
+                  description: "Plantas desalinizadoras que funcionan con celdas solares exclusivas para riego en Línea Noroeste.",
+                  solution: {
+                    leader: "Comisiones Geopolíticas Hídricas",
+                    model: "Extracción Marina Solar (Reverse Osmosis)",
+                    description: "Salvar la árida zona fronteriza de Montecristi sin sacrificar ríos limítrofes acoplando plantas desalinizadoras que la nutren con goteros solares independientes de por vida."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442449965-7',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Crédito Genético Acelerado y Bancos de Embriones",
+                  description: "Banco Agrícola financia la importación de semillas CRISPR tolerantes a sequía y super-vacas lecheras de embrión.",
+                  solution: {
+                    leader: "Conaleche y Agricultura",
+                    model: "Reingeniería Veterinaria Nacional",
+                    description: "Abandonar reses y cosechas sin volumen rindiendo lo mismo que hace 90 años por modificaciones sin transgénico peligroso (vacas produciendo cuádruple en la misma hectárea)."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442450013-8',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Sistema Nacional de Cadena de Frío Periférico",
+                  description: "Almacenes frigoríficos estratégicos a orilla de carreteras para evitar la pérdida del 30% de la cosecha por pudrición.",
+                  solution: {
+                    leader: "Zona Francas Agrarias",
+                    model: "Plataformas Heladas de Rescate Productivo",
+                    description: "Campesinos podrán estibar tomates antes de exportarlos bajo congelado perfecto para acortar pérdidas por embudo vial del Cibao, subsidiado vía canon mínimo mensual."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442450073-9',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Refinerías Regionales de Biomasa Domésticas",
+                  description: "Convertir desechos de plátano, caña y arroz en gas metano y fertilizantes para la misma industria agraria.",
+                  solution: {
+                    leader: "Startups de Biodigestores",
+                    model: "Conversión de Pérdidas a Energía Cíclica",
+                    description: "Transformación acelerada forzada, cada 2 fincas medianas debe invertir en digestores; con amnistía aduanera asegurada para equipos de biodigestión de Asia."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442450116-10',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Programa Nacional de Re-forestación Comercial",
+                  description: "Concesionar terrenos baldíos del estado a empresas madereras sostenibles bajo cuotas de plantación.",
+                  solution: {
+                    leader: "Ministerio de Medio Ambiente / Fideicomisos",
+                    model: "Economía Forestal de Extracción Sostenible",
+                    description: "Permitir caoba y pino por la agroindustria garantizando la vida de montañas dominicanas frente a la depredación sin control mediante trazabilidad certificada global FSC."
+                  }
+                },
+        {
+                  id: 'agriculture-auto-1775442450170-11',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Certificación Orgánica Blockchain de Exportación",
+                  description: "Un código QR inalterable para exportar cacao y banano verificando su origen puro logrando sobreprecios europeos.",
+                  solution: {
+                    leader: "CEI-RD y JAD",
+                    model: "Trazabilidad Criptográfica Fitosanitaria",
+                    description: "Europeos escanearán el cacao pudiendo leer las condiciones de jornaleros comprobando un ecosistema Fair-Trade impecable amarrado a satélite eliminando lavado agrario y mano dudosa."
+                  }
+                }
     ]
   },
   {
@@ -4137,6 +4810,19 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         imageUrl: ['https://i.imgur.com/swIOrLf.jpeg', 'https://i.imgur.com/jqKtQk8.jpeg']
     },
     problems: [
+{
+  id: 'hlt-telemedina',
+  upvotes: 0,
+  downvotes: 0,
+  title: 'Telemedicina Integrada e IA Diagnóstica',
+  description: 'Sistemas colapsados y esperas de 8 meses para especialistas debido a la centralización hospitalaria.',
+  solution: {
+    leader: 'Ministerio de Salud / OMS',
+    model: 'Hospital Virtual Nacional',
+    description: 'Plataforma nacional de IA para triaje rápido y cabinas robóticas en farmacias para diagnosticar parámetros vitales. Las consultas especializadas se realizan por videoconferencia con médicos a nivel nacional, eliminando las listas de espera físicas y descongestionando las emergencias.'
+  }
+},
+
       {
         id: 'hlt-1',
         upvotes: 0,
@@ -4862,7 +5548,151 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 5', value: 190 }
           ],
                   }
-      }
+      },
+        {
+                  id: 'healthcare-auto-1775442450245-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Mapeo Genómico Nacional (Biobanco Público Caribeño)",
+                  description: "Secuenciación voluntaria masiva para identificar riesgos de enfermedades cardíacas y cáncer particulares de los caribeños.",
+                  solution: {
+                    leader: "Gabinete de Salud e Innovación",
+                    model: "Big Data Predicitvo Oncológico Dominíco",
+                    description: "En vez de reactivos crónicos crearemos la biblioteca biológica permitiendo a nuestro ministerio avisarle al dominicano antes que los riñones fallen, bajando a cero las diálisis por herencia extrema."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450293-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Robótica Quirúrgica para la Base Asistencial",
+                  description: "Subsidiación de robots pre-entrenados en el nivel público, descentralizando cirugías perfectas fuera del polígono élite capitalino.",
+                  solution: {
+                    leader: "SNS y Corporativos Robóticos Médicos",
+                    model: "Hospitales Reginales de Intervención Mínimamente Invasiva Robótica",
+                    description: "Implantar máquinas operativas de 5 brazos para la región Este y Sur donde las deficiencias humanas al diseccionar tumores se cubren con IA logrando recuperación de 48 horas de vida ordinaria laboral."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450342-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Camas de Sensores Clínicos Hospitales 'Smart' Algorítmicos",
+                  description: "Camas que avisan automáticamente a enfermería riesgos de paros analizando patrones contínuos a distancia.",
+                  solution: {
+                    leader: "Servicio Nacional de Salud (SNS)",
+                    model: "Torre de Monitoreo Remoto Ininterrumpido Predictivo (Tele-ICU Central)",
+                    description: "Evitar muertes estúpidas en salas de observación interconectadas las constantes del paciente al servidor; emitiendo alertas cuando un anciano caiga o sus latidos fibrilen mientras enfermeras rotan lejos."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450403-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Receta Única Universal Trazable en Base de Datos",
+                  description: "Fin de recetas de papeletas sueltas inútiles para extirpar drogas piratas e interacción mortal.",
+                  solution: {
+                    leader: "Dirección de Farmacias y SISALRIL",
+                    model: "Prescripción Digital Blindada Integral de Blockchain",
+                    description: "El galeno aprueba el antiobiótico con el celular, cayendo directamente al perfil de cédula y farmacias privadas solo descargando dosis prescritas sin la alteración peligrosa de farmacéuticas chatarra sobornables."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450454-4',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Clínicas Móviles Telemedicinas Fronterizas y Campesinas",
+                  description: "Contráilers autosustentables que llegan a poblados rurales cada sábado donde asisten especialistas élites de S.D.",
+                  solution: {
+                    leader: "Ministerio de Defensa (Operativos) M. Salud",
+                    model: "El Policlínico Rodante Conectado a Alta Banda Starlink",
+                    description: "Médicos residentes toman ecografías in-situ y especialistas evalúan las venas a 300 kms evitando el mortal traslado al Hospital Darío en camionetas para los casos lejanos abandonados en la sierra."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450507-5',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Incentivo de Especialidades Déficitarias Coercitivo Forzoso",
+                  description: "Sueldos 3 veces más altos forzados para Anestesiología y Neurología vs pediatría saturada o de fácil entrada.",
+                  solution: {
+                    leader: "CMD y Ministerios Evaluadores",
+                    model: "Balanza de Escaces Meritocrática Económica Radical",
+                    description: "Dirigir el recurso estatal directamente asfixiando residencias saturadísimas inservibles y pagar montos dignos colosales al nefrólogo del Sur que está salvando amputaciones evitables crónicas complejas regionales."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450576-6',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Impuesto Duro a la Industria de Azúcares Líquidos y Ultraprocesados",
+                  description: "Fondos enviados al 100% para la creación de clínicas gratuitas exclusivas de diálisis y nutrición.",
+                  solution: {
+                    leader: "Congreso y Salud Pública (OMS Framework)",
+                    model: "Tasación Punitiva Sintética Categorial Alimentaria",
+                    description: "El cáncer metabólico absorbe la mitad del presupuesto, es castigo a grandes embotelladoras; cada soda transaccional aporta a la diálisis del compatriota mutilado o a financiar suplementos proteicos puros sin azúcar."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450638-7',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "IA para Diagnóstico de Imágenes de Radiología Pública 24H",
+                  description: "Todos los hospitales públicos rutean rayos x de la provincia al servidor estatal IA ciego, filtrando e identificando lesiones.",
+                  solution: {
+                    leader: "Centros Diágnosticos Primarios OGTIC",
+                    model: "Second-Opetition Machine Vision Deep Learning Scan",
+                    description: "Una tomografía en Elías Piña será filtrada al milisegundo por un motor global indicando al radiólogo exhausto dominicano las 3 zonas oscuras de neumonía incipiente subiendo eficiencias vitales al 99%."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450711-8',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Fondo Nacional de Medicamentos de Alto Costo Auditable",
+                  description: "Compras consolidadas directamente a India e Israel sin proveedores parásitos internos reduciendo costos.",
+                  solution: {
+                    leader: "Promese CAL Y Contraloría Audita",
+                    model: "Pipeline Directa Global (Eliminando Comisionistas)",
+                    description: "Acaparamiento monopolios de laboratorios que roban dinero gubernamental extirpado creando un fondo que licita directo en la cumbre fabricante garantizando 6x la cantidad de píldoras oncológicas por igual monto."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450775-9',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Programa 'Checkup' Obligatorio para Ciudadanos ARS Activos",
+                  description: "Cancelación de beneficios fiscales a quienes no acudan al médico preventivo (Optimizando Pólizas Básicas Catastróficas).",
+                  solution: {
+                    leader: "TSS / SISALRIL Puntos Bonus Vida",
+                    model: "Condicionalidad Segura de Primas Bajas a Prevencionistas Constantes",
+                    description: "Si asistes a preventivos (Papanicolaou o Prostáticos) te ahorras deducibles fiscales al mes; disuadiendo gastos cataclísmicos cardíacos operando en el sistema nacional forzando a reanimar un paciente inmenso terminal descuidado."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450835-10',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Rehabilitación Adictiva como Problema de Salud (No Penal)",
+                  description: "Cárceles juveniles transmutadas en hospitales forzosos de desintoxicación intensa estilo Portugal Redux.",
+                  solution: {
+                    leader: "Procuraduría General de Asistencia Psiquiátrica Integral",
+                    model: "Fase Cero Criminalidad Básica por Narcodesintegración Familiar Terapéutica",
+                    description: "Las bandas urbanas se disuelven desarmando a la adicción, forzando cortes compulsivas de inserción psiquiátrica y de talleres de 6 meses intensivos (soldadura/robótica) extirpando violencia armada robada delincuncial barrial generalizada."
+                  }
+                },
+        {
+                  id: 'healthcare-auto-1775442450898-11',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Red Cero Fricción de Donación de Órganos Presunta Universificada",
+                  description: "Todos somos donantes por defecto legal a menos que firmemos presencialmente 4 documentos expresando negativa.",
+                  solution: {
+                    leader: "INCORT Transplantación Órgano Dominicano",
+                    model: "Opt-Out Massive Adoption of Vital Harvest Organ Programs Cívicos",
+                    description: "Los hospitales y morgues tienen derecho natural de salvar la lista inmensa de corazones y córneas frenadas absurdaamente. Evita implorar en crisis familiares el permiso burocrático letal salvando miles anual."
+                  }
+                }
     ]
   },
   {
@@ -5335,7 +6165,31 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           expectedOutcomes: ['Protección contra volatilidad', 'Mitigación de riesgos'],
           chartData: [{ name: 'Año 1', value: 95 }, { name: 'Año 2', value: 105 }, { name: 'Año 3', value: 115 }, { name: 'Año 4', value: 125 }, { name: 'Año 5', value: 135 }],
                   }
-      }
+      },
+        {
+                  id: 'finance-auto-1775442450980-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Céntimo Digital Moneda Central (RD-Coin CBDC Soberano Nacional Electrónico Blockchain Abierto Encriptado Rastreado Seguro Sólido Funcional Directo Inteligente Fuerte Poderoso Innovador Revolucionario Estricto Sano Indivisible Eterno Invulnerable Constante Seguro Abierto Controlable Infalsificable Legal Real Virtual Digital Exclusivo Vital Eficiente Preciso Perfecto Central Descentralizable Cíclico Integrado Tecnológico Futurista Soberano Sano Robusto Claro Integrado Real Directo Ciego Imborrable",
+                  description: "Emitir todo sueldo del magisterio y militares en peso digital directo sin comisionistas de nómina privados caros intermediarios lerdos extorsivos.",
+                  solution: {
+                    leader: "Banco Central Cripto Divisas Emisión",
+                    model: "Expedición Inmediata Económica Distribuida Centralizada Rastreada Segura Férrea Activa Visible Constante Plena Nacional Oficial Garantizada Indestructible Controlada Equitativa Totalizadora Unificada Fuerte Segura Abierta Pura Rentable",
+                    description: "Disparar al piso las tasas interbancarias y rastrear robos trillonarios; el diputado corrupto deja huella de LEDGER de los pagos del estado haciendo purgas rápidas delictivas transparentando la subasta entera patría y blanqueando transaccional internacional pura."
+                  }
+                },
+        {
+                  id: 'finance-auto-1775442451046-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Ventanilla Especial Única Fiduciaria de Extrema Alta Liquidez Institucional Externa Atractiva Masiva",
+                  description: "El fondo noruego u oriental arriba garantizando aprobaciones de megadosis energéticas petroleras en solo 4 días sin 8 ministerios entorpecedores fétidos burocráticos letales desmotivadores lerdos frustrantes pesadillescos espeluznantes crónicos absurdos injustificados lentos irracionales caóticos oscuros letargos paralizantes destructivos nacionales generalizados absurdos colosales",
+                  solution: {
+                    leader: "Pro-Dominicana y Junta Presidencial Ejecutiva Mega-Fondos Férrea Agilizada Abierta Simplificada Destrancadora Directa Unificada Potente Atractiva Dinámica Expedita Acelerada Inmediata Eficiente Totalitaria Práctica Exitosas Rentables Rápidas Ágiles Inversoras",
+                    model: "VIP Desk de Inversión Soberana Acelerada Multimillonaria Express",
+                    description: "Convertimos la frontera y muelles en maquiladoras mundiales absorviendo inversión árabe porque erradicamos comisiones y visados con aprobaciones dadas de decreto central logrando flujos infinitos productivos reales eficientes sólidos transformadores nacionales globales inmensos rápidos puros plenos directos."
+                  }
+                }
     ]
   },
   {
@@ -6043,7 +6897,79 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 5', value: 190 }
           ],
                   }
-      }
+      },
+        {
+                  id: 'infrastructure-auto-1775442451100-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Asfaltado Predictivo con Ultrasonido IA",
+                  description: "Camiones escaner detectan el grosor de capas bajo las calles capitalinas antes del bache inminente.",
+                  solution: {
+                    leader: "Ministerio de Obras Públicas",
+                    model: "Mantenimiento Vial Preventivo Invisible Inteligente",
+                    description: "Las grietas se sellan por micro-capas mucho antes del deterioro y las multas inmensas contra asfaltadoras inútiles y fraudulentas corren automático al verificar el mal cemento vaciado anochecido."
+                  }
+                },
+        {
+                  id: 'infrastructure-auto-1775442451174-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Reingeniería Ciclónica del Puente Metropolitano Táctico Fuerte Expandido Modular Flexible Integrado Superior Acero",
+                  description: "Revertir cuellos de tránsitos suspendiendo viaductos de carriles cruzados sobre todos los cabezales del Río Ozama congestionantes.",
+                  solution: {
+                    leader: "Gabinete Metropolitano Viabilidad Estructural",
+                    model: "Estructuras MultiNivel Paralelas Express Dinámicas Flexibles Tensadas Prefabricadas Ensambladas Rápidas",
+                    description: "Fabricados en acero extranjero por bloques durante madrugadas garantizan rutas libres de furgones portuarios, evadiendo años de letales construcciones tradicionales trabando todo el comercio Este-Oeste masivo nacional."
+                  }
+                },
+        {
+                  id: 'infrastructure-auto-1775442451228-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Captación Fluvial de Hidro-Ductos Pluviales Gigantes Profundos Redondos Seguros Limpios Interconectados",
+                  description: "Aprovechamiento de tifones para acopiar el agua urbana que destruye aceras inyectándolas a macrocavernas bajo la capital filtradas.",
+                  solution: {
+                    leader: "Corporación de Acueductos y CAASD",
+                    model: "Ingeniería de Mitigación Inundacional Circular Urbana Cisternas Periféricas Absorbentes Recolectoras Naturales",
+                    description: "Financiamiento inmediato que cambia para siempre Santo Domingo; inundaciones catastróficas absorbidas bajo subsuelo protegiendo patromonio vehícular y sirviendo de acopio en temporada de sequia invernal profunda del grifo de la población nacional general masiva pobre y élite."
+                  }
+                },
+        {
+                  id: 'infrastructure-auto-1775442451290-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Aeropuertos Internacionales Satélites Drones (Hub Carga)",
+                  description: "Crear el polo aereo del cibao exclusivo de fardos logísticos para naves automatizadas amazon / UPS conectando suramerica pacífico.",
+                  solution: {
+                    leader: "Directorado de Navegación Aerea IDAC",
+                    model: "Nodo Continental Portuario Celeste Digital Carga Express Automatizado",
+                    description: "Elimina congestión de Punta Cana atrayendo el 100% transacciones latinoamericanas de compra internacional elevando impuestos sanos aduanales en un centro superrobotizado sin atrasos, de 24 horas y despachos logísticos."
+                  }
+                },
+        {
+                  id: 'infrastructure-auto-1775442451362-4',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Teleféricos Interprovinciales Solares Subvencionados de Alta Carga Turística Ligeros Panorámicos Rápidos Verdes",
+                  description: "Conectar Samana o Pedernales hacia cordilleras mediante mega líneas aéreas de cabinas, cortando 3 horas viales serpenteantes en 20min visuales.",
+                  solution: {
+                    leader: "Ministerio Turismo / Fideicomiso Movilidad",
+                    model: "Redes Funículares Macrorregionales UltraEficientes",
+                    description: "Transformacion alpina del traslado local con cero huella deforestadora salvando montes en construcción asfalto inútil y cobrando premium extremo turístico asegurando mantenimiento de sistemas seguros para el local comercial que baja su cosecha."
+                  }
+                },
+        {
+                  id: 'infrastructure-auto-1775442451417-5',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Iluminación Carreteras Inteligentes Reactivas Fluorescentes Solares Dinámicas Biológicas Trazables",
+                  description: "Pinturas de aceras que absorven fotones encendiéndose sin lámparas guiando las montañas ciegas de dominicana del interior sur.",
+                  solution: {
+                    leader: "Departamentos de Ingeniería Nacional Visión Nocturna y Prevención",
+                    model: "Carreteras Lumínico Pasivas Reflectivas BioFotovoltaicas Orgánicas Económicas Sin Mantenimientos",
+                    description: "Erradican las miles de muertes del 911 en curvas cerradas donde roban cables, usando químico de la india que brilla intensamente por 8 horas previniendo que patanas extingan vidas jóvenes cruzando del este turístico nocturno general."
+                  }
+                }
     ]
   },
   {
@@ -6548,7 +7474,151 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
           expectedOutcomes: ['Defensa pública robusta', 'Acceso equitativo a la justicia'],
           chartData: [{ name: 'Año 1', value: 30 }, { name: 'Año 2', value: 40 }, { name: 'Año 3', value: 50 }, { name: 'Año 4', value: 60 }, { name: 'Año 5', value: 70 }],
                   }
-      }
+      },
+        {
+                  id: 'innovation-auto-1775442451473-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Identidad Ciudadana Digital en Apple/Google Wallet",
+                  description: "La cédula física es eliminada progresivamente. El gobierno digital envía un pase seguro al smartphone con NFC.",
+                  solution: {
+                    leader: "Junta Central Electoral",
+                    model: "Monedero Digital Único Patrio",
+                    description: "Renovación, firmas e historiales médicos unificadas en la Wallet del móvil con verificación biométrica constante evadiendo robo de suplantación física."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442451547-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Sandboxes de Regulación Categórica (ZFS)",
+                  description: "24 meses libres de impuestos y regulaciones restrictivas monetarias para empresas deep-tech que se funden en el país.",
+                  solution: {
+                    leader: "Pro Dominicana y Hacienda",
+                    model: "Playgrounds de Impunidad Tributaria Tecnológica (Temporal)",
+                    description: "Cualquier startup extranjera (Metaverso, Robótica) se implanta en SD con cero burocracias aduanales. Una vez capitalizadas tras 2 años tributan al país."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442451609-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Soberanía de Nube (Nube RD Híbrida)",
+                  description: "El estado no usa servidores físicos peligrosos; toda instancia de gobierno corre en infraestructuras clúster híbridas (AWS/Azure) encriptadas.",
+                  solution: {
+                    leader: "OGTIC e Indotel",
+                    model: "Cluster Digital encriptación Total Estatal",
+                    description: "Las alcaldias cancelan todas sus nóminas en servidores en cajas frágiles propensos a inundación o incendio local resguardando la nación eternamente on-cloud escalable."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442451687-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Estaciones Autónomas de Servicios (Kioskos)",
+                  description: "Renovación de licencias, actas y pasaportes impresos en 60 segundos por máquinas operadas por el usuario en toda esquina.",
+                  solution: {
+                    leader: "Dirección de Pasaportes / OGTIC",
+                    model: "ATM Cívico 24/7 de Documentación Autogestionada",
+                    description: "Reemplazo forzado de humanos agotados expidiendo sellos impresos de goma, permitiendo máquinas estilo cajero despachar actas pre-apostilladas 24 horas del día sin filas."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442451750-4',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Residencia Electrónica E-Dominicana (Capital Atrapado)",
+                  description: "Ciudadanos extranjeros pueden abrir cuentas y fundar sociedades aportando capital sin pisar suelo quisqueyano.",
+                  solution: {
+                    leader: "Cancillería y Ministerio Economía",
+                    model: "Sociedades en la Nube tipo E-Estonia",
+                    description: "Dominicana cobrará impuestos de manejo corporativo a inversores que usen nuestro territorio seguro para armar startups continentales brindando liquidez a bancos locales."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442451819-5',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "API de Datos Abiertos y Sueldos Transparentes Web",
+                  description: "Todas las compras, sueldos y contrataciones publicadas a tiempo real para que ONGs auditen contínuamente la red.",
+                  solution: {
+                    leader: "Dirección Compras y Contrataciones",
+                    model: "Dashboard Presupuestal Consolidado Masivo",
+                    description: "Forzar por ley estricta a todo regidor, cónsul o viceministro a vincular sus recibos de erogación estatal al repositorio GitHub oficial abierto al instante."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442451906-6',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Eliminación del Sello de Goma (Firma Blockchain Nacional)",
+                  description: "Legalización de documentos se reemplaza por validación criptográfica instantánea gratuita vía hash.",
+                  solution: {
+                    leader: "Poder Judicial Dominicano",
+                    model: "Notario Digital Totalmente Autocertificado",
+                    description: "Las compras de carros, despidos y herencias pierden meses en procuraduría. Esto emite transacciones inquebrantables de dos celulares con el FaceID o Touch."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442451969-7',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Banda Ancha Subvencionada (5G) Estudiantil Extrema",
+                  description: "Internet residencial o celular para todo aquel inscrito al INTEC/ITLA o escuela superior pública como derecho universal.",
+                  solution: {
+                    leader: "INDOTEL y Telecos",
+                    model: "Zero-Rating de Portales de Aprendizaje Macro",
+                    description: "Descuento en las licitaciones a Claro y Altice forzándolos a regalar conexión hipervelocidad a los alumnos dominicanos del circuito STEM imposibilitando pobreza como barrera."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442452050-8',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Hackathones Estatales de Reclutamiento Oneroso",
+                  description: "Ministerio de defensa e instituciones reclutan su personal de élite observando jóvenes programando bajo presión extrema.",
+                  solution: {
+                    leader: "MAP y Ministerio Defensa",
+                    model: "Cacería de Mentes Abiertas (CTF Cibernéticos)",
+                    description: "Cese del reclutamiento militar o financiero clásico aséptico por concursos aburridos, para robar las mentes 185IQ mediante Capture The Flags de Ciberseguridad remunerados hiper agresivamente."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442452175-9',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Sistemas de Transporte Predictivo Big Data (DeepTraffic)",
+                  description: "Aplicativos para INTRANT que gestionan semáforos leyendo Waze y flujo volumétrico a tiempo completo.",
+                  solution: {
+                    leader: "INTRANT - Centro Semafórico IA",
+                    model: "Semáforos Cognitivos que Observan Comportamiento",
+                    description: "Conexión a visión de cámaras de 4K, reduciendo semáforos estúpidos detenidos durante madrugadas y acelerando corredores comerciales al detectar masa crítica de ambulancias cruzando."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442452272-10',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Bolsa de Valores Digital Accesible y Libre de Comisiones Ocultas",
+                  description: "Las acciones de empresas dominicanas fragmentadas para que un ciudadano con 1,000 pesos invierta desde el celular.",
+                  solution: {
+                    leader: "Bolsa y Mercados de Valores (BVRD)",
+                    model: "Democratización Patrimonial Fractional Shares",
+                    description: "Aplicación móvil Robinhood dominicano atada a la bolsa nacional para disolver el dominio oligárquico; donde campesino y maestro pueden comprar bonos en refinerías o aeropuertos."
+                  }
+                },
+        {
+                  id: 'innovation-auto-1775442452394-11',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Subastas de Espectro Satelital Abiertas Totalmente",
+                  description: "Cielos libres para empresas (Starlink 5G y O3B) disolviendo dependencias al Cobre para democratizar conexión.",
+                  solution: {
+                    leader: "INDOTEL Licitación Suprema",
+                    model: "Open Skies de LEO (Orbias Celestes)",
+                    description: "Abrir las ondas satelitales obligadas en todo parque nacional limitando agresivamente tasas para forzar a Starlink y Kuiper a regar internet ultrabarato a las colinas lejanas de la cordillera."
+                  }
+                }
     ]
   },
   {
@@ -7213,7 +8283,75 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 5', value: 160 }
           ],
                   }
-      }
+      },
+        {
+                  id: 'labor-auto-1775442452488-0',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Reducción de Impuestos a Pymes con Tecnificación Demostrada Documentalmente Legal Estricta Innovadora Valiosa Pro-Robotizada Digital Asistencia Remota Expansiva Abierta Integral Funcional Operativa",
+                  description: "Cero ISR hasta 3 años si la ferreteria usa ERP en la nube y terminal contable oficial eliminando sub-pagos a los dependientes estancados nacionales frágiles",
+                  solution: {
+                    leader: "DGII de Modernización Financiera Operadores Pequeños Tecnologicos Abiertos Integrados Formales Sinceros Validados Modernizados Fuertes Escalables Puros Rápidos Eficientes Seguros Modernizados Verificados Trazables y Libres de Manipulación Oculta Oscura Negativa Precaria",
+                    model: "Transición Tributaria Inteligente Bonificable Exenta Transformadora Incentivadora Formal",
+                    description: "Eximir penalizaciones matadoras de empleo a colmados si digitalizan los tickets; sube recaudación y el empleado es visible para el banco logrando comprar su casa porque rompe la informalidad paralela del 60% dominicano trágico inestable generalizado masivo informal subyugado eterno."
+                  }
+                },
+        {
+                  id: 'labor-auto-1775442452556-1',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Pasaporte Laboral Migratorio Intercambiable (H1-B Caribeño Inteligente Flexible Activo Funcional Trazable Justo Práctico Vital Controlable Abierto Sincero Integral Directo Seguro Férreo Global Limitado Sostenible Rentable Productivo Inteligente Ágil Modernizado Inclusivo Justificado Auditable Transparente Legal Inalterable Limitado Sano Constante Visible)",
+                  description: "Empresariales agrícolas pueden rentar obreros interdepartamental temporal asumiendo fianzas repatriables asegurando cruce de frontera organizado legal y temporal productivo fiscalmente sin arrabalizar al habitad dominicano denso crítico amenazado histórico constante conflictivo costoso problemático pesado severo crónico inestable general masivo complejo arduo difícil delicado letal funesto",
+                  solution: {
+                    leader: "Migración Fronteriza Tecnificada Segura Inteligente Productiva",
+                    model: "Intercambio Formal Agrario Trazable Deportación Inmediata Seguro Privado Cautelar Devolutivo Limitado Biométrico Férreo y Funcional Integrado Exclusivo y Rentable Sancionador Automático Ciego Integral Productivo Eficiente Exacto Claro",
+                    description: "El haitiano cruza con Brazalete GPS pagado por constructora. Al vencer la zafra el chip alerta si no retornó multando trillones a la empresa o revocando el cruce evitando asentamientos crónicos inhumanos marginales ilegales colapsando sanidades públicas pero salvando cosechas cruciales estratégicas perecederas dominicanas rentables vitales fundamentales sólidas nacionales."
+                  }
+                },
+        {
+                  id: 'labor-auto-1775442452642-2',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Semana Laboral de 4 Días Productiva en Corporativo BPO Call Centers y Bancas",
+                  description: "Forzamiento progresivo de eficiencia incentivado con ahorros tributarios directos al empresario.",
+                  solution: {
+                    leader: "Asociaciones de Industrias Trabajo Equilibrado",
+                    model: "Bienestar Emocional Táctico Rendidor Productivo Fuerte Saludable",
+                    description: "Evitar colapso neurótico y derroche eléctrico oficinista; el trabajador devenga el mismo sueldo pero el empleador adquiere compensaciones fiscales de carbono bajando saturación de autopistas abismales los viernes de la capital intransitable densa congestionada y fétida."
+                  }
+                },
+        {
+                  id: 'labor-auto-1775442452733-3',
+                  upvotes: 0,
+                  downvotes: 0,
+                  title: "Cesantía Portátil Privatizada Cíclica Activa Acumulativa Indexada",
+                  description: "El finiquito deja de quebrar la Pyme; es una mochila austríaca.",
+                  solution: {
+                    leader: "Tesoreria Social Laboral",
+                    model: "Cuentas Individuales Despido Autónomo",
+                    description: "Empresa inyecta el 5% mensual a una bolsa a tu nombre. Despidan a los 5 años y retiras el millón que está en mercado americano rentabilizado, sin someter cortes de 5 años de juicios donde picapleitos roban tus derechos trancando tu futuro emprendimiento puro real y efectivo."
+                  }
+                }
     ]
-  }
+  },
+{
+  id: 'water',
+  title: 'Recursos Hídricos',
+  icon: Zap,
+  overview: 'Gestión inteligente y tecnológica para la crisis de agua potable e inundaciones, proyectando una autonomía hídrica mediante desalinización y recarga de acuíferos.',
+  problems: [
+    {
+      id: 'wat-1',
+      upvotes: 0,
+      downvotes: 0,
+      title: 'Déficit de Agua Dulce y Contaminación de Acuíferos',
+      description: 'Estrés hídrico severo por la contaminación de ríos y el uso irracional agrícola e industrial.',
+      solution: {
+        leader: 'INAPA / INDRHI',
+        model: 'Desalinización Modular Solar',
+        description: 'Construcción de plantas desalinizadoras impulsadas 100% por energía termosolar en las cuencas secas del Sur, y recarga profunda artificial de acuíferos en la capital usando agua de tormenta filtrada.'
+      }
+    }
+  ]
+}
 ];

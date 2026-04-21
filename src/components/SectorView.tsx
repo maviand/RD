@@ -3,6 +3,11 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, ChevronUp, LucideIcon, Filter, ThumbsUp, ThumbsDown, ExternalLink, Search, Rocket, Twitter, Instagram, MessageCircle, Share2 } from 'lucide-react';
 import FilterBar from './FilterBar';
+import MegaprojectWrapper from './MegaprojectWrapper';
+import FuelTaxCalculator from './visualizations/FuelTaxCalculator';
+import SchoolDashboard from './visualizations/SchoolDashboard';
+import DebtInefficiencyChart from './visualizations/DebtInefficiencyChart';
+import GenericSectorChart from './visualizations/GenericSectorChart';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -189,88 +194,37 @@ export default function SectorView({ sector }: SectorViewProps) {
 
       {/* Megaproject Section */}
       {sector.megaproject && (
-        <div className="mb-12 bg-gradient-to-br from-[var(--color-gov-blue)] to-[#001f44] rounded-md p-6 sm:p-10 text-white shadow-[0_0_30px_rgba(0,47,108,0.3)] relative overflow-hidden border-t-4 border-[var(--color-gov-red)] ring-1 ring-white/10">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white opacity-5 rounded-full blur-3xl -mr-20 -mt-20"></div>
-          <div className="absolute bottom-0 left-0 w-48 h-48 bg-[var(--color-gov-gold)] opacity-5 rounded-full blur-3xl -ml-10 -mb-10"></div>
-          <div className="relative z-10">
-            <div className="flex items-center gap-3 mb-6">
-              <div className="p-2 bg-[var(--color-gov-gold)]/20 rounded-md border border-[var(--color-gov-gold)]/30">
-                <Rocket className="w-6 h-6 text-[var(--color-gov-gold)]" />
-              </div>
-              <span className="px-3 py-1 bg-[var(--color-gov-gold)] text-[var(--color-gov-blue)] text-xs font-bold uppercase tracking-widest rounded-sm shadow-sm">
-                Proyecto de Estado (Megaproyecto)
-              </span>
-            </div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-extrabold mb-6 tracking-widest uppercase text-white break-words leading-tight">{sector.megaproject.title}</h2>
-            
-            {sector.megaproject.premise && (
-              <div className="mb-8 bg-white/5 p-6 rounded-md border-l-4 border-[var(--color-gov-gold)] shadow-inner">
-                <h3 className="text-[var(--color-gov-gold)] font-heading font-bold mb-3 text-xs uppercase tracking-widest">La Premisa</h3>
-                <p className="text-white text-sm leading-relaxed font-sans">{sector.megaproject.premise}</p>
-              </div>
-            )}
-            
-            <p className="text-base md:text-lg text-gray-200 mb-6 leading-relaxed font-sans">
-              {sector.megaproject.description}
-            </p>
-
-            {sector.megaproject.imageUrl && (
-              <div className={`mb-8 grid gap-4 ${Array.isArray(sector.megaproject.imageUrl) ? 'grid-cols-1 md:grid-cols-2' : 'grid-cols-1'}`}>
-                {Array.isArray(sector.megaproject.imageUrl) 
-                  ? sector.megaproject.imageUrl.map((url, idx) => (
-                      <div key={idx} className="flex justify-center bg-black/20 rounded-lg p-2 ring-1 ring-white/10">
-                        <img src={url} alt={`${sector.megaproject?.title} - Visualización ${idx + 1}`} className="max-h-[500px] w-full object-cover sm:object-contain rounded shadow-lg" />
-                      </div>
-                    ))
-                  : (
-                    <div className="flex justify-center bg-black/20 rounded-lg p-2 ring-1 ring-white/10">
-                      <img src={sector.megaproject.imageUrl} alt={sector.megaproject.title} className="max-h-[500px] w-full object-cover sm:object-contain rounded shadow-lg" />
-                    </div>
-                  )
-                }
-              </div>
-            )}
-
-            {sector.megaproject.details && sector.megaproject.details.length > 0 && (
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
-                {sector.megaproject.details.map((detail, idx) => (
-                  <div key={idx} className="flex items-start gap-3 bg-white/5 p-4 rounded-md">
-                    <div className="w-2 h-2 rounded-sm bg-[var(--color-gov-gold)] mt-2 flex-shrink-0"></div>
-                    <p className="text-gray-200 text-xs leading-relaxed font-sans">{detail}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {sector.megaproject.timeline && sector.megaproject.timeline.length > 0 && (
-              <div className="mt-8 bg-white/5 p-6 rounded-md border border-white/10">
-                <h3 className="text-[var(--color-gov-gold)] font-heading font-bold mb-4 text-xs uppercase tracking-widest">Cronograma de Implementación</h3>
-                <div className="space-y-4">
-                  {sector.megaproject.timeline.map((item, idx) => (
-                    <div key={idx} className="flex flex-col sm:flex-row gap-2 sm:gap-4">
-                      <div className="w-24 flex-shrink-0 text-white font-bold text-xs font-sans">{item.phase}</div>
-                      <div className="text-gray-300 text-xs leading-relaxed font-sans">{item.description}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {sector.megaproject.partners && sector.megaproject.partners.length > 0 && (
-              <div className="mt-6 bg-white/5 p-6 rounded-md border border-white/10">
-                <h3 className="text-[var(--color-gov-gold)] font-heading font-bold mb-4 text-xs uppercase tracking-widest">Socios Clave</h3>
-                <div className="flex flex-wrap gap-2">
-                  {sector.megaproject.partners.map((partner, idx) => (
-                    <span key={idx} className="px-3 py-1.5 bg-white/10 text-white text-[10px] font-medium rounded-sm border border-white/20 uppercase tracking-wider">
-                      {partner}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
+        <MegaprojectWrapper megaproject={sector.megaproject} />
       )}
+      {/* Sector Specific Charts */}
+      {sector.id === 'education' && <SchoolDashboard />}
+      {sector.id === 'justice' && <DebtInefficiencyChart />}
+      {(sector.id === 'energy' || sector.id === 'infrastructure') && <FuelTaxCalculator />}
+      {sector.id === 'finance' && (
+        <GenericSectorChart
+            title="Crecimiento del PIB vs Presión Fiscal"
+            description="Impacto de la reducción impositiva y flat-tax en el crecimiento del producto interno bruto y la recaudación formal neta (Curva de Laffer)."
+            data={[{name: '2025', Actual: 120, Proyección: 120}, {name: '2027', Actual: 125, Proyección: 145}, {name: '2030', Actual: 132, Proyección: 180}]}
+        />
+      )}
+      {sector.id === 'labor' && (
+        <GenericSectorChart
+            title="Transición Hacia la Economía Formal"
+            description="Proyección de creación de empleos al transicionar del modelo informal a las zonas francas tecnológicas y turismo de alto nivel."
+            data={[{name: 'Informal', Actual: 58, Proyección: 22}, {name: 'Formal/Tech', Actual: 15, Proyección: 45}, {name: 'Servicios', Actual: 27, Proyección: 33}]}
+            barKey="Actual" lineKey="Proyección"
+        />
+      )}
+      {sector.id === 'gov-efficiency' && (
+        <GenericSectorChart
+            title="Consolidación de Ministerios (Ahorro Operativo)"
+            description="Efecto de la Ley de Ministerios Mínimos en la matriz de gastos fijos del estado (Ahorro de $120,000M RD$ anuales al eliminar ministerios inoperantes)."
+            data={[{name: 'Gasto Corriente', Actual: 350, Proyección: 150}, {name: 'Inversión Real', Actual: 150, Proyección: 400}]}
+            colors={{bar: '#ef4444', line: '#22c55e'}}
+        />
+      )}
+
+
 
       <div className="mb-8 bg-white p-5 rounded-md border border-gray-200 shadow-sm flex flex-col md:flex-row gap-4 items-center">
         <div className="flex items-center gap-2 text-[var(--color-gov-blue)] text-sm font-bold uppercase tracking-wider whitespace-nowrap font-heading">

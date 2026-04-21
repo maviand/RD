@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ChevronRight, Leaf, Twitter, Instagram, MessageCircle, Share2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import HomepageDashboard from './HomepageDashboard';
 
 interface Sector {
   id: string;
@@ -81,6 +82,10 @@ export default function HomeView({ sectors }: HomeViewProps) {
             </div>
           </div>
         </motion.div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <HomepageDashboard />
       </div>
 
       {/* Sectors Summary */}
