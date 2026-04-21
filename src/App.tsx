@@ -19,6 +19,9 @@ import DebtCounterWidget from './components/DebtCounterWidget';
 import GastoMilitarView from './components/external/GastoMilitar';
 import GabinetesView from './components/external/Gabinetes';
 import ReorganizacionTerritorialView from './components/external/ReorganizacionTerritorial';
+import ScrollProgress from './components/ScrollProgress';
+import NotFound from './components/NotFound';
+import { AnimatePresence, motion } from 'motion/react';
 
 function AppContent() {
   const location = useLocation();
@@ -38,12 +41,7 @@ function AppContent() {
   const activeSectorId = (isHome || isProjections || isNewCities || isGlossary || isTimeline || isExternalRoute) ? '' : (sectors.find(s => s.id === currentPath)?.id || '');
   const activeSector = sectors.find(s => s.id === activeSectorId);
 
-  // Redirect to home if invalid path
-  useEffect(() => {
-    if (!isHome && !isProjections && !isNewCities && !isGlossary && !isTimeline && !isExternalRoute && !sectors.find(s => s.id === currentPath)) {
-      navigate('/', { replace: true });
-    }
-  }, [currentPath, isHome, isProjections, isNewCities, isGlossary, isTimeline, isExternalRoute, navigate]);
+  // Removed force-redirect useEffect to allow NotFound component to render properly
 
   // Scroll to top when sector changes
   useEffect(() => {
@@ -115,22 +113,34 @@ function AppContent() {
           </button>
         </header>
 
+        <ScrollProgress />
         <div className="flex-1">
-          <Routes>
-            <Route path="/" element={<HomeView sectors={sectors} />} />
-            <Route path="/home" element={<Navigate to="/" replace />} />
-            <Route path="/proyecciones" element={<ProjectionsView />} />
-            <Route path="/nuevas-ciudades" element={<NewCitiesView />} />
-            <Route path="/glosario" element={<TermGlossary />} />
-            <Route path="/linea-tiempo" element={<HistoricalTimeline />} />
-            <Route path="/gasto-militar" element={<GastoMilitarView />} />
-            <Route path="/gabinetes" element={<GabinetesView />} />
-            <Route path="/reorganizacion-territorial" element={<ReorganizacionTerritorialView />} />
-            {activeSector && (
-              <Route path="/:sectorId" element={<SectorView sector={activeSector} />} />
-            )}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={location.pathname}
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -15 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="h-full flex flex-col"
+            >
+              <Routes location={location}>
+                <Route path="/" element={<HomeView sectors={sectors} />} />
+                <Route path="/home" element={<Navigate to="/" replace />} />
+                <Route path="/proyecciones" element={<ProjectionsView />} />
+                <Route path="/nuevas-ciudades" element={<NewCitiesView />} />
+                <Route path="/glosario" element={<TermGlossary />} />
+                <Route path="/linea-tiempo" element={<HistoricalTimeline />} />
+                <Route path="/gasto-militar" element={<GastoMilitarView />} />
+                <Route path="/gabinetes" element={<GabinetesView />} />
+                <Route path="/reorganizacion-territorial" element={<ReorganizacionTerritorialView />} />
+                {activeSector && (
+                  <Route path="/:sectorId" element={<SectorView sector={activeSector} />} />
+                )}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </motion.div>
+          </AnimatePresence>
           
           {/* Disclaimer Footer */}
           <footer className="w-full bg-gray-50 border-t border-gray-200 mt-12 py-8">

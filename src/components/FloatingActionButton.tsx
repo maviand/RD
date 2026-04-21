@@ -8,10 +8,11 @@ export default function FloatingActionButton() {
   return (
     <div className="fixed bottom-6 left-6 z-50 flex flex-col-reverse items-start gap-4 shadow-xl">
       <motion.button
-        className="w-14 h-14 bg-[var(--color-gov-blue)] text-white rounded-full flex items-center justify-center shadow-lg hover:bg-[#002f6c] hover:scale-105 transition-all focus:outline-none focus:ring-4 focus:ring-blue-300"
+        className="w-14 h-14 bg-[var(--color-gov-blue)] text-white rounded-full flex items-center justify-center shadow-[0_8px_30px_rgb(0,0,0,0.2)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.3)] hover:bg-[#003680] transition-colors focus:outline-none focus:ring-4 focus:ring-blue-300/50"
         onClick={() => setIsOpen(!isOpen)}
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (

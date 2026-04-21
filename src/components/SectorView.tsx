@@ -304,8 +304,24 @@ export default function SectorView({ sector }: SectorViewProps) {
           </AnimatePresence>
 
           {visibleItems < filteredProblems.length && (
-            <div ref={observerTarget} className="h-10 flex items-center justify-center mt-4">
-              <div className="w-6 h-6 border-2 border-[var(--color-gov-blue)] border-t-transparent rounded-full animate-spin"></div>
+            <div ref={observerTarget} className="mt-4 flex flex-col gap-4">
+              {[...Array(2)].map((_, i) => (
+                <div key={i} className="animate-pulse bg-white border border-gray-200 rounded-md p-6 flex items-start gap-4 shadow-sm">
+                  <div className="flex flex-col items-center gap-1 bg-gray-50 p-1.5 rounded-sm border border-gray-200 flex-shrink-0">
+                    <div className="w-5 h-5 bg-gray-300 rounded"></div>
+                    <div className="w-4 h-3 bg-gray-200 rounded"></div>
+                    <div className="w-5 h-5 bg-gray-300 rounded"></div>
+                  </div>
+                  <div className="flex-1 space-y-4 py-1">
+                    <div className="h-4 bg-gray-200 rounded w-1/4"></div>
+                    <div className="h-6 bg-gray-200 rounded w-3/4"></div>
+                    <div className="space-y-2">
+                      <div className="h-4 bg-gray-200 rounded"></div>
+                      <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           )}
 
