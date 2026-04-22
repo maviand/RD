@@ -1033,18 +1033,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
       partners: ['Banco Interamericano de Desarrollo (BID)', 'Ministerio de Economía, Planificación y Desarrollo', 'Sector Privado Local', 'ONGs Internacionales', 'Agencias de Cooperación (USAID, JICA)']
     },
     problems: [
-{
-  id: 'tour-techhub',
-  upvotes: 0,
-  downvotes: 0,
-  title: 'Turismo Médico y Hubs Tecnológicos Integrados',
-  description: 'Dependencia extrema de un modelo de sol y playa de bajo valor agregado, vulnerable a crisis estacionales.',
-  solution: {
-    leader: 'Ministerio de Turismo / MESCYT',
-    model: 'Zonas Francas Médicas y Nómadas Digitales',
-    description: 'Creación de condominios y clústeres turísticos exentos de impuestos específicos para clínicas de cirugía ambulatoria y recuperación de primer orden mundial, entrelazado con una visa inmediata para nómadas digitales (Tech Hubs).'
-  }
-},
+
 
       {
         id: 'tour-1',
@@ -1683,7 +1672,20 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             { name: 'Año 3', value: 95 },
             { name: 'Año 4', value: 135 },
             { name: 'Año 5', value: 190 }
-          ],
+          ,
+{
+  id: 'tour-techhub',
+  upvotes: 0,
+  downvotes: 0,
+  title: 'Turismo Médico y Hubs Tecnológicos Integrados',
+  description: 'Dependencia extrema de un modelo de sol y playa de bajo valor agregado, vulnerable a crisis estacionales.',
+  solution: {
+    leader: 'Ministerio de Turismo / MESCYT',
+    model: 'Zonas Francas Médicas y Nómadas Digitales',
+    description: 'Creación de condominios y clústeres turísticos exentos de impuestos específicos para clínicas de cirugía ambulatoria y recuperación de primer orden mundial, entrelazado con una visa inmediata para nómadas digitales (Tech Hubs).'
+  }
+}
+      ],
                   }
       }
     ]
@@ -3667,7 +3669,20 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
             'Aumento medible en la transparencia y trazabilidad de los recursos asignados.',
             'Establecimiento de un estándar regional en la aplicación de las nuevas normativas.',
             'Retorno de inversión (ROI) positivo proyectado para el quinto año de implementación.'
-          ],
+          ,
+{
+  id: 'hlt-telemedina',
+  upvotes: 0,
+  downvotes: 0,
+  title: 'Telemedicina Integrada e IA Diagnóstica',
+  description: 'Sistemas colapsados y esperas de 8 meses para especialistas debido a la centralización hospitalaria.',
+  solution: {
+    leader: 'Ministerio de Salud / OMS',
+    model: 'Hospital Virtual Nacional',
+    description: 'Plataforma nacional de IA para triaje rápido y cabinas robóticas en farmacias para diagnosticar parámetros vitales. Las consultas especializadas se realizan por videoconferencia con médicos a nivel nacional, eliminando las listas de espera físicas y descongestionando las emergencias.'
+  }
+}
+      ],
           chartData: [
             { name: 'Año 1', value: 40 },
             { name: 'Año 2', value: 75 },
@@ -5734,18 +5749,7 @@ Además, una comisión independiente fijará los precios mediante una fórmula t
         imageUrl: ['https://i.imgur.com/swIOrLf.jpeg', 'https://i.imgur.com/jqKtQk8.jpeg']
     },
     problems: [
-{
-  id: 'hlt-telemedina',
-  upvotes: 0,
-  downvotes: 0,
-  title: 'Telemedicina Integrada e IA Diagnóstica',
-  description: 'Sistemas colapsados y esperas de 8 meses para especialistas debido a la centralización hospitalaria.',
-  solution: {
-    leader: 'Ministerio de Salud / OMS',
-    model: 'Hospital Virtual Nacional',
-    description: 'Plataforma nacional de IA para triaje rápido y cabinas robóticas en farmacias para diagnosticar parámetros vitales. Las consultas especializadas se realizan por videoconferencia con médicos a nivel nacional, eliminando las listas de espera físicas y descongestionando las emergencias.'
-  }
-},
+
 
       {
         id: 'hlt-1',
