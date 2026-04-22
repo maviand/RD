@@ -38,7 +38,7 @@ export default function EducationBudgetChart() {
               ))}
             </Pie>
             <Tooltip 
-              formatter={(value: number) => [`RD$ ${value.toFixed(2)}B`, 'Presupuesto']}
+              formatter={(value: any) => [`RD$ ${value.toFixed(2)}B`, 'Presupuesto']}
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
             />
             <Legend verticalAlign="bottom" height={36} />

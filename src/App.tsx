@@ -6,21 +6,24 @@
 import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, ArrowUp } from 'lucide-react';
-import { sectors } from './data';
-import Sidebar from './components/Sidebar';
-import SectorView from './components/SectorView';
-import HomeView from './components/HomeView';
-import ProjectionsView from './components/ProjectionsView';
-import NewCitiesView from './components/NewCitiesView';
-import TermGlossary from './components/TermGlossary';
-import HistoricalTimeline from './components/HistoricalTimeline';
-import FloatingActionButton from './components/FloatingActionButton';
-import DebtCounterWidget from './components/DebtCounterWidget';
-import GastoMilitarView from './components/external/GastoMilitar';
-import GabinetesView from './components/external/Gabinetes';
-import ReorganizacionTerritorialView from './components/external/ReorganizacionTerritorial';
-import ScrollProgress from './components/ScrollProgress';
-import NotFound from './components/NotFound';
+import { sectors } from '@/data';
+import {
+  Sidebar,
+  SectorView,
+  HomeView,
+  ProjectionsView,
+  NewCitiesView,
+  TermGlossary,
+  HistoricalTimeline,
+  FloatingActionButton,
+  DebtCounterWidget,
+  ScrollProgress,
+  NotFound,
+  GlobalErrorBoundary
+} from '@/components';
+import GastoMilitarView from '@/components/external/GastoMilitar';
+import GabinetesView from '@/components/external/Gabinetes';
+import ReorganizacionTerritorialView from '@/components/external/ReorganizacionTerritorial';
 import { AnimatePresence, motion } from 'motion/react';
 
 function AppContent() {
@@ -124,21 +127,23 @@ function AppContent() {
               transition={{ duration: 0.3, ease: 'easeOut' }}
               className="h-full flex flex-col"
             >
-              <Routes location={location}>
-                <Route path="/" element={<HomeView sectors={sectors} />} />
-                <Route path="/home" element={<Navigate to="/" replace />} />
-                <Route path="/proyecciones" element={<ProjectionsView />} />
-                <Route path="/nuevas-ciudades" element={<NewCitiesView />} />
-                <Route path="/glosario" element={<TermGlossary />} />
-                <Route path="/linea-tiempo" element={<HistoricalTimeline />} />
-                <Route path="/gasto-militar" element={<GastoMilitarView />} />
-                <Route path="/gabinetes" element={<GabinetesView />} />
-                <Route path="/reorganizacion-territorial" element={<ReorganizacionTerritorialView />} />
-                {activeSector && (
-                  <Route path="/:sectorId" element={<SectorView sector={activeSector} />} />
-                )}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
+              <GlobalErrorBoundary>
+                <Routes location={location}>
+                  <Route path="/" element={<HomeView sectors={sectors} />} />
+                  <Route path="/home" element={<Navigate to="/" replace />} />
+                  <Route path="/proyecciones" element={<ProjectionsView />} />
+                  <Route path="/nuevas-ciudades" element={<NewCitiesView />} />
+                  <Route path="/glosario" element={<TermGlossary />} />
+                  <Route path="/linea-tiempo" element={<HistoricalTimeline />} />
+                  <Route path="/gasto-militar" element={<GastoMilitarView />} />
+                  <Route path="/gabinetes" element={<GabinetesView />} />
+                  <Route path="/reorganizacion-territorial" element={<ReorganizacionTerritorialView />} />
+                  {activeSector && (
+                    <Route path="/:sectorId" element={<SectorView sector={activeSector} />} />
+                  )}
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </GlobalErrorBoundary>
             </motion.div>
           </AnimatePresence>
           

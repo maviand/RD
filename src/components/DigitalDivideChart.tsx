@@ -36,7 +36,7 @@ export default function DigitalDivideChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} domain={[0, 100]} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number) => [`${value}%`, 'Cobertura Rural de Alta Velocidad']}
+              formatter={(value: any) => [`${value}%`, 'Cobertura Rural de Alta Velocidad']}
             />
             <ReferenceLine y={100} stroke="#10b981" strokeDasharray="3 3" label={{ position: 'top', value: 'Cobertura Universal', fill: '#10b981', fontSize: 12 }} />
             <Line type="monotone" dataKey="cobertura" stroke="#10b981" strokeWidth={3} dot={{ r: 4, fill: '#10b981', strokeWidth: 2, stroke: '#111827' }} activeDot={{ r: 6 }} />

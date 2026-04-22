@@ -9,6 +9,8 @@ import SchoolDashboard from './visualizations/SchoolDashboard';
 import DebtInefficiencyChart from './visualizations/DebtInefficiencyChart';
 import GenericSectorChart from './visualizations/GenericSectorChart';
 import { useNavigate } from 'react-router-dom';
+import { useVoteStore } from '../store/useVoteStore';
+import { useProblemFilter } from '../hooks/useProblemFilter';
 
 
 interface Solution {
@@ -55,99 +57,28 @@ interface SectorViewProps {
 
 export default function SectorView({ sector }: SectorViewProps) {
   const Icon = sector.icon;
-  const [selectedLeader, setSelectedLeader] = useState<string>('Todos');
-  const [selectedModel, setSelectedModel] = useState<string>('Todos');
-  const [searchQuery, setSearchQuery] = useState<string>('');
-  const [sortBy, setSortBy] = useState<'net' | 'total'>('net');
-  const [votes, setVotes] = useState<Record<string, { up: number; down: number; userVote: 'up' | 'down' | null }>>({});
   const [visibleItems, setVisibleItems] = useState(10);
   const observerTarget = useRef<HTMLDivElement>(null);
 
-  // Initialize votes from data and localStorage
-  useEffect(() => {
-    const storedVotesStr = localStorage.getItem('reforma_votes');
-    const storedVotes = storedVotesStr ? JSON.parse(storedVotesStr) : {};
+  const { votes, handleVote, initializeVotes } = useVoteStore();
 
-    const initialVotes: Record<string, { up: number; down: number; userVote: 'up' | 'down' | null }> = {};
-    sector.problems.forEach(p => {
-      initialVotes[p.id] = storedVotes[p.id] || {
-        up: 0,
-        down: 0,
-        userVote: null
-      };
-    });
-    setVotes(initialVotes);
-  }, [sector]);
+  useEffect(() => {
+    initializeVotes(sector.problems.map(p => p.id));
+  }, [sector, initializeVotes]);
+
+  const {
+    selectedLeader, setSelectedLeader,
+    selectedModel, setSelectedModel,
+    searchQuery, setSearchQuery,
+    sortBy, setSortBy,
+    leaders, models,
+    filteredProblems
+  } = useProblemFilter(sector.problems as any, votes);
 
   // Reset visible items when filters change
   useEffect(() => {
     setVisibleItems(10);
   }, [selectedLeader, selectedModel, searchQuery, sortBy, sector.id]);
-
-  const handleVote = (problemId: string, type: 'up' | 'down') => {
-    setVotes(prev => {
-      const current = prev[problemId];
-      if (!current) return prev;
-
-      let newUp = current.up;
-      let newDown = current.down;
-      let newUserVote = current.userVote;
-
-      if (current.userVote === type) {
-        // Remove vote
-        newUserVote = null;
-        if (type === 'up') newUp--;
-        else newDown--;
-      } else {
-        // Change or add vote
-        if (current.userVote === 'up') newUp--;
-        if (current.userVote === 'down') newDown--;
-        
-        newUserVote = type;
-        if (type === 'up') newUp++;
-        else newDown++;
-      }
-
-      const newState = { ...prev, [problemId]: { up: newUp, down: newDown, userVote: newUserVote } };
-      
-      // Persist to localStorage
-      const storedVotesStr = localStorage.getItem('reforma_votes');
-      const storedVotes = storedVotesStr ? JSON.parse(storedVotesStr) : {};
-      localStorage.setItem('reforma_votes', JSON.stringify({ ...storedVotes, [problemId]: newState[problemId] }));
-
-      return newState;
-    });
-  };
-
-  const leaders = ['Todos', ...new Set(sector.problems.map(p => p.solution.leader))];
-  const models = ['Todos', ...new Set(sector.problems.map(p => p.solution.model))];
-
-  const filteredProblems = sector.problems
-    .filter(p => {
-      const matchLeader = selectedLeader === 'Todos' || p.solution.leader === selectedLeader;
-      const matchModel = selectedModel === 'Todos' || p.solution.model === selectedModel;
-      const matchSearch = searchQuery === '' || 
-        p.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-        p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.solution.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchLeader && matchModel && matchSearch;
-    })
-    .sort((a, b) => {
-      const upA = votes[a.id]?.up || 0;
-      const downA = votes[a.id]?.down || 0;
-      const upB = votes[b.id]?.up || 0;
-      const downB = votes[b.id]?.down || 0;
-      
-      if (sortBy === 'total') {
-        const totalA = upA + downA;
-        const totalB = upB + downB;
-        return totalB - totalA;
-      } else {
-        const scoreA = upA - downA;
-        const scoreB = upB - downB;
-        return scoreB - scoreA;
-      }
-    });
 
   // Infinite scroll observer
   useEffect(() => {

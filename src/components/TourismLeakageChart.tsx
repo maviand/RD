@@ -43,7 +43,7 @@ export default function TourismLeakageChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number, name: string) => [`$${value}B`, name === 'retenido' ? 'Valor Retenido (Local)' : 'Fuga Económica (Importaciones)']}
+              formatter={(value: any, name: any) => [`$${value}B`, name === 'retenido' ? 'Valor Retenido (Local)' : 'Fuga Económica (Importaciones)']}
             />
             <Legend wrapperStyle={{ fontSize: '12px', color: '#9ca3af' }} />
             <Bar dataKey="retenido" stackId="a" fill="#10b981" name="retenido" radius={[0, 0, 4, 4]} />

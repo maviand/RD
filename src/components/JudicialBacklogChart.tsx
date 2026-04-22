@@ -47,7 +47,7 @@ export default function JudicialBacklogChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number) => [new Intl.NumberFormat('es-DO').format(value), 'Casos Pendientes']}
+              formatter={(value: any) => [new Intl.NumberFormat('es-DO').format(value), 'Casos Pendientes']}
             />
             <Area type="monotone" dataKey="casos" stroke="#f59e0b" fillOpacity={1} fill="url(#colorCasos)" />
           </AreaChart>

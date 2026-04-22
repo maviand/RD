@@ -75,7 +75,7 @@ export default function TaxEvasionAIChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number) => [`${value.toFixed(1)}%`, 'Evasión ITBIS']}
+              formatter={(value: any) => [`${value.toFixed(1)}%`, 'Evasión ITBIS']}
             />
             <ReferenceLine y={15} stroke="#10b981" strokeDasharray="3 3" label={{ position: 'insideTopLeft', value: 'Meta Regional (15%)', fill: '#10b981', fontSize: 12 }} />
             <Area type="monotone" dataKey="evasion" stroke="#ef4444" strokeWidth={3} fillOpacity={1} fill="url(#colorEvasion)" />

@@ -335,7 +335,7 @@ export default function NewCitiesView() {
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                   <XAxis dataKey="year" stroke="#6b7280" />
                   <YAxis stroke="#6b7280" tickFormatter={(value) => `$${value}`} />
-                  <RechartsTooltip formatter={(value: number) => [`$${value}M USD`, 'Inversión']} />
+                  <RechartsTooltip formatter={(value: any) => [`$${value}M USD`, 'Inversión']} />
                   <Area type="monotone" dataKey="inversion" stroke="#001f44" fillOpacity={1} fill="url(#colorInversion)" />
                 </AreaChart>
               </ResponsiveContainer>
@@ -350,7 +350,7 @@ export default function NewCitiesView() {
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                   <XAxis dataKey="year" stroke="#6b7280" />
                   <YAxis stroke="#6b7280" tickFormatter={(value) => `${value / 1000}k`} />
-                  <RechartsTooltip formatter={(value: number) => [value.toLocaleString('en-US'), 'Empleos']} cursor={{fill: 'rgba(0,0,0,0.05)'}} />
+                  <RechartsTooltip formatter={(value: any) => [value.toLocaleString('en-US'), 'Empleos']} cursor={{fill: 'rgba(0,0,0,0.05)'}} />
                   <Bar dataKey="empleos" fill="#ce1126" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>

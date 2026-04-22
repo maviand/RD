@@ -42,7 +42,7 @@ export default function SchoolInfrastructureChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number, name: string) => [value, name === 'tradicional' ? 'Escuelas (Tradicional)' : name === 'modular' ? 'Escuelas (Modular)' : 'Total Acumulado']}
+              formatter={(value: any, name: any) => [value, name === 'tradicional' ? 'Escuelas (Tradicional)' : name === 'modular' ? 'Escuelas (Modular)' : 'Total Acumulado']}
             />
             <Legend wrapperStyle={{ fontSize: '12px', color: '#9ca3af' }} />
             <Bar dataKey="tradicional" stackId="a" fill="#f59e0b" name="tradicional" radius={[0, 0, 4, 4]} />

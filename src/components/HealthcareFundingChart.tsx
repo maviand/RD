@@ -78,7 +78,7 @@ export default function HealthcareFundingChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number) => [`${value.toFixed(1)}%`, '']}
+              formatter={(value: any) => [`${value.toFixed(1)}%`, '']}
             />
             <Legend wrapperStyle={{ paddingTop: '20px' }} />
             <Bar dataKey="oop" name="Gasto de Bolsillo" stackId="a" fill="#ef4444" />

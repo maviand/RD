@@ -51,7 +51,7 @@ export default function TourismDiversificationChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} domain={[0, 100]} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number, name: string) => [`${value.toFixed(1)}%`, name === 'todoIncluido' ? 'Todo Incluido' : 'Turismo Diversificado']}
+              formatter={(value: any, name: any) => [`${value.toFixed(1)}%`, name === 'todoIncluido' ? 'Todo Incluido' : 'Turismo Diversificado']}
             />
             <Area type="monotone" dataKey="todoIncluido" stackId="1" stroke="#f59e0b" fillOpacity={1} fill="url(#colorTodoIncluido)" name="todoIncluido" />
             <Area type="monotone" dataKey="diversificado" stackId="1" stroke="#8b5cf6" fillOpacity={1} fill="url(#colorDiversificado)" name="diversificado" />

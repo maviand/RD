@@ -77,7 +77,7 @@ export default function PrimaryCareNetworkChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number) => [`${value.toFixed(1)}%`, '']}
+              formatter={(value: any) => [`${value.toFixed(1)}%`, '']}
             />
             <Legend wrapperStyle={{ paddingTop: '20px' }} />
             <Bar yAxisId="left" dataKey="budget" name="Presupuesto Redirigido" fill="#10b981" opacity={0.3} radius={[4, 4, 0, 0]} />

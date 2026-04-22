@@ -74,7 +74,7 @@ export default function NursingSubsidiesChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number, name: string) => [
+              formatter={(value: any, name: any) => [
                 name === 'Ratio Enfermera/Médico' ? `${value.toFixed(1)}:1` : `${value.toFixed(0)}%`, 
                 name
               ]}

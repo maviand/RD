@@ -74,7 +74,7 @@ export default function MentalHealthDecentralizationChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number, name: string) => [
+              formatter={(value: any, name: any) => [
                 name === 'Camas Psiquiátricas Disponibles' ? value.toFixed(0) : `${value.toFixed(0)}%`, 
                 name
               ]}

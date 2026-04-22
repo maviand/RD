@@ -75,7 +75,7 @@ export default function GovernmentMinistryConsolidationChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number) => [`${value.toFixed(1)}%`, 'Gasto Operativo Relativo']}
+              formatter={(value: any) => [`${value.toFixed(1)}%`, 'Gasto Operativo Relativo']}
             />
             <ReferenceLine y={60} stroke="#10b981" strokeDasharray="3 3" label={{ position: 'insideTopLeft', value: 'Meta de Fusión (60%)', fill: '#10b981', fontSize: 12 }} />
             <Area type="monotone" dataKey="cost" stroke="#f97316" strokeWidth={3} fillOpacity={1} fill="url(#colorCost)" />

@@ -230,7 +230,7 @@ export default function ProjectionsView() {
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e5e7eb" />
                 <XAxis dataKey="year" stroke="#6b7280" />
                 <YAxis stroke="#6b7280" tickFormatter={(value) => `$${value.toLocaleString('en-US')}M`} width={80} />
-                <RechartsTooltip formatter={(value: number) => [`+$${value.toLocaleString('en-US')}M USD`, '']} />
+                <RechartsTooltip formatter={(value: any) => [`+$${value.toLocaleString('en-US')}M USD`, '']} />
                 <Legend verticalAlign="top" height={36} />
                 <Area type="monotone" dataKey="savings" name="Ahorros Acumulados" stroke="#10b981" fillOpacity={1} fill="url(#colorSavings)" />
                 <Area type="monotone" dataKey="income" name="Ingresos Acumulados" stroke="#3b82f6" fillOpacity={1} fill="url(#colorIncome)" />
@@ -259,7 +259,7 @@ export default function ProjectionsView() {
                   ))}
                 </Pie>
                 <RechartsTooltip 
-                  formatter={(value: number, name: string, props: any) => [
+                  formatter={(value: any, name: any, props: any) => [
                     `+$${value.toLocaleString('en-US')}M USD (${props.payload.type})`, 
                     props.payload.fullName
                   ]} 

@@ -37,7 +37,7 @@ export default function SargassumEconomyChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number, name: string) => [`$${value}M`, name === 'ingresosExportacion' ? 'Ingresos por Exportación' : 'Ahorro en Limpieza (Hoteles)']}
+              formatter={(value: any, name: any) => [`$${value}M`, name === 'ingresosExportacion' ? 'Ingresos por Exportación' : 'Ahorro en Limpieza (Hoteles)']}
             />
             <Legend wrapperStyle={{ fontSize: '12px', color: '#9ca3af' }} />
             <Bar dataKey="ingresosExportacion" fill="#10b981" name="ingresosExportacion" radius={[4, 4, 0, 0]} barSize={40} />

@@ -72,7 +72,7 @@ export default function TerritorialSavingsChart() {
             <Tooltip 
               cursor={{ fill: 'transparent' }}
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number) => [`RD$ ${value.toFixed(2)}B`, 'Costo']}
+              formatter={(value: any) => [`RD$ ${value.toFixed(2)}B`, 'Costo']}
             />
             <Bar dataKey="cost" radius={[8, 8, 0, 0]} maxBarSize={150}>
               {data.map((entry, index) => (
@@ -81,7 +81,7 @@ export default function TerritorialSavingsChart() {
               <LabelList 
                 dataKey="cost" 
                 position="top" 
-                formatter={(val: number) => `RD$ ${val.toFixed(2)}B`} 
+                formatter={(val: any) => `RD$ ${val.toFixed(2)}B`} 
                 fill="#ffffff" 
                 fontSize={14} 
                 fontWeight="bold" 

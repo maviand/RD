@@ -54,7 +54,7 @@ export default function IrrigationEfficiencyChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number, name: string) => [`${value.toFixed(1)}%`, name === 'perdida' ? 'Pérdida de Agua' : 'Aumento Rendimiento']}
+              formatter={(value: any, name: any) => [`${value.toFixed(1)}%`, name === 'perdida' ? 'Pérdida de Agua' : 'Aumento Rendimiento']}
             />
             <Area type="monotone" dataKey="perdida" stroke="#ef4444" fillOpacity={1} fill="url(#colorPerdida)" name="perdida" />
             <Area type="monotone" dataKey="rendimiento" stroke="#10b981" fillOpacity={1} fill="url(#colorRendimiento)" name="rendimiento" />

@@ -42,7 +42,7 @@ export default function TourismSecurityChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} domain={[0, 100]} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number) => [`${value} pts`, 'Índice de Criminalidad (Base 100)']}
+              formatter={(value: any) => [`${value} pts`, 'Índice de Criminalidad (Base 100)']}
             />
             <Area 
               type="monotone" 

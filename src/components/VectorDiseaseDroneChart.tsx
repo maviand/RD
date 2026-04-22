@@ -75,7 +75,7 @@ export default function VectorDiseaseDroneChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number) => [value.toLocaleString(undefined, { maximumFractionDigits: 0 }), 'Casos de Dengue/Malaria']}
+              formatter={(value: any) => [value.toLocaleString(undefined, { maximumFractionDigits: 0 }), 'Casos de Dengue/Malaria']}
             />
             <ReferenceLine y={1000} stroke="#10b981" strokeDasharray="3 3" label={{ position: 'insideTopLeft', value: 'Umbral de Control Endémico', fill: '#10b981', fontSize: 12 }} />
             <Area type="monotone" dataKey="cases" name="Casos Anuales" stroke="#84cc16" strokeWidth={3} fillOpacity={1} fill="url(#colorCases)" />

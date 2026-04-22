@@ -242,7 +242,7 @@ export default function DominicanRepublicMap() {
     const clusterRegionNameMap = new Map();
     const clusterColorMap = new Map();
     
-    clusters.forEach((cluster, index) => {
+    clusters.forEach((cluster: any, index: number) => {
       clusterDisplayIdMap.set(cluster.id, index + 1);
       clusterRegionNameMap.set(cluster.id, cluster.targetRegionName);
       clusterColorMap.set(cluster.id, cluster.targetRegionColor);

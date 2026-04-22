@@ -48,7 +48,7 @@ export default function MilitaryEfficiencyChart() {
             <Tooltip 
               cursor={{ fill: 'transparent' }}
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number) => [`RD$ ${value.toFixed(2)}B`, 'Costo Anual']}
+              formatter={(value: any) => [`RD$ ${value.toFixed(2)}B`, 'Costo Anual']}
             />
             <Bar dataKey="cost" radius={[8, 8, 0, 0]} maxBarSize={150}>
               {data.map((entry, index) => (

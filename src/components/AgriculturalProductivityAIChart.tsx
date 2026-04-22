@@ -75,7 +75,7 @@ export default function AgriculturalProductivityAIChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number) => [`${value.toFixed(1)}%`, 'Brecha de Rendimiento']}
+              formatter={(value: any) => [`${value.toFixed(1)}%`, 'Brecha de Rendimiento']}
             />
             <ReferenceLine y={20} stroke="#10b981" strokeDasharray="3 3" label={{ position: 'insideTopLeft', value: 'Meta Regional (20%)', fill: '#10b981', fontSize: 12 }} />
             <Area type="monotone" dataKey="gap" stroke="#f59e0b" strokeWidth={3} fillOpacity={1} fill="url(#colorGap)" />

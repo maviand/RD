@@ -74,7 +74,7 @@ export default function ImagingAsAServiceChart() {
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', borderColor: '#374151', color: '#f3f4f6' }}
               itemStyle={{ color: '#e5e7eb' }}
-              formatter={(value: number, name: string) => [
+              formatter={(value: any, name: any) => [
                 name === 'Tiempo de Inactividad (MRI/CT)' ? `${value.toFixed(1)}%` : value.toLocaleString(undefined, { maximumFractionDigits: 0 }), 
                 name
               ]}

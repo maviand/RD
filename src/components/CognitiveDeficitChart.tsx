@@ -43,7 +43,7 @@ export default function CognitiveDeficitChart() {
             <YAxis stroke="#9ca3af" fontSize={12} tickLine={false} axisLine={false} domain={[300, 550]} />
             <Tooltip 
               contentStyle={{ backgroundColor: '#1f2937', border: 'none', borderRadius: '8px', color: '#fff' }}
-              formatter={(value: number, name: string) => [value, name === 'puntaje' ? 'Puntaje Proyectado' : 'Promedio OCDE']}
+              formatter={(value: any, name: any) => [value, name === 'puntaje' ? 'Puntaje Proyectado' : 'Promedio OCDE']}
             />
             <ReferenceLine y={OECD_AVERAGE} stroke="#10b981" strokeDasharray="3 3" label={{ position: 'top', value: 'Promedio OCDE', fill: '#10b981', fontSize: 12 }} />
             <Line type="monotone" dataKey="puntaje" stroke="#3b82f6" strokeWidth={3} dot={{ r: 4, fill: '#3b82f6', strokeWidth: 2, stroke: '#111827' }} activeDot={{ r: 6 }} name="puntaje" />
