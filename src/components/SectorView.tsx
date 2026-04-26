@@ -11,6 +11,7 @@ import GenericSectorChart from './visualizations/GenericSectorChart';
 import { useNavigate } from 'react-router-dom';
 import { useVoteStore } from '../store/useVoteStore';
 import { useProblemFilter } from '../hooks/useProblemFilter';
+import { SEOHelmet } from './SEOHelmet';
 
 
 interface Solution {
@@ -113,6 +114,11 @@ export default function SectorView({ sector }: SectorViewProps) {
       transition={{ duration: 0.4, ease: 'easeOut' }}
       className="max-w-5xl mx-auto p-4 sm:p-8 md:p-12 bg-[var(--color-gov-light)] min-h-full"
     >
+      <SEOHelmet 
+        title={`${sector.title} | Reforma Total RD`}
+        description={sector.overview}
+      />
+
       <header className="mb-12 border-b-2 border-gray-200 pb-8">
         <div className="flex items-center gap-4 mb-4">
           <div className="inline-flex items-center justify-center p-3 bg-[var(--color-gov-blue)] text-white rounded-md shadow-sm">
@@ -221,7 +227,7 @@ export default function SectorView({ sector }: SectorViewProps) {
             {sortBy === 'net' ? 'Ordenados por prioridad (votos netos)' : 'Ordenados por interacción (votos totales)'}
           </span>
         </div>
-        <div className="grid gap-6">
+        <div className="grid gap-6" aria-live="polite" aria-atomic="false">
           <AnimatePresence mode="popLayout">
             {paginatedProblems.map((problem, idx) => (
               <ProblemCard 

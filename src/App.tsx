@@ -5,6 +5,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { BrowserRouter, Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import { Menu, ArrowUp } from 'lucide-react';
 import { sectors } from '@/data';
 import {
@@ -62,9 +63,18 @@ function AppContent() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-50 text-gray-900 font-sans overflow-hidden">
-      {/* Mobile overlay */}
-      {isSidebarOpen && (
+    <HelmetProvider>
+      <div className="flex h-screen bg-gray-50 text-gray-900 font-sans overflow-hidden">
+        {/* Accessibility Skip Link */}
+        <a 
+          href="#main-content" 
+          className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:p-4 focus:bg-white focus:text-[var(--color-gov-blue)] focus:font-bold focus:rounded-md focus:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-gov-gold)] transition-all"
+        >
+          Saltar al contenido principal
+        </a>
+        
+        {/* Mobile overlay */}
+        {isSidebarOpen && (
         <div 
           className="fixed inset-0 bg-black/50 z-20 md:hidden"
           onClick={() => setIsSidebarOpen(false)}
@@ -86,6 +96,7 @@ function AppContent() {
 
       {/* Main content */}
       <main 
+        id="main-content"
         ref={mainRef}
         onScroll={handleScroll}
         className="flex-1 flex flex-col overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 relative"
@@ -172,6 +183,7 @@ function AppContent() {
         <DebtCounterWidget />
       </main>
     </div>
+    </HelmetProvider>
   );
 }
 

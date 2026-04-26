@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { ChevronRight, Leaf, Twitter, Instagram, MessageCircle, Share2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import HomepageDashboard from './HomepageDashboard';
+import { SEOHelmet } from './SEOHelmet';
 
 interface Sector {
   id: string;
@@ -26,6 +27,7 @@ export default function HomeView({ sectors }: HomeViewProps) {
 
   return (
     <div className="min-h-full bg-gray-50 pb-12">
+      <SEOHelmet />
       {/* Hero Section */}
       <div className="bg-[var(--color-gov-blue)] text-white py-16 px-6 md:px-12 lg:px-24 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
