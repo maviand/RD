@@ -122,6 +122,13 @@ export default function Sidebar({ sectors, activeSectorId, onSelect, onClose }: 
           );
         })}
       </nav>
+      <div className="p-4 bg-red-600/90 border-t border-red-800 text-center flex-shrink-0">
+        <p className="text-[10px] uppercase font-bold text-white tracking-widest leading-relaxed">
+          ⚠️ Modelo Conceptual
+          <br />
+          No gubernamental
+        </p>
+      </div>
     </aside>
   );
 }

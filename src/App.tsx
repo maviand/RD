@@ -105,7 +105,10 @@ function AppContent() {
         className="flex-1 flex flex-col overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 relative"
       >
         {/* Mobile header */}
-        <header className="md:hidden bg-[var(--color-gov-blue)] text-white p-4 flex items-center justify-between shadow-md z-10 flex-shrink-0 sticky top-0">
+        <div className="bg-red-600 text-white text-center py-2 px-4 text-xs font-bold uppercase tracking-wider sticky top-0 z-50">
+          ⚠️ AVISO: Proyecto académico y modelo conceptual. NO es un sitio web del gobierno dominicano. / ACADEMIC PROJECT ONLY.
+        </div>
+        <header className="md:hidden bg-[var(--color-gov-blue)] text-white p-4 flex items-center justify-between shadow-md z-40 flex-shrink-0 sticky top-[32px]">
           <div 
             className="flex items-center gap-3 min-w-0 cursor-pointer"
             onClick={() => {
