@@ -20,7 +20,6 @@ export default function LanguageSwitcher() {
       >
         <option value="es" className="bg-gray-800 text-white">ES</option>
         <option value="en" className="bg-gray-800 text-white">EN</option>
-        <option value="ht" className="bg-gray-800 text-white">HT</option>
       </select>
     </div>
   );
