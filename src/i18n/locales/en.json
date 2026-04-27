@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "home": "Home",
+    "projections": "2035 Projections",
+    "newCities": "New Cities",
+    "glossary": "Glossary",
+    "timeline": "Timeline",
+    "externalProjects": "External Projects",
+    "militarySpending": "Military Spending",
+    "cabinets": "Cabinets",
+    "territorial": "Territorial Reorganization"
+  },
+  "ui": {
+    "skipToContent": "Skip to main content",
+    "language": "Language",
+    "search": "Search keywords...",
+    "leader": "Leader",
+    "model": "Model",
+    "sortBy": "Sort by",
+    "sortByPriority": "Priority (Net votes)",
+    "sortByInteraction": "Interaction (Total votes)",
+    "filterBy": "Filter by:",
+    "problemsAndSolutions": "Critical Problems & Solutions",
+    "sortedByPriority": "Sorted by priority (net votes)",
+    "sortedByInteraction": "Sorted by interaction (total votes)",
+    "voteSupport": "Support",
+    "voteReject": "Reject",
+    "solutionLeader": "Assigned Leader:",
+    "solutionModel": "Execution Model:",
+    "urgency": "Urgency",
+    "problem": "Problem",
+    "detailedSolution": "Detailed Solution",
+    "viewPresentation": "View Interactive Presentation",
+    "moreInfo": "More Information",
+    "implementationPhases": "Implementation Phases",
+    "expectedOutcomes": "Expected Outcomes",
+    "budgetSimulator": {
+      "title": "Build your Zero-Based Budget",
+      "description": "Drag funds (tokens) from the Treasury into sectors. Each token represents 5% of GDP.",
+      "emitDebt": "Issue Debt",
+      "clearDebt": "Clear Debt",
+      "treasury": "National Treasury",
+      "availableFunds": "Available Funds",
+      "dragTokens": "Drag these tokens to the sectors to allocate the budget.",
+      "allocated": "Allocated",
+      "surplus": "Surplus",
+      "deficit": "Deficit (Debt)"
+    }
+  },
+  "sectors": {
+    "gov-efficiency": {
+      "title": "Government Efficiency",
+      "overview": "Drastic reduction of current expenditure, consolidation of 24 to 8 ministries, and total digitalization of public services via AI."
+    },
+    "education": {
+      "title": "Education",
+      "overview": "Transformation of the educational model towards STEM, critical thinking, and bilingualism, with personalized AI tutors for every student."
+    },
+    "security": {
+      "title": "Citizen Security",
+      "overview": "Police reform focusing on predictive prevention, use of body cameras, and facial recognition technology."
+    },
+    "health": {
+      "title": "Public Health",
+      "overview": "Integrated health system with a preventive focus, universal blockchain medical records, and 24/7 telemedicine."
+    },
+    "economy": {
+      "title": "Economy & Taxation",
+      "overview": "Tax simplification, elimination of inefficient exemptions, and fostering formality and entrepreneurship."
+    },
+    "infrastructure": {
+      "title": "Infrastructure & Transport",
+      "overview": "Modernization of mass public transport, development of intercity trains, and sustainable mobility systems."
+    },
+    "justice": {
+      "title": "Justice & Transparency",
+      "overview": "Total independence of the judicial branch, digitalization of records, and severe penalties and disqualification for corruption."
+    },
+    "environment": {
+      "title": "Environment",
+      "overview": "Strict protection of water resources, accelerated energy transition, and advanced solid waste management."
+    },
+    "energy": {
+      "title": "Energy",
+      "overview": "Elimination of inefficient subsidies, aggressive transition to renewables, and modernization of the distribution grid."
+    },
+    "tourism": {
+      "title": "Tourism",
+      "overview": "Diversification of the model towards medical tourism, digital nomads, and sustainability, reducing dependence on 'all-inclusive'."
+    },
+    "agriculture": {
+      "title": "Agriculture",
+      "overview": "Technification of the countryside, robotic greenhouses, and artificial intelligence for food sovereignty."
+    },
+    "housing": {
+      "title": "Housing",
+      "overview": "Eradication of the housing deficit through 3D prefabricated social housing and accessible financing plans."
+    },
+    "culture": {
+      "title": "Culture",
+      "overview": "Digitalization of heritage, immersive VR museums, and fostering the orange economy."
+    },
+    "foreign-trade": {
+      "title": "Foreign Trade",
+      "overview": "Total automation of ports (Zero-Touch Ports) and positioning as the Caribbean Logistics Hub."
+    },
+    "labor": {
+      "title": "Labor Sector",
+      "overview": "Labor code reform for greater flexibility, telework, and linking subsidies to technological retraining."
+    },
+    "water": {
+      "title": "Water Resources",
+      "overview": "Desalination plants, public-private partnerships for distribution, and tiered smart pricing."
+    },
+    "pension": {
+      "title": "Pension System (AFP)",
+      "overview": "Parametric reform, investment in international index funds (S&P 500), and early retirement options."
+    },
+    "migration": {
+      "title": "Migration",
+      "overview": "Smart border with drone swarms, digitalization of visas, and strict enforcement of the labor law (80/20)."
+    }
+  }
+}

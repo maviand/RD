@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Calculator, AlertTriangle, CheckCircle2, GripVertical, Coins, PlusCircle, Trash2 } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import { DndContext, DragOverlay, closestCenter, useSensor, useSensors, PointerSensor, DragStartEvent, DragEndEvent } from '@dnd-kit/core';
 import { useDroppable, useDraggable } from '@dnd-kit/core';
 
@@ -101,6 +102,8 @@ export default function BudgetSimulator() {
   const [tokenTypes, setTokenTypes] = useState<Record<string, 'revenue' | 'debt'>>({});
   const [activeId, setActiveId] = useState<string | null>(null);
 
+  const { t } = useTranslation();
+
   // Initialize all to revenue
   useMemo(() => {
     const types: Record<string, 'revenue' | 'debt'> = {};
@@ -173,9 +176,9 @@ export default function BudgetSimulator() {
         <div>
           <h3 className="text-xl font-heading font-bold uppercase tracking-wider flex items-center gap-2">
             <Calculator className="w-6 h-6 text-[var(--color-gov-gold)]" />
-            Construye tu Presupuesto Base Cero
+            {t('ui.budgetSimulator.title', 'Construye tu Presupuesto Base Cero')}
           </h3>
-          <p className="text-sm text-gray-300 font-sans mt-1">Arrastra los fondos (fichas) desde el Tesoro hacia los sectores. Cada ficha representa el 5% del PIB.</p>
+          <p className="text-sm text-gray-300 font-sans mt-1">{t('ui.budgetSimulator.description', 'Arrastra los fondos (fichas) desde el Tesoro hacia los sectores. Cada ficha representa el 5% del PIB.')}</p>
         </div>
         <div className="flex gap-2">
           <button 
@@ -183,7 +186,7 @@ export default function BudgetSimulator() {
             className="flex items-center gap-1 px-3 py-2 bg-red-600 text-white font-bold uppercase tracking-wider text-xs rounded-sm hover:bg-red-500 transition-colors shadow-sm"
           >
             <PlusCircle className="w-4 h-4" />
-            Emitir Deuda
+            {t('ui.budgetSimulator.emitDebt', 'Emitir Deuda')}
           </button>
           {debtCount > 0 && (
             <button 
@@ -191,7 +194,7 @@ export default function BudgetSimulator() {
               className="flex items-center gap-1 px-3 py-2 bg-gray-700 text-white font-bold uppercase tracking-wider text-xs rounded-sm hover:bg-gray-600 transition-colors shadow-sm"
             >
               <Trash2 className="w-4 h-4" />
-              Limpiar Deuda
+              {t('ui.budgetSimulator.clearDebt', 'Limpiar Deuda')}
             </button>
           )}
         </div>
@@ -208,37 +211,37 @@ export default function BudgetSimulator() {
               <div className="flex justify-between items-center mb-6">
                 <h4 className="font-heading font-extrabold text-lg uppercase tracking-widest text-white flex items-center gap-2">
                   <Coins className="w-6 h-6 text-[var(--color-gov-gold)]" />
-                  Tesoro Nacional
+                  {t('ui.budgetSimulator.treasury', 'Tesoro Nacional')}
                 </h4>
               </div>
               
               <div className="bg-gray-800 rounded-lg p-4 min-h-[200px]">
                 <DroppableBucket 
                   id="treasury" 
-                  title="Fondos Disponibles" 
+                  title={t('ui.budgetSimulator.availableFunds', 'Fondos Disponibles')} 
                   color="bg-[var(--color-gov-gold)] text-gray-900" 
                   tokens={getTokensFor('treasury')} 
-                  description="Arrastra estas fichas hacia los sectores para asignar el presupuesto."
+                  description={t('ui.budgetSimulator.dragTokens', 'Arrastra estas fichas hacia los sectores para asignar el presupuesto.')}
                 />
               </div>
 
               {/* Status Indicator */}
               <div className="mt-6 space-y-3">
                 <div className="flex justify-between items-center bg-gray-800 p-3 rounded-md">
-                  <span className="text-gray-400 text-xs font-bold uppercase">Asignado</span>
+                  <span className="text-gray-400 text-xs font-bold uppercase">{t('ui.budgetSimulator.allocated', 'Asignado')}</span>
                   <span className="text-white font-bold">{totalAllocation}%</span>
                 </div>
                 
                 {surplus > 0 && debtCount === 0 && (
                   <div className="flex justify-between items-center bg-green-900/50 border border-green-700 p-3 rounded-md">
-                    <span className="text-green-400 text-xs font-bold uppercase flex items-center gap-1"><CheckCircle2 className="w-4 h-4"/> Superávit</span>
+                    <span className="text-green-400 text-xs font-bold uppercase flex items-center gap-1"><CheckCircle2 className="w-4 h-4"/> {t('ui.budgetSimulator.surplus', 'Superávit')}</span>
                     <span className="text-green-400 font-bold">{surplus}%</span>
                   </div>
                 )}
 
                 {deficit > 0 && (
                   <div className="flex justify-between items-center bg-red-900/50 border border-red-700 p-3 rounded-md">
-                    <span className="text-red-400 text-xs font-bold uppercase flex items-center gap-1"><AlertTriangle className="w-4 h-4"/> Déficit (Deuda)</span>
+                    <span className="text-red-400 text-xs font-bold uppercase flex items-center gap-1"><AlertTriangle className="w-4 h-4"/> {t('ui.budgetSimulator.deficit', 'Déficit (Deuda)')}</span>
                     <span className="text-red-400 font-bold">{deficit}%</span>
                   </div>
                 )}

@@ -27,7 +27,10 @@ import GabinetesView from '@/components/external/Gabinetes';
 import ReorganizacionTerritorialView from '@/components/external/ReorganizacionTerritorial';
 import { AnimatePresence, motion } from 'motion/react';
 
+import { useTranslation } from 'react-i18next';
+
 function AppContent() {
+  const { t } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -70,7 +73,7 @@ function AppContent() {
           href="#main-content" 
           className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:p-4 focus:bg-white focus:text-[var(--color-gov-blue)] focus:font-bold focus:rounded-md focus:shadow-lg focus:outline-none focus-visible:ring-4 focus-visible:ring-[var(--color-gov-gold)] transition-all"
         >
-          Saltar al contenido principal
+          {t('ui.skipToContent', 'Saltar al contenido principal')}
         </a>
         
         {/* Mobile overlay */}

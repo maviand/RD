@@ -1,0 +1,124 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "projections": "Proyecciones 2035",
+    "newCities": "Nuevas Ciudades",
+    "glossary": "Glosario",
+    "timeline": "Línea de Tiempo",
+    "externalProjects": "Proyectos Externos",
+    "militarySpending": "Gasto Militar",
+    "cabinets": "Gabinetes",
+    "territorial": "Reorganización Territorial"
+  },
+  "ui": {
+    "skipToContent": "Saltar al contenido principal",
+    "language": "Idioma",
+    "search": "Buscar palabras clave...",
+    "leader": "Líder",
+    "model": "Modelo",
+    "sortBy": "Ordenar por",
+    "sortByPriority": "Prioridad (Votos netos)",
+    "sortByInteraction": "Interacción (Votos totales)",
+    "filterBy": "Filtrar por:",
+    "problemsAndSolutions": "Problemas Críticos y Soluciones",
+    "sortedByPriority": "Ordenados por prioridad (votos netos)",
+    "sortedByInteraction": "Ordenados por interacción (votos totales)",
+    "voteSupport": "Apoyar",
+    "voteReject": "Rechazar",
+    "solutionLeader": "Líder Asignado:",
+    "solutionModel": "Modelo de Ejecución:",
+    "urgency": "Urgencia",
+    "problem": "Problema",
+    "detailedSolution": "Solución Detallada",
+    "viewPresentation": "Ver Presentación Interactiva",
+    "moreInfo": "Más Información",
+    "implementationPhases": "Fases de Implementación",
+    "expectedOutcomes": "Resultados Esperados",
+    "budgetSimulator": {
+      "title": "Construye tu Presupuesto Base Cero",
+      "description": "Arrastra los fondos (fichas) desde el Tesoro hacia los sectores. Cada ficha representa el 5% del PIB.",
+      "emitDebt": "Emitir Deuda",
+      "clearDebt": "Limpiar Deuda",
+      "treasury": "Tesoro Nacional",
+      "availableFunds": "Fondos Disponibles",
+      "dragTokens": "Arrastra estas fichas hacia los sectores para asignar el presupuesto.",
+      "allocated": "Asignado",
+      "surplus": "Superávit",
+      "deficit": "Déficit (Deuda)"
+    }
+  },
+  "sectors": {
+    "gov-efficiency": {
+      "title": "Eficiencia Gubernamental",
+      "overview": "Reducción drástica del gasto corriente, consolidación de 24 a 8 ministerios y digitalización total de los servicios públicos mediante IA."
+    },
+    "education": {
+      "title": "Educación",
+      "overview": "Transformación del modelo educativo hacia STEM, pensamiento crítico y bilingüismo, con tutores de IA personalizados para cada estudiante."
+    },
+    "security": {
+      "title": "Seguridad Ciudadana",
+      "overview": "Reforma policial con enfoque en prevención predictiva, uso de cámaras corporales y tecnología de reconocimiento facial."
+    },
+    "health": {
+      "title": "Salud Pública",
+      "overview": "Sistema integrado de salud con enfoque preventivo, historias clínicas universales blockchain y telemedicina 24/7."
+    },
+    "economy": {
+      "title": "Economía y Fiscalidad",
+      "overview": "Simplificación impositiva, eliminación de exenciones ineficientes y fomento a la formalidad y el emprendimiento."
+    },
+    "infrastructure": {
+      "title": "Infraestructura y Transporte",
+      "overview": "Modernización del transporte público masivo, desarrollo de trenes interurbanos y sistemas de movilidad sostenible."
+    },
+    "justice": {
+      "title": "Justicia y Transparencia",
+      "overview": "Independencia total del poder judicial, digitalización de expedientes y penas severas e inhabilitación por corrupción."
+    },
+    "environment": {
+      "title": "Medio Ambiente",
+      "overview": "Protección estricta de recursos hídricos, transición energética acelerada y gestión avanzada de residuos sólidos."
+    },
+    "energy": {
+      "title": "Energía",
+      "overview": "Eliminación de subsidios ineficientes, transición agresiva a renovables y modernización de la red de distribución."
+    },
+    "tourism": {
+      "title": "Turismo",
+      "overview": "Diversificación del modelo hacia turismo médico, nómadas digitales y sostenibilidad, reduciendo la dependencia del 'todo incluido'."
+    },
+    "agriculture": {
+      "title": "Agricultura",
+      "overview": "Tecnificación del campo, invernaderos robóticos e inteligencia artificial para la soberanía alimentaria."
+    },
+    "housing": {
+      "title": "Vivienda",
+      "overview": "Erradicación del déficit habitacional mediante vivienda social prefabricada 3D y planes de financiamiento accesibles."
+    },
+    "culture": {
+      "title": "Cultura",
+      "overview": "Digitalización del patrimonio, museos inmersivos en RV y fomento a la economía naranja."
+    },
+    "foreign-trade": {
+      "title": "Comercio Exterior",
+      "overview": "Automatización total de puertos (Zero-Touch Ports) y posicionamiento como Hub Logístico del Caribe."
+    },
+    "labor": {
+      "title": "Sector Laboral",
+      "overview": "Reforma al código de trabajo para mayor flexibilidad, teletrabajo y vinculación de subsidios a la recapacitación tecnológica."
+    },
+    "water": {
+      "title": "Recursos Hídricos",
+      "overview": "Plantas desalinizadoras, alianzas público-privadas para distribución y tarifa inteligente escalonada."
+    },
+    "pension": {
+      "title": "Sistema de Pensiones (AFP)",
+      "overview": "Reforma paramétrica, inversión en fondos indexados internacionales (S&P 500) y opciones de retiro anticipado."
+    },
+    "migration": {
+      "title": "Migración",
+      "overview": "Frontera inteligente con enjambres de drones, digitalización de visas y aplicación estricta de la ley laboral (80/20)."
+    }
+  }
+}

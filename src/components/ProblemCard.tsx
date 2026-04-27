@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown, ChevronUp, ExternalLink, ThumbsUp, ThumbsDown, Share2, Twitter, Instagram, MessageCircle, Quote, User, AlertCircle, BookOpen, PlayCircle, Award, Scale, MessageSquare, AlertOctagon, Map, Link as LinkIcon, Lightbulb, BookCheck, HelpCircle, FileDown, ArrowRight, ArrowLeft } from 'lucide-react';
 import html2canvas from 'html2canvas';
+import { useTranslation } from 'react-i18next';
 import { jsPDF } from 'jspdf';
 import { useNavigate } from 'react-router-dom';
 import { Problem, EnrichedContent } from '../types';
@@ -185,6 +186,7 @@ const ProblemCard: React.FC<{
   voteData,
   onVote
 }) => {
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
@@ -320,12 +322,12 @@ const ProblemCard: React.FC<{
                   <span className={`px-2 py-0.5 text-[9px] uppercase tracking-wider font-bold rounded-sm text-white ${
                     problem.solution.enrichedContent.urgency === 'Crítica' ? 'bg-red-600 animate-pulse' : 
                     problem.solution.enrichedContent.urgency === 'Alta' ? 'bg-orange-500' : 'bg-blue-500'}`}>
-                    Urgencia {problem.solution.enrichedContent.urgency}
+                    {t('ui.urgency', 'Urgencia')} {problem.solution.enrichedContent.urgency}
                   </span>
                 </div>
               )}
               <div className="inline-flex items-center gap-2 px-2 sm:px-3 py-1 rounded-sm bg-[var(--color-gov-blue)] text-white text-[10px] font-bold tracking-widest uppercase font-heading">
-                Problema {index + 1}
+                {t('ui.problem', 'Problema')} {index + 1}
               </div>
               <h4 className="text-base sm:text-lg md:text-xl font-heading font-bold text-[var(--color-gov-blue)] leading-snug uppercase tracking-wider break-words">{problem.title}</h4>
               <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-sans break-words">{problem.description}</p>
@@ -352,7 +354,7 @@ const ProblemCard: React.FC<{
                   <div className="bg-gray-50 p-4 sm:p-6 rounded-md border border-gray-200 shadow-sm space-y-6">
                     <div className="flex justify-between items-center">
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-sm bg-[var(--color-gov-gold)] text-[var(--color-gov-blue)] text-[10px] font-bold tracking-widest uppercase font-heading">
-                        Solución Detallada
+                        {t('ui.detailedSolution', 'Solución Detallada')}
                       </div>
                       <div className="flex gap-2">
                         {problem.solution.internalRoute && (
@@ -360,7 +362,7 @@ const ProblemCard: React.FC<{
                             onClick={(e) => { e.stopPropagation(); navigate(problem.solution.internalRoute!); }}
                             className="inline-flex items-center gap-2 px-4 py-2 bg-[#FBBF24] hover:bg-[#F59E0B] text-[#002855] text-xs font-bold font-heading uppercase tracking-wider rounded-sm transition-colors shadow-sm"
                           >
-                            Ver Presentación Interactiva
+                            {t('ui.viewPresentation', 'Ver Presentación Interactiva')}
                           </button>
                         )}
                         <a 
@@ -369,7 +371,7 @@ const ProblemCard: React.FC<{
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-4 py-2 bg-[var(--color-gov-blue)] hover:bg-[#001f44] text-white text-xs font-bold font-heading uppercase tracking-wider rounded-sm transition-colors shadow-sm"
                         >
-                          Más Información
+                          {t('ui.moreInfo', 'Más Información')}
                           <ExternalLink className="w-4 h-4" />
                         </a>
                       </div>
@@ -411,7 +413,7 @@ const ProblemCard: React.FC<{
                       {problem.solution.implementationSteps && (
                         <div className="bg-white p-5 rounded-md border border-gray-300 shadow-sm border-t-4 border-t-[var(--color-gov-blue)]">
                           <h5 className="text-xs font-heading font-bold text-[var(--color-gov-blue)] mb-4 uppercase tracking-widest flex items-center gap-2">
-                            Fases de Implementación
+                            {t('ui.implementationPhases', 'Fases de Implementación')}
                           </h5>
                           <ul className="space-y-3">
                             {problem.solution.implementationSteps.map((step, i) => (
@@ -427,7 +429,7 @@ const ProblemCard: React.FC<{
                       {problem.solution.expectedOutcomes && (
                         <div className="bg-white p-5 rounded-md border border-gray-300 shadow-sm border-t-4 border-t-[var(--color-gov-gold)]">
                           <h5 className="text-xs font-heading font-bold text-[var(--color-gov-blue)] mb-4 uppercase tracking-widest flex items-center gap-2">
-                            Resultados Esperados
+                            {t('ui.expectedOutcomes', 'Resultados Esperados')}
                           </h5>
                           <ul className="space-y-3">
                             {problem.solution.expectedOutcomes.map((outcome, i) => (
